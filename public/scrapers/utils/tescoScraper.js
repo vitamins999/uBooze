@@ -40,10 +40,11 @@ const tescoScraper = (url) => __awaiter(void 0, void 0, void 0, function* () {
             if (!offer) {
                 offer = 'No offer';
             }
-            const linkPartial = $(el).find('.product-image-wrapper').attr('href');
+            let linkPartial = $(el).find('.product-image-wrapper').attr('href');
+            linkPartial = String(linkPartial);
             const link = `https://www.tesco.com${linkPartial}`;
             const imagePartial = $(el).find('.product-image').attr('src');
-            const image = `${imagePartial}`;
+            const image = String(imagePartial);
             products.push({
                 productName,
                 price,

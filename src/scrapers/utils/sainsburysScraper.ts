@@ -74,7 +74,7 @@ const sainsburysScraper = async (
 
     return products;
   } catch (error) {
-    throw new Error(`*** An error occured with SainsburysScraper: ${error}`);
+    throw new Error(`*** An error occured with sainsburysScraper: ${error}`);
   }
 };
 
