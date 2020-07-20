@@ -17,13 +17,13 @@ const tescoScraper = async (
     $('body')
       .find('.product-list--list-item')
       .each((i, el) => {
-        const productName = $(el).find('.sc-fjdhpX').text();
+        const productName: string = $(el).find('.sc-fjdhpX').text();
 
         if (!productName) {
           return;
         }
 
-        let priceText = $(el).find('.value').first().text();
+        let priceText: string = $(el).find('.value').first().text();
 
         if (!priceText) {
           priceText = '0';
@@ -31,7 +31,7 @@ const tescoScraper = async (
 
         const price: number = currency(priceText).intValue;
 
-        let offer = $(el)
+        let offer: string = $(el)
           .find('.list-item-content')
           .find('.offer-text')
           .first()
@@ -41,11 +41,12 @@ const tescoScraper = async (
           offer = 'No offer';
         }
 
-        const linkPartial = $(el).find('.product-image-wrapper').attr('href');
+        let linkPartial = $(el).find('.product-image-wrapper').attr('href');
+        linkPartial = String(linkPartial);
         const link: string = `https://www.tesco.com${linkPartial}`;
 
         const imagePartial = $(el).find('.product-image').attr('src');
-        const image: string = `${imagePartial}`;
+        const image: string = String(imagePartial);
 
         products.push({
           productName,
