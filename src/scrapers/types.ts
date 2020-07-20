@@ -1,5 +1,3 @@
-import { Interface } from 'readline';
-
 import { SupermarketProduct } from './utils/types';
 
 export interface Beers {
