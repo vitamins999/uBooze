@@ -12,11 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.waitroseScraper = void 0;
 const cheerio_1 = __importDefault(require("cheerio"));
 const currency_js_1 = __importDefault(require("currency.js"));
 const puppeteer_1 = __importDefault(require("puppeteer"));
 const puppeteer_autoscroll_down_1 = require("puppeteer-autoscroll-down");
-const waitroseScraper = (url, scrollNum = 1) => __awaiter(void 0, void 0, void 0, function* () {
+exports.waitroseScraper = (url, scrollNum = 1) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const products = [];
         const browser = yield puppeteer_1.default.launch();
@@ -79,6 +80,3 @@ const waitroseScraper = (url, scrollNum = 1) => __awaiter(void 0, void 0, void 0
         throw new Error(`*** An error occured with waitroseScraper: ${error}`);
     }
 });
-module.exports = {
-    waitroseScraper,
-};

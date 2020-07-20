@@ -12,10 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.tescoScraper = void 0;
 const axios_1 = __importDefault(require("axios"));
 const cheerio_1 = __importDefault(require("cheerio"));
 const currency_js_1 = __importDefault(require("currency.js"));
-const tescoScraper = (url) => __awaiter(void 0, void 0, void 0, function* () {
+exports.tescoScraper = (url) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const products = [];
         const { data } = yield axios_1.default.get(url);
@@ -59,6 +60,3 @@ const tescoScraper = (url) => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error(`*** An error occured with tescoScraper: ${error}`);
     }
 });
-module.exports = {
-    tescoScraper,
-};

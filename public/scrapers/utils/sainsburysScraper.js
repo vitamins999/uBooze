@@ -12,10 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.sainsburysScraper = void 0;
 const cheerio_1 = __importDefault(require("cheerio"));
 const currency_js_1 = __importDefault(require("currency.js"));
 const puppeteer_1 = __importDefault(require("puppeteer"));
-const sainsburysScraper = (url) => __awaiter(void 0, void 0, void 0, function* () {
+exports.sainsburysScraper = (url) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const products = [];
         const browser = yield puppeteer_1.default.launch();
@@ -72,6 +73,3 @@ const sainsburysScraper = (url) => __awaiter(void 0, void 0, void 0, function* (
         throw new Error(`*** An error occured with sainsburysScraper: ${error}`);
     }
 });
-module.exports = {
-    sainsburysScraper,
-};

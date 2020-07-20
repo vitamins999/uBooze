@@ -5,7 +5,7 @@ import { scrollPageToBottom } from 'puppeteer-autoscroll-down';
 
 import { SupermarketProduct } from './types';
 
-const waitroseScraper = async (
+export const waitroseScraper = async (
   url: string,
   scrollNum: number = 1
 ): Promise<Array<SupermarketProduct>> => {
@@ -88,8 +88,4 @@ const waitroseScraper = async (
   } catch (error) {
     throw new Error(`*** An error occured with waitroseScraper: ${error}`);
   }
-};
-
-module.exports = {
-  waitroseScraper,
 };

@@ -4,7 +4,7 @@ import currency from 'currency.js';
 
 import { SupermarketProduct } from './types';
 
-const tescoScraper = async (
+export const tescoScraper = async (
   url: string
 ): Promise<Array<SupermarketProduct>> => {
   try {
@@ -61,8 +61,4 @@ const tescoScraper = async (
   } catch (error) {
     throw new Error(`*** An error occured with tescoScraper: ${error}`);
   }
-};
-
-module.exports = {
-  tescoScraper,
 };

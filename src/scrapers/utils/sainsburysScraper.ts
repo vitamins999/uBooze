@@ -4,7 +4,7 @@ import puppeteer from 'puppeteer';
 
 import { SupermarketProduct } from './types';
 
-const sainsburysScraper = async (
+export const sainsburysScraper = async (
   url: string
 ): Promise<Array<SupermarketProduct>> => {
   try {
@@ -76,8 +76,4 @@ const sainsburysScraper = async (
   } catch (error) {
     throw new Error(`*** An error occured with sainsburysScraper: ${error}`);
   }
-};
-
-module.exports = {
-  sainsburysScraper,
 };
