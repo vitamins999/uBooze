@@ -133,5 +133,5 @@ export const tescoScrapeSpirits = async (): Promise<void> => {
   };
 
   const spiritsJSON: string = JSON.stringify(spirits);
-  fs.writeFileSync('output/tesco-spirits.json', spiritsJSON);
+  fs.writeFileSync('src/output/tesco-spirits.json', spiritsJSON);
 };

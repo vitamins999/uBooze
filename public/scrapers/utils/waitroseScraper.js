@@ -16,7 +16,7 @@ exports.waitroseScraper = void 0;
 const cheerio_1 = __importDefault(require("cheerio"));
 const currency_js_1 = __importDefault(require("currency.js"));
 const puppeteer_1 = __importDefault(require("puppeteer"));
-const puppeteer_autoscroll_down_1 = require("puppeteer-autoscroll-down");
+const scrollPageToBottom = require('puppeteer-autoscroll-down');
 exports.waitroseScraper = (url, scrollNum = 1) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const products = [];
@@ -32,11 +32,11 @@ exports.waitroseScraper = (url, scrollNum = 1) => __awaiter(void 0, void 0, void
             window.scrollTo(0, 0);
         });
         // Scroll to the bottom of the page with puppeteer autoscroll down
-        yield puppeteer_autoscroll_down_1.scrollPageToBottom(page, 250, 300);
+        yield scrollPageToBottom(page, 250, 300);
         for (let i = 1; i < scrollNum; i++) {
             yield page.focus('.button___2UT_5');
             yield page.click('.button___2UT_5');
-            yield puppeteer_autoscroll_down_1.scrollPageToBottom(page, 250, 300);
+            yield scrollPageToBottom(page, 250, 300);
         }
         const html = yield page.content();
         const $ = cheerio_1.default.load(html);

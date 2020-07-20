@@ -75,5 +75,5 @@ export const waitroseScrapeBeer = async (): Promise<void> => {
   };
 
   const beerJSON: string = JSON.stringify(beer);
-  fs.writeFileSync('output/waitrose-beer.json', beerJSON);
+  fs.writeFileSync('src/output/waitrose-beer.json', beerJSON);
 };

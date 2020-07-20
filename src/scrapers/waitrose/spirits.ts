@@ -116,5 +116,5 @@ export const waitroseScrapeSpirits = async (): Promise<void> => {
   };
 
   const spiritsJSON: string = JSON.stringify(spirits);
-  fs.writeFileSync('output/waitrose-spirits.json', spiritsJSON);
+  fs.writeFileSync('src/output/waitrose-spirits.json', spiritsJSON);
 };

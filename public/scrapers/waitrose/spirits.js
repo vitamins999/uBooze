@@ -71,5 +71,5 @@ exports.waitroseScrapeSpirits = () => __awaiter(void 0, void 0, void 0, function
         lowAlcohol: spiritsLowAlcohol,
     };
     const spiritsJSON = JSON.stringify(spirits);
-    fs_1.default.writeFileSync('output/waitrose-spirits.json', spiritsJSON);
+    fs_1.default.writeFileSync('src/output/waitrose-spirits.json', spiritsJSON);
 });

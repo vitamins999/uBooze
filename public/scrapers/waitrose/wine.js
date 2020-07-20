@@ -121,5 +121,5 @@ exports.waitroseScrapeWine = () => __awaiter(void 0, void 0, void 0, function* (
         lowAlcohol: wineLowAlcohol,
     };
     const wineJSON = JSON.stringify(wine);
-    fs_1.default.writeFileSync('output/waitrose-wine.json', wineJSON);
+    fs_1.default.writeFileSync('src/output/waitrose-wine.json', wineJSON);
 });

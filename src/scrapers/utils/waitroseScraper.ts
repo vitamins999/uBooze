@@ -1,7 +1,7 @@
 import cheerio from 'cheerio';
 import currency from 'currency.js';
 import puppeteer from 'puppeteer';
-import { scrollPageToBottom } from 'puppeteer-autoscroll-down';
+const scrollPageToBottom = require('puppeteer-autoscroll-down');
 
 import { SupermarketProduct } from './types';
 

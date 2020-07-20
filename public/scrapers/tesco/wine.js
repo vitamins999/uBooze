@@ -95,5 +95,5 @@ exports.tescoScrapeWine = () => __awaiter(void 0, void 0, void 0, function* () {
         lowAlcohol: wineLowAlcohol,
     };
     const wineJSON = JSON.stringify(wine);
-    fs_1.default.writeFileSync('output/tesco-wine.json', wineJSON);
+    fs_1.default.writeFileSync('src/output/tesco-wine.json', wineJSON);
 });

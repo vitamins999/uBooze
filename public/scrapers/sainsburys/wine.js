@@ -16,12 +16,12 @@ exports.sainsburysScrapeWine = void 0;
 const sainsburysScraper_1 = require("../utils/sainsburysScraper");
 const fs_1 = __importDefault(require("fs"));
 // Wine URLS
-// White
-const wineWhiteURL1 = 'https://www.sainsburys.co.uk/shop/gb/groceries/drinks/CategoryDisplay?langId=44&storeId=10151&catalogId=10241&categoryId=299883&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&beginIndex=0&promotionId=&listId=&searchTerm=&hasPreviousOrder=&previousOrderId=&categoryFacetId1=&categoryFacetId2=&ImportedProductsCount=&ImportedStoreName=&ImportedSupermarket=&bundleId=&parent_category_rn=12192&top_category=12192&pageSize=120#langId=44&storeId=10151&catalogId=10241&categoryId=299883&parent_category_rn=12192&top_category=12192&pageSize=120&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&searchTerm=&beginIndex=0&facet=&facet=&facet=&facet=&facet=';
-const wineWhiteURL2 = 'https://www.sainsburys.co.uk/shop/CategoryDisplay?listId=&catalogId=10241&searchTerm=&beginIndex=120&pageSize=120&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&top_category=12192&langId=44&storeId=10151&categoryId=299883&promotionId=&parent_category_rn=12192';
 // Red
 const wineRedURL1 = 'https://www.sainsburys.co.uk/shop/gb/groceries/drinks/CategoryDisplay?langId=44&storeId=10151&catalogId=10241&categoryId=299875&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&beginIndex=0&promotionId=&listId=&searchTerm=&hasPreviousOrder=&previousOrderId=&categoryFacetId1=&categoryFacetId2=&ImportedProductsCount=&ImportedStoreName=&ImportedSupermarket=&bundleId=&parent_category_rn=12192&top_category=12192&pageSize=120#langId=44&storeId=10151&catalogId=10241&categoryId=299875&parent_category_rn=12192&top_category=12192&pageSize=120&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&searchTerm=&beginIndex=0&hideFilters=true&facet=&facet=&facet=&facet=&facet=';
 const wineRedURL2 = 'https://www.sainsburys.co.uk/shop/CategoryDisplay?listId=&catalogId=10241&searchTerm=&beginIndex=120&pageSize=120&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&top_category=12192&langId=44&storeId=10151&categoryId=299875&promotionId=&parent_category_rn=12192';
+// White
+const wineWhiteURL1 = 'https://www.sainsburys.co.uk/shop/gb/groceries/drinks/CategoryDisplay?langId=44&storeId=10151&catalogId=10241&categoryId=299883&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&beginIndex=0&promotionId=&listId=&searchTerm=&hasPreviousOrder=&previousOrderId=&categoryFacetId1=&categoryFacetId2=&ImportedProductsCount=&ImportedStoreName=&ImportedSupermarket=&bundleId=&parent_category_rn=12192&top_category=12192&pageSize=120#langId=44&storeId=10151&catalogId=10241&categoryId=299883&parent_category_rn=12192&top_category=12192&pageSize=120&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&searchTerm=&beginIndex=0&facet=&facet=&facet=&facet=&facet=';
+const wineWhiteURL2 = 'https://www.sainsburys.co.uk/shop/CategoryDisplay?listId=&catalogId=10241&searchTerm=&beginIndex=120&pageSize=120&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&top_category=12192&langId=44&storeId=10151&categoryId=299883&promotionId=&parent_category_rn=12192';
 // Rose
 const wineRoseURL = 'https://www.sainsburys.co.uk/shop/gb/groceries/drinks/CategoryDisplay?langId=44&storeId=10151&catalogId=10241&categoryId=12211&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&beginIndex=0&promotionId=&listId=&searchTerm=&hasPreviousOrder=&previousOrderId=&categoryFacetId1=&categoryFacetId2=&ImportedProductsCount=&ImportedStoreName=&ImportedSupermarket=&bundleId=&parent_category_rn=12192&top_category=12192&pageSize=120#langId=44&storeId=10151&catalogId=10241&categoryId=12211&parent_category_rn=12192&top_category=12192&pageSize=120&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&searchTerm=&beginIndex=0&hideFilters=true';
 // Champagne and Sparkling
@@ -35,14 +35,14 @@ const wineSmallURL = 'https://www.sainsburys.co.uk/shop/gb/groceries/drinks/smal
 // Low alcohol
 const wineLowAlcoholURL = 'https://www.sainsburys.co.uk/shop/gb/groceries/drinks/low-and-no-alcohol-wine-#langId=44&storeId=10151&catalogId=10241&categoryId=12238&parent_category_rn=12192&top_category=12192&pageSize=60&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&searchTerm=&beginIndex=0&hideFilters=true';
 exports.sainsburysScrapeWine = () => __awaiter(void 0, void 0, void 0, function* () {
-    // White
-    const wineWhite1 = yield sainsburysScraper_1.sainsburysScraper(wineWhiteURL1);
-    const wineWhite2 = yield sainsburysScraper_1.sainsburysScraper(wineWhiteURL2);
-    const wineWhite = wineWhite1.concat(wineWhite2);
     // Red
     const wineRed1 = yield sainsburysScraper_1.sainsburysScraper(wineRedURL1);
     const wineRed2 = yield sainsburysScraper_1.sainsburysScraper(wineRedURL2);
     const wineRed = wineRed1.concat(wineRed2);
+    // White
+    const wineWhite1 = yield sainsburysScraper_1.sainsburysScraper(wineWhiteURL1);
+    const wineWhite2 = yield sainsburysScraper_1.sainsburysScraper(wineWhiteURL2);
+    const wineWhite = wineWhite1.concat(wineWhite2);
     // Rose
     const wineRose = yield sainsburysScraper_1.sainsburysScraper(wineRoseURL);
     // Champagne and Sparkling
@@ -56,8 +56,8 @@ exports.sainsburysScrapeWine = () => __awaiter(void 0, void 0, void 0, function*
     // Low alcohol
     const wineLowAlcohol = yield sainsburysScraper_1.sainsburysScraper(wineLowAlcoholURL);
     const wine = {
-        white: wineWhite,
         red: wineRed,
+        white: wineWhite,
         rose: wineRose,
         champagneSparkling: wineChampagneSparkling,
         boxes: wineBoxes,
@@ -66,5 +66,5 @@ exports.sainsburysScrapeWine = () => __awaiter(void 0, void 0, void 0, function*
         lowAlcohol: wineLowAlcohol,
     };
     const wineJSON = JSON.stringify(wine);
-    fs_1.default.writeFileSync('output/sainsburys-wine.json', wineJSON);
+    fs_1.default.writeFileSync('src/output/sainsburys-wine.json', wineJSON);
 });

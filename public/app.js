@@ -1,15 +1,19 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-const { getSupermarkets } = require('./utils/geolocater');
-const main = () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(yield getSupermarkets('SS93AE'));
-});
-main();
+const { tescoScrapeBeer } = require('./scrapers/tesco/beer');
+const { tescoScrapeWine } = require('./scrapers/tesco/wine');
+const { tescoScrapeSpirits } = require('./scrapers/tesco/spirits');
+const { waitroseScrapeBeer } = require('./scrapers/waitrose/beer');
+const { waitroseScrapeWine } = require('./scrapers/waitrose/wine');
+const { waitroseScrapeSpirits } = require('./scrapers/waitrose/spirits');
+const { sainsburysScrapeBeer } = require('./scrapers/sainsburys/beer');
+const { sainsburysScrapeWine } = require('./scrapers/sainsburys/wine');
+const { sainsburysScrapeSpirits } = require('./scrapers/sainsburys/spirits');
+tescoScrapeBeer();
+tescoScrapeWine();
+tescoScrapeSpirits();
+waitroseScrapeBeer();
+waitroseScrapeWine();
+waitroseScrapeSpirits();
+sainsburysScrapeBeer();
+sainsburysScrapeWine();
+sainsburysScrapeSpirits();

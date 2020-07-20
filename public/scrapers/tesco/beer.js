@@ -19,7 +19,8 @@ const fs_1 = __importDefault(require("fs"));
 // Lager
 const beerLagerURL1 = 'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-lager?page=1&count=48';
 const beerLagerURL2 = 'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-lager?page=2&count=48';
-const beerLagerURL3 = 'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-lager?page=3&count=48';
+// const beerLagerURL3: string =
+//   'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-lager?page=3&count=48';
 const beerLagerWorldURL1 = 'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-world-lager?page=1&count=48';
 const beerLagerWorldURL2 = 'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-world-lager?page=2&count=48';
 // Ale & Bitter
@@ -42,13 +43,16 @@ exports.tescoScrapeBeer = () => __awaiter(void 0, void 0, void 0, function* () {
     // Lager
     const beerLager1 = yield tescoScraper_1.tescoScraper(beerLagerURL1);
     const beerLager2 = yield tescoScraper_1.tescoScraper(beerLagerURL2);
-    const beerLager3 = yield tescoScraper_1.tescoScraper(beerLagerURL3);
-    const beerLagerRegular = beerLager1.concat(beerLager2.concat(beerLager3));
+    // const beerLager3: SupermarketProduct[] = await tescoScraper(beerLagerURL3);
+    const beerLagerRegular = beerLager1.concat(beerLager2.concat());
     const beerLagerWorld1 = yield tescoScraper_1.tescoScraper(beerLagerWorldURL1);
     const beerLagerWorld2 = yield tescoScraper_1.tescoScraper(beerLagerWorldURL2);
     const beerLagerWorld = beerLagerWorld1.concat(beerLagerWorld2);
     const beerLager = beerLagerRegular.concat(beerLagerWorld);
     // TODO: Need to filter out duplicates and combine both Lager and World lager arrays
+    // TODO: Add a conditional to all Tesco pages whereby if it's a 404, it ignores it and
+    // moves on to the next page, since that must mean the page has dynamically changed to where
+    // it doesn't exist anymore because there aren't enough items to make it. Use beer URL to test.
     // Ale and Bitter
     const beerAle1 = yield tescoScraper_1.tescoScraper(beerAleURL1);
     const beerAle2 = yield tescoScraper_1.tescoScraper(beerAleURL2);
@@ -78,5 +82,5 @@ exports.tescoScrapeBeer = () => __awaiter(void 0, void 0, void 0, function* () {
         lowAlcohol: beerLowAlcohol,
     };
     const beerJSON = JSON.stringify(beer);
-    fs_1.default.writeFileSync('output/tesco-beer.json', beerJSON);
+    fs_1.default.writeFileSync('src/output/tesco-beer.json', beerJSON);
 });

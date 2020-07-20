@@ -73,5 +73,5 @@ export const sainsburysScrapeBeer = async (): Promise<void> => {
   };
 
   const beerJSON: string = JSON.stringify(beer);
-  fs.writeFileSync('output/sainsburys-beer.json', beerJSON);
+  fs.writeFileSync('src/output/sainsburys-beer.json', beerJSON);
 };

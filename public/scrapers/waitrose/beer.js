@@ -48,5 +48,5 @@ exports.waitroseScrapeBeer = () => __awaiter(void 0, void 0, void 0, function* (
         lowAlcohol: beerLowAlcohol,
     };
     const beerJSON = JSON.stringify(beer);
-    fs_1.default.writeFileSync('output/waitrose-beer.json', beerJSON);
+    fs_1.default.writeFileSync('src/output/waitrose-beer.json', beerJSON);
 });

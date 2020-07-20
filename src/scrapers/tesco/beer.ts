@@ -10,8 +10,8 @@ const beerLagerURL1: string =
   'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-lager?page=1&count=48';
 const beerLagerURL2: string =
   'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-lager?page=2&count=48';
-const beerLagerURL3: string =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-lager?page=3&count=48';
+// const beerLagerURL3: string =
+//   'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-lager?page=3&count=48';
 
 const beerLagerWorldURL1: string =
   'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-world-lager?page=1&count=48';
@@ -54,10 +54,10 @@ export const tescoScrapeBeer = async (): Promise<void> => {
   // Lager
   const beerLager1: SupermarketProduct[] = await tescoScraper(beerLagerURL1);
   const beerLager2: SupermarketProduct[] = await tescoScraper(beerLagerURL2);
-  const beerLager3: SupermarketProduct[] = await tescoScraper(beerLagerURL3);
+  // const beerLager3: SupermarketProduct[] = await tescoScraper(beerLagerURL3);
 
   const beerLagerRegular: SupermarketProduct[] = beerLager1.concat(
-    beerLager2.concat(beerLager3)
+    beerLager2.concat()
   );
 
   const beerLagerWorld1: SupermarketProduct[] = await tescoScraper(
@@ -76,6 +76,9 @@ export const tescoScrapeBeer = async (): Promise<void> => {
   );
 
   // TODO: Need to filter out duplicates and combine both Lager and World lager arrays
+  // TODO: Add a conditional to all Tesco pages whereby if it's a 404, it ignores it and
+  // moves on to the next page, since that must mean the page has dynamically changed to where
+  // it doesn't exist anymore because there aren't enough items to make it. Use beer URL to test.
 
   // Ale and Bitter
   const beerAle1: SupermarketProduct[] = await tescoScraper(beerAleURL1);
@@ -120,5 +123,5 @@ export const tescoScrapeBeer = async (): Promise<void> => {
   };
 
   const beerJSON: string = JSON.stringify(beer);
-  fs.writeFileSync('output/tesco-beer.json', beerJSON);
+  fs.writeFileSync('src/output/tesco-beer.json', beerJSON);
 };

@@ -63,5 +63,5 @@ exports.sainsburysScrapeSpirits = () => __awaiter(void 0, void 0, void 0, functi
         premix: spiritsPremix,
     };
     const spiritsJSON = JSON.stringify(spirits);
-    fs_1.default.writeFileSync('output/sainsburys-spirits.json', spiritsJSON);
+    fs_1.default.writeFileSync('src/output/sainsburys-spirits.json', spiritsJSON);
 });

@@ -144,5 +144,5 @@ export const tescoScrapeWine = async (): Promise<void> => {
   };
 
   const wineJSON: string = JSON.stringify(wine);
-  fs.writeFileSync('output/tesco-wine.json', wineJSON);
+  fs.writeFileSync('src/output/tesco-wine.json', wineJSON);
 };

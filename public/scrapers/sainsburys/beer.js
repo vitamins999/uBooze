@@ -54,5 +54,5 @@ exports.sainsburysScrapeBeer = () => __awaiter(void 0, void 0, void 0, function*
         lowAlcohol: beerLowAlcohol,
     };
     const beerJSON = JSON.stringify(beer);
-    fs_1.default.writeFileSync('output/sainsburys-beer.json', beerJSON);
+    fs_1.default.writeFileSync('src/output/sainsburys-beer.json', beerJSON);
 });

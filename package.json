@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node public/app.js",
-    "dev": "nodemon -r dotenv/config src/app.ts",
+    "dev": "nodemon --ignore '*.json' -r dotenv/config src/app.ts",
+    "run-once": "node src/app.ts",
     "build": "tsc -p ."
   },
   "author": "Jools Barnett",

@@ -265,5 +265,5 @@ export const waitroseScrapeWine = async (): Promise<void> => {
     lowAlcohol: wineLowAlcohol,
   };
   const wineJSON: string = JSON.stringify(wine);
-  fs.writeFileSync('output/waitrose-wine.json', wineJSON);
+  fs.writeFileSync('src/output/waitrose-wine.json', wineJSON);
 };

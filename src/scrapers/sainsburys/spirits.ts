@@ -103,5 +103,5 @@ export const sainsburysScrapeSpirits = async (): Promise<void> => {
   };
 
   const spiritsJSON: string = JSON.stringify(spirits);
-  fs.writeFileSync('output/sainsburys-spirits.json', spiritsJSON);
+  fs.writeFileSync('src/output/sainsburys-spirits.json', spiritsJSON);
 };
