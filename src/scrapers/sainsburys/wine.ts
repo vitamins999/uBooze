@@ -1,7 +1,7 @@
 import { sainsburysScraper } from '../utils/sainsburysScraper';
 import fs from 'fs';
+import { removeDuplicates } from '../utils/removeDuplicates';
 import { SupermarketProduct } from '../utils/types';
-import { Wines } from '../types';
 
 // Wine URLS
 
@@ -43,55 +43,87 @@ const wineLowAlcoholURL: string =
 
 export const sainsburysScrapeWine = async (): Promise<void> => {
   // Red
-  const wineRed1: SupermarketProduct[] = await sainsburysScraper(wineRedURL1);
-  const wineRed2: SupermarketProduct[] = await sainsburysScraper(wineRedURL2);
+  const wineRed1: SupermarketProduct[] = await sainsburysScraper(
+    wineRedURL1,
+    'wine',
+    'red'
+  );
+  const wineRed2: SupermarketProduct[] = await sainsburysScraper(
+    wineRedURL2,
+    'wine',
+    'red'
+  );
 
-  const wineRed: SupermarketProduct[] = wineRed1.concat(wineRed2);
+  const wineRed: SupermarketProduct[] = [...wineRed1, ...wineRed2];
 
   // White
   const wineWhite1: SupermarketProduct[] = await sainsburysScraper(
-    wineWhiteURL1
+    wineWhiteURL1,
+    'wine',
+    'white'
   );
   const wineWhite2: SupermarketProduct[] = await sainsburysScraper(
-    wineWhiteURL2
+    wineWhiteURL2,
+    'wine',
+    'white'
   );
 
-  const wineWhite: SupermarketProduct[] = wineWhite1.concat(wineWhite2);
+  const wineWhite: SupermarketProduct[] = [...wineWhite1, ...wineWhite2];
 
   // Rose
-  const wineRose: SupermarketProduct[] = await sainsburysScraper(wineRoseURL);
+  const wineRose: SupermarketProduct[] = await sainsburysScraper(
+    wineRoseURL,
+    'wine',
+    'rose'
+  );
 
   // Champagne and Sparkling
   const wineChampagneSparkling: SupermarketProduct[] = await sainsburysScraper(
-    wineChampagneSparklingURL
+    wineChampagneSparklingURL,
+    'wine',
+    'sparkling'
   );
 
   // Boxes
-  const wineBoxes: SupermarketProduct[] = await sainsburysScraper(wineBoxesURL);
+  const wineBoxes: SupermarketProduct[] = await sainsburysScraper(
+    wineBoxesURL,
+    'wine',
+    'boxes'
+  );
 
   // Fortified and vermouth
   const wineFortifiedVermouth: SupermarketProduct[] = await sainsburysScraper(
-    wineFortifiedVermouthURL
+    wineFortifiedVermouthURL,
+    'wine',
+    'fortified and vermouth'
   );
 
   // Small
-  const wineSmall: SupermarketProduct[] = await sainsburysScraper(wineSmallURL);
+  const wineSmall: SupermarketProduct[] = await sainsburysScraper(
+    wineSmallURL,
+    'wine',
+    'small'
+  );
 
   // Low alcohol
   const wineLowAlcohol: SupermarketProduct[] = await sainsburysScraper(
-    wineLowAlcoholURL
+    wineLowAlcoholURL,
+    'wine',
+    'low alcohol'
   );
 
-  const wine: Wines = {
-    red: wineRed,
-    white: wineWhite,
-    rose: wineRose,
-    champagneSparkling: wineChampagneSparkling,
-    boxes: wineBoxes,
-    fortifiedVermouth: wineFortifiedVermouth,
-    smallBottles: wineSmall,
-    lowAlcohol: wineLowAlcohol,
-  };
+  let wine: SupermarketProduct[] = [
+    ...wineRed,
+    ...wineWhite,
+    ...wineRose,
+    ...wineChampagneSparkling,
+    ...wineBoxes,
+    ...wineFortifiedVermouth,
+    ...wineSmall,
+    ...wineLowAlcohol,
+  ];
+
+  wine = removeDuplicates(wine);
 
   const wineJSON: string = JSON.stringify(wine);
   fs.writeFileSync('src/output/sainsburys-wine.json', wineJSON);

@@ -1,7 +1,7 @@
 import { tescoScraper } from '../utils/tescoScraper';
 import fs from 'fs';
+import { removeDuplicates } from '../utils/removeDuplicates';
 import { SupermarketProduct } from '../utils/types';
-import { Beers } from '../types';
 
 // Beer URLs
 
@@ -52,76 +52,129 @@ const beerLowAlcoholURL: string =
 
 export const tescoScrapeBeer = async (): Promise<void> => {
   // Lager
-  const beerLager1: SupermarketProduct[] = await tescoScraper(beerLagerURL1);
-  const beerLager2: SupermarketProduct[] = await tescoScraper(beerLagerURL2);
+  const beerLager1: SupermarketProduct[] = await tescoScraper(
+    beerLagerURL1,
+    'beer',
+    'lager'
+  );
+  const beerLager2: SupermarketProduct[] = await tescoScraper(
+    beerLagerURL2,
+    'beer',
+    'lager'
+  );
   // const beerLager3: SupermarketProduct[] = await tescoScraper(beerLagerURL3);
 
-  const beerLagerRegular: SupermarketProduct[] = beerLager1.concat(
-    beerLager2.concat()
-  );
+  const beerLagerRegular: SupermarketProduct[] = [...beerLager1, ...beerLager2];
 
   const beerLagerWorld1: SupermarketProduct[] = await tescoScraper(
-    beerLagerWorldURL1
+    beerLagerWorldURL1,
+    'beer',
+    'lager'
   );
   const beerLagerWorld2: SupermarketProduct[] = await tescoScraper(
-    beerLagerWorldURL2
+    beerLagerWorldURL2,
+    'beer',
+    'lager'
   );
 
-  const beerLagerWorld: SupermarketProduct[] = beerLagerWorld1.concat(
-    beerLagerWorld2
-  );
+  const beerLagerWorld: SupermarketProduct[] = [
+    ...beerLagerWorld1,
+    ...beerLagerWorld2,
+  ];
 
-  const beerLager: SupermarketProduct[] = beerLagerRegular.concat(
-    beerLagerWorld
-  );
-
-  // TODO: Need to filter out duplicates and combine both Lager and World lager arrays
-  // TODO: Add a conditional to all Tesco pages whereby if it's a 404, it ignores it and
-  // moves on to the next page, since that must mean the page has dynamically changed to where
-  // it doesn't exist anymore because there aren't enough items to make it. Use beer URL to test.
+  const beerLager: SupermarketProduct[] = [
+    ...beerLagerRegular,
+    ...beerLagerWorld,
+  ];
 
   // Ale and Bitter
-  const beerAle1: SupermarketProduct[] = await tescoScraper(beerAleURL1);
-  const beerAle2: SupermarketProduct[] = await tescoScraper(beerAleURL2);
-
-  const beerAle: SupermarketProduct[] = beerAle1.concat(beerAle2);
-
-  // Craft & Specialist
-  const beerCraft1: SupermarketProduct[] = await tescoScraper(beerCraftURL1);
-  const beerCraft2: SupermarketProduct[] = await tescoScraper(beerCraftURL2);
-  const beerCraft3: SupermarketProduct[] = await tescoScraper(beerCraftURL3);
-
-  const beerCraft: SupermarketProduct[] = beerCraft1.concat(
-    beerCraft2.concat(beerCraft3)
+  const beerAle1: SupermarketProduct[] = await tescoScraper(
+    beerAleURL1,
+    'beer',
+    'ale'
+  );
+  const beerAle2: SupermarketProduct[] = await tescoScraper(
+    beerAleURL2,
+    'beer',
+    'ale'
   );
 
-  // Cider
-  const beerCider1: SupermarketProduct[] = await tescoScraper(beerCiderURL1);
-  const beerCider2: SupermarketProduct[] = await tescoScraper(beerCiderURL2);
+  const beerAle: SupermarketProduct[] = [...beerAle1, ...beerAle2];
 
-  const beerCider: SupermarketProduct[] = beerCider1.concat(beerCider2);
+  // Craft & Specialist
+  const beerCraft1: SupermarketProduct[] = await tescoScraper(
+    beerCraftURL1,
+    'beer',
+    'craft'
+  );
+  const beerCraft2: SupermarketProduct[] = await tescoScraper(
+    beerCraftURL2,
+    'beer',
+    'craft'
+  );
+  const beerCraft3: SupermarketProduct[] = await tescoScraper(
+    beerCraftURL3,
+    'beer',
+    'craft'
+  );
+
+  const beerCraft: SupermarketProduct[] = [
+    ...beerCraft1,
+    ...beerCraft2,
+    ...beerCraft3,
+  ];
+
+  // Cider
+  const beerCider1: SupermarketProduct[] = await tescoScraper(
+    beerCiderURL1,
+    'beer',
+    'cider'
+  );
+  const beerCider2: SupermarketProduct[] = await tescoScraper(
+    beerCiderURL2,
+    'beer',
+    'cider'
+  );
+
+  const beerCider: SupermarketProduct[] = [...beerCider1, ...beerCider2];
 
   // Stout
-  const beerStout: SupermarketProduct[] = await tescoScraper(beerStoutURL);
+  const beerStout: SupermarketProduct[] = await tescoScraper(
+    beerStoutURL,
+    'beer',
+    'stout'
+  );
 
   // Gluten Free
-  const beerGlutenFree = await tescoScraper(beerGlutenFreeURL);
+  const beerGlutenFree = await tescoScraper(
+    beerGlutenFreeURL,
+    'beer',
+    'gluten free'
+  );
 
   // Low alcohol
   const beerLowAlcohol: SupermarketProduct[] = await tescoScraper(
-    beerLowAlcoholURL
+    beerLowAlcoholURL,
+    'beer',
+    'low alcohol'
   );
 
-  const beer: Beers = {
-    lager: beerLager,
-    ale: beerAle,
-    craft: beerCraft,
-    cider: beerCider,
-    stout: beerStout,
-    glutenFree: beerGlutenFree,
-    lowAlcohol: beerLowAlcohol,
-  };
+  let beer: SupermarketProduct[] = [
+    ...beerLager,
+    ...beerAle,
+    ...beerCraft,
+    ...beerCider,
+    ...beerStout,
+    ...beerGlutenFree,
+    ...beerLowAlcohol,
+  ];
+
+  beer = removeDuplicates(beer);
 
   const beerJSON: string = JSON.stringify(beer);
   fs.writeFileSync('src/output/tesco-beer.json', beerJSON);
 };
+
+// TODO: Add a conditional to all Tesco pages whereby if it's a 404, it ignores it and
+// moves on to the next page, since that must mean the page has dynamically changed to where
+// it doesn't exist anymore because there aren't enough items to make it. Use beer URL to test.

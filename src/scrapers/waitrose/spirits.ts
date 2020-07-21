@@ -1,7 +1,7 @@
 import { waitroseScraper } from '../utils/waitroseScraper';
 import fs from 'fs';
+import { removeDuplicates } from '../utils/removeDuplicates';
 import { SupermarketProduct } from '../utils/types';
-import { Spirits } from '../types';
 
 // Spirits URLs
 
@@ -50,70 +50,101 @@ const spiritsLowAlcoholURL: string =
   'https://www.waitrose.com/ecom/shop/browse/groceries/beer_wine_and_spirits/spirits_and_liqueurs/low_and_no_alcohol_spirits';
 
 export const waitroseScrapeSpirits = async (): Promise<void> => {
+  // Gin
+  const spiritsGin: SupermarketProduct[] = await waitroseScraper(
+    spiritsGinURL,
+    'spirits',
+    'gin'
+  );
+
   // Whisky
   const spiritsWhisky: SupermarketProduct[] = await waitroseScraper(
     spiritsWhiskyURL,
+    'spirits',
+    'whisky',
     3
   );
 
-  // Gin
-  const spiritsGin: SupermarketProduct[] = await waitroseScraper(spiritsGinURL);
-
   // Vodka
   const spiritsVodka: SupermarketProduct[] = await waitroseScraper(
-    spiritsVodkaURL
+    spiritsVodkaURL,
+    'spirits',
+    'vodka'
   );
 
   // Brandy and Cognac
   const spiritsBrandy: SupermarketProduct[] = await waitroseScraper(
-    spiritsBrandyURL
+    spiritsBrandyURL,
+    'spirits',
+    'brandy and cognac'
   );
   const spiritsCognac: SupermarketProduct[] = await waitroseScraper(
-    spiritsCognacURL
+    spiritsCognacURL,
+    'spirits',
+    'brandy and cognac'
   );
 
-  const spiritsBrandyCognac: SupermarketProduct[] = spiritsBrandy.concat(
-    spiritsCognac
-  );
+  const spiritsBrandyCognac: SupermarketProduct[] = [
+    ...spiritsBrandy,
+    ...spiritsCognac,
+  ];
 
   // Rum
-  const spiritsRum: SupermarketProduct[] = await waitroseScraper(spiritsRumURL);
+  const spiritsRum: SupermarketProduct[] = await waitroseScraper(
+    spiritsRumURL,
+    'spirits',
+    'rum'
+  );
 
   // Tequila, Liqueurs and Aperitifs
   const spiritsTequila: SupermarketProduct[] = await waitroseScraper(
-    spiritsTequilaURL
+    spiritsTequilaURL,
+    'spirits',
+    'tequila and liqueurs'
   );
   const spiritsLiqueurs: SupermarketProduct[] = await waitroseScraper(
-    spiritsLiqueursURL
+    spiritsLiqueursURL,
+    'spirits',
+    'tequila and liqueurs'
   );
   const spiritsPimmsSummer: SupermarketProduct[] = await waitroseScraper(
-    spiritsPimmsSummerURL
+    spiritsPimmsSummerURL,
+    'spirits',
+    'tequila and liqueurs'
   );
 
-  const spiritsTequilaLiqueurs: SupermarketProduct[] = spiritsTequila.concat(
-    spiritsLiqueurs.concat(spiritsPimmsSummer)
-  );
+  const spiritsTequilaLiqueurs: SupermarketProduct[] = [
+    ...spiritsTequila,
+    ...spiritsLiqueurs,
+    ...spiritsPimmsSummer,
+  ];
 
   // Premix
   const spiritsPremix: SupermarketProduct[] = await waitroseScraper(
-    spiritsPremixURL
+    spiritsPremixURL,
+    'spirits',
+    'premix'
   );
 
   // Low alcohol
   const spiritsLowAlcohol: SupermarketProduct[] = await waitroseScraper(
-    spiritsLowAlcoholURL
+    spiritsLowAlcoholURL,
+    'spirits',
+    'low alcohol'
   );
 
-  const spirits: Spirits = {
-    gin: spiritsGin,
-    whisky: spiritsWhisky,
-    vodka: spiritsVodka,
-    rum: spiritsRum,
-    brandyCognac: spiritsBrandyCognac,
-    tequilaLiqueur: spiritsTequilaLiqueurs,
-    premix: spiritsPremix,
-    lowAlcohol: spiritsLowAlcohol,
-  };
+  let spirits: SupermarketProduct[] = [
+    ...spiritsGin,
+    ...spiritsWhisky,
+    ...spiritsVodka,
+    ...spiritsRum,
+    ...spiritsBrandyCognac,
+    ...spiritsTequilaLiqueurs,
+    ...spiritsPremix,
+    ...spiritsLowAlcohol,
+  ];
+
+  spirits = removeDuplicates(spirits);
 
   const spiritsJSON: string = JSON.stringify(spirits);
   fs.writeFileSync('src/output/waitrose-spirits.json', spiritsJSON);

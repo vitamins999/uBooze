@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.tescoScrapeSpirits = void 0;
 const tescoScraper_1 = require("../utils/tescoScraper");
 const fs_1 = __importDefault(require("fs"));
+const removeDuplicates_1 = require("../utils/removeDuplicates");
 // Spirits URLS
 // Gin
 const spiritsGinURL1 = 'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/gin?page=1&count=48';
@@ -41,42 +42,58 @@ const spiritsPremixURL3 = 'https://www.tesco.com/groceries/en-GB/shop/drinks/spi
 const spiritsLowAlcoholURL = 'https://www.tesco.com/groceries/en-GB/shop/drinks/low-and-no-alcohol/low-and-no-alcohol-spirits';
 exports.tescoScrapeSpirits = () => __awaiter(void 0, void 0, void 0, function* () {
     // Gin
-    const spiritsGin1 = yield tescoScraper_1.tescoScraper(spiritsGinURL1);
-    const spiritsGin2 = yield tescoScraper_1.tescoScraper(spiritsGinURL2);
-    const spiritsGin3 = yield tescoScraper_1.tescoScraper(spiritsGinURL3);
-    const spiritsGin = spiritsGin1.concat(spiritsGin2.concat(spiritsGin3));
+    const spiritsGin1 = yield tescoScraper_1.tescoScraper(spiritsGinURL1, 'spirits', 'gin');
+    const spiritsGin2 = yield tescoScraper_1.tescoScraper(spiritsGinURL2, 'spirits', 'gin');
+    const spiritsGin3 = yield tescoScraper_1.tescoScraper(spiritsGinURL3, 'spirits', 'gin');
+    const spiritsGin = [
+        ...spiritsGin1,
+        ...spiritsGin2,
+        ...spiritsGin3,
+    ];
     // Whisky
-    const spiritsWhisky1 = yield tescoScraper_1.tescoScraper(spiritsWhiskyURL1);
-    const spiritsWhisky2 = yield tescoScraper_1.tescoScraper(spiritsWhiskyURL2);
-    const spiritsWhisky3 = yield tescoScraper_1.tescoScraper(spiritsWhiskyURL3);
-    const spiritsWhisky = spiritsWhisky1.concat(spiritsWhisky2.concat(spiritsWhisky3));
+    const spiritsWhisky1 = yield tescoScraper_1.tescoScraper(spiritsWhiskyURL1, 'spirits', 'whisky');
+    const spiritsWhisky2 = yield tescoScraper_1.tescoScraper(spiritsWhiskyURL2, 'spirits', 'whisky');
+    const spiritsWhisky3 = yield tescoScraper_1.tescoScraper(spiritsWhiskyURL3, 'spirits', 'whisky');
+    const spiritsWhisky = [
+        ...spiritsWhisky1,
+        ...spiritsWhisky2,
+        ...spiritsWhisky3,
+    ];
     // Vodka
-    const spiritsVodka = yield tescoScraper_1.tescoScraper(spiritsVodkaURL);
+    const spiritsVodka = yield tescoScraper_1.tescoScraper(spiritsVodkaURL, 'spirits', 'vodka');
     // Rum
-    const spiritsRum = yield tescoScraper_1.tescoScraper(spiritsRumURL);
+    const spiritsRum = yield tescoScraper_1.tescoScraper(spiritsRumURL, 'spirits', 'rum');
     // Brandy & Cognac
-    const spiritsBrandyCognac = yield tescoScraper_1.tescoScraper(spiritsBrandyCognacURL);
+    const spiritsBrandyCognac = yield tescoScraper_1.tescoScraper(spiritsBrandyCognacURL, 'spirits', 'brandy and cognac');
     // Tequila, Liqueurs & Aperitifs
-    const spiritsTequilaLiqueurs1 = yield tescoScraper_1.tescoScraper(spiritsTequilaLiqueursURL1);
-    const spiritsTequilaLiqueurs2 = yield tescoScraper_1.tescoScraper(spiritsTequilaLiqueursURL2);
-    const spiritsTequilaLiqueurs = spiritsTequilaLiqueurs1.concat(spiritsTequilaLiqueurs2);
+    const spiritsTequilaLiqueurs1 = yield tescoScraper_1.tescoScraper(spiritsTequilaLiqueursURL1, 'spirits', 'tequila and liqueurs');
+    const spiritsTequilaLiqueurs2 = yield tescoScraper_1.tescoScraper(spiritsTequilaLiqueursURL2, 'spirits', 'tequila and liqueurs');
+    const spiritsTequilaLiqueurs = [
+        ...spiritsTequilaLiqueurs1,
+        ...spiritsTequilaLiqueurs2,
+    ];
     // Premix
-    const spiritsPremix1 = yield tescoScraper_1.tescoScraper(spiritsPremixURL1);
-    const spiritsPremix2 = yield tescoScraper_1.tescoScraper(spiritsPremixURL2);
-    const spiritsPremix3 = yield tescoScraper_1.tescoScraper(spiritsPremixURL3);
-    const spiritsPremix = spiritsPremix1.concat(spiritsPremix2.concat(spiritsPremix3));
+    const spiritsPremix1 = yield tescoScraper_1.tescoScraper(spiritsPremixURL1, 'spirits', 'premix');
+    const spiritsPremix2 = yield tescoScraper_1.tescoScraper(spiritsPremixURL2, 'spirits', 'premix');
+    const spiritsPremix3 = yield tescoScraper_1.tescoScraper(spiritsPremixURL3, 'spirits', 'premix');
+    const spiritsPremix = [
+        ...spiritsPremix1,
+        ...spiritsPremix2,
+        ...spiritsPremix3,
+    ];
     // Low alcohol
-    const spiritsLowAlcohol = yield tescoScraper_1.tescoScraper(spiritsLowAlcoholURL);
-    const spirits = {
-        gin: spiritsGin,
-        whisky: spiritsWhisky,
-        vodka: spiritsVodka,
-        rum: spiritsRum,
-        brandyCognac: spiritsBrandyCognac,
-        tequilaLiqueur: spiritsTequilaLiqueurs,
-        premix: spiritsPremix,
-        lowAlcohol: spiritsLowAlcohol,
-    };
+    const spiritsLowAlcohol = yield tescoScraper_1.tescoScraper(spiritsLowAlcoholURL, 'spirits', 'low alcohol');
+    let spirits = [
+        ...spiritsGin,
+        ...spiritsWhisky,
+        ...spiritsVodka,
+        ...spiritsRum,
+        ...spiritsBrandyCognac,
+        ...spiritsTequilaLiqueurs,
+        ...spiritsPremix,
+        ...spiritsLowAlcohol,
+    ];
+    spirits = removeDuplicates_1.removeDuplicates(spirits);
     const spiritsJSON = JSON.stringify(spirits);
     fs_1.default.writeFileSync('src/output/tesco-spirits.json', spiritsJSON);
 });

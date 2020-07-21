@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.waitroseScrapeWine = void 0;
 const waitroseScraper_1 = require("../utils/waitroseScraper");
 const fs_1 = __importDefault(require("fs"));
+const removeDuplicates_1 = require("../utils/removeDuplicates");
 // Wine URLs
 // Red
 const wineRedBordeauxURL = 'https://www.waitrose.com/ecom/shop/browse/groceries/beer_wine_and_spirits/wine/red_wine/browse_by_grape/bordeaux';
@@ -64,62 +65,95 @@ const wineSmallURL = 'https://www.waitrose.com/ecom/shop/browse/groceries/beer_w
 const wineLowAlcoholURL = 'https://www.waitrose.com/ecom/shop/browse/groceries/beer_wine_and_spirits/wine/low_alcohol_wine';
 exports.waitroseScrapeWine = () => __awaiter(void 0, void 0, void 0, function* () {
     // Red Wine
-    const wineRedBordeaux = yield waitroseScraper_1.waitroseScraper(wineRedBordeauxURL);
-    const wineRedCabernetSauvignon = yield waitroseScraper_1.waitroseScraper(wineRedCabernetSauvignonURL);
-    const wineRedGrenache = yield waitroseScraper_1.waitroseScraper(wineRedGrenacheURL);
-    const wineRedMalbec = yield waitroseScraper_1.waitroseScraper(wineRedMalbecURL);
-    const wineRedMerlot = yield waitroseScraper_1.waitroseScraper(wineRedMerlotURL);
-    const wineRedPinotNoir = yield waitroseScraper_1.waitroseScraper(wineRedPinotNoirURL);
-    const wineRedRioja = yield waitroseScraper_1.waitroseScraper(wineRedRiojaURL);
-    const wineRedShirazAndSyrah = yield waitroseScraper_1.waitroseScraper(wineRedShirazAndSyrahURL);
-    const wineFineRed = yield waitroseScraper_1.waitroseScraper(wineFineRedURL, 2);
-    const wineRed = wineRedBordeaux.concat(wineRedCabernetSauvignon.concat(wineRedGrenache.concat(wineRedMalbec.concat(wineRedMerlot.concat(wineRedPinotNoir.concat(wineRedRioja.concat(wineRedShirazAndSyrah.concat(wineFineRed))))))));
+    const wineRedBordeaux = yield waitroseScraper_1.waitroseScraper(wineRedBordeauxURL, 'wine', 'red');
+    const wineRedCabernetSauvignon = yield waitroseScraper_1.waitroseScraper(wineRedCabernetSauvignonURL, 'wine', 'red');
+    const wineRedGrenache = yield waitroseScraper_1.waitroseScraper(wineRedGrenacheURL, 'wine', 'red');
+    const wineRedMalbec = yield waitroseScraper_1.waitroseScraper(wineRedMalbecURL, 'wine', 'red');
+    const wineRedMerlot = yield waitroseScraper_1.waitroseScraper(wineRedMerlotURL, 'wine', 'red');
+    const wineRedPinotNoir = yield waitroseScraper_1.waitroseScraper(wineRedPinotNoirURL, 'wine', 'red');
+    const wineRedRioja = yield waitroseScraper_1.waitroseScraper(wineRedRiojaURL, 'wine', 'red');
+    const wineRedShirazAndSyrah = yield waitroseScraper_1.waitroseScraper(wineRedShirazAndSyrahURL, 'wine', 'red');
+    const wineFineRed = yield waitroseScraper_1.waitroseScraper(wineFineRedURL, 'wine', 'red', 2);
+    const wineRed = [
+        ...wineRedBordeaux,
+        ...wineRedCabernetSauvignon,
+        ...wineRedGrenache,
+        ...wineRedMalbec,
+        ...wineRedMerlot,
+        ...wineRedPinotNoir,
+        ...wineRedRioja,
+        ...wineRedShirazAndSyrah,
+        ...wineFineRed,
+    ];
     // White Wine
-    const wineWhiteChardonnay = yield waitroseScraper_1.waitroseScraper(wineWhiteChardonnayURL);
-    const wineWhiteCheninBlanc = yield waitroseScraper_1.waitroseScraper(wineWhiteCheninBlancURL);
-    const wineWhitePinotGrigio = yield waitroseScraper_1.waitroseScraper(wineWhitePinotGrigioURL);
-    const wineWhiteRiesling = yield waitroseScraper_1.waitroseScraper(wineWhiteRieslingURL);
-    const wineWhiteSauvignonBlanc = yield waitroseScraper_1.waitroseScraper(wineWhiteSauvignonBlancURL);
-    const wineWhiteViognier = yield waitroseScraper_1.waitroseScraper(wineWhiteViognierURL);
-    const wineFineWhite = yield waitroseScraper_1.waitroseScraper(wineFineWhiteURL);
-    const wineWhite = wineWhiteChardonnay.concat(wineWhiteCheninBlanc.concat(wineWhitePinotGrigio.concat(wineWhiteRiesling.concat(wineWhiteSauvignonBlanc.concat(wineWhiteViognier.concat(wineFineWhite))))));
+    const wineWhiteChardonnay = yield waitroseScraper_1.waitroseScraper(wineWhiteChardonnayURL, 'wine', 'white');
+    const wineWhiteCheninBlanc = yield waitroseScraper_1.waitroseScraper(wineWhiteCheninBlancURL, 'wine', 'white');
+    const wineWhitePinotGrigio = yield waitroseScraper_1.waitroseScraper(wineWhitePinotGrigioURL, 'wine', 'white');
+    const wineWhiteRiesling = yield waitroseScraper_1.waitroseScraper(wineWhiteRieslingURL, 'wine', 'white');
+    const wineWhiteSauvignonBlanc = yield waitroseScraper_1.waitroseScraper(wineWhiteSauvignonBlancURL, 'wine', 'white');
+    const wineWhiteViognier = yield waitroseScraper_1.waitroseScraper(wineWhiteViognierURL, 'wine', 'white');
+    const wineFineWhite = yield waitroseScraper_1.waitroseScraper(wineFineWhiteURL, 'wine', 'white');
+    const wineWhite = [
+        ...wineWhiteChardonnay,
+        ...wineWhiteCheninBlanc,
+        ...wineWhitePinotGrigio,
+        ...wineWhiteRiesling,
+        ...wineWhiteSauvignonBlanc,
+        ...wineWhiteViognier,
+        ...wineFineWhite,
+    ];
     // Rose Wine
-    const wineRoseFrance = yield waitroseScraper_1.waitroseScraper(wineRoseFranceURL);
-    const wineRoseItaly = yield waitroseScraper_1.waitroseScraper(wineRoseItalyURL);
-    const wineRoseSpain = yield waitroseScraper_1.waitroseScraper(wineRoseSpainURL);
-    const wineRoseAustralia = yield waitroseScraper_1.waitroseScraper(wineRoseAustraliaURL);
-    const wineRoseUSA = yield waitroseScraper_1.waitroseScraper(wineRoseUSAURL);
-    const wineRoseSparkling = yield waitroseScraper_1.waitroseScraper(wineRoseSparklingURL);
-    const wineRoseRestOfWorld = yield waitroseScraper_1.waitroseScraper(wineRoseRestOfWorldURL);
-    const wineRoseEngland = yield waitroseScraper_1.waitroseScraper(wineRoseEnglandURL);
-    const wineRose = wineRoseFrance.concat(wineRoseItaly.concat(wineRoseSpain.concat(wineRoseAustralia.concat(wineRoseUSA.concat(wineRoseSparkling.concat(wineRoseRestOfWorld.concat(wineRoseEngland)))))));
+    const wineRoseFrance = yield waitroseScraper_1.waitroseScraper(wineRoseFranceURL, 'wine', 'rose');
+    const wineRoseItaly = yield waitroseScraper_1.waitroseScraper(wineRoseItalyURL, 'wine', 'rose');
+    const wineRoseSpain = yield waitroseScraper_1.waitroseScraper(wineRoseSpainURL, 'wine', 'rose');
+    const wineRoseAustralia = yield waitroseScraper_1.waitroseScraper(wineRoseAustraliaURL, 'wine', 'rose');
+    const wineRoseUSA = yield waitroseScraper_1.waitroseScraper(wineRoseUSAURL, 'wine', 'rose');
+    const wineRoseSparkling = yield waitroseScraper_1.waitroseScraper(wineRoseSparklingURL, 'wine', 'rose');
+    const wineRoseRestOfWorld = yield waitroseScraper_1.waitroseScraper(wineRoseRestOfWorldURL, 'wine', 'rose');
+    const wineRoseEngland = yield waitroseScraper_1.waitroseScraper(wineRoseEnglandURL, 'wine', 'rose');
+    const wineRose = [
+        ...wineRoseFrance,
+        ...wineRoseItaly,
+        ...wineRoseSpain,
+        ...wineRoseAustralia,
+        ...wineRoseUSA,
+        ...wineRoseSparkling,
+        ...wineRoseRestOfWorld,
+        ...wineRoseEngland,
+    ];
     // Champagne & Sparkling
-    const wineChampagneSparkling = yield waitroseScraper_1.waitroseScraper(wineChampagneSparklingURL, 2);
+    const wineChampagneSparkling = yield waitroseScraper_1.waitroseScraper(wineChampagneSparklingURL, 'wine', 'sparkling', 2);
     // Dessert Wine
-    const wineDessert = yield waitroseScraper_1.waitroseScraper(wineDessertURL);
+    const wineDessert = yield waitroseScraper_1.waitroseScraper(wineDessertURL, 'wine', 'dessert');
     // Fortified wine (Port and Sherry) and Vermouth
-    const winePort = yield waitroseScraper_1.waitroseScraper(winePortURL);
-    const wineSherry = yield waitroseScraper_1.waitroseScraper(wineSherryURL);
-    const wineMadeira = yield waitroseScraper_1.waitroseScraper(wineMadeiraURL);
-    const wineVermouth = yield waitroseScraper_1.waitroseScraper(wineVermouthURL);
-    const wineFortifiedVermouth = winePort.concat(wineSherry.concat(wineMadeira.concat(wineVermouth)));
+    const winePort = yield waitroseScraper_1.waitroseScraper(winePortURL, 'wine', 'fortified and vermouth');
+    const wineSherry = yield waitroseScraper_1.waitroseScraper(wineSherryURL, 'wine', 'fortified and vermouth');
+    const wineMadeira = yield waitroseScraper_1.waitroseScraper(wineMadeiraURL, 'wine', 'fortified and vermouth');
+    const wineVermouth = yield waitroseScraper_1.waitroseScraper(wineVermouthURL, 'wine', 'fortified and vermouth');
+    const wineFortifiedVermouth = [
+        ...winePort,
+        ...wineSherry,
+        ...wineMadeira,
+        ...wineVermouth,
+    ];
     // Boxes
-    const wineBoxes = yield waitroseScraper_1.waitroseScraper(wineBoxesURL);
+    const wineBoxes = yield waitroseScraper_1.waitroseScraper(wineBoxesURL, 'wine', 'boxes');
     // Small
-    const wineSmall = yield waitroseScraper_1.waitroseScraper(wineSmallURL);
+    const wineSmall = yield waitroseScraper_1.waitroseScraper(wineSmallURL, 'wine', 'small');
     // Low Alcohol
-    const wineLowAlcohol = yield waitroseScraper_1.waitroseScraper(wineLowAlcoholURL);
-    const wine = {
-        red: wineRed,
-        white: wineWhite,
-        rose: wineRose,
-        champagneSparkling: wineChampagneSparkling,
-        boxes: wineBoxes,
-        dessert: wineDessert,
-        fortifiedVermouth: wineFortifiedVermouth,
-        smallBottles: wineSmall,
-        lowAlcohol: wineLowAlcohol,
-    };
+    const wineLowAlcohol = yield waitroseScraper_1.waitroseScraper(wineLowAlcoholURL, 'wine', 'low alcohol');
+    let wine = [
+        ...wineRed,
+        ...wineWhite,
+        ...wineRose,
+        ...wineChampagneSparkling,
+        ...wineBoxes,
+        ...wineDessert,
+        ...wineFortifiedVermouth,
+        ...wineSmall,
+        ...wineLowAlcohol,
+    ];
+    wine = removeDuplicates_1.removeDuplicates(wine);
     const wineJSON = JSON.stringify(wine);
     fs_1.default.writeFileSync('src/output/waitrose-wine.json', wineJSON);
 });

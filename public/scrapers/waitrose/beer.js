@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.waitroseScrapeBeer = void 0;
 const waitroseScraper_1 = require("../utils/waitroseScraper");
 const fs_1 = __importDefault(require("fs"));
+const removeDuplicates_1 = require("../utils/removeDuplicates");
 // Beer URLs
 // Ale
 const beerAleLightURL = 'https://www.waitrose.com/ecom/shop/browse/groceries/beer_wine_and_spirits/beer/ale/light_ale';
@@ -29,24 +30,32 @@ const beerCiderFlavouredURL = 'https://www.waitrose.com/ecom/shop/browse/groceri
 const beerLowAlcoholURL = 'https://www.waitrose.com/ecom/shop/browse/groceries/beer_wine_and_spirits/beer/low_and_alcohol_free_beer';
 exports.waitroseScrapeBeer = () => __awaiter(void 0, void 0, void 0, function* () {
     // Ale
-    const beerAleLight = yield waitroseScraper_1.waitroseScraper(beerAleLightURL, 3);
-    const beerAleAmber = yield waitroseScraper_1.waitroseScraper(beerAleAmberURL);
-    const beerAleDark = yield waitroseScraper_1.waitroseScraper(beerAleDarkURL);
-    const beerAle = beerAleLight.concat(beerAleAmber.concat(beerAleDark));
+    const beerAleLight = yield waitroseScraper_1.waitroseScraper(beerAleLightURL, 'beer', 'ale', 3);
+    const beerAleAmber = yield waitroseScraper_1.waitroseScraper(beerAleAmberURL, 'beer', 'ale');
+    const beerAleDark = yield waitroseScraper_1.waitroseScraper(beerAleDarkURL, 'beer', 'ale');
+    const beerAle = [
+        ...beerAleLight,
+        ...beerAleAmber,
+        ...beerAleDark,
+    ];
     // Lager
-    const beerLager = yield waitroseScraper_1.waitroseScraper(beerLagerURL, 2);
+    const beerLager = yield waitroseScraper_1.waitroseScraper(beerLagerURL, 'beer', 'lager', 2);
     // Cider
-    const beerCiderTraditional = yield waitroseScraper_1.waitroseScraper(beerCiderTraditionalURL);
-    const beerCiderFlavoured = yield waitroseScraper_1.waitroseScraper(beerCiderFlavouredURL);
-    const beerCider = beerCiderTraditional.concat(beerCiderFlavoured);
+    const beerCiderTraditional = yield waitroseScraper_1.waitroseScraper(beerCiderTraditionalURL, 'beer', 'cider');
+    const beerCiderFlavoured = yield waitroseScraper_1.waitroseScraper(beerCiderFlavouredURL, 'beer', 'cider');
+    const beerCider = [
+        ...beerCiderTraditional,
+        ...beerCiderFlavoured,
+    ];
     // Low and Alcohol Free
-    const beerLowAlcohol = yield waitroseScraper_1.waitroseScraper(beerLowAlcoholURL);
-    const beer = {
-        ale: beerAle,
-        lager: beerLager,
-        cider: beerCider,
-        lowAlcohol: beerLowAlcohol,
-    };
+    const beerLowAlcohol = yield waitroseScraper_1.waitroseScraper(beerLowAlcoholURL, 'beer', 'low alcohol');
+    let beer = [
+        ...beerAle,
+        ...beerLager,
+        ...beerCider,
+        ...beerLowAlcohol,
+    ];
+    beer = removeDuplicates_1.removeDuplicates(beer);
     const beerJSON = JSON.stringify(beer);
     fs_1.default.writeFileSync('src/output/waitrose-beer.json', beerJSON);
 });

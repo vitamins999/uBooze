@@ -16,7 +16,7 @@ exports.sainsburysScraper = void 0;
 const cheerio_1 = __importDefault(require("cheerio"));
 const currency_js_1 = __importDefault(require("currency.js"));
 const puppeteer_1 = __importDefault(require("puppeteer"));
-exports.sainsburysScraper = (url) => __awaiter(void 0, void 0, void 0, function* () {
+exports.sainsburysScraper = (url, drinkType, drinkSubtype) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const products = [];
         const browser = yield puppeteer_1.default.launch();
@@ -64,12 +64,14 @@ exports.sainsburysScraper = (url) => __awaiter(void 0, void 0, void 0, function*
                 offer,
                 link,
                 image,
+                drinkType,
+                drinkSubtype,
             });
         });
         yield browser.close();
         return products;
     }
     catch (error) {
-        throw new Error(`*** An error occured with sainsburysScraper: ${error}`);
+        throw new Error(`*** An error occured with sainsburysScraper: ${error} ***`);
     }
 });

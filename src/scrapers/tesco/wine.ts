@@ -1,7 +1,7 @@
 import { tescoScraper } from '../utils/tescoScraper';
 import fs from 'fs';
+import { removeDuplicates } from '../utils/removeDuplicates';
 import { SupermarketProduct } from '../utils/types';
-import { Wines } from '../types';
 
 // Wine URLS
 
@@ -67,81 +67,163 @@ const wineLowAlcoholURL: string =
 
 export const tescoScrapeWine = async (): Promise<void> => {
   // Red
-  const wineRed1: SupermarketProduct[] = await tescoScraper(wineRedURL1);
-  const wineRed2: SupermarketProduct[] = await tescoScraper(wineRedURL2);
-  const wineRed3: SupermarketProduct[] = await tescoScraper(wineRedURL3);
-  const wineRed4: SupermarketProduct[] = await tescoScraper(wineRedURL4);
-  const wineRed5: SupermarketProduct[] = await tescoScraper(wineRedURL5);
-
-  const wineRed: SupermarketProduct[] = wineRed1.concat(
-    wineRed2.concat(wineRed3.concat(wineRed4.concat(wineRed5)))
+  const wineRed1: SupermarketProduct[] = await tescoScraper(
+    wineRedURL1,
+    'wine',
+    'red'
   );
+  const wineRed2: SupermarketProduct[] = await tescoScraper(
+    wineRedURL2,
+    'wine',
+    'red'
+  );
+  const wineRed3: SupermarketProduct[] = await tescoScraper(
+    wineRedURL3,
+    'wine',
+    'red'
+  );
+  const wineRed4: SupermarketProduct[] = await tescoScraper(
+    wineRedURL4,
+    'wine',
+    'red'
+  );
+  const wineRed5: SupermarketProduct[] = await tescoScraper(
+    wineRedURL5,
+    'wine',
+    'red'
+  );
+
+  const wineRed: SupermarketProduct[] = [
+    ...wineRed1,
+    ...wineRed2,
+    ...wineRed3,
+    ...wineRed4,
+    ...wineRed5,
+  ];
 
   // White
-  const wineWhite1: SupermarketProduct[] = await tescoScraper(wineWhiteURL1);
-  const wineWhite2: SupermarketProduct[] = await tescoScraper(wineWhiteURL2);
-  const wineWhite3: SupermarketProduct[] = await tescoScraper(wineWhiteURL3);
-  const wineWhite4: SupermarketProduct[] = await tescoScraper(wineWhiteURL4);
-
-  const wineWhite: SupermarketProduct[] = wineWhite1.concat(
-    wineWhite2.concat(wineWhite3.concat(wineWhite4))
+  const wineWhite1: SupermarketProduct[] = await tescoScraper(
+    wineWhiteURL1,
+    'wine',
+    'white'
+  );
+  const wineWhite2: SupermarketProduct[] = await tescoScraper(
+    wineWhiteURL2,
+    'wine',
+    'white'
+  );
+  const wineWhite3: SupermarketProduct[] = await tescoScraper(
+    wineWhiteURL3,
+    'wine',
+    'white'
+  );
+  const wineWhite4: SupermarketProduct[] = await tescoScraper(
+    wineWhiteURL4,
+    'wine',
+    'white'
   );
 
-  // Rose
-  const wineRose1: SupermarketProduct[] = await tescoScraper(wineRoseURL1);
-  const wineRose2: SupermarketProduct[] = await tescoScraper(wineRoseURL2);
+  const wineWhite: SupermarketProduct[] = [
+    ...wineWhite1,
+    ...wineWhite2,
+    ...wineWhite3,
+    ...wineWhite4,
+  ];
 
-  const wineRose: SupermarketProduct[] = wineRose1.concat(wineRose2);
+  // Rose
+  const wineRose1: SupermarketProduct[] = await tescoScraper(
+    wineRoseURL1,
+    'wine',
+    'rose'
+  );
+  const wineRose2: SupermarketProduct[] = await tescoScraper(
+    wineRoseURL2,
+    'wine',
+    'rose'
+  );
+
+  const wineRose: SupermarketProduct[] = [...wineRose1, ...wineRose2];
 
   // Champagne & Sparkling
   const wineChampagneSparkling1: SupermarketProduct[] = await tescoScraper(
-    wineChampagneSparklingURL1
+    wineChampagneSparklingURL1,
+    'wine',
+    'sparkling'
   );
   const wineChampagneSparkling2: SupermarketProduct[] = await tescoScraper(
-    wineChampagneSparklingURL2
+    wineChampagneSparklingURL2,
+    'wine',
+    'sparkling'
   );
 
-  const wineChampagneSparkling: SupermarketProduct[] = wineChampagneSparkling1.concat(
-    wineChampagneSparkling2
-  );
+  const wineChampagneSparkling: SupermarketProduct[] = [
+    ...wineChampagneSparkling1,
+    ...wineChampagneSparkling2,
+  ];
 
   // Boxes
-  const wineBoxes: SupermarketProduct[] = await tescoScraper(wineBoxesURL);
+  const wineBoxes: SupermarketProduct[] = await tescoScraper(
+    wineBoxesURL,
+    'wine',
+    'boxes'
+  );
 
   // Fruity
-  const wineFruity: SupermarketProduct[] = await tescoScraper(wineFruityURL);
+  const wineFruity: SupermarketProduct[] = await tescoScraper(
+    wineFruityURL,
+    'wine',
+    'fruity'
+  );
 
   // Dessert
-  const wineDessert: SupermarketProduct[] = await tescoScraper(wineDessertURL);
+  const wineDessert: SupermarketProduct[] = await tescoScraper(
+    wineDessertURL,
+    'wine',
+    'dessert'
+  );
 
   // Fortified Wine (Port and Sherry) and Vermouth
   const wineFortifiedVermouth: SupermarketProduct[] = await tescoScraper(
-    wineFortifiedVermouthURL
+    wineFortifiedVermouthURL,
+    'wine',
+    'fortified and vermouth'
   );
 
   // Small wine bottles
-  const wineSmall1: SupermarketProduct[] = await tescoScraper(wineSmallURL1);
-  const wineSmall2: SupermarketProduct[] = await tescoScraper(wineSmallURL2);
+  const wineSmall1: SupermarketProduct[] = await tescoScraper(
+    wineSmallURL1,
+    'wine',
+    'small'
+  );
+  const wineSmall2: SupermarketProduct[] = await tescoScraper(
+    wineSmallURL2,
+    'wine',
+    'small'
+  );
 
-  const wineSmall: SupermarketProduct[] = wineSmall1.concat(wineSmall2);
+  const wineSmall: SupermarketProduct[] = [...wineSmall1, ...wineSmall2];
 
   // Low alcohol
   const wineLowAlcohol: SupermarketProduct[] = await tescoScraper(
-    wineLowAlcoholURL
+    wineLowAlcoholURL,
+    'wine',
+    'low alcohol'
   );
 
-  const wine: Wines = {
-    red: wineRed,
-    white: wineWhite,
-    rose: wineRose,
-    champagneSparkling: wineChampagneSparkling,
-    boxes: wineBoxes,
-    fruity: wineFruity,
-    dessert: wineDessert,
-    fortifiedVermouth: wineFortifiedVermouth,
-    smallBottles: wineSmall,
-    lowAlcohol: wineLowAlcohol,
-  };
+  let wine: SupermarketProduct[] = [
+    ...wineRed,
+    ...wineWhite,
+    ...wineRose,
+    ...wineChampagneSparkling,
+    ...wineBoxes,
+    ...wineFruity,
+    ...wineDessert,
+    ...wineFortifiedVermouth,
+    ...wineSmall,
+    ...wineLowAlcohol,
+  ];
+
+  wine = removeDuplicates(wine);
 
   const wineJSON: string = JSON.stringify(wine);
   fs.writeFileSync('src/output/tesco-wine.json', wineJSON);

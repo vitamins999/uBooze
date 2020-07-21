@@ -1,7 +1,7 @@
 import { waitroseScraper } from '../utils/waitroseScraper';
 import fs from 'fs';
+import { removeDuplicates } from '../utils/removeDuplicates';
 import { SupermarketProduct } from '../utils/types';
-import { Wines } from '../types';
 
 // Wine URLs
 
@@ -100,170 +100,243 @@ const wineLowAlcoholURL: string =
 export const waitroseScrapeWine = async (): Promise<void> => {
   // Red Wine
   const wineRedBordeaux: SupermarketProduct[] = await waitroseScraper(
-    wineRedBordeauxURL
+    wineRedBordeauxURL,
+    'wine',
+    'red'
   );
   const wineRedCabernetSauvignon: SupermarketProduct[] = await waitroseScraper(
-    wineRedCabernetSauvignonURL
+    wineRedCabernetSauvignonURL,
+    'wine',
+    'red'
   );
   const wineRedGrenache: SupermarketProduct[] = await waitroseScraper(
-    wineRedGrenacheURL
+    wineRedGrenacheURL,
+    'wine',
+    'red'
   );
   const wineRedMalbec: SupermarketProduct[] = await waitroseScraper(
-    wineRedMalbecURL
+    wineRedMalbecURL,
+    'wine',
+    'red'
   );
   const wineRedMerlot: SupermarketProduct[] = await waitroseScraper(
-    wineRedMerlotURL
+    wineRedMerlotURL,
+    'wine',
+    'red'
   );
   const wineRedPinotNoir: SupermarketProduct[] = await waitroseScraper(
-    wineRedPinotNoirURL
+    wineRedPinotNoirURL,
+    'wine',
+    'red'
   );
   const wineRedRioja: SupermarketProduct[] = await waitroseScraper(
-    wineRedRiojaURL
+    wineRedRiojaURL,
+    'wine',
+    'red'
   );
   const wineRedShirazAndSyrah: SupermarketProduct[] = await waitroseScraper(
-    wineRedShirazAndSyrahURL
+    wineRedShirazAndSyrahURL,
+    'wine',
+    'red'
   );
   const wineFineRed: SupermarketProduct[] = await waitroseScraper(
     wineFineRedURL,
+    'wine',
+    'red',
     2
   );
 
-  const wineRed: SupermarketProduct[] = wineRedBordeaux.concat(
-    wineRedCabernetSauvignon.concat(
-      wineRedGrenache.concat(
-        wineRedMalbec.concat(
-          wineRedMerlot.concat(
-            wineRedPinotNoir.concat(
-              wineRedRioja.concat(wineRedShirazAndSyrah.concat(wineFineRed))
-            )
-          )
-        )
-      )
-    )
-  );
+  const wineRed: SupermarketProduct[] = [
+    ...wineRedBordeaux,
+    ...wineRedCabernetSauvignon,
+    ...wineRedGrenache,
+    ...wineRedMalbec,
+    ...wineRedMerlot,
+    ...wineRedPinotNoir,
+    ...wineRedRioja,
+    ...wineRedShirazAndSyrah,
+    ...wineFineRed,
+  ];
 
   // White Wine
   const wineWhiteChardonnay: SupermarketProduct[] = await waitroseScraper(
-    wineWhiteChardonnayURL
+    wineWhiteChardonnayURL,
+    'wine',
+    'white'
   );
   const wineWhiteCheninBlanc: SupermarketProduct[] = await waitroseScraper(
-    wineWhiteCheninBlancURL
+    wineWhiteCheninBlancURL,
+    'wine',
+    'white'
   );
   const wineWhitePinotGrigio: SupermarketProduct[] = await waitroseScraper(
-    wineWhitePinotGrigioURL
+    wineWhitePinotGrigioURL,
+    'wine',
+    'white'
   );
   const wineWhiteRiesling: SupermarketProduct[] = await waitroseScraper(
-    wineWhiteRieslingURL
+    wineWhiteRieslingURL,
+    'wine',
+    'white'
   );
   const wineWhiteSauvignonBlanc: SupermarketProduct[] = await waitroseScraper(
-    wineWhiteSauvignonBlancURL
+    wineWhiteSauvignonBlancURL,
+    'wine',
+    'white'
   );
   const wineWhiteViognier: SupermarketProduct[] = await waitroseScraper(
-    wineWhiteViognierURL
+    wineWhiteViognierURL,
+    'wine',
+    'white'
   );
   const wineFineWhite: SupermarketProduct[] = await waitroseScraper(
-    wineFineWhiteURL
+    wineFineWhiteURL,
+    'wine',
+    'white'
   );
 
-  const wineWhite: SupermarketProduct[] = wineWhiteChardonnay.concat(
-    wineWhiteCheninBlanc.concat(
-      wineWhitePinotGrigio.concat(
-        wineWhiteRiesling.concat(
-          wineWhiteSauvignonBlanc.concat(
-            wineWhiteViognier.concat(wineFineWhite)
-          )
-        )
-      )
-    )
-  );
+  const wineWhite: SupermarketProduct[] = [
+    ...wineWhiteChardonnay,
+    ...wineWhiteCheninBlanc,
+    ...wineWhitePinotGrigio,
+    ...wineWhiteRiesling,
+    ...wineWhiteSauvignonBlanc,
+    ...wineWhiteViognier,
+    ...wineFineWhite,
+  ];
 
   // Rose Wine
   const wineRoseFrance: SupermarketProduct[] = await waitroseScraper(
-    wineRoseFranceURL
+    wineRoseFranceURL,
+    'wine',
+    'rose'
   );
   const wineRoseItaly: SupermarketProduct[] = await waitroseScraper(
-    wineRoseItalyURL
+    wineRoseItalyURL,
+    'wine',
+    'rose'
   );
   const wineRoseSpain: SupermarketProduct[] = await waitroseScraper(
-    wineRoseSpainURL
+    wineRoseSpainURL,
+    'wine',
+    'rose'
   );
   const wineRoseAustralia: SupermarketProduct[] = await waitroseScraper(
-    wineRoseAustraliaURL
+    wineRoseAustraliaURL,
+    'wine',
+    'rose'
   );
   const wineRoseUSA: SupermarketProduct[] = await waitroseScraper(
-    wineRoseUSAURL
+    wineRoseUSAURL,
+    'wine',
+    'rose'
   );
   const wineRoseSparkling: SupermarketProduct[] = await waitroseScraper(
-    wineRoseSparklingURL
+    wineRoseSparklingURL,
+    'wine',
+    'rose'
   );
   const wineRoseRestOfWorld: SupermarketProduct[] = await waitroseScraper(
-    wineRoseRestOfWorldURL
+    wineRoseRestOfWorldURL,
+    'wine',
+    'rose'
   );
   const wineRoseEngland: SupermarketProduct[] = await waitroseScraper(
-    wineRoseEnglandURL
+    wineRoseEnglandURL,
+    'wine',
+    'rose'
   );
 
-  const wineRose: SupermarketProduct[] = wineRoseFrance.concat(
-    wineRoseItaly.concat(
-      wineRoseSpain.concat(
-        wineRoseAustralia.concat(
-          wineRoseUSA.concat(
-            wineRoseSparkling.concat(
-              wineRoseRestOfWorld.concat(wineRoseEngland)
-            )
-          )
-        )
-      )
-    )
-  );
+  const wineRose: SupermarketProduct[] = [
+    ...wineRoseFrance,
+    ...wineRoseItaly,
+    ...wineRoseSpain,
+    ...wineRoseAustralia,
+    ...wineRoseUSA,
+    ...wineRoseSparkling,
+    ...wineRoseRestOfWorld,
+    ...wineRoseEngland,
+  ];
 
   // Champagne & Sparkling
   const wineChampagneSparkling: SupermarketProduct[] = await waitroseScraper(
     wineChampagneSparklingURL,
+    'wine',
+    'sparkling',
     2
   );
 
   // Dessert Wine
   const wineDessert: SupermarketProduct[] = await waitroseScraper(
-    wineDessertURL
+    wineDessertURL,
+    'wine',
+    'dessert'
   );
 
   // Fortified wine (Port and Sherry) and Vermouth
-  const winePort: SupermarketProduct[] = await waitroseScraper(winePortURL);
-  const wineSherry: SupermarketProduct[] = await waitroseScraper(wineSherryURL);
+  const winePort: SupermarketProduct[] = await waitroseScraper(
+    winePortURL,
+    'wine',
+    'fortified and vermouth'
+  );
+  const wineSherry: SupermarketProduct[] = await waitroseScraper(
+    wineSherryURL,
+    'wine',
+    'fortified and vermouth'
+  );
   const wineMadeira: SupermarketProduct[] = await waitroseScraper(
-    wineMadeiraURL
+    wineMadeiraURL,
+    'wine',
+    'fortified and vermouth'
   );
   const wineVermouth: SupermarketProduct[] = await waitroseScraper(
-    wineVermouthURL
+    wineVermouthURL,
+    'wine',
+    'fortified and vermouth'
   );
 
-  const wineFortifiedVermouth: SupermarketProduct[] = winePort.concat(
-    wineSherry.concat(wineMadeira.concat(wineVermouth))
-  );
+  const wineFortifiedVermouth: SupermarketProduct[] = [
+    ...winePort,
+    ...wineSherry,
+    ...wineMadeira,
+    ...wineVermouth,
+  ];
 
   // Boxes
-  const wineBoxes: SupermarketProduct[] = await waitroseScraper(wineBoxesURL);
+  const wineBoxes: SupermarketProduct[] = await waitroseScraper(
+    wineBoxesURL,
+    'wine',
+    'boxes'
+  );
 
   // Small
-  const wineSmall: SupermarketProduct[] = await waitroseScraper(wineSmallURL);
+  const wineSmall: SupermarketProduct[] = await waitroseScraper(
+    wineSmallURL,
+    'wine',
+    'small'
+  );
 
   // Low Alcohol
   const wineLowAlcohol: SupermarketProduct[] = await waitroseScraper(
-    wineLowAlcoholURL
+    wineLowAlcoholURL,
+    'wine',
+    'low alcohol'
   );
 
-  const wine: Wines = {
-    red: wineRed,
-    white: wineWhite,
-    rose: wineRose,
-    champagneSparkling: wineChampagneSparkling,
-    boxes: wineBoxes,
-    dessert: wineDessert,
-    fortifiedVermouth: wineFortifiedVermouth,
-    smallBottles: wineSmall,
-    lowAlcohol: wineLowAlcohol,
-  };
+  let wine: SupermarketProduct[] = [
+    ...wineRed,
+    ...wineWhite,
+    ...wineRose,
+    ...wineChampagneSparkling,
+    ...wineBoxes,
+    ...wineDessert,
+    ...wineFortifiedVermouth,
+    ...wineSmall,
+    ...wineLowAlcohol,
+  ];
+
+  wine = removeDuplicates(wine);
+
   const wineJSON: string = JSON.stringify(wine);
   fs.writeFileSync('src/output/waitrose-wine.json', wineJSON);
 };

@@ -5,7 +5,9 @@ import puppeteer from 'puppeteer';
 import { SupermarketProduct } from './types';
 
 export const sainsburysScraper = async (
-  url: string
+  url: string,
+  drinkType: string,
+  drinkSubtype: string
 ): Promise<Array<SupermarketProduct>> => {
   try {
     const products: SupermarketProduct[] = [];
@@ -67,6 +69,8 @@ export const sainsburysScraper = async (
         offer,
         link,
         image,
+        drinkType,
+        drinkSubtype,
       });
     });
 
@@ -74,6 +78,8 @@ export const sainsburysScraper = async (
 
     return products;
   } catch (error) {
-    throw new Error(`*** An error occured with sainsburysScraper: ${error}`);
+    throw new Error(
+      `*** An error occured with sainsburysScraper: ${error} ***`
+    );
   }
 };

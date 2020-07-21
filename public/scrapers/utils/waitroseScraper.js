@@ -17,7 +17,7 @@ const cheerio_1 = __importDefault(require("cheerio"));
 const currency_js_1 = __importDefault(require("currency.js"));
 const puppeteer_1 = __importDefault(require("puppeteer"));
 const scrollPageToBottom = require('puppeteer-autoscroll-down');
-exports.waitroseScraper = (url, scrollNum = 1) => __awaiter(void 0, void 0, void 0, function* () {
+exports.waitroseScraper = (url, drinkType, drinkSubtype, scrollNum = 1) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const products = [];
         const browser = yield puppeteer_1.default.launch();
@@ -71,12 +71,14 @@ exports.waitroseScraper = (url, scrollNum = 1) => __awaiter(void 0, void 0, void
                 offer,
                 link,
                 image,
+                drinkType,
+                drinkSubtype,
             });
         });
         yield browser.close();
         return products;
     }
     catch (error) {
-        throw new Error(`*** An error occured with waitroseScraper: ${error}`);
+        throw new Error(`*** An error occured with waitroseScraper: ${error} ***`);
     }
 });

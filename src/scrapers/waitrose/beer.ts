@@ -1,7 +1,7 @@
 import { waitroseScraper } from '../utils/waitroseScraper';
 import fs from 'fs';
+import { removeDuplicates } from '../utils/removeDuplicates';
 import { SupermarketProduct } from '../utils/types';
-import { Beers } from '../types';
 
 // Beer URLs
 
@@ -31,48 +31,67 @@ export const waitroseScrapeBeer = async (): Promise<void> => {
   // Ale
   const beerAleLight: SupermarketProduct[] = await waitroseScraper(
     beerAleLightURL,
+    'beer',
+    'ale',
     3
   );
   const beerAleAmber: SupermarketProduct[] = await waitroseScraper(
-    beerAleAmberURL
+    beerAleAmberURL,
+    'beer',
+    'ale'
   );
   const beerAleDark: SupermarketProduct[] = await waitroseScraper(
-    beerAleDarkURL
+    beerAleDarkURL,
+    'beer',
+    'ale'
   );
 
-  const beerAle: SupermarketProduct[] = beerAleLight.concat(
-    beerAleAmber.concat(beerAleDark)
-  );
+  const beerAle: SupermarketProduct[] = [
+    ...beerAleLight,
+    ...beerAleAmber,
+    ...beerAleDark,
+  ];
 
   // Lager
   const beerLager: SupermarketProduct[] = await waitroseScraper(
     beerLagerURL,
+    'beer',
+    'lager',
     2
   );
 
   // Cider
   const beerCiderTraditional: SupermarketProduct[] = await waitroseScraper(
-    beerCiderTraditionalURL
+    beerCiderTraditionalURL,
+    'beer',
+    'cider'
   );
   const beerCiderFlavoured: SupermarketProduct[] = await waitroseScraper(
-    beerCiderFlavouredURL
+    beerCiderFlavouredURL,
+    'beer',
+    'cider'
   );
 
-  const beerCider: SupermarketProduct[] = beerCiderTraditional.concat(
-    beerCiderFlavoured
-  );
+  const beerCider: SupermarketProduct[] = [
+    ...beerCiderTraditional,
+    ...beerCiderFlavoured,
+  ];
 
   // Low and Alcohol Free
   const beerLowAlcohol: SupermarketProduct[] = await waitroseScraper(
-    beerLowAlcoholURL
+    beerLowAlcoholURL,
+    'beer',
+    'low alcohol'
   );
 
-  const beer: Beers = {
-    ale: beerAle,
-    lager: beerLager,
-    cider: beerCider,
-    lowAlcohol: beerLowAlcohol,
-  };
+  let beer: SupermarketProduct[] = [
+    ...beerAle,
+    ...beerLager,
+    ...beerCider,
+    ...beerLowAlcohol,
+  ];
+
+  beer = removeDuplicates(beer);
 
   const beerJSON: string = JSON.stringify(beer);
   fs.writeFileSync('src/output/waitrose-beer.json', beerJSON);

@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.waitroseScrapeSpirits = void 0;
 const waitroseScraper_1 = require("../utils/waitroseScraper");
 const fs_1 = __importDefault(require("fs"));
+const removeDuplicates_1 = require("../utils/removeDuplicates");
 // Spirits URLs
 // Whisky
 const spiritsWhiskyURL = 'https://www.waitrose.com/ecom/shop/browse/groceries/beer_wine_and_spirits/spirits_and_liqueurs/whisky';
@@ -39,37 +40,45 @@ const spiritsPremixURL = 'https://www.waitrose.com/ecom/shop/browse/groceries/be
 // Low alcohol
 const spiritsLowAlcoholURL = 'https://www.waitrose.com/ecom/shop/browse/groceries/beer_wine_and_spirits/spirits_and_liqueurs/low_and_no_alcohol_spirits';
 exports.waitroseScrapeSpirits = () => __awaiter(void 0, void 0, void 0, function* () {
-    // Whisky
-    const spiritsWhisky = yield waitroseScraper_1.waitroseScraper(spiritsWhiskyURL, 3);
     // Gin
-    const spiritsGin = yield waitroseScraper_1.waitroseScraper(spiritsGinURL);
+    const spiritsGin = yield waitroseScraper_1.waitroseScraper(spiritsGinURL, 'spirits', 'gin');
+    // Whisky
+    const spiritsWhisky = yield waitroseScraper_1.waitroseScraper(spiritsWhiskyURL, 'spirits', 'whisky', 3);
     // Vodka
-    const spiritsVodka = yield waitroseScraper_1.waitroseScraper(spiritsVodkaURL);
+    const spiritsVodka = yield waitroseScraper_1.waitroseScraper(spiritsVodkaURL, 'spirits', 'vodka');
     // Brandy and Cognac
-    const spiritsBrandy = yield waitroseScraper_1.waitroseScraper(spiritsBrandyURL);
-    const spiritsCognac = yield waitroseScraper_1.waitroseScraper(spiritsCognacURL);
-    const spiritsBrandyCognac = spiritsBrandy.concat(spiritsCognac);
+    const spiritsBrandy = yield waitroseScraper_1.waitroseScraper(spiritsBrandyURL, 'spirits', 'brandy and cognac');
+    const spiritsCognac = yield waitroseScraper_1.waitroseScraper(spiritsCognacURL, 'spirits', 'brandy and cognac');
+    const spiritsBrandyCognac = [
+        ...spiritsBrandy,
+        ...spiritsCognac,
+    ];
     // Rum
-    const spiritsRum = yield waitroseScraper_1.waitroseScraper(spiritsRumURL);
+    const spiritsRum = yield waitroseScraper_1.waitroseScraper(spiritsRumURL, 'spirits', 'rum');
     // Tequila, Liqueurs and Aperitifs
-    const spiritsTequila = yield waitroseScraper_1.waitroseScraper(spiritsTequilaURL);
-    const spiritsLiqueurs = yield waitroseScraper_1.waitroseScraper(spiritsLiqueursURL);
-    const spiritsPimmsSummer = yield waitroseScraper_1.waitroseScraper(spiritsPimmsSummerURL);
-    const spiritsTequilaLiqueurs = spiritsTequila.concat(spiritsLiqueurs.concat(spiritsPimmsSummer));
+    const spiritsTequila = yield waitroseScraper_1.waitroseScraper(spiritsTequilaURL, 'spirits', 'tequila and liqueurs');
+    const spiritsLiqueurs = yield waitroseScraper_1.waitroseScraper(spiritsLiqueursURL, 'spirits', 'tequila and liqueurs');
+    const spiritsPimmsSummer = yield waitroseScraper_1.waitroseScraper(spiritsPimmsSummerURL, 'spirits', 'tequila and liqueurs');
+    const spiritsTequilaLiqueurs = [
+        ...spiritsTequila,
+        ...spiritsLiqueurs,
+        ...spiritsPimmsSummer,
+    ];
     // Premix
-    const spiritsPremix = yield waitroseScraper_1.waitroseScraper(spiritsPremixURL);
+    const spiritsPremix = yield waitroseScraper_1.waitroseScraper(spiritsPremixURL, 'spirits', 'premix');
     // Low alcohol
-    const spiritsLowAlcohol = yield waitroseScraper_1.waitroseScraper(spiritsLowAlcoholURL);
-    const spirits = {
-        gin: spiritsGin,
-        whisky: spiritsWhisky,
-        vodka: spiritsVodka,
-        rum: spiritsRum,
-        brandyCognac: spiritsBrandyCognac,
-        tequilaLiqueur: spiritsTequilaLiqueurs,
-        premix: spiritsPremix,
-        lowAlcohol: spiritsLowAlcohol,
-    };
+    const spiritsLowAlcohol = yield waitroseScraper_1.waitroseScraper(spiritsLowAlcoholURL, 'spirits', 'low alcohol');
+    let spirits = [
+        ...spiritsGin,
+        ...spiritsWhisky,
+        ...spiritsVodka,
+        ...spiritsRum,
+        ...spiritsBrandyCognac,
+        ...spiritsTequilaLiqueurs,
+        ...spiritsPremix,
+        ...spiritsLowAlcohol,
+    ];
+    spirits = removeDuplicates_1.removeDuplicates(spirits);
     const spiritsJSON = JSON.stringify(spirits);
     fs_1.default.writeFileSync('src/output/waitrose-spirits.json', spiritsJSON);
 });

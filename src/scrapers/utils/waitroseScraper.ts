@@ -7,6 +7,8 @@ import { SupermarketProduct } from './types';
 
 export const waitroseScraper = async (
   url: string,
+  drinkType: string,
+  drinkSubtype: string,
   scrollNum: number = 1
 ): Promise<Array<SupermarketProduct>> => {
   try {
@@ -79,6 +81,8 @@ export const waitroseScraper = async (
         offer,
         link,
         image,
+        drinkType,
+        drinkSubtype,
       });
     });
 
@@ -86,6 +90,6 @@ export const waitroseScraper = async (
 
     return products;
   } catch (error) {
-    throw new Error(`*** An error occured with waitroseScraper: ${error}`);
+    throw new Error(`*** An error occured with waitroseScraper: ${error} ***`);
   }
 };

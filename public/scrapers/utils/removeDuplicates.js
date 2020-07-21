@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.removeDuplicates = void 0;
+exports.removeDuplicates = (drinksArr) => {
+    return drinksArr.reduce((acc, current) => {
+        const x = acc.find((item) => item.productName === current.productName);
+        if (!x) {
+            return acc.concat([current]);
+        }
+        else {
+            return acc;
+        }
+    }, []);
+};

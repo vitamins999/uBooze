@@ -16,7 +16,7 @@ exports.tescoScraper = void 0;
 const axios_1 = __importDefault(require("axios"));
 const cheerio_1 = __importDefault(require("cheerio"));
 const currency_js_1 = __importDefault(require("currency.js"));
-exports.tescoScraper = (url) => __awaiter(void 0, void 0, void 0, function* () {
+exports.tescoScraper = (url, drinkType, drinkSubtype) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const products = [];
         const { data } = yield axios_1.default.get(url);
@@ -52,11 +52,13 @@ exports.tescoScraper = (url) => __awaiter(void 0, void 0, void 0, function* () {
                 offer,
                 link,
                 image,
+                drinkType,
+                drinkSubtype,
             });
         });
         return products;
     }
     catch (error) {
-        throw new Error(`*** An error occured with tescoScraper: ${error}`);
+        throw new Error(`*** An error occured with tescoScraper: ${error} ***`);
     }
 });

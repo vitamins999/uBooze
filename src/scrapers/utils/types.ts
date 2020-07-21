@@ -4,4 +4,6 @@ export interface SupermarketProduct {
   offer: string;
   link: string;
   image: string;
+  drinkType: string;
+  drinkSubtype: string;
 }

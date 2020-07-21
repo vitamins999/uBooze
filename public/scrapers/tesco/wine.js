@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.tescoScrapeWine = void 0;
 const tescoScraper_1 = require("../utils/tescoScraper");
 const fs_1 = __importDefault(require("fs"));
+const removeDuplicates_1 = require("../utils/removeDuplicates");
 // Wine URLS
 // Red
 const wineRedURL1 = 'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/red-wine?page=1&count=48';
@@ -48,52 +49,67 @@ const wineSmallURL2 = 'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/sm
 const wineLowAlcoholURL = 'https://www.tesco.com/groceries/en-GB/shop/drinks/low-and-no-alcohol/low-and-no-alcohol-wine';
 exports.tescoScrapeWine = () => __awaiter(void 0, void 0, void 0, function* () {
     // Red
-    const wineRed1 = yield tescoScraper_1.tescoScraper(wineRedURL1);
-    const wineRed2 = yield tescoScraper_1.tescoScraper(wineRedURL2);
-    const wineRed3 = yield tescoScraper_1.tescoScraper(wineRedURL3);
-    const wineRed4 = yield tescoScraper_1.tescoScraper(wineRedURL4);
-    const wineRed5 = yield tescoScraper_1.tescoScraper(wineRedURL5);
-    const wineRed = wineRed1.concat(wineRed2.concat(wineRed3.concat(wineRed4.concat(wineRed5))));
+    const wineRed1 = yield tescoScraper_1.tescoScraper(wineRedURL1, 'wine', 'red');
+    const wineRed2 = yield tescoScraper_1.tescoScraper(wineRedURL2, 'wine', 'red');
+    const wineRed3 = yield tescoScraper_1.tescoScraper(wineRedURL3, 'wine', 'red');
+    const wineRed4 = yield tescoScraper_1.tescoScraper(wineRedURL4, 'wine', 'red');
+    const wineRed5 = yield tescoScraper_1.tescoScraper(wineRedURL5, 'wine', 'red');
+    const wineRed = [
+        ...wineRed1,
+        ...wineRed2,
+        ...wineRed3,
+        ...wineRed4,
+        ...wineRed5,
+    ];
     // White
-    const wineWhite1 = yield tescoScraper_1.tescoScraper(wineWhiteURL1);
-    const wineWhite2 = yield tescoScraper_1.tescoScraper(wineWhiteURL2);
-    const wineWhite3 = yield tescoScraper_1.tescoScraper(wineWhiteURL3);
-    const wineWhite4 = yield tescoScraper_1.tescoScraper(wineWhiteURL4);
-    const wineWhite = wineWhite1.concat(wineWhite2.concat(wineWhite3.concat(wineWhite4)));
+    const wineWhite1 = yield tescoScraper_1.tescoScraper(wineWhiteURL1, 'wine', 'white');
+    const wineWhite2 = yield tescoScraper_1.tescoScraper(wineWhiteURL2, 'wine', 'white');
+    const wineWhite3 = yield tescoScraper_1.tescoScraper(wineWhiteURL3, 'wine', 'white');
+    const wineWhite4 = yield tescoScraper_1.tescoScraper(wineWhiteURL4, 'wine', 'white');
+    const wineWhite = [
+        ...wineWhite1,
+        ...wineWhite2,
+        ...wineWhite3,
+        ...wineWhite4,
+    ];
     // Rose
-    const wineRose1 = yield tescoScraper_1.tescoScraper(wineRoseURL1);
-    const wineRose2 = yield tescoScraper_1.tescoScraper(wineRoseURL2);
-    const wineRose = wineRose1.concat(wineRose2);
+    const wineRose1 = yield tescoScraper_1.tescoScraper(wineRoseURL1, 'wine', 'rose');
+    const wineRose2 = yield tescoScraper_1.tescoScraper(wineRoseURL2, 'wine', 'rose');
+    const wineRose = [...wineRose1, ...wineRose2];
     // Champagne & Sparkling
-    const wineChampagneSparkling1 = yield tescoScraper_1.tescoScraper(wineChampagneSparklingURL1);
-    const wineChampagneSparkling2 = yield tescoScraper_1.tescoScraper(wineChampagneSparklingURL2);
-    const wineChampagneSparkling = wineChampagneSparkling1.concat(wineChampagneSparkling2);
+    const wineChampagneSparkling1 = yield tescoScraper_1.tescoScraper(wineChampagneSparklingURL1, 'wine', 'sparkling');
+    const wineChampagneSparkling2 = yield tescoScraper_1.tescoScraper(wineChampagneSparklingURL2, 'wine', 'sparkling');
+    const wineChampagneSparkling = [
+        ...wineChampagneSparkling1,
+        ...wineChampagneSparkling2,
+    ];
     // Boxes
-    const wineBoxes = yield tescoScraper_1.tescoScraper(wineBoxesURL);
+    const wineBoxes = yield tescoScraper_1.tescoScraper(wineBoxesURL, 'wine', 'boxes');
     // Fruity
-    const wineFruity = yield tescoScraper_1.tescoScraper(wineFruityURL);
+    const wineFruity = yield tescoScraper_1.tescoScraper(wineFruityURL, 'wine', 'fruity');
     // Dessert
-    const wineDessert = yield tescoScraper_1.tescoScraper(wineDessertURL);
+    const wineDessert = yield tescoScraper_1.tescoScraper(wineDessertURL, 'wine', 'dessert');
     // Fortified Wine (Port and Sherry) and Vermouth
-    const wineFortifiedVermouth = yield tescoScraper_1.tescoScraper(wineFortifiedVermouthURL);
+    const wineFortifiedVermouth = yield tescoScraper_1.tescoScraper(wineFortifiedVermouthURL, 'wine', 'fortified and vermouth');
     // Small wine bottles
-    const wineSmall1 = yield tescoScraper_1.tescoScraper(wineSmallURL1);
-    const wineSmall2 = yield tescoScraper_1.tescoScraper(wineSmallURL2);
-    const wineSmall = wineSmall1.concat(wineSmall2);
+    const wineSmall1 = yield tescoScraper_1.tescoScraper(wineSmallURL1, 'wine', 'small');
+    const wineSmall2 = yield tescoScraper_1.tescoScraper(wineSmallURL2, 'wine', 'small');
+    const wineSmall = [...wineSmall1, ...wineSmall2];
     // Low alcohol
-    const wineLowAlcohol = yield tescoScraper_1.tescoScraper(wineLowAlcoholURL);
-    const wine = {
-        red: wineRed,
-        white: wineWhite,
-        rose: wineRose,
-        champagneSparkling: wineChampagneSparkling,
-        boxes: wineBoxes,
-        fruity: wineFruity,
-        dessert: wineDessert,
-        fortifiedVermouth: wineFortifiedVermouth,
-        smallBottles: wineSmall,
-        lowAlcohol: wineLowAlcohol,
-    };
+    const wineLowAlcohol = yield tescoScraper_1.tescoScraper(wineLowAlcoholURL, 'wine', 'low alcohol');
+    let wine = [
+        ...wineRed,
+        ...wineWhite,
+        ...wineRose,
+        ...wineChampagneSparkling,
+        ...wineBoxes,
+        ...wineFruity,
+        ...wineDessert,
+        ...wineFortifiedVermouth,
+        ...wineSmall,
+        ...wineLowAlcohol,
+    ];
+    wine = removeDuplicates_1.removeDuplicates(wine);
     const wineJSON = JSON.stringify(wine);
     fs_1.default.writeFileSync('src/output/tesco-wine.json', wineJSON);
 });

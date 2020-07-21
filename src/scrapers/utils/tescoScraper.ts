@@ -5,7 +5,9 @@ import currency from 'currency.js';
 import { SupermarketProduct } from './types';
 
 export const tescoScraper = async (
-  url: string
+  url: string,
+  drinkType: string,
+  drinkSubtype: string
 ): Promise<Array<SupermarketProduct>> => {
   try {
     const products: SupermarketProduct[] = [];
@@ -54,11 +56,13 @@ export const tescoScraper = async (
           offer,
           link,
           image,
+          drinkType,
+          drinkSubtype,
         });
       });
 
     return products;
   } catch (error) {
-    throw new Error(`*** An error occured with tescoScraper: ${error}`);
+    throw new Error(`*** An error occured with tescoScraper: ${error} ***`);
   }
 };

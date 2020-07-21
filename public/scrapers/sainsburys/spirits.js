@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sainsburysScrapeSpirits = void 0;
 const sainsburysScraper_1 = require("../utils/sainsburysScraper");
 const fs_1 = __importDefault(require("fs"));
+const removeDuplicates_1 = require("../utils/removeDuplicates");
 // Spirits URLs
 // Gin
 const spiritsGinURL = 'https://www.sainsburys.co.uk/shop/gb/groceries/drinks/CategoryDisplay?langId=44&storeId=10151&catalogId=10241&categoryId=12287&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&beginIndex=0&promotionId=&listId=&searchTerm=&hasPreviousOrder=&previousOrderId=&categoryFacetId1=&categoryFacetId2=&ImportedProductsCount=&ImportedStoreName=&ImportedSupermarket=&bundleId=&parent_category_rn=12192&top_category=12192&pageSize=120#langId=44&storeId=10151&catalogId=10241&categoryId=12287&parent_category_rn=12192&top_category=12192&pageSize=120&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&searchTerm=&beginIndex=0&hideFilters=true';
@@ -35,33 +36,41 @@ const spiritsAperitifURL = 'https://www.sainsburys.co.uk/shop/gb/groceries/drink
 const spiritsPremixURL = 'https://www.sainsburys.co.uk/shop/gb/groceries/drinks/CategoryDisplay?langId=44&storeId=10151&catalogId=10241&categoryId=458360&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&beginIndex=0&promotionId=&listId=&searchTerm=&hasPreviousOrder=&previousOrderId=&categoryFacetId1=&categoryFacetId2=&ImportedProductsCount=&ImportedStoreName=&ImportedSupermarket=&bundleId=&parent_category_rn=12192&top_category=12192&pageSize=120#langId=44&storeId=10151&catalogId=10241&categoryId=458360&parent_category_rn=12192&top_category=12192&pageSize=120&orderBy=FAVOURITES_ONLY%7CSEQUENCING%7CTOP_SELLERS&searchTerm=&beginIndex=0&hideFilters=true';
 exports.sainsburysScrapeSpirits = () => __awaiter(void 0, void 0, void 0, function* () {
     // Gin
-    const spiritsGin = yield sainsburysScraper_1.sainsburysScraper(spiritsGinURL);
+    const spiritsGin = yield sainsburysScraper_1.sainsburysScraper(spiritsGinURL, 'spirits', 'gin');
     // Whisky
-    const spiritsWhisky1 = yield sainsburysScraper_1.sainsburysScraper(spiritsWhiskyURL1);
-    const spiritsWhisky2 = yield sainsburysScraper_1.sainsburysScraper(spiritsWhiskyURL2);
-    const spiritsWhisky = spiritsWhisky1.concat(spiritsWhisky2);
+    const spiritsWhisky1 = yield sainsburysScraper_1.sainsburysScraper(spiritsWhiskyURL1, 'spirits', 'whisky');
+    const spiritsWhisky2 = yield sainsburysScraper_1.sainsburysScraper(spiritsWhiskyURL2, 'spirits', 'whisky');
+    const spiritsWhisky = [
+        ...spiritsWhisky1,
+        ...spiritsWhisky2,
+    ];
     // Vodka
-    const spiritsVodka = yield sainsburysScraper_1.sainsburysScraper(spiritsVodkaURL);
+    const spiritsVodka = yield sainsburysScraper_1.sainsburysScraper(spiritsVodkaURL, 'spirits', 'vodka');
     // Rum
-    const spiritsRum = yield sainsburysScraper_1.sainsburysScraper(spiritsRumURL);
+    const spiritsRum = yield sainsburysScraper_1.sainsburysScraper(spiritsRumURL, 'spirits', 'rum');
     // Brandy and Cognac
-    const spiritsBrandyCognac = yield sainsburysScraper_1.sainsburysScraper(spiritsBrandyCognacURL);
+    const spiritsBrandyCognac = yield sainsburysScraper_1.sainsburysScraper(spiritsBrandyCognacURL, 'spirits', 'brandy and cognac');
     // // Tequila, Liqueuers and Speciality
-    const spiritsTequila = yield sainsburysScraper_1.sainsburysScraper(spiritsTequilaURL);
-    const spiritsLiqueur = yield sainsburysScraper_1.sainsburysScraper(spiritsLiqueurURL);
-    const spiritsAperitif = yield sainsburysScraper_1.sainsburysScraper(spiritsAperitifURL);
-    const spiritsTequilaLiqueur = spiritsTequila.concat(spiritsLiqueur.concat(spiritsAperitif));
+    const spiritsTequila = yield sainsburysScraper_1.sainsburysScraper(spiritsTequilaURL, 'spirits', 'tequila and liqueurs');
+    const spiritsLiqueur = yield sainsburysScraper_1.sainsburysScraper(spiritsLiqueurURL, 'spirits', 'tequila and liqueurs');
+    const spiritsAperitif = yield sainsburysScraper_1.sainsburysScraper(spiritsAperitifURL, 'spirits', 'tequila and liqueurs');
+    const spiritsTequilaLiqueur = [
+        ...spiritsTequila,
+        ...spiritsLiqueur,
+        ...spiritsAperitif,
+    ];
     // Premix
-    const spiritsPremix = yield sainsburysScraper_1.sainsburysScraper(spiritsPremixURL);
-    const spirits = {
-        gin: spiritsGin,
-        whisky: spiritsWhisky,
-        vodka: spiritsVodka,
-        rum: spiritsRum,
-        brandyCognac: spiritsBrandyCognac,
-        tequilaLiqueur: spiritsTequilaLiqueur,
-        premix: spiritsPremix,
-    };
+    const spiritsPremix = yield sainsburysScraper_1.sainsburysScraper(spiritsPremixURL, 'spirits', 'premix');
+    let spirits = [
+        ...spiritsGin,
+        ...spiritsWhisky,
+        ...spiritsVodka,
+        ...spiritsRum,
+        ...spiritsBrandyCognac,
+        ...spiritsTequilaLiqueur,
+        ...spiritsPremix,
+    ];
+    spirits = removeDuplicates_1.removeDuplicates(spirits);
     const spiritsJSON = JSON.stringify(spirits);
     fs_1.default.writeFileSync('src/output/sainsburys-spirits.json', spiritsJSON);
 });

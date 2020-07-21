@@ -1,7 +1,7 @@
 import { sainsburysScraper } from '../utils/sainsburysScraper';
 import fs from 'fs';
+import { removeDuplicates } from '../utils/removeDuplicates';
 import { SupermarketProduct } from '../utils/types';
-import { Spirits } from '../types';
 
 // Spirits URLs
 
@@ -42,65 +42,90 @@ const spiritsPremixURL: string =
 export const sainsburysScrapeSpirits = async (): Promise<void> => {
   // Gin
   const spiritsGin: SupermarketProduct[] = await sainsburysScraper(
-    spiritsGinURL
+    spiritsGinURL,
+    'spirits',
+    'gin'
   );
 
   // Whisky
   const spiritsWhisky1: SupermarketProduct[] = await sainsburysScraper(
-    spiritsWhiskyURL1
+    spiritsWhiskyURL1,
+    'spirits',
+    'whisky'
   );
   const spiritsWhisky2: SupermarketProduct[] = await sainsburysScraper(
-    spiritsWhiskyURL2
+    spiritsWhiskyURL2,
+    'spirits',
+    'whisky'
   );
 
-  const spiritsWhisky: SupermarketProduct[] = spiritsWhisky1.concat(
-    spiritsWhisky2
-  );
+  const spiritsWhisky: SupermarketProduct[] = [
+    ...spiritsWhisky1,
+    ...spiritsWhisky2,
+  ];
 
   // Vodka
   const spiritsVodka: SupermarketProduct[] = await sainsburysScraper(
-    spiritsVodkaURL
+    spiritsVodkaURL,
+    'spirits',
+    'vodka'
   );
 
   // Rum
   const spiritsRum: SupermarketProduct[] = await sainsburysScraper(
-    spiritsRumURL
+    spiritsRumURL,
+    'spirits',
+    'rum'
   );
 
   // Brandy and Cognac
   const spiritsBrandyCognac: SupermarketProduct[] = await sainsburysScraper(
-    spiritsBrandyCognacURL
+    spiritsBrandyCognacURL,
+    'spirits',
+    'brandy and cognac'
   );
 
   // // Tequila, Liqueuers and Speciality
   const spiritsTequila: SupermarketProduct[] = await sainsburysScraper(
-    spiritsTequilaURL
+    spiritsTequilaURL,
+    'spirits',
+    'tequila and liqueurs'
   );
   const spiritsLiqueur: SupermarketProduct[] = await sainsburysScraper(
-    spiritsLiqueurURL
+    spiritsLiqueurURL,
+    'spirits',
+    'tequila and liqueurs'
   );
   const spiritsAperitif: SupermarketProduct[] = await sainsburysScraper(
-    spiritsAperitifURL
+    spiritsAperitifURL,
+    'spirits',
+    'tequila and liqueurs'
   );
 
-  const spiritsTequilaLiqueur: SupermarketProduct[] = spiritsTequila.concat(
-    spiritsLiqueur.concat(spiritsAperitif)
-  );
+  const spiritsTequilaLiqueur: SupermarketProduct[] = [
+    ...spiritsTequila,
+    ...spiritsLiqueur,
+    ...spiritsAperitif,
+  ];
 
   // Premix
   const spiritsPremix: SupermarketProduct[] = await sainsburysScraper(
-    spiritsPremixURL
+    spiritsPremixURL,
+    'spirits',
+    'premix'
   );
 
-  const spirits: Spirits = {
-    gin: spiritsGin,
-    whisky: spiritsWhisky,
-    vodka: spiritsVodka,
-    rum: spiritsRum,
-    brandyCognac: spiritsBrandyCognac,
-    tequilaLiqueur: spiritsTequilaLiqueur,
-    premix: spiritsPremix,
-  };
+  let spirits: SupermarketProduct[] = [
+    ...spiritsGin,
+    ...spiritsWhisky,
+    ...spiritsVodka,
+    ...spiritsRum,
+    ...spiritsBrandyCognac,
+    ...spiritsTequilaLiqueur,
+    ...spiritsPremix,
+  ];
+
+  spirits = removeDuplicates(spirits);
 
   const spiritsJSON: string = JSON.stringify(spirits);
   fs.writeFileSync('src/output/sainsburys-spirits.json', spiritsJSON);

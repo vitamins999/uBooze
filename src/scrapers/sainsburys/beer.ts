@@ -1,7 +1,7 @@
 import { sainsburysScraper } from '../utils/sainsburysScraper';
 import fs from 'fs';
+import { removeDuplicates } from '../utils/removeDuplicates';
 import { SupermarketProduct } from '../utils/types';
-import { Beers } from '../types';
 
 // Beer URLs
 
@@ -36,41 +36,66 @@ const beerLowAlcoholURL: string =
 export const sainsburysScrapeBeer = async (): Promise<void> => {
   // Lager
   const beerLagerRegular: SupermarketProduct[] = await sainsburysScraper(
-    beerLagerURL
+    beerLagerURL,
+    'beer',
+    'lager'
   );
   const beerLagerWorld: SupermarketProduct[] = await sainsburysScraper(
-    beerLagerWorldURL
+    beerLagerWorldURL,
+    'beer',
+    'lager'
   );
 
-  const beerLager: SupermarketProduct[] = beerLagerRegular.concat(
-    beerLagerWorld
-  );
+  const beerLager: SupermarketProduct[] = [
+    ...beerLagerRegular,
+    ...beerLagerWorld,
+  ];
 
   // Craft and Specialist
-  const beerCraft: SupermarketProduct[] = await sainsburysScraper(beerCraftURL);
+  const beerCraft: SupermarketProduct[] = await sainsburysScraper(
+    beerCraftURL,
+    'beer',
+    'craft'
+  );
 
   // Cider
-  const beerCider: SupermarketProduct[] = await sainsburysScraper(beerCiderURL);
+  const beerCider: SupermarketProduct[] = await sainsburysScraper(
+    beerCiderURL,
+    'beer',
+    'cider'
+  );
 
   // Ale
-  const beerAle: SupermarketProduct[] = await sainsburysScraper(beerAleURL);
+  const beerAle: SupermarketProduct[] = await sainsburysScraper(
+    beerAleURL,
+    'beer',
+    'ale'
+  );
 
   // Stout
-  const beerStout: SupermarketProduct[] = await sainsburysScraper(beerStoutURL);
+  const beerStout: SupermarketProduct[] = await sainsburysScraper(
+    beerStoutURL,
+    'beer',
+    'stout'
+  );
 
   // Low alcohol
   const beerLowAlcohol: SupermarketProduct[] = await sainsburysScraper(
-    beerLowAlcoholURL
+    beerLowAlcoholURL,
+    'beer',
+    'low alcohol'
   );
 
-  const beer: Beers = {
-    lager: beerLager,
-    craft: beerCraft,
-    cider: beerCider,
-    ale: beerAle,
-    stout: beerStout,
-    lowAlcohol: beerLowAlcohol,
-  };
+  let beer: SupermarketProduct[] = [
+    ...beerLager,
+    ...beerCraft,
+    ...beerCider,
+    ...beerAle,
+    ...beerStout,
+    ...beerLowAlcohol,
+  ];
+
+  beer = removeDuplicates(beer);
 
   const beerJSON: string = JSON.stringify(beer);
   fs.writeFileSync('src/output/sainsburys-beer.json', beerJSON);

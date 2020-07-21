@@ -1,7 +1,7 @@
 import { tescoScraper } from '../utils/tescoScraper';
 import fs from 'fs';
+import { removeDuplicates } from '../utils/removeDuplicates';
 import { SupermarketProduct } from '../utils/types';
-import { Spirits } from '../types';
 
 // Spirits URLS
 
@@ -53,84 +53,131 @@ const spiritsLowAlcoholURL: string =
 
 export const tescoScrapeSpirits = async (): Promise<void> => {
   // Gin
-  const spiritsGin1: SupermarketProduct[] = await tescoScraper(spiritsGinURL1);
-  const spiritsGin2: SupermarketProduct[] = await tescoScraper(spiritsGinURL2);
-  const spiritsGin3: SupermarketProduct[] = await tescoScraper(spiritsGinURL3);
-
-  const spiritsGin: SupermarketProduct[] = spiritsGin1.concat(
-    spiritsGin2.concat(spiritsGin3)
+  const spiritsGin1: SupermarketProduct[] = await tescoScraper(
+    spiritsGinURL1,
+    'spirits',
+    'gin'
   );
+  const spiritsGin2: SupermarketProduct[] = await tescoScraper(
+    spiritsGinURL2,
+    'spirits',
+    'gin'
+  );
+  const spiritsGin3: SupermarketProduct[] = await tescoScraper(
+    spiritsGinURL3,
+    'spirits',
+    'gin'
+  );
+
+  const spiritsGin: SupermarketProduct[] = [
+    ...spiritsGin1,
+    ...spiritsGin2,
+    ...spiritsGin3,
+  ];
 
   // Whisky
   const spiritsWhisky1: SupermarketProduct[] = await tescoScraper(
-    spiritsWhiskyURL1
+    spiritsWhiskyURL1,
+    'spirits',
+    'whisky'
   );
   const spiritsWhisky2: SupermarketProduct[] = await tescoScraper(
-    spiritsWhiskyURL2
+    spiritsWhiskyURL2,
+    'spirits',
+    'whisky'
   );
   const spiritsWhisky3: SupermarketProduct[] = await tescoScraper(
-    spiritsWhiskyURL3
+    spiritsWhiskyURL3,
+    'spirits',
+    'whisky'
   );
 
-  const spiritsWhisky: SupermarketProduct[] = spiritsWhisky1.concat(
-    spiritsWhisky2.concat(spiritsWhisky3)
-  );
+  const spiritsWhisky: SupermarketProduct[] = [
+    ...spiritsWhisky1,
+    ...spiritsWhisky2,
+    ...spiritsWhisky3,
+  ];
 
   // Vodka
   const spiritsVodka: SupermarketProduct[] = await tescoScraper(
-    spiritsVodkaURL
+    spiritsVodkaURL,
+    'spirits',
+    'vodka'
   );
 
   // Rum
-  const spiritsRum: SupermarketProduct[] = await tescoScraper(spiritsRumURL);
+  const spiritsRum: SupermarketProduct[] = await tescoScraper(
+    spiritsRumURL,
+    'spirits',
+    'rum'
+  );
 
   // Brandy & Cognac
   const spiritsBrandyCognac: SupermarketProduct[] = await tescoScraper(
-    spiritsBrandyCognacURL
+    spiritsBrandyCognacURL,
+    'spirits',
+    'brandy and cognac'
   );
 
   // Tequila, Liqueurs & Aperitifs
   const spiritsTequilaLiqueurs1: SupermarketProduct[] = await tescoScraper(
-    spiritsTequilaLiqueursURL1
+    spiritsTequilaLiqueursURL1,
+    'spirits',
+    'tequila and liqueurs'
   );
   const spiritsTequilaLiqueurs2: SupermarketProduct[] = await tescoScraper(
-    spiritsTequilaLiqueursURL2
+    spiritsTequilaLiqueursURL2,
+    'spirits',
+    'tequila and liqueurs'
   );
 
-  const spiritsTequilaLiqueurs: SupermarketProduct[] = spiritsTequilaLiqueurs1.concat(
-    spiritsTequilaLiqueurs2
-  );
+  const spiritsTequilaLiqueurs: SupermarketProduct[] = [
+    ...spiritsTequilaLiqueurs1,
+    ...spiritsTequilaLiqueurs2,
+  ];
 
   // Premix
   const spiritsPremix1: SupermarketProduct[] = await tescoScraper(
-    spiritsPremixURL1
+    spiritsPremixURL1,
+    'spirits',
+    'premix'
   );
   const spiritsPremix2: SupermarketProduct[] = await tescoScraper(
-    spiritsPremixURL2
+    spiritsPremixURL2,
+    'spirits',
+    'premix'
   );
   const spiritsPremix3: SupermarketProduct[] = await tescoScraper(
-    spiritsPremixURL3
+    spiritsPremixURL3,
+    'spirits',
+    'premix'
   );
 
-  const spiritsPremix: SupermarketProduct[] = spiritsPremix1.concat(
-    spiritsPremix2.concat(spiritsPremix3)
-  );
+  const spiritsPremix: SupermarketProduct[] = [
+    ...spiritsPremix1,
+    ...spiritsPremix2,
+    ...spiritsPremix3,
+  ];
 
   // Low alcohol
   const spiritsLowAlcohol: SupermarketProduct[] = await tescoScraper(
-    spiritsLowAlcoholURL
+    spiritsLowAlcoholURL,
+    'spirits',
+    'low alcohol'
   );
 
-  const spirits: Spirits = {
-    gin: spiritsGin,
-    whisky: spiritsWhisky,
-    vodka: spiritsVodka,
-    rum: spiritsRum,
-    brandyCognac: spiritsBrandyCognac,
-    tequilaLiqueur: spiritsTequilaLiqueurs,
-    premix: spiritsPremix,
-    lowAlcohol: spiritsLowAlcohol,
-  };
+  let spirits: SupermarketProduct[] = [
+    ...spiritsGin,
+    ...spiritsWhisky,
+    ...spiritsVodka,
+    ...spiritsRum,
+    ...spiritsBrandyCognac,
+    ...spiritsTequilaLiqueurs,
+    ...spiritsPremix,
+    ...spiritsLowAlcohol,
+  ];
+
+  spirits = removeDuplicates(spirits);
 
   const spiritsJSON: string = JSON.stringify(spirits);
   fs.writeFileSync('src/output/tesco-spirits.json', spiritsJSON);

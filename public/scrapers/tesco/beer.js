@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.tescoScrapeBeer = void 0;
 const tescoScraper_1 = require("../utils/tescoScraper");
 const fs_1 = __importDefault(require("fs"));
+const removeDuplicates_1 = require("../utils/removeDuplicates");
 // Beer URLs
 // Lager
 const beerLagerURL1 = 'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-lager?page=1&count=48';
@@ -41,46 +42,56 @@ const beerGlutenFreeURL = 'https://www.tesco.com/groceries/en-GB/shop/drinks/bee
 const beerLowAlcoholURL = 'https://www.tesco.com/groceries/en-GB/shop/drinks/low-and-no-alcohol/low-and-no-alcohol-beer-and-cider';
 exports.tescoScrapeBeer = () => __awaiter(void 0, void 0, void 0, function* () {
     // Lager
-    const beerLager1 = yield tescoScraper_1.tescoScraper(beerLagerURL1);
-    const beerLager2 = yield tescoScraper_1.tescoScraper(beerLagerURL2);
+    const beerLager1 = yield tescoScraper_1.tescoScraper(beerLagerURL1, 'beer', 'lager');
+    const beerLager2 = yield tescoScraper_1.tescoScraper(beerLagerURL2, 'beer', 'lager');
     // const beerLager3: SupermarketProduct[] = await tescoScraper(beerLagerURL3);
-    const beerLagerRegular = beerLager1.concat(beerLager2.concat());
-    const beerLagerWorld1 = yield tescoScraper_1.tescoScraper(beerLagerWorldURL1);
-    const beerLagerWorld2 = yield tescoScraper_1.tescoScraper(beerLagerWorldURL2);
-    const beerLagerWorld = beerLagerWorld1.concat(beerLagerWorld2);
-    const beerLager = beerLagerRegular.concat(beerLagerWorld);
-    // TODO: Need to filter out duplicates and combine both Lager and World lager arrays
-    // TODO: Add a conditional to all Tesco pages whereby if it's a 404, it ignores it and
-    // moves on to the next page, since that must mean the page has dynamically changed to where
-    // it doesn't exist anymore because there aren't enough items to make it. Use beer URL to test.
+    const beerLagerRegular = [...beerLager1, ...beerLager2];
+    const beerLagerWorld1 = yield tescoScraper_1.tescoScraper(beerLagerWorldURL1, 'beer', 'lager');
+    const beerLagerWorld2 = yield tescoScraper_1.tescoScraper(beerLagerWorldURL2, 'beer', 'lager');
+    const beerLagerWorld = [
+        ...beerLagerWorld1,
+        ...beerLagerWorld2,
+    ];
+    const beerLager = [
+        ...beerLagerRegular,
+        ...beerLagerWorld,
+    ];
     // Ale and Bitter
-    const beerAle1 = yield tescoScraper_1.tescoScraper(beerAleURL1);
-    const beerAle2 = yield tescoScraper_1.tescoScraper(beerAleURL2);
-    const beerAle = beerAle1.concat(beerAle2);
+    const beerAle1 = yield tescoScraper_1.tescoScraper(beerAleURL1, 'beer', 'ale');
+    const beerAle2 = yield tescoScraper_1.tescoScraper(beerAleURL2, 'beer', 'ale');
+    const beerAle = [...beerAle1, ...beerAle2];
     // Craft & Specialist
-    const beerCraft1 = yield tescoScraper_1.tescoScraper(beerCraftURL1);
-    const beerCraft2 = yield tescoScraper_1.tescoScraper(beerCraftURL2);
-    const beerCraft3 = yield tescoScraper_1.tescoScraper(beerCraftURL3);
-    const beerCraft = beerCraft1.concat(beerCraft2.concat(beerCraft3));
+    const beerCraft1 = yield tescoScraper_1.tescoScraper(beerCraftURL1, 'beer', 'craft');
+    const beerCraft2 = yield tescoScraper_1.tescoScraper(beerCraftURL2, 'beer', 'craft');
+    const beerCraft3 = yield tescoScraper_1.tescoScraper(beerCraftURL3, 'beer', 'craft');
+    const beerCraft = [
+        ...beerCraft1,
+        ...beerCraft2,
+        ...beerCraft3,
+    ];
     // Cider
-    const beerCider1 = yield tescoScraper_1.tescoScraper(beerCiderURL1);
-    const beerCider2 = yield tescoScraper_1.tescoScraper(beerCiderURL2);
-    const beerCider = beerCider1.concat(beerCider2);
+    const beerCider1 = yield tescoScraper_1.tescoScraper(beerCiderURL1, 'beer', 'cider');
+    const beerCider2 = yield tescoScraper_1.tescoScraper(beerCiderURL2, 'beer', 'cider');
+    const beerCider = [...beerCider1, ...beerCider2];
     // Stout
-    const beerStout = yield tescoScraper_1.tescoScraper(beerStoutURL);
+    const beerStout = yield tescoScraper_1.tescoScraper(beerStoutURL, 'beer', 'stout');
     // Gluten Free
-    const beerGlutenFree = yield tescoScraper_1.tescoScraper(beerGlutenFreeURL);
+    const beerGlutenFree = yield tescoScraper_1.tescoScraper(beerGlutenFreeURL, 'beer', 'gluten free');
     // Low alcohol
-    const beerLowAlcohol = yield tescoScraper_1.tescoScraper(beerLowAlcoholURL);
-    const beer = {
-        lager: beerLager,
-        ale: beerAle,
-        craft: beerCraft,
-        cider: beerCider,
-        stout: beerStout,
-        glutenFree: beerGlutenFree,
-        lowAlcohol: beerLowAlcohol,
-    };
+    const beerLowAlcohol = yield tescoScraper_1.tescoScraper(beerLowAlcoholURL, 'beer', 'low alcohol');
+    let beer = [
+        ...beerLager,
+        ...beerAle,
+        ...beerCraft,
+        ...beerCider,
+        ...beerStout,
+        ...beerGlutenFree,
+        ...beerLowAlcohol,
+    ];
+    beer = removeDuplicates_1.removeDuplicates(beer);
     const beerJSON = JSON.stringify(beer);
     fs_1.default.writeFileSync('src/output/tesco-beer.json', beerJSON);
 });
+// TODO: Add a conditional to all Tesco pages whereby if it's a 404, it ignores it and
+// moves on to the next page, since that must mean the page has dynamically changed to where
+// it doesn't exist anymore because there aren't enough items to make it. Use beer URL to test.
