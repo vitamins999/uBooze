@@ -24,6 +24,9 @@
     "cheerio": "^1.0.0-rc.3",
     "currency.js": "^2.0.0",
     "dotenv": "^8.2.0",
+    "knex": "^0.21.2",
+    "objection": "^2.2.1",
+    "pg": "^8.3.0",
     "puppeteer": "^5.2.0",
     "puppeteer-autoscroll-down": "^0.1.5"
   }
