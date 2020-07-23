@@ -2,109 +2,112 @@
 exports.up = function (knex) {
   return knex.schema
     .createTable('users', (table) => {
-      table.increments('user_id');
+      table.increments('userID');
       table.string('username').notNullable();
       table.string('password').notNullable();
       table.string('email').notNullable();
-      table.string('first_name');
-      table.string('last_name');
-      table.string('default_postcode');
-      table.datetime('created_at').defaultTo(knex.fn.now());
-      table.string('account_type').defaultTo('regular');
+      table.string('firstName');
+      table.string('lastName');
+      table.string('defaultPostcode');
+      table.datetime('createdAt').defaultTo(knex.fn.now());
+      table.string('accountType').defaultTo('regular');
       table.string('gravatar');
     })
     .createTable('products', (table) => {
-      table.increments('product_id');
-      table.string('product_name');
+      table.increments('productID');
+      table.string('productName');
       table.string('volume');
-      table.string('drink_type');
-      table.string('drink_subtype');
+      table.string('drinkType');
+      table.string('drinkSubtype');
     })
-    .createTable('product_comments', (table) => {
-      table.increments('comment_id');
+    .createTable('productComments', (table) => {
+      table.increments('commentID');
       table.text('comment').notNullable();
-      table.datetime('created_at').defaultTo(knex.fn.now());
-      table.datetime('last_edited_at');
-      table.integer('user_id').unsigned().notNullable();
-      table.integer('product_id').unsigned().notNullable();
+      table.datetime('createdAt').defaultTo(knex.fn.now());
+      table.datetime('lastEditedAt');
+      table.integer('userID').unsigned().notNullable();
+      table.integer('productID').unsigned().notNullable();
 
       // Foreign Keys
-      table.foreign('user_id').references('user_id').inTable('users');
-      table.foreign('product_id').references('product_id').inTable('products');
+      table.foreign('userID').references('userID').inTable('users');
+      table.foreign('productID').references('productID').inTable('products');
     })
-    .createTable('product_ratings', (table) => {
-      table.increments('rating_id');
+    .createTable('productRatings', (table) => {
+      table.increments('ratingID');
       table.integer('rating').defaultTo(0);
-      table.integer('user_id').unsigned().notNullable();
-      table.integer('product_id').unsigned().notNullable();
+      table.integer('userID').unsigned().notNullable();
+      table.integer('productID').unsigned().notNullable();
 
       // Foreign Keys
-      table.foreign('user_id').references('user_id').inTable('users');
-      table.foreign('product_id').references('product_id').inTable('products');
+      table.foreign('userID').references('userID').inTable('users');
+      table.foreign('productID').references('productID').inTable('products');
     })
-    .createTable('product_favourites', (table) => {
-      table.increments('favourite_id');
-      table.datetime('favourited_at').defaultTo(knex.fn.now());
-      table.integer('user_id').unsigned().notNullable();
-      table.integer('product_id').unsigned().notNullable();
+    .createTable('productFavourites', (table) => {
+      table.increments('favouriteID');
+      table.datetime('favouritedAt').defaultTo(knex.fn.now());
+      table.integer('userID').unsigned().notNullable();
+      table.integer('productID').unsigned().notNullable();
 
       // Foreign Keys
-      table.foreign('user_id').references('user_id').inTable('users');
-      table.foreign('product_id').references('product_id').inTable('products');
+      table.foreign('userID').references('userID').inTable('users');
+      table.foreign('productID').references('productID').inTable('products');
     })
-    .createTable('product_comment_likes', (table) => {
-      table.increments('comment_like_id');
-      table.integer('user_id').unsigned().notNullable();
-      table.integer('comment_id').unsigned().notNullable();
+    .createTable('productCommentLikes', (table) => {
+      table.increments('commentLikeID');
+      table.integer('userID').unsigned().notNullable();
+      table.integer('commentID').unsigned().notNullable();
 
       // Foreign Keys
-      table.foreign('user_id').references('user_id').inTable('users');
+      table.foreign('userID').references('userID').inTable('users');
       table
-        .foreign('comment_id')
-        .references('comment_id')
-        .inTable('product_comments');
+        .foreign('commentID')
+        .references('commentID')
+        .inTable('productComments');
     })
     .createTable('waitrose', (table) => {
-      table.increments('supermarket_product_id');
-      table.string('name').notNullable();
+      table.increments('supermarketProductID');
+      table.string('productName').notNullable();
       table.integer('price').notNullable();
       table.string('offer').notNullable();
       table.string('link');
       table.string('image');
-      table.string('drink_type').notNullable();
-      table.string('drink_subtype').notNullable();
-      table.integer('product_id').unsigned();
+      table.string('drinkType').notNullable();
+      table.string('drinkSubtype').notNullable();
+      table.datetime('updatedAt').defaultTo(knex.fn.now());
+      table.integer('productID').unsigned();
 
       // Foreign Key
-      table.foreign('product_id').references('product_id').inTable('products');
+      table.foreign('productID').references('productID').inTable('products');
     })
     .createTable('tesco', (table) => {
-      table.increments('supermarket_product_id');
-      table.string('name').notNullable();
+      table.increments('supermarketProductID');
+      table.string('productName').notNullable();
       table.integer('price').notNullable();
       table.string('offer').notNullable();
       table.string('link');
       table.string('image');
-      table.string('drink_type').notNullable();
-      table.string('drink_subtype').notNullable();
-      table.integer('product_id').unsigned();
+      table.string('drinkType').notNullable();
+      table.string('drinkSubtype').notNullable();
+      table.datetime('updatedAt').defaultTo(knex.fn.now());
+      table.integer('productID').unsigned();
 
       // Foreign Key
-      table.foreign('product_id').references('product_id').inTable('products');
+      table.foreign('productID').references('productID').inTable('products');
     })
     .createTable('sainsburys', (table) => {
-      table.increments('supermarket_product_id');
-      table.string('name').notNullable();
+      table.increments('supermarketProductID');
+      table.string('productName').notNullable();
       table.integer('price').notNullable();
       table.string('offer').notNullable();
       table.string('link');
       table.string('image');
-      table.string('drink_type').notNullable();
-      table.string('drink_subtype').notNullable();
-      table.integer('product_id').unsigned();
+      table.string('drinkType').notNullable();
+      table.string('drinkSubtype').notNullable();
+      table.datetime('updatedAt').defaultTo(knex.fn.now());
+      table.integer('productID').unsigned();
 
       // Foreign Key
-      table.foreign('product_id').references('product_id').inTable('products');
+      table.foreign('productID').references('productID').inTable('products');
     });
 };
 
@@ -113,10 +116,10 @@ exports.down = function (knex) {
     .dropTableIfExists('sainsburys')
     .dropTableIfExists('tesco')
     .dropTableIfExists('waitrose')
-    .dropTableIfExists('product_comment_likes')
-    .dropTableIfExists('product_favourites')
-    .dropTableIfExists('product_ratings')
-    .dropTableIfExists('product_comments')
+    .dropTableIfExists('productCommentLikes')
+    .dropTableIfExists('productFavourites')
+    .dropTableIfExists('productRatings')
+    .dropTableIfExists('productComments')
     .dropTableIfExists('products')
     .dropTableIfExists('users');
 };
