@@ -3,15 +3,17 @@ exports.up = function (knex) {
   return knex.schema
     .createTable('users', (table) => {
       table.increments('userID');
-      table.string('username').notNullable();
-      table.string('password').notNullable();
-      table.string('email').notNullable();
+      table.string('email');
+      table.string('password');
       table.string('firstName');
       table.string('lastName');
+      table.string('displayName');
       table.string('defaultPostcode');
       table.datetime('createdAt').defaultTo(knex.fn.now());
       table.string('accountType').defaultTo('regular');
       table.string('gravatar');
+      table.string('facebookID');
+      table.string('googleID');
     })
     .createTable('products', (table) => {
       table.increments('productID');

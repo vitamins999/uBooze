@@ -34,7 +34,7 @@ exports.seed = function (knex) {
       // Inserts new fake data into users
       return knex('users').insert([
         {
-          username: 'davedavedave',
+          // username: 'davedavedave',
           password: 'mypass123',
           email: 'davedavedave@gmail.com',
           firstName: 'Dave',
@@ -43,7 +43,7 @@ exports.seed = function (knex) {
           gravatar: 'https://www.gravatar.com/davedavedave.jpg',
         },
         {
-          username: 'jjimson',
+          // username: 'jjimson',
           password: 'youllneverguessthis000!',
           email: 'jjimson000@gmail.com',
           firstName: 'Jim',
@@ -52,7 +52,7 @@ exports.seed = function (knex) {
           gravatar: 'https://www.gravatar.com/jjimson.jpg',
         },
         {
-          username: 'iluvcats',
+          // username: 'iluvcats',
           password: 'catsarebrilliant',
           email: 'iluvcats@gmail.com',
           firstName: 'Kate',

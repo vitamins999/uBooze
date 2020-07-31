@@ -12,7 +12,6 @@ class User extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['username'],
 
       properties: {
         userID: {
@@ -54,6 +53,16 @@ class User extends Model {
           maxLength: 10,
         },
         gravatar: {
+          type: 'string',
+          minLength: 1,
+          maxLength: 255,
+        },
+        facebookID: {
+          type: 'string',
+          minLength: 1,
+          maxLength: 255,
+        },
+        googleID: {
           type: 'string',
           minLength: 1,
           maxLength: 255,
