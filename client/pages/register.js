@@ -1,6 +1,7 @@
 import Layout from '../components/Layout';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
+import Axios from 'axios';
 
 const RegisterPage = () => {
   const { register, handleSubmit, watch, errors } = useForm();
@@ -8,12 +9,12 @@ const RegisterPage = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('http://localhost:3001/api/auth/register', {
+      const res = await Axios({
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        data: data,
+        url: 'http://localhost:3001/api/auth/register',
       });
-      if (response.ok) {
+      if (res.status === 200) {
         router.push('/');
       }
     } catch (error) {
@@ -23,9 +24,12 @@ const RegisterPage = () => {
 
   const handleTestData = async () => {
     try {
-      const data = await fetch('http://localhost:3001/api/auth/users');
-      const user = await data.json();
-      console.log(user);
+      const res = await Axios({
+        method: 'GET',
+        withCredentials: true,
+        url: 'http://localhost:3001/api/auth/currentUser',
+      });
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }

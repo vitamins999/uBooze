@@ -3,9 +3,9 @@ const { Model } = require('objection');
 const Knex = require('knex');
 const knexFile = require('../knexfile');
 const passport = require('passport');
-const flash = require('express-flash');
 const session = require('express-session');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 const passportSetup = require('../config/passport-setup');
 
@@ -17,16 +17,16 @@ const app = express();
 const apiRoutes = require('./routes/api');
 const port = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(flash());
+app.use(cookieParser(process.env.COOKIE_KEY));
 app.use(
   session({
     secret: process.env.SESSION_KEY,
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
   })
 );
 

@@ -21,6 +21,30 @@ router.get('/users', async (req, res, next) => {
   }
 });
 
+router.get('/currentUser', (req, res) => {
+  res.send(req.user);
+});
+
+// Login user
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) {
+      throw err;
+    }
+    if (!user) {
+      res.status(500).send();
+    } else {
+      req.logIn(user, (err) => {
+        if (err) {
+          throw err;
+        }
+        res.status(200).send();
+        console.log(req.user);
+      });
+    }
+  })(req, res, next);
+});
+
 // Create a new user
 router.post('/register', async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;

@@ -1,21 +1,52 @@
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook');
 const GoogleStrategy = require('passport-google-oauth20');
-const LocalStrategy = require('passport-local');
+const LocalStrategy = require('passport-local').Strategy;
 const User = require('../src/models/User');
 const bcrypt = require('bcrypt');
 
+const authenticateUser = async (email, password, done) => {
+  const user = await User.query().findOne({ email: email });
+  if (user == null) {
+    console.log('no user');
+    return done(null, false);
+  }
+
+  try {
+    if (await bcrypt.compare(password, user.password)) {
+      return done(null, user);
+    } else {
+      console.log('wrong password');
+      return done(null, false);
+    }
+  } catch (error) {
+    console.log(error);
+    return done(error);
+  }
+};
+
 passport.serializeUser((user, done) => {
+  console.log('serializing...');
   done(null, user.userID);
 });
 
 passport.deserializeUser((id, done) => {
+  console.log('deserializing...');
   User.query()
     .findById(id)
     .then((user) => {
       done(null, user);
     });
 });
+
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: 'email',
+    },
+    authenticateUser
+  )
+);
 
 passport.use(
   new GoogleStrategy(
