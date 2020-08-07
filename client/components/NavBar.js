@@ -12,6 +12,11 @@ const NavBar = () => {
       </ul>
       <ul className='flex'>
         <li>
+          <Link href='/profile'>
+            <a>Profile</a>
+          </Link>
+        </li>
+        <li className='ml-4'>
           <Link href='/login'>
             <a>Login</a>
           </Link>

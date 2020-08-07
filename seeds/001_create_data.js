@@ -1,6 +1,6 @@
-const { sainsburysDrinksBaseData } = require('./base_data/sainsburys.js');
-const { tescoDrinksBaseData } = require('./base_data/tesco.js');
-const { waitroseDrinksBaseData } = require('./base_data/waitrose.js');
+const { sainsburysDrinksBaseData } = require('./base_data/sainsburys-test.js');
+const { tescoDrinksBaseData } = require('./base_data/tesco-test.js');
+const { waitroseDrinksBaseData } = require('./base_data/waitrose-test.js');
 
 exports.seed = function (knex) {
   // Deletes ALL existing entries
@@ -63,6 +63,54 @@ exports.seed = function (knex) {
       ]);
     })
     .then(() => {
+      // Insert a small amount of initial values into products table
+      // MAKE SURE TO INSERT THE FULL DATA SET HERE FOR PRODUCTION
+      return knex('products').insert([
+        {
+          productID: 1,
+          productName: 'Sam Miguel',
+          volume: '4x330ml',
+          drinkType: 'beer',
+          drinkSubtype: 'lager',
+        },
+        {
+          productID: 2,
+          productName: 'Budweiser',
+          volume: '15x300ml',
+          drinkType: 'beer',
+          drinkSubtype: 'lager',
+        },
+        {
+          productID: 3,
+          productName: 'Blossom Hill',
+          volume: '75cl',
+          drinkType: 'wine',
+          drinkSubtype: 'red',
+        },
+        {
+          productID: 4,
+          productName: 'Tesco Bucks Fizz',
+          volume: '75cl',
+          drinkType: 'wine',
+          drinkSubtype: 'sparkling',
+        },
+        {
+          productID: 5,
+          productName: "Gordon's London Dry Gin",
+          volume: '1l',
+          drinkType: 'spirits',
+          drinkSubtype: 'gin',
+        },
+        {
+          productID: 6,
+          productName: "Jack Daniel's Whisky",
+          volume: '70cl',
+          drinkType: 'spirits',
+          drinkSubtype: 'whisky',
+        },
+      ]);
+    })
+    .then(() => {
       // Insert base data into sainsbury's table
       return knex('sainsburys').insert(sainsburysDrinksBaseData);
     })
@@ -73,47 +121,5 @@ exports.seed = function (knex) {
     .then(() => {
       // Insert base data into waitrose's table
       return knex('waitrose').insert(waitroseDrinksBaseData);
-    })
-    .then(() => {
-      // Insert a small amount of initial values into products table
-      // MAKE SURE TO INSERT THE FULL DATA SET HERE FOR PRODUCTION
-      return knex('products').insert([
-        {
-          productName: 'Sam Miguel',
-          volume: '4x300ml',
-          drinkType: 'beer',
-          drinkSubtype: 'lager',
-        },
-        {
-          productName: 'Budweiser',
-          volume: '15x300ml',
-          drinkType: 'beer',
-          drinkSubtype: 'lager',
-        },
-        {
-          productName: 'Blossom Hill',
-          volume: '75cl',
-          drinkType: 'wine',
-          drinkSubtype: 'red',
-        },
-        {
-          productName: 'Tesco Bucks Fizz',
-          volume: '75cl',
-          drinkType: 'wine',
-          drinkSubtype: 'sparkling',
-        },
-        {
-          productName: "Gordon's London Dry Gin",
-          volume: '1l',
-          drinkType: 'spirits',
-          drinkSubtype: 'gin',
-        },
-        {
-          productName: "Jack Daniel's Whisky",
-          volume: '35cl',
-          drinkType: 'spirits',
-          drinkSubtype: 'whisky',
-        },
-      ]);
     });
 };

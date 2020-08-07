@@ -27,7 +27,7 @@ const RegisterPage = () => {
       const res = await Axios({
         method: 'GET',
         withCredentials: true,
-        url: 'http://localhost:3001/api/auth/currentUser',
+        url: 'http://localhost:3001/api/profile/',
       });
       console.log(res.data);
     } catch (error) {
