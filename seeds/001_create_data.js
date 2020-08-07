@@ -1,17 +1,12 @@
-const { sainsburysDrinksBaseData } = require('./base_data/sainsburys-test.js');
-const { tescoDrinksBaseData } = require('./base_data/tesco-test.js');
-const { waitroseDrinksBaseData } = require('./base_data/waitrose-test.js');
+// const { sainsburysDrinksBaseData } = require('./base_data/sainsburys-test.js');
+// const { tescoDrinksBaseData } = require('./base_data/tesco-test.js');
+// const { waitroseDrinksBaseData } = require('./base_data/waitrose-test.js');
+const { supermarketBaseData } = require('./base_data/supermarket-test');
 
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex('sainsburys')
+  return knex('supermarketProducts')
     .del()
-    .then(() => {
-      return knex('tesco').del();
-    })
-    .then(() => {
-      return knex('waitrose').del();
-    })
     .then(() => {
       return knex('productCommentLikes').del();
     })
@@ -111,15 +106,7 @@ exports.seed = function (knex) {
       ]);
     })
     .then(() => {
-      // Insert base data into sainsbury's table
-      return knex('sainsburys').insert(sainsburysDrinksBaseData);
-    })
-    .then(() => {
-      // Insert base data into tesco's table
-      return knex('tesco').insert(tescoDrinksBaseData);
-    })
-    .then(() => {
-      // Insert base data into waitrose's table
-      return knex('waitrose').insert(waitroseDrinksBaseData);
+      // Insert base data into supermarketProducts's table
+      return knex('supermarketProducts').insert(supermarketBaseData);
     });
 };

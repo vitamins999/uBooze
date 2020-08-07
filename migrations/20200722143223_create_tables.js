@@ -66,38 +66,9 @@ exports.up = function (knex) {
         .references('commentID')
         .inTable('productComments');
     })
-    .createTable('waitrose', (table) => {
+    .createTable('supermarketProducts', (table) => {
       table.increments('supermarketProductID');
-      table.string('productName').notNullable();
-      table.integer('price').notNullable();
-      table.string('offer').notNullable();
-      table.string('link');
-      table.string('image');
-      table.string('drinkType').notNullable();
-      table.string('drinkSubtype').notNullable();
-      table.datetime('updatedAt').defaultTo(knex.fn.now());
-      table.integer('productID').unsigned();
-
-      // Foreign Key
-      table.foreign('productID').references('productID').inTable('products');
-    })
-    .createTable('tesco', (table) => {
-      table.increments('supermarketProductID');
-      table.string('productName').notNullable();
-      table.integer('price').notNullable();
-      table.string('offer').notNullable();
-      table.string('link');
-      table.string('image');
-      table.string('drinkType').notNullable();
-      table.string('drinkSubtype').notNullable();
-      table.datetime('updatedAt').defaultTo(knex.fn.now());
-      table.integer('productID').unsigned();
-
-      // Foreign Key
-      table.foreign('productID').references('productID').inTable('products');
-    })
-    .createTable('sainsburys', (table) => {
-      table.increments('supermarketProductID');
+      table.string('supermarket').notNullable();
       table.string('productName').notNullable();
       table.integer('price').notNullable();
       table.string('offer').notNullable();
@@ -115,9 +86,7 @@ exports.up = function (knex) {
 
 exports.down = function (knex) {
   return knex.schema
-    .dropTableIfExists('sainsburys')
-    .dropTableIfExists('tesco')
-    .dropTableIfExists('waitrose')
+    .dropTableIfExists('supermarketProducts')
     .dropTableIfExists('productCommentLikes')
     .dropTableIfExists('productFavourites')
     .dropTableIfExists('productRatings')

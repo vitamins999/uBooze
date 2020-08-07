@@ -9,6 +9,11 @@ const NavBar = () => {
             <a>Home</a>
           </Link>
         </li>
+        <li className='ml-4'>
+          <Link href='/products'>
+            <a>Products</a>
+          </Link>
+        </li>
       </ul>
       <ul className='flex'>
         <li>
