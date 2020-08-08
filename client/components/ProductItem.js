@@ -7,18 +7,20 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <li className='list-none bg-gray-200 rounded-full shadow-lg py-5 px-5 m-3'>
-      <div className='flex justify-between'>
-        <div className='flex items-center'>
+    <li className='list-none bg-white rounded shadow-md relative hover:shadow-xl'>
+      <div className=''>
+        <div className='flex justify-around items-center bg-gray-300'>
           <div>
             <img
-              className='h-32 w-32 rounded-full'
+              className='w-32 h-32 object-cover p-3'
               src={product.supermarketProducts[0].image}
               alt={product.productName}
             />
           </div>
-          <div className='ml-5'>
-            <h3 className='text-2xl'>{product.productName}</h3>
+          <div className='text-gray-800 p-3'>
+            <h3 className='text-2xl font-semibold mb-2'>
+              {product.productName}
+            </h3>
             <h4 className='text-sm italic'>{product.volume}</h4>
             <p className='text-sm'>
               {capitaliseFirstLetter(product.drinkType)},{' '}
@@ -26,11 +28,12 @@ const ProductItem = ({ product }) => {
             </p>
           </div>
         </div>
-        <div className='mr-5 flex flex-col justify-center'>
-          {product.supermarketProducts.map((supermarket) => {
+        <div className='text-center grid grid-cols-3 gap-2 p-3'>
+          {product.supermarketProducts.map((supermarket, index) => {
             return (
               <SupermarketItem
                 key={supermarket.supermarketProductID}
+                index={index}
                 supermarket={supermarket}
               />
             );

@@ -12,8 +12,11 @@ export default function Home() {
 
   return (
     <Layout title='Home'>
-      <main>
-        <h1 className='text-xl'>Home Page</h1>
+      <main className='mx-10 my-5'>
+        <h1 className='text-2xl'>
+          Enter your postcode and find the cheapest supermarket alcohol prices
+          near you
+        </h1>
         <form onSubmit={onSubmit}>
           <input
             className='text-sm'
@@ -25,6 +28,11 @@ export default function Home() {
             Go
           </button>
         </form>
+        <h1 className='text-lg'>Or</h1>
+        <h1 className='text-2xl'>
+          Select the available supermarkets below to manually compare prices
+        </h1>
+        <button className='bg-gray-300 px-2 ml-2 rounded'>Go</button>
       </main>
     </Layout>
   );

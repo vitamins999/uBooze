@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   const products = await Product.query()
     .withGraphFetched('supermarketProducts')
     .modifyGraph('supermarketProducts', (builder) => {
-      builder.orderBy('price', 'desc');
+      builder.orderBy('price');
     });
   res.send(products);
 });
