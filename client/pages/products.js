@@ -1,29 +1,23 @@
-import { useState } from 'react';
-import useSWR from 'swr';
+import React, { useState } from 'react';
+import { usePaginatedQuery } from 'react-query';
 import Layout from '../components/Layout';
 
 import ProductItemList from '../components/ProductItemList';
 
-const fetcher = (url) => {
-  return fetch(url).then((res) => {
-    return res.json();
-  });
+const fetchDrinks = async (key, page = 1) => {
+  const res = await fetch(`http://localhost:3001/api/products/?page=${page}`);
+  return res.json();
 };
 
-const Page = ({ index, products }) => {
-  const { data } = useSWR(
-    `http://localhost:3001/api/products/?page=${index}`,
-    fetcher,
+const ProductsPage = ({ products }) => {
+  const [page, setPage] = useState(1);
+  const { resolvedData, latestData, status } = usePaginatedQuery(
+    ['drinks', page],
+    fetchDrinks,
     {
       initialData: products,
     }
   );
-
-  return <ProductItemList products={data.results} />;
-};
-
-const ProductsPage = ({ products }) => {
-  const [pageIndex, setPageIndex] = useState(1);
 
   return (
     <Layout title='Products'>
@@ -34,14 +28,31 @@ const ProductsPage = ({ products }) => {
             <h1 className='text-xl mb-5 pb-3 border-gray-400 border-b'>
               Products Page
             </h1>
-            <Page index={pageIndex} products={products} />
-            <div style={{ display: 'none' }}>
-              <Page index={pageIndex + 1} products={products} />
-            </div>
-            <button onClick={() => setPageIndex(pageIndex - 1)}>
-              Previous
+            {status === 'loading' && <div>Loading data...</div>}
+            {status === 'error' && <div>Error fetching data</div>}
+            <button
+              onClick={() => setPage(page - 1)}
+              disabled={page === 1}
+              className={`bg-blue-500 text-white font-bold py-2 px-4 rounded ${
+                page === 1 && 'opacity-50 cursor-not-allowed'
+              }`}
+            >
+              Previous Page
             </button>
-            <button onClick={() => setPageIndex(pageIndex + 1)}>Next</button>
+            <span className='text-xl p-2'>{page}</span>
+            <button
+              onClick={() => setPage(page + 1)}
+              disabled={!latestData || !latestData.next}
+              className={`bg-blue-500 text-white font-bold py-2 px-4 rounded ${
+                !latestData ||
+                (!latestData.next && 'opacity-50 cursor-not-allowed')
+              }`}
+            >
+              Next Page
+            </button>
+            <div className='mt-5'>
+              <ProductItemList products={resolvedData.results} />
+            </div>
           </div>
         </div>
       </main>
@@ -51,11 +62,10 @@ const ProductsPage = ({ products }) => {
 
 export const getServerSideProps = async () => {
   try {
-    const data = await fetcher('http://localhost:3001/api/products/?page=1');
-
+    const drinks = await fetchDrinks();
     return {
       props: {
-        products: data,
+        products: drinks,
       },
     };
   } catch (error) {
