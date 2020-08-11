@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SupermarketItem from './SupermarketItem';
 
 const ProductItem = ({ product }) => {
@@ -7,7 +7,7 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <li className='list-none bg-white rounded shadow-md relative hover:shadow-xl'>
+    <li className='list-none bg-white rounded shadow-md relative hover:shadow-xl transition ease-in-out duration-200'>
       <div className=''>
         <div className='flex justify-around items-center bg-gray-300'>
           <div>
@@ -18,7 +18,7 @@ const ProductItem = ({ product }) => {
             />
           </div>
           <div className='text-gray-800 p-3'>
-            <h3 className='text-2xl font-semibold mb-2'>
+            <h3 className='text-xl font-semibold border-b border-gray-700 mb-2'>
               {product.productName}
             </h3>
             <h4 className='text-sm italic'>{product.volume}</h4>
@@ -35,6 +35,7 @@ const ProductItem = ({ product }) => {
                 key={supermarket.supermarketProductID}
                 index={index}
                 supermarket={supermarket}
+                hasLowestPrice={product.lowestPrice}
               />
             );
           })}

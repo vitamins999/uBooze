@@ -9,7 +9,8 @@ const supermarketBaseData = [
       'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/20/5010017109820/5010017109820_L.jpeg',
     drinkType: 'beer',
     drinkSubtype: 'lager',
-    supermarket: 'Sainsburys',
+    supermarket: "Sainsbury's",
+    productID: 7,
   },
   {
     productName: 'Budweiser Lager Beer Bottles 15x300ml',
@@ -21,7 +22,7 @@ const supermarketBaseData = [
       'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/17/5014379004717/5014379004717_L.jpeg',
     drinkType: 'beer',
     drinkSubtype: 'lager',
-    supermarket: 'Sainsburys',
+    supermarket: "Sainsbury's",
     productID: 2,
   },
   {
@@ -34,7 +35,8 @@ const supermarketBaseData = [
       'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/16/8008440122216/8008440122216_L.jpeg',
     drinkType: 'beer',
     drinkSubtype: 'lager',
-    supermarket: 'Sainsburys',
+    supermarket: "Sainsbury's",
+    productID: 8,
   },
   {
     productName: 'Stella Artois Premium Lager Beer Bottles 15x284ml',
@@ -46,7 +48,8 @@ const supermarketBaseData = [
       'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/99/5010017109899/5010017109899_L.jpeg',
     drinkType: 'beer',
     drinkSubtype: 'lager',
-    supermarket: 'Sainsburys',
+    supermarket: "Sainsbury's",
+    productID: 9,
   },
   {
     productName: 'San Miguel Especial Premium Lager Bottles 4x330ml',
@@ -58,8 +61,112 @@ const supermarketBaseData = [
       'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/77/5010153771677/5010153771677_L.jpeg',
     drinkType: 'beer',
     drinkSubtype: 'lager',
-    supermarket: 'Sainsburys',
+    supermarket: "Sainsbury's",
     productID: 1,
+  },
+  {
+    productName: 'Birra Moretti Lager Beer Bottles 12 x 330ml',
+    price: 1400,
+    offer: 'No offer',
+    link:
+      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/all-lager/birra-moretti-12x330ml',
+    image:
+      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/78/5035766062578/5035766062578_L.jpeg',
+    drinkType: 'beer',
+    drinkSubtype: 'lager',
+    supermarket: "Sainsbury's",
+    productID: 10,
+  },
+  {
+    productName: 'Carling Original Lager 18x440ml',
+    price: 1300,
+    offer: 'No offer',
+    link:
+      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/all-lager/carling-lager-18x440ml',
+    image:
+      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/52/5010038444252/5010038444252_L.jpeg',
+    drinkType: 'beer',
+    drinkSubtype: 'lager',
+    supermarket: "Sainsbury's",
+    productID: 13,
+  },
+  {
+    productName: 'Desperados Tequila Lager Beer Bottles 12 x 250ml',
+    price: 1200,
+    offer: 'No offer',
+    link:
+      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/world-beer/desperados-tequila-lager-12x250ml',
+    image:
+      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/37/8712000039837/8712000039837_L.jpeg',
+    drinkType: 'beer',
+    drinkSubtype: 'lager',
+    supermarket: "Sainsbury's",
+    productID: 15,
+  },
+  {
+    productName: 'Classic Ales Mixed Pack x6 500ml',
+    price: 950,
+    offer: 'No offer',
+    link:
+      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/ale-stout/classic-ales-mixed-pack-x6-500ml',
+    image:
+      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/15/5011348011615/5011348011615_L.jpeg',
+    drinkType: 'beer',
+    drinkSubtype: 'ale',
+    supermarket: "Sainsbury's",
+    productID: 17,
+  },
+  {
+    productName: 'Ghost Ship Pale Ale 500ml',
+    price: 165,
+    offer: 'No offer',
+    link:
+      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/ale-stout/ghost-ship-500ml',
+    image:
+      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/35/5016878010435/5016878010435_L.jpeg',
+    drinkType: 'beer',
+    drinkSubtype: 'ale',
+    supermarket: "Sainsbury's",
+    productID: 19,
+  },
+  {
+    productName: 'Badger Golden Champion 500ml',
+    price: 180,
+    offer: 'No offer',
+    link:
+      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/ale-stout/badger-golden-champion-500ml',
+    image:
+      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/10/5010548005110/5010548005110_L.jpeg',
+    drinkType: 'beer',
+    drinkSubtype: 'ale',
+    supermarket: "Sainsbury's",
+    productID: 20,
+  },
+  {
+    productName: 'Wychwood Hobgoblin Gold Ale 500ml',
+    price: 125,
+    offer: 'No offer',
+    link:
+      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/ale-stout/wychwood-hobgoblin-gold-500ml',
+    image:
+      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/94/5011348015194/5011348015194_L.jpeg',
+    drinkType: 'beer',
+    drinkSubtype: 'ale',
+    supermarket: "Sainsbury's",
+    productID: 22,
+  },
+  {
+    productName: 'Badger Hopping Hare Ale 500ml',
+    price: 180,
+    offer: 'No offer',
+    link:
+      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/ale-stout/badger-hopping-hare-500ml',
+    image:
+      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/11/5010548002911/5010548002911_L.jpeg',
+    drinkType: 'beer',
+    drinkSubtype: 'ale',
+    supermarket: "Sainsbury's",
+    productID: 23,
   },
   {
     productName: 'Blossom Hill Red 75cl',
@@ -71,7 +178,7 @@ const supermarketBaseData = [
       'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/81/5060078183581/5060078183581_L.jpeg',
     drinkType: 'wine',
     drinkSubtype: 'red',
-    supermarket: 'Sainsburys',
+    supermarket: "Sainsbury's",
     productID: 3,
   },
   {
@@ -84,7 +191,7 @@ const supermarketBaseData = [
       'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/08/5000289110808/5000289110808_L.jpeg',
     drinkType: 'spirits',
     drinkSubtype: 'gin',
-    supermarket: 'Sainsburys',
+    supermarket: "Sainsbury's",
     productID: 5,
   },
   {
@@ -97,7 +204,7 @@ const supermarketBaseData = [
       'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/98/5099873089798/5099873089798_L.jpeg',
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
-    supermarket: 'Sainsburys',
+    supermarket: "Sainsbury's",
     productID: 6,
   },
   {
@@ -110,6 +217,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Tesco',
+    productID: 10,
   },
   {
     productName: 'Heineken Lager Beer 15 X 440Ml',
@@ -121,6 +229,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Tesco',
+    productID: 11,
   },
   {
     productName: 'Peroni Nastro Azzurro 12X330ml',
@@ -132,6 +241,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Tesco',
+    productID: 8,
   },
   {
     productName: 'Kronenbourg 1664 Beer 15 X 440Ml',
@@ -143,6 +253,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Tesco',
+    productID: 12,
   },
   {
     productName: 'Carling Lager 18X440ml',
@@ -154,6 +265,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Tesco',
+    productID: 13,
   },
   {
     productName: 'Hop House 13 Lager 6 X 330Ml',
@@ -165,6 +277,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Tesco',
+    productID: 14,
   },
   {
     productName: 'Desperados Tequila Flavoured Beer 12X250ml',
@@ -176,6 +289,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Tesco',
+    productID: 15,
   },
   {
     productName: 'Coors Light 20 X 330Ml',
@@ -187,6 +301,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Tesco',
+    productID: 16,
   },
   {
     productName: 'San Miguel 4X330ml',
@@ -199,6 +314,78 @@ const supermarketBaseData = [
     drinkSubtype: 'lager',
     supermarket: 'Tesco',
     productID: 1,
+  },
+  {
+    productName: 'Stella Artois 18 X 440Ml',
+    price: 1500,
+    offer: 'No offer',
+    link: 'https://www.tesco.com/groceries/en-GB/products/268228142',
+    image:
+      'https://img.tesco.com/Groceries/pi/820/5010017109820/IDShot_225x225.jpg',
+    drinkType: 'beer',
+    drinkSubtype: 'lager',
+    supermarket: 'Tesco',
+    productID: 7,
+  },
+  {
+    productName: 'Marstons Classic Ales 6X500ml',
+    price: 850,
+    offer: 'No offer',
+    link: 'https://www.tesco.com/groceries/en-GB/products/273706617',
+    image:
+      'https://img.tesco.com/Groceries/pi/615/5011348011615/IDShot_225x225.jpg',
+    drinkType: 'beer',
+    drinkSubtype: 'ale',
+    supermarket: 'Tesco',
+    productID: 17,
+  },
+  {
+    productName: 'Adnams Ghost Ship 4X440ml (L)',
+    price: 475,
+    offer: 'No offer',
+    link: 'https://www.tesco.com/groceries/en-GB/products/275881641',
+    image:
+      'https://img.tesco.com/Groceries/pi/029/5016878011029/IDShot_225x225.jpg',
+    drinkType: 'beer',
+    drinkSubtype: 'ale',
+    supermarket: 'Tesco',
+    productID: 18,
+  },
+  {
+    productName: 'Adnams Ghost Ship 500Ml',
+    price: 170,
+    offer: 'Any 4 for £6.00',
+    link: 'https://www.tesco.com/groceries/en-GB/products/273614795',
+    image:
+      'https://img.tesco.com/Groceries/pi/435/5016878010435/IDShot_225x225.jpg',
+    drinkType: 'beer',
+    drinkSubtype: 'ale',
+    supermarket: 'Tesco',
+    productID: 19,
+  },
+  {
+    productName: 'Badger Golden Champion 500Ml',
+    price: 170,
+    offer: 'Any 4 for £6.00',
+    link: 'https://www.tesco.com/groceries/en-GB/products/251443235',
+    image:
+      'https://img.tesco.com/Groceries/pi/110/5010548005110/IDShot_225x225.jpg',
+    drinkType: 'beer',
+    drinkSubtype: 'ale',
+    supermarket: 'Tesco',
+    productID: 20,
+  },
+  {
+    productName: 'Hobgoblin Gold 500Ml',
+    price: 119,
+    offer: 'No offer',
+    link: 'https://www.tesco.com/groceries/en-GB/products/283845523',
+    image:
+      'https://img.tesco.com/Groceries/pi/194/5011348015194/IDShot_225x225.jpg',
+    drinkType: 'beer',
+    drinkSubtype: 'ale',
+    supermarket: 'Tesco',
+    productID: 22,
   },
   {
     productName: 'Blossom Hill Red Wine 75Cl',
@@ -249,6 +436,19 @@ const supermarketBaseData = [
     productID: 6,
   },
   {
+    productName: 'Birra Moretti 12x330ml',
+    price: 1350,
+    offer: 'No offer',
+    link:
+      'https://www.waitrose.com/ecom/products/birra-moretti/402114-627466-627467',
+    image:
+      'https://d1ycl3zewbvuig.cloudfront.net/images/products/3/LN_402114_BP_3.jpg',
+    drinkType: 'beer',
+    drinkSubtype: 'lager',
+    supermarket: 'Waitrose',
+    productID: 10,
+  },
+  {
     productName: 'Classic Ales 6x500ml',
     price: 700,
     offer: 'Save £2.00. Was £9.00',
@@ -259,6 +459,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 17,
   },
   {
     productName: 'Adnams Ghost Ship 4x440ml',
@@ -271,6 +472,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 18,
   },
   {
     productName: 'Adnams Ghost Ship 500ml',
@@ -283,6 +485,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 19,
   },
   {
     productName: 'Badger Brewery Golden Champion Ale 500ml',
@@ -295,6 +498,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 20,
   },
   {
     productName: 'Badger Twice Tangled IPA 500ml',
@@ -307,6 +511,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 21,
   },
   {
     productName: 'Wychwood Brewery Gold Hobgoblin 500ml',
@@ -319,6 +524,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 22,
   },
   {
     productName: 'Badger Hopping Hare 500ml',
@@ -331,6 +537,7 @@ const supermarketBaseData = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 23,
   },
   {
     productName: 'Budweiser 15x300ml',
