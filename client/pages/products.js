@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { usePaginatedQuery } from 'react-query';
 import Layout from '../components/Layout';
 
@@ -22,9 +22,8 @@ const ProductsPage = ({ products }) => {
   return (
     <Layout title='Products'>
       <main>
-        <div className='grid md:grid-cols-5 py-5'>
-          <div className='md:col-span-1 bg-white ml-10'></div>
-          <div className='md:col-span-4 bg-gray-100 mx-10'>
+        <div className='grid md:grid-cols-5 pt-32 px-40'>
+          <div className='md:col-span-5 bg-gray-100'>
             <h1 className='text-xl mb-5 pb-3 border-gray-400 border-b'>
               Products Page
             </h1>
