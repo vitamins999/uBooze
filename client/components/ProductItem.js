@@ -7,18 +7,18 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <li className='list-none bg-white rounded shadow-md relative hover:shadow-xl transition ease-in-out duration-200'>
-      <div className=''>
-        <div className='flex justify-around items-center bg-gray-300'>
+    <li className='list-none p-4 bg-white rounded shadow-md relative hover:shadow-xl transform hover:scale-105 transition ease-in-out duration-200'>
+      <div>
+        <div className='grid grid-cols-2 items-center'>
           <div>
             <img
-              className='w-32 h-32 object-cover p-3'
+              className='object-cover p-3'
               src={product.supermarketProducts[0].image}
               alt={product.productName}
             />
           </div>
           <div className='text-gray-800 p-3'>
-            <h3 className='text-xl font-semibold border-b border-gray-700 mb-2'>
+            <h3 className='text-xl font-semibold tracking-wide border-b border-gray-700 mb-2'>
               {product.productName}
             </h3>
             <h4 className='text-sm italic'>{product.volume}</h4>

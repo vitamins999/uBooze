@@ -35,6 +35,9 @@ router.get('/', async (req, res) => {
       limit: limit,
     };
   }
+
+  results.total = total;
+
   try {
     results.results = await query;
 
