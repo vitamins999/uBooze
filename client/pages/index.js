@@ -1,16 +1,32 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { setSupermarkets } from '../features/supermarketDetails/supermarketDetailsSlice';
 
 import Layout from '../components/Layout';
 
 export default function Home() {
   const [postcode, setPostcode] = useState('');
   const router = useRouter();
+  const dispatch = useDispatch();
 
-  const onSubmit = (e) => {
+  const fetchSupermarkets = async (postcode) => {
+    const res = await fetch(
+      `http://localhost:3001/api/products/postcode?postcode=${postcode}`
+    );
+    return res.json();
+  };
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    // setPostcode(postcode.split(' ').join(''));
-    router.push(`/products/?postcode=${postcode}`);
+    const data = await fetchSupermarkets(postcode);
+
+    if (data.length > 0) {
+      dispatch(setSupermarkets(data));
+      router.push(`/products`);
+    } else {
+      console.log('No supermarkets found');
+    }
   };
 
   return (

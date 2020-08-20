@@ -2,46 +2,79 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../../models/Product');
 
+const { getSupermarkets } = require('../../utils/geolocater.js');
+
+router.get('/postcode', async (req, res) => {
+  const supermarketList = await getSupermarkets(req.query.postcode);
+  res.send(supermarketList);
+});
+
+router.post('/', async (req, res) => {
+  const data = req.query.supermarkets;
+  console.log(data);
+});
+
 router.get('/', async (req, res) => {
   const page = parseInt(req.query.page);
   const limit = parseInt(req.query.limit) || 10;
+  const userSupermarkets = req.query.supermarkets;
 
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
 
-  const results = {};
+  const totalResults = {};
+  const resultsToSend = {};
 
-  const query = Product.query()
+  const queryTotalResults = Product.query()
     .withGraphFetched('supermarketProducts')
     .modifyGraph('supermarketProducts', (builder) => {
+      builder.whereIn('supermarket', userSupermarkets);
+      builder.where('price', '>', 0);
+      builder.orderBy('price');
+    });
+
+  const queryToSend = Product.query()
+    .withGraphFetched('supermarketProducts')
+    .modifyGraph('supermarketProducts', (builder) => {
+      builder.whereIn('supermarket', userSupermarkets);
       builder.where('price', '>', 0);
       builder.orderBy('price');
     })
     .offset(startIndex)
     .limit(limit);
 
-  const [total] = await Promise.all([query.resultSize()]);
+  totalResults.results = await queryTotalResults;
 
-  if (endIndex < total) {
-    results.next = {
+  totalResults.results = totalResults.results.filter((product) => {
+    return product.supermarketProducts.length > 0;
+  });
+
+  totalResults.total = totalResults.results.length;
+
+  resultsToSend.total = totalResults.total;
+
+  if (endIndex < resultsToSend.total) {
+    resultsToSend.next = {
       page: page + 1,
       limit: limit,
     };
   }
 
   if (startIndex > 0) {
-    results.previous = {
+    resultsToSend.previous = {
       page: page - 1,
       limit: limit,
     };
   }
 
-  results.total = total;
-
   try {
-    results.results = await query;
+    resultsToSend.results = await queryToSend;
 
-    results.results = results.results.map((product) => {
+    resultsToSend.results = resultsToSend.results.filter((product) => {
+      return product.supermarketProducts.length > 0;
+    });
+
+    resultsToSend.results = resultsToSend.results.map((product) => {
       if (product.supermarketProducts.length > 1) {
         if (
           product.supermarketProducts[0].price <
@@ -64,7 +97,8 @@ router.get('/', async (req, res) => {
         };
       }
     });
-    res.send(results);
+
+    res.send(resultsToSend);
   } catch (error) {
     res.status(500).json({ msg: error.message });
   }
