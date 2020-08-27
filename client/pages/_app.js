@@ -1,4 +1,5 @@
 import { wrapper } from '../store/store';
+import { Provider } from 'react-redux';
 import '../styles/index.css';
 
 function MyApp({ Component, pageProps }) {

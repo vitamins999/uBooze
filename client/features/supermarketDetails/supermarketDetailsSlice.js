@@ -2,14 +2,31 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const supermarketDetailsSlice = createSlice({
   name: 'supermarketDetails',
-  initialState: [],
+  initialState: {
+    supermarketList: [],
+    queryString: '',
+    userPostcode: '',
+  },
   reducers: {
-    setSupermarkets(state, action) {
-      return (state = action.payload);
+    setSupermarkets: (state, action) => {
+      const payload = action.payload;
+      state.supermarketList = payload;
+    },
+    setQueryString: (state, action) => {
+      const payload = action.payload;
+      state.queryString = payload;
+    },
+    setUserPostcode: (state, action) => {
+      const payload = action.payload;
+      state.userPostcode = payload;
     },
   },
 });
 
-export const { setSupermarkets } = supermarketDetailsSlice.actions;
+export const {
+  setSupermarkets,
+  setQueryString,
+  setUserPostcode,
+} = supermarketDetailsSlice.actions;
 
 export default supermarketDetailsSlice.reducer;

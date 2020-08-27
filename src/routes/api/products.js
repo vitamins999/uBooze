@@ -9,9 +9,24 @@ router.get('/postcode', async (req, res) => {
   res.send(supermarketList);
 });
 
-router.post('/', async (req, res) => {
-  const data = req.query.supermarkets;
-  console.log(data);
+router.get('/details', async (req, res) => {
+  const productID = req.query.item;
+
+  const queryToSend = Product.query()
+    .withGraphFetched('supermarketProducts')
+    .modifyGraph('supermarketProducts', (builder) => {
+      builder.where('price', '>', 0);
+      builder.orderBy('price');
+    })
+    .where('productID', productID);
+
+  try {
+    const results = await queryToSend;
+
+    res.send(results[0]);
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
+  }
 });
 
 router.get('/', async (req, res) => {
