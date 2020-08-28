@@ -14,7 +14,7 @@ const ProductItem = ({ product }) => {
       as={`/products/${productID}?postcode=${userPostcode}`}
     >
       <a target='_blank' rel='noreferrer'>
-        <li className='list-none p-4 bg-white rounded-lg shadow-md border-gray-200 border-4 relative hover:shadow-xl transform hover:scale-105 transition ease-in-out duration-200'>
+        <li className='list-none p-4 bg-white rounded-lg shadow-md border border-gray-400 border-4 relative hover:shadow-xl transform hover:scale-105 transition ease-in-out duration-200'>
           <div>
             <div className='grid grid-cols-2 items-center'>
               <div>

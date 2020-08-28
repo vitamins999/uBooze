@@ -103,7 +103,7 @@ const ProductsPage = () => {
             <div className='flex w-full items-center justify-center'>
               <div className='border-b border-gray-700 w-20'></div>
               <span className='text-xl font-semibold tracking-wide text-grey-700 px-5'>
-                Page {page}
+                Page {page} of {resolvedData.totalPages}
               </span>
               <div className='border-b border-gray-700 w-20'></div>
             </div>

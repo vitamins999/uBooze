@@ -67,6 +67,7 @@ router.get('/', async (req, res) => {
   totalResults.total = totalResults.results.length;
 
   resultsToSend.total = totalResults.total;
+  resultsToSend.totalPages = Math.ceil(resultsToSend.total / limit);
 
   if (endIndex < resultsToSend.total) {
     resultsToSend.next = {

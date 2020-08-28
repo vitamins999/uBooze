@@ -13,24 +13,33 @@ const ItemPage = () => {
   const router = useRouter();
   const { item, postcode } = router.query;
 
-  const { loading, error, data, status } = useQuery(
-    ['drinkInfo', item],
-    fetchDrinkInfo
-  );
+  const { data, status } = useQuery(['drinkInfo', item], fetchDrinkInfo);
+
+  if (status == 'loading')
+    return (
+      <Layout title='Loading...'>
+        <div>Loading data...</div>
+      </Layout>
+    );
+
+  if (status == 'error')
+    return (
+      <Layout title='Error'>
+        <div>Error fetching data.</div>
+      </Layout>
+    );
+
+  const title = `${data.productName} ${data.volume}`;
 
   return (
-    <Layout>
-      {status === 'loading' && <div>Loading data...</div>}
-      {status === 'error' && <div>Error fetching data</div>}
-      {status === 'success' && (
-        <div>
-          <h1>Does this work?</h1>
-          <h2>ProductID -- {item}</h2>
-          <h2>Postcode -- {postcode}</h2>
+    <Layout title={title}>
+      <div>
+        <h1>Does this work?</h1>
+        <h2>ProductID -- {item}</h2>
+        <h2>Postcode -- {postcode}</h2>
 
-          <h3>Item Name -- {data.productName}</h3>
-        </div>
-      )}
+        <h3>Item Name -- {data.productName}</h3>
+      </div>
     </Layout>
   );
 };
