@@ -20,3 +20,20 @@ export const createQueryString = (supermarketList) => {
   });
   return data.join('');
 };
+
+// Convert price from integer to GBP.
+export const formatter = new Intl.NumberFormat('en-GB', {
+  style: 'currency',
+  currency: 'GBP',
+});
+
+// Return the relevant supermarket logo SVG for an image string.
+export const supermarketLogo = (supermarket) => {
+  if (supermarket === 'Waitrose') {
+    return '/waitrose_logo.svg';
+  } else if (supermarket === "Sainsbury's") {
+    return '/sainsburys_logo.svg';
+  } else if (supermarket === 'Tesco') {
+    return '/tesco_logo.svg';
+  }
+};

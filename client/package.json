@@ -10,13 +10,15 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
     "axios": "^0.19.2",
+    "cookie": "^0.4.1",
     "framer-motion": "^2.6.3",
+    "js-cookie": "^2.2.1",
     "next": "9.5.0",
     "next-redux-wrapper": "^6.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-hook-form": "^6.2.0",
-    "react-query": "^2.5.13",
+    "react-query": "^2.12.1",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5"
   },

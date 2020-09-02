@@ -114,6 +114,9 @@ router.get('/', async (req, res) => {
       }
     });
 
+    resultsToSend.firstItem = startIndex + 1;
+    resultsToSend.lastItem = startIndex + resultsToSend.results.length;
+
     res.send(resultsToSend);
   } catch (error) {
     res.status(500).json({ msg: error.message });

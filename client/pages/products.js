@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { usePaginatedQuery } from 'react-query';
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 import Layout from '../components/Layout';
+import { parseCookies } from '../utils/parseCookies';
+import { motion } from 'framer-motion';
 
 import ProductItemList from '../components/ProductItemList';
 
@@ -13,10 +15,10 @@ const fetchDrinks = async (key, page = 1, queryString) => {
   return res.json();
 };
 
-const ProductsPage = () => {
+const ProductsPage = ({ drinks }) => {
   const router = useRouter();
   const [page, setPage] = useState(1);
-  const { queryString } = useSelector((state) => state.supermarketDetails);
+  const queryString = Cookies.get('queryString');
 
   useEffect(() => {
     if (!queryString) {
@@ -26,7 +28,10 @@ const ProductsPage = () => {
 
   const { resolvedData, latestData, status } = usePaginatedQuery(
     ['drinks', page, queryString],
-    fetchDrinks
+    fetchDrinks,
+    {
+      initialData: drinks,
+    }
   );
 
   return (
@@ -34,13 +39,15 @@ const ProductsPage = () => {
       {status === 'loading' && <div>Loading data...</div>}
       {status === 'error' && <div>Error fetching data</div>}
       {status === 'success' && (
-        <main className='flex flex-col items-start'>
-          <div className='grid md:grid-cols-5 pb-10 px-40'>
-            <div className='md:col-span-5'>
+        <main className='flex flex-col my-40'>
+          <div className='pb-10 px-5 container mx-auto'>
+            <div className=''>
               <div className='flex items-center justify-between mb-5 pb-3 border-gray-400 border-b'>
-                <h1 className='text-xl font-semibold'>Products</h1>
+                <h1 className='text-md text-gray-700'>
+                  Showing {resolvedData.firstItem}-{resolvedData.lastItem} of{' '}
+                  {resolvedData.total} results
+                </h1>
                 <div className='flex items-center'>
-                  <h2 className='text-xl'>{resolvedData.total} items found</h2>
                   <a
                     className='mx-4 hover:text-gray-500 transition ease-out duration-100'
                     href='#'
@@ -135,6 +142,25 @@ const ProductsPage = () => {
       )}
     </Layout>
   );
+};
+
+export const getServerSideProps = async ({ req }) => {
+  try {
+    const cookies = parseCookies(req);
+    const queryStringData = cookies.queryString;
+
+    const drinks = await fetchDrinks((queryString = queryStringData));
+
+    return {
+      props: {
+        drinks,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {},
+    };
+  }
 };
 
 export default ProductsPage;

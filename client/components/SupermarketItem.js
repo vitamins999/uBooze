@@ -1,25 +1,9 @@
+import { formatter, supermarketLogo } from '../utils/supermarketListUtils';
+
 const SupermarketItem = ({ supermarket, index, hasLowestPrice }) => {
-  const formatter = new Intl.NumberFormat('en-GB', {
-    style: 'currency',
-    currency: 'GBP',
-  });
-
-  const supermarketLogo = (supermarket) => {
-    if (supermarket === 'Waitrose') {
-      return 'waitrose_logo.svg';
-    } else if (supermarket === "Sainsbury's") {
-      return 'sainsburys_logo.svg';
-    } else if (supermarket === 'Tesco') {
-      return 'tesco_logo.svg';
-    }
-  };
-
   return (
     <div className='flex flex-col mx-2'>
-      <a
-        href={supermarket.link}
-        className='flex flex-col hover:border-gray-900 border-t'
-      >
+      <div href={supermarket.link} className='flex flex-col border-t'>
         <span className='text-sm font-bold text-blue-700 my-4'>
           <img src={supermarketLogo(supermarket.supermarket)} alt='logo' />
         </span>{' '}
@@ -39,7 +23,7 @@ const SupermarketItem = ({ supermarket, index, hasLowestPrice }) => {
             <p>Price</p>
           </div>
         )}
-      </a>
+      </div>
     </div>
   );
 };

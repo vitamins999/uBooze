@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
+import Cookie from 'js-cookie';
 
 import {
   fetchSupermarkets,
@@ -19,9 +20,13 @@ const containerVariants = {
   hidden: {
     opacity: 0,
   },
-  visible: {
+  visible1: {
     opacity: 1,
-    transition: { duration: 1.5 },
+    transition: { duration: 1 },
+  },
+  visible2: {
+    opacity: 1,
+    transition: { delay: 0.5, duration: 1 },
   },
 };
 
@@ -41,6 +46,9 @@ export default function Home() {
       dispatch(setQueryString(supermarketListQueryString));
 
       dispatch(setUserPostcode(postcode));
+      Cookie.set('currentPostcode', postcode);
+      Cookie.set('supermarketList', supermarketList);
+      Cookie.set('queryString', supermarketListQueryString);
 
       router.push(`/products`);
     } else {
@@ -51,12 +59,12 @@ export default function Home() {
   return (
     <Layout title='Home'>
       <main>
-        <div className='flex w-full mx-auto items-center bg-black text-gray-300 -mt-64 px-40'>
+        <div className='flex w-full mx-auto items-center bg-black text-gray-300 pt-20 px-32'>
           <motion.div
             className='w-1/3 z-10'
             variants={containerVariants}
             initial='hidden'
-            animate='visible'
+            animate='visible1'
           >
             <img src='hero-small.webp' alt='wineglass' />
           </motion.div>
@@ -64,11 +72,9 @@ export default function Home() {
             className='flex flex-col w-full text-right'
             variants={containerVariants}
             initial='hidden'
-            animate='visible'
+            animate='visible2'
           >
-            <h1 className='text-5xl uppercase tracking-widest font-bold'>
-              uBooze
-            </h1>
+            <h1 className='text-6xl tracking-widest font-bold'>ubooze</h1>
             <h1 className='text-4xl'>The cheapest supermarket</h1>
             <h1 className='text-4xl'>alcohol prices near you</h1>
             <h3 className='text-xs pt-2'>*UK only</h3>
@@ -105,7 +111,7 @@ export default function Home() {
           </motion.div>
         </div>
         <svg
-          className='-mt-4'
+          className='-mt-10'
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 1440 320'
         >

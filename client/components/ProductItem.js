@@ -1,56 +1,107 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
-import SupermarketItem from './SupermarketItem';
-import { capitaliseFirstLetter } from '../utils/supermarketListUtils';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  capitaliseFirstLetter,
+  supermarketLogo,
+  formatter,
+} from '../utils/supermarketListUtils';
+import Cookies from 'js-cookie';
 
 const ProductItem = ({ product }) => {
-  const { userPostcode } = useSelector((state) => state.supermarketDetails);
+  const currentPostcode = Cookies.get('currentPostcode');
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [statsY, setStatsY] = useState(0);
 
   const productID = product.productID;
   return (
-    <Link
-      href='/products/[productID]'
-      as={`/products/${productID}?postcode=${userPostcode}`}
+    <div
+      onMouseEnter={() => {
+        setShowOverlay(true);
+        setStatsY(-100);
+      }}
+      onMouseLeave={() => {
+        setShowOverlay(false);
+        setStatsY(0);
+      }}
+      className='flex flex-col w-64 h-108 shadow-md rounded-md overflow-hidden'
     >
-      <a target='_blank' rel='noreferrer'>
-        <li className='list-none p-4 bg-white rounded-lg shadow-md border border-gray-400 border-4 relative hover:shadow-xl transform hover:scale-105 transition ease-in-out duration-200'>
-          <div>
-            <div className='grid grid-cols-2 items-center'>
+      <div>
+        <div className='relative'>
+          <img
+            src={product.supermarketProducts[0].image}
+            alt={product.productName}
+            className='w-full h-64 object-cover'
+          />
+          {showOverlay && (
+            <>
+              <motion.div
+                animate={{ y: statsY }}
+                className='absolute top-0 w-64 h-64 bg-blue-700 opacity-75 rounded-md'
+              ></motion.div>
+              <Link href='/products/[item]' as={`/products/${productID}`}>
+                <motion.a
+                  whileHover={{ scale: 1.2 }}
+                  className='absolute top-0 z-10 text-sm cursor-pointer tracking-wide font-medium mt-16 text-center w-1/2 mx-16 border-2 border-orange-500 bg-orange-500 text-white py-1 px-2 rounded hover:bg-orange-600 hover:border-orange-600'
+                >
+                  More Info
+                </motion.a>
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+      <div></div>
+      <motion.div animate={{ y: statsY }} className=''>
+        <div className='bg-white px-6'>
+          <h1 className='uppercase text-gray-900 title-font text-sm font-semibold pt-4'>
+            {product.productName}
+          </h1>
+          <h2 className='text-gray-500 text-xs tracking-widest title-font mb-1'>
+            {product.volume}
+          </h2>
+          <h2 className='text-gray-500 text-xs tracking-widest title-font pb-3'>
+            {capitaliseFirstLetter(product.drinkType)} |{' '}
+            {capitaliseFirstLetter(product.drinkSubtype)}
+          </h2>
+        </div>
+
+        <div className='bg-white pt-5 px-6'>
+          {!showOverlay ? (
+            <h3 className='text-gray-700 text-sm'>Lowest Price:</h3>
+          ) : (
+            <h3 className='text-gray-700 text-sm'>All Prices:</h3>
+          )}
+          {product.supermarketProducts.map((product, index) => {
+            return (
               <div>
-                <img
-                  className='object-cover p-3'
-                  src={product.supermarketProducts[0].image}
-                  alt={product.productName}
-                />
+                {index === 0 ? (
+                  <div className='flex justify-between pt-2'>
+                    <img
+                      src={supermarketLogo(product.supermarket)}
+                      alt='logo'
+                      className='h-5'
+                    />
+                    <span className='text-orange-500'>
+                      {formatter.format(product.price / 100)}
+                    </span>
+                  </div>
+                ) : (
+                  <div className='flex justify-between pt-4'>
+                    <img
+                      src={supermarketLogo(product.supermarket)}
+                      alt='logo'
+                      className='h-5'
+                    />
+                    <span>{formatter.format(product.price / 100)}</span>
+                  </div>
+                )}
               </div>
-              <div className='text-gray-800 p-3'>
-                <h3 className='text-xl font-semibold tracking-wide border-b border-gray-700 mb-2'>
-                  {product.productName}
-                </h3>
-                <h4 className='text-sm italic'>{product.volume}</h4>
-                <p className='text-sm'>
-                  {capitaliseFirstLetter(product.drinkType)},{' '}
-                  {capitaliseFirstLetter(product.drinkSubtype)}
-                </p>
-              </div>
-            </div>
-            <div className='text-center grid grid-cols-3 gap-2 p-3'>
-              {product.supermarketProducts.map((supermarket, index) => {
-                return (
-                  <SupermarketItem
-                    key={supermarket.supermarketProductID}
-                    index={index}
-                    supermarket={supermarket}
-                    hasLowestPrice={product.lowestPrice}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        </li>
-      </a>
-    </Link>
+            );
+          })}
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
