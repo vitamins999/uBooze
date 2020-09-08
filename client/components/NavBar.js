@@ -22,22 +22,22 @@ const NavBar = ({ page }) => {
           </Link>
           <nav className='md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center'>
             <Link href='#'>
-              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-gray-900'>
+              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
                 Search by Location
               </a>
             </Link>
             <Link href='#'>
-              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-gray-900'>
+              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
                 Search by Supermarket
               </a>
             </Link>
             <Link href='#'>
-              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-gray-900'>
+              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
                 Search by Drink
               </a>
             </Link>
             <Link href='/products'>
-              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-gray-900'>
+              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
                 All Products
               </a>
             </Link>

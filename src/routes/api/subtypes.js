@@ -2,44 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../../models/Product');
 
-const { getSupermarkets } = require('../../utils/geolocater.js');
-
-router.get('/postcode', async (req, res) => {
-  const supermarketList = await getSupermarkets(req.query.postcode);
-  res.send(supermarketList);
-});
-
-router.get('/details', async (req, res) => {
-  const productID = req.query.item;
-
-  const queryToSend = Product.query()
-    .withGraphFetched('supermarketProducts')
-    .modifyGraph('supermarketProducts', (builder) => {
-      builder.where('price', '>', 0);
-      builder.orderBy('price');
-    })
-    .where('productID', productID);
-
-  try {
-    const results = await queryToSend;
-
-    res.send(results[0]);
-  } catch (error) {
-    res.status(500).json({ msg: error.message });
-  }
-});
-
 router.get('/', async (req, res) => {
   const page = parseInt(req.query.page);
   const limit = parseInt(req.query.limit) || 10;
   const userSupermarkets = req.query.supermarkets;
-  let drinkType = req.query.type;
-
-  if (!drinkType) {
-    drinkType = ['beer', 'wine', 'spirits'];
-  } else {
-    drinkType = [drinkType];
-  }
+  let drinkSubtype = [req.query.subtype];
 
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
@@ -54,8 +21,8 @@ router.get('/', async (req, res) => {
       builder.where('price', '>', 0);
       builder.orderBy('price');
     })
-    .whereIn('drinkType', drinkType)
-    .orderBy(['displayName', { column: 'productID' }]);
+    .whereIn('drinkSubtype', drinkSubtype)
+    .orderBy(['productName', { column: 'productID' }]);
 
   const queryToSend = Product.query()
     .withGraphFetched('supermarketProducts')
@@ -64,8 +31,8 @@ router.get('/', async (req, res) => {
       builder.where('price', '>', 0);
       builder.orderBy('price');
     })
-    .whereIn('drinkType', drinkType)
-    .orderBy(['displayName', { column: 'productID' }])
+    .whereIn('drinkSubtype', drinkSubtype)
+    .orderBy(['productName', { column: 'productID' }])
     .offset(startIndex)
     .limit(limit);
 

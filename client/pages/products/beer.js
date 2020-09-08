@@ -3,10 +3,10 @@ import { usePaginatedQuery } from 'react-query';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
-import Layout from '../components/Layout';
-import { parseCookies } from '../utils/parseCookies';
+import Layout from '../../components/Layout';
+import { parseCookies } from '../../utils/parseCookies';
 
-import ProductResults from '../components/ProductResults';
+import ProductResults from '../../components/ProductResults';
 
 const fetchDrinks = async (key, page = 1, queryString) => {
   const res = await fetch(
@@ -15,11 +15,11 @@ const fetchDrinks = async (key, page = 1, queryString) => {
   return res.json();
 };
 
-const ProductsPage = ({ drinks }) => {
+const BeerPage = ({ drinks }) => {
   const router = useRouter();
   const [page, setPage] = useState(1);
 
-  const queryString = Cookies.get('queryString');
+  const queryString = Cookies.get('queryString') + '&type=beer';
   const postcode = Cookies.get('currentPostcode');
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const ProductsPage = ({ drinks }) => {
   }, []);
 
   const { resolvedData, latestData, status } = usePaginatedQuery(
-    ['allDrinks', page, queryString],
+    ['beer', page, queryString],
     fetchDrinks,
     {
       initialData: drinks,
@@ -37,21 +37,21 @@ const ProductsPage = ({ drinks }) => {
   );
 
   return (
-    <Layout title='Beer, Wine & Spirits'>
+    <Layout title='Beer'>
       {status === 'loading' && <div>Loading data...</div>}
       {status === 'error' && <div>Error fetching data</div>}
       {status === 'success' && (
         <main className='flex flex-col mb-40'>
           <div className='pb-10 px-5 container mx-auto'>
             <div className='mb-10 mt-20 w-full flex justify-center text-sm text-gray-700'>
-              <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black text-black bg-gray-300 font-semibold rounded-md'>
-                All Drinks
-              </a>
-              <Link href='/products/beer'>
+              <Link href='/products'>
                 <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Beer
+                  All Drinks
                 </a>
               </Link>
+              <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black text-black bg-gray-300 font-semibold rounded-md'>
+                Beer
+              </a>
               <Link href='/products/wine'>
                 <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
                   Wine
@@ -64,7 +64,32 @@ const ProductsPage = ({ drinks }) => {
               </Link>
             </div>
             <div className='w-full mb-10 text-center text-5xl tracking-wider font-bold text-gray-800'>
-              <h1>Beer, Wine and Spirits</h1>
+              <h1>Beer</h1>
+            </div>
+            <div className='mb-10 w-full flex justify-center text-xs text-gray-700'>
+              <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black text-black bg-gray-300 font-semibold rounded-md'>
+                All Beer
+              </a>
+              <Link href='/products/beer/ale'>
+                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
+                  Ale
+                </a>
+              </Link>
+              <Link href='/products/beer/lager'>
+                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
+                  Lager
+                </a>
+              </Link>
+              <Link href='/products/beer/cider'>
+                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
+                  Cider
+                </a>
+              </Link>
+              <Link href='/products/beer/lowalcohol'>
+                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
+                  Low Alcohol
+                </a>
+              </Link>
             </div>
             <div>
               <ProductResults resolvedData={resolvedData} postcode={postcode} />
@@ -135,7 +160,7 @@ const ProductsPage = ({ drinks }) => {
 export const getServerSideProps = async ({ req }) => {
   try {
     const cookies = parseCookies(req);
-    const queryStringData = cookies.queryString;
+    const queryStringData = cookies.queryString + '&type=beer';
 
     const drinks = await fetchDrinks((queryString = queryStringData));
 
@@ -151,4 +176,4 @@ export const getServerSideProps = async ({ req }) => {
   }
 };
 
-export default ProductsPage;
+export default BeerPage;

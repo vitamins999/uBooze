@@ -15,7 +15,9 @@ const ProductItem = ({ product }) => {
 
   const productID = product.productID;
   return (
-    <div
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      transition={{ duration: 0.3 }}
       onMouseEnter={() => {
         setShowOverlay(true);
         setStatsY(-100);
@@ -37,6 +39,11 @@ const ProductItem = ({ product }) => {
             <>
               <motion.div
                 animate={{ y: statsY }}
+                transition={{
+                  duration: 0.3,
+                  type: 'tween',
+                  ease: 'easeInOut',
+                }}
                 className='absolute top-0 w-64 h-64 bg-blue-700 opacity-75 rounded-md'
               ></motion.div>
               <Link href='/products/[item]' as={`/products/${productID}`}>
@@ -52,10 +59,17 @@ const ProductItem = ({ product }) => {
         </div>
       </div>
       <div></div>
-      <motion.div animate={{ y: statsY }} className=''>
+      <motion.div
+        animate={{ y: statsY }}
+        transition={{
+          duration: 0.3,
+          type: 'tween',
+          ease: 'easeInOut',
+        }}
+      >
         <div className='bg-white px-6'>
           <h1 className='uppercase text-gray-900 title-font text-sm font-semibold pt-4'>
-            {product.productName}
+            {product.displayName}
           </h1>
           <h2 className='text-gray-500 text-xs tracking-widest title-font mb-1'>
             {product.volume}
@@ -74,7 +88,7 @@ const ProductItem = ({ product }) => {
           )}
           {product.supermarketProducts.map((product, index) => {
             return (
-              <div>
+              <div key={product.supermarket}>
                 {index === 0 ? (
                   <div className='flex justify-between pt-2'>
                     <img
@@ -101,7 +115,7 @@ const ProductItem = ({ product }) => {
           })}
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

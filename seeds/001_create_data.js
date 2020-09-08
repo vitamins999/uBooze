@@ -64,6 +64,7 @@ exports.seed = function (knex) {
         {
           productID: 1,
           productName: 'Sam Miguel',
+          displayName: 'Sam Miguel',
           volume: '4x330ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -71,6 +72,7 @@ exports.seed = function (knex) {
         {
           productID: 2,
           productName: 'Budweiser',
+          displayName: 'Budweiser',
           volume: '15x300ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -78,6 +80,7 @@ exports.seed = function (knex) {
         {
           productID: 3,
           productName: 'Blossom Hill',
+          displayName: 'Blossom Hill',
           volume: '75cl',
           drinkType: 'wine',
           drinkSubtype: 'red',
@@ -85,6 +88,7 @@ exports.seed = function (knex) {
         {
           productID: 4,
           productName: 'Tesco Bucks Fizz',
+          displayName: 'Tesco Bucks Fizz',
           volume: '75cl',
           drinkType: 'wine',
           drinkSubtype: 'sparkling',
@@ -92,6 +96,7 @@ exports.seed = function (knex) {
         {
           productID: 5,
           productName: "Gordon's London Dry Gin",
+          displayName: "Gordon's Dry Gin",
           volume: '1l',
           drinkType: 'spirits',
           drinkSubtype: 'gin',
@@ -99,6 +104,7 @@ exports.seed = function (knex) {
         {
           productID: 6,
           productName: "Jack Daniel's Whisky",
+          displayName: "Jack Daniel's Whisky",
           volume: '70cl',
           drinkType: 'spirits',
           drinkSubtype: 'whisky',
@@ -106,6 +112,7 @@ exports.seed = function (knex) {
         {
           productID: 7,
           productName: 'Stella Artois',
+          displayName: 'Stella Artois',
           volume: '18x440ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -113,6 +120,7 @@ exports.seed = function (knex) {
         {
           productID: 8,
           productName: 'Peroni Nastro Azzurro',
+          displayName: 'Peroni Nastro Azzurro',
           volume: '12x330ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -120,6 +128,7 @@ exports.seed = function (knex) {
         {
           productID: 9,
           productName: 'Stella Artois',
+          displayName: 'Stella Artois',
           volume: '15x284ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -127,6 +136,7 @@ exports.seed = function (knex) {
         {
           productID: 10,
           productName: 'Birra Moretti',
+          displayName: 'Birra Moretti',
           volume: '12 X 330Ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -134,6 +144,7 @@ exports.seed = function (knex) {
         {
           productID: 11,
           productName: 'Heineken',
+          displayName: 'Heineken',
           volume: '15 X 440Ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -141,6 +152,7 @@ exports.seed = function (knex) {
         {
           productID: 12,
           productName: 'Kronenbourg 1664',
+          displayName: 'Kronenbourg 1664',
           volume: '15 X 440Ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -148,6 +160,7 @@ exports.seed = function (knex) {
         {
           productID: 13,
           productName: 'Carling',
+          displayName: 'Carling',
           volume: '18X440ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -155,6 +168,7 @@ exports.seed = function (knex) {
         {
           productID: 14,
           productName: 'Hop House 13',
+          displayName: 'Hop House 13',
           volume: '6 X 330Ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -162,6 +176,7 @@ exports.seed = function (knex) {
         {
           productID: 15,
           productName: 'Desperados Tequila Flavoured Beer',
+          displayName: 'Desperados',
           volume: '12X250ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -169,6 +184,7 @@ exports.seed = function (knex) {
         {
           productID: 16,
           productName: 'Coors Light',
+          displayName: 'Coors Light',
           volume: '20 X 330Ml',
           drinkType: 'beer',
           drinkSubtype: 'lager',
@@ -176,6 +192,7 @@ exports.seed = function (knex) {
         {
           productID: 17,
           productName: 'Classic Ales',
+          displayName: 'Classic Ales',
           volume: '6x500ml',
           drinkType: 'beer',
           drinkSubtype: 'ale',
@@ -183,6 +200,7 @@ exports.seed = function (knex) {
         {
           productID: 18,
           productName: 'Adnams Ghost Ship',
+          displayName: 'Adnams Ghost Ship',
           volume: '4x440ml',
           drinkType: 'beer',
           drinkSubtype: 'ale',
@@ -190,6 +208,7 @@ exports.seed = function (knex) {
         {
           productID: 19,
           productName: 'Adnams Ghost Ship',
+          displayName: 'Adnams Ghost Ship',
           volume: '500ml',
           drinkType: 'beer',
           drinkSubtype: 'ale',
@@ -197,6 +216,7 @@ exports.seed = function (knex) {
         {
           productID: 20,
           productName: 'Badger Brewery Golden Champion Ale',
+          displayName: 'Golden Champion Ale',
           volume: '500ml',
           drinkType: 'beer',
           drinkSubtype: 'ale',
@@ -204,6 +224,7 @@ exports.seed = function (knex) {
         {
           productID: 21,
           productName: 'Badger Twice Tangled IPA',
+          displayName: 'Twice Tangled IPA',
           volume: '500ml',
           drinkType: 'beer',
           drinkSubtype: 'ale',
@@ -211,6 +232,7 @@ exports.seed = function (knex) {
         {
           productID: 22,
           productName: 'Wychwood Brewery Gold Hobgoblin',
+          displayName: 'Gold Hobgoblin',
           volume: '500ml',
           drinkType: 'beer',
           drinkSubtype: 'ale',
@@ -218,6 +240,7 @@ exports.seed = function (knex) {
         {
           productID: 23,
           productName: 'Badger Hopping Hare',
+          displayName: 'Hopping Hare',
           volume: '500ml',
           drinkType: 'beer',
           drinkSubtype: 'ale',

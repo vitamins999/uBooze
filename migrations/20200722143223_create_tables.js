@@ -18,6 +18,7 @@ exports.up = function (knex) {
     .createTable('products', (table) => {
       table.increments('productID');
       table.string('productName');
+      table.string('displayName');
       table.string('volume');
       table.string('drinkType');
       table.string('drinkSubtype');
