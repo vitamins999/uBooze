@@ -17,6 +17,9 @@ module.exports = {
         96: '24rem',
         108: '27rem',
       },
+      boxShadow: {
+        orange: '0 4px 14px 0 rgba(237, 137, 54, 0.39)',
+      },
     },
   },
   variants: {

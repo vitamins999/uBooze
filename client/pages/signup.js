@@ -6,28 +6,25 @@ import { useRouter } from 'next/router';
 import Axios from 'axios';
 import { motion } from 'framer-motion';
 
-const LoginPage = () => {
+const signupPage = () => {
   const {
-    register: login,
-    handleSubmit: handleLoginSubmit,
-    watch: loginWatch,
-    errors: loginErrors,
+    register,
+    handleSubmit: handleRegisterSubmit,
+    watch: registerWatch,
+    errors: registerErrors,
   } = useForm();
 
   const router = useRouter();
 
-  const onLoginSubmit = async (data) => {
+  const onRegisterSubmit = async (data) => {
     try {
       const res = await Axios({
         method: 'POST',
-        withCredentials: true,
         data: data,
-        url: 'http://localhost:3001/api/auth/login',
+        url: 'http://localhost:3001/api/auth/register',
       });
       if (res.status === 200) {
         router.push('/');
-      } else if (res.status === 500) {
-        router.push('/register');
       }
     } catch (error) {
       console.log(error);
@@ -49,7 +46,7 @@ const LoginPage = () => {
           sizes='16x16'
           href='favicon-16x16.png'
         />
-        <title>uBooze | Log In</title>
+        <title>uBooze | Sign Up</title>
       </Head>
       <main className='grid grid-cols-3 font-body'>
         <div className='flex flex-col h-screen px-16 bg-gradient-to-r from-orange-300 to-orange-400 text-orange-900'>
@@ -73,25 +70,25 @@ const LoginPage = () => {
           <div>
             <div className='text-right text-xs font-medium'>
               <h4>
-                Don't have an account?{' '}
-                <Link href='/signup'>
+                Already have an account?{' '}
+                <Link href='/login'>
                   <a className='text-blue-600 hover:text-blue-800 transition duration-100'>
-                    Sign up now.
+                    Log in now.
                   </a>
                 </Link>
               </h4>
             </div>
-            <div className='pt-20 pl-40 pr-56'>
+            <div className='pt-12 pl-40 pr-56'>
               <form
                 className='bg-white rounded px-8 pt-6 pb-8 mb-4 w-full'
-                onSubmit={handleLoginSubmit(onLoginSubmit)}
+                onSubmit={handleRegisterSubmit(onRegisterSubmit)}
               >
                 <h3 className='text-4xl font-bold mb-5 tracking-wide'>
-                  Log in to ubooze
+                  Sign up to ubooze
                 </h3>
                 <div>
                   <h4 className='text-md tracking-wide'>
-                    Have a social media account? Log in with:
+                    Have a social media account? Sign up with:
                   </h4>
                   <ul className='py-4 flex items-center'>
                     <motion.li
@@ -134,7 +131,39 @@ const LoginPage = () => {
                   </h2>
                   <div className='border-b border-gray-600 w-full'></div>
                 </div>
-                <div className='mb-4 pt-8'>
+                <div className='flex justify-between pt-8'>
+                  <div className='mb-4 w-48'>
+                    <label
+                      htmlFor='firstName'
+                      className='block text-gray-900 text-md font-bold'
+                    >
+                      First Name
+                    </label>
+                    <input
+                      className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-700 bg-orange-200 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                      type='text'
+                      name='firstName'
+                      id='firstName'
+                      ref={register}
+                    />
+                  </div>
+                  <div className='mb-4 w-48'>
+                    <label
+                      htmlFor='lastName'
+                      className='block text-gray-900 text-md font-bold'
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-700 bg-orange-200 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                      type='text'
+                      name='lastName'
+                      id='lastName'
+                      ref={register}
+                    />
+                  </div>
+                </div>
+                <div className='mb-4'>
                   <label
                     htmlFor='email'
                     className='block text-gray-900 text-md font-bold'
@@ -146,7 +175,7 @@ const LoginPage = () => {
                     type='email'
                     name='email'
                     id='email'
-                    ref={login({ required: true })}
+                    ref={register({ required: true })}
                   />
                 </div>
                 <div className='mb-6'>
@@ -161,14 +190,14 @@ const LoginPage = () => {
                     type='password'
                     name='password'
                     id='password'
-                    ref={login({ required: true })}
+                    ref={register({ required: true })}
                   />
                 </div>
                 <button
-                  className='text-sm w-40 bg-blue-600 transition duration-100 hover:bg-blue-800 text-white font-medium py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline'
+                  className='text-sm bg-orange-600 w-40 transition duration-100 hover:bg-orange-800 text-white font-medium py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline'
                   type='submit'
                 >
-                  Log In
+                  Create Account
                 </button>
               </form>
             </div>
@@ -179,4 +208,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default signupPage;

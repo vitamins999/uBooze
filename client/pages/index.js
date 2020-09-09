@@ -75,8 +75,12 @@ export default function Home() {
             animate='visible2'
           >
             <h1 className='text-6xl tracking-widest font-bold'>ubooze</h1>
-            <h1 className='text-4xl'>The cheapest supermarket</h1>
-            <h1 className='text-4xl'>alcohol prices near you</h1>
+            <h1 className='text-4xl'>
+              Helping you <span className='text-blue-500'>save money</span>
+            </h1>
+            <h1 className='text-4xl'>
+              on the <span className='text-blue-500'>drinks you love</span>
+            </h1>
             <h3 className='text-xs pt-2'>*UK only</h3>
             <form className='mt-4' onSubmit={onSubmit}>
               <div className='container py-4 text-white'>
