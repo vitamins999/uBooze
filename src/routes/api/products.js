@@ -33,6 +33,7 @@ router.get('/', async (req, res) => {
   const page = parseInt(req.query.page);
   const limit = parseInt(req.query.limit) || 10;
   const userSupermarkets = req.query.supermarkets;
+  const orderBy = req.query.order || 'asc';
   let drinkType = req.query.type;
 
   if (!drinkType) {
@@ -55,7 +56,10 @@ router.get('/', async (req, res) => {
       builder.orderBy('price');
     })
     .whereIn('drinkType', drinkType)
-    .orderBy(['displayName', { column: 'productID' }]);
+    .orderBy([
+      { column: 'displayName', order: orderBy },
+      { column: 'productID' },
+    ]);
 
   const queryToSend = Product.query()
     .withGraphFetched('supermarketProducts')
@@ -65,7 +69,10 @@ router.get('/', async (req, res) => {
       builder.orderBy('price');
     })
     .whereIn('drinkType', drinkType)
-    .orderBy(['displayName', { column: 'productID' }])
+    .orderBy([
+      { column: 'displayName', order: orderBy },
+      { column: 'productID' },
+    ])
     .offset(startIndex)
     .limit(limit);
 

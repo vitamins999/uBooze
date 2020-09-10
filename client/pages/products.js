@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { usePaginatedQuery } from 'react-query';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -6,11 +6,17 @@ import Cookies from 'js-cookie';
 import Layout from '../components/Layout';
 import { parseCookies } from '../utils/parseCookies';
 
-import ProductResults from '../components/ProductResults';
+import ProductItemList from '../components/ProductItemList';
 
-const fetchDrinks = async (key, page = 1, queryString) => {
+const fetchDrinks = async (
+  key,
+  page = 1,
+  queryString,
+  order = 'asc',
+  limit = 10
+) => {
   const res = await fetch(
-    `http://localhost:3001/api/products/?page=${page}${queryString}`
+    `http://localhost:3001/api/products/?page=${page}${queryString}&order=${order}&limit=${limit}`
   );
   return res.json();
 };
@@ -19,8 +25,50 @@ const ProductsPage = ({ drinks }) => {
   const router = useRouter();
   const [page, setPage] = useState(1);
 
+  const [showFilter, setShowFilter] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const [showLimit, setShowLimit] = useState(false);
+  const limitRef = useRef(null);
+
+  const [order, setOrder] = useState('asc');
+  const [limit, setLimit] = useState(10);
+
   const queryString = Cookies.get('queryString');
   const postcode = Cookies.get('currentPostcode');
+
+  useEffect(() => {
+    const pageClickEvent = (e) => {
+      if (
+        dropdownRef.current !== null &&
+        !dropdownRef.current.contains(e.target)
+      ) {
+        setShowFilter(false);
+      }
+    };
+    if (showFilter) {
+      window.addEventListener('click', pageClickEvent);
+    }
+
+    return () => {
+      window.removeEventListener('click', pageClickEvent);
+    };
+  }, [showFilter]);
+
+  useEffect(() => {
+    const pageClickEvent = (e) => {
+      if (limitRef.current !== null && !limitRef.current.contains(e.target)) {
+        setShowLimit(false);
+      }
+    };
+    if (showLimit) {
+      window.addEventListener('click', pageClickEvent);
+    }
+
+    return () => {
+      window.removeEventListener('click', pageClickEvent);
+    };
+  }, [showLimit]);
 
   useEffect(() => {
     if (!queryString) {
@@ -29,7 +77,7 @@ const ProductsPage = ({ drinks }) => {
   }, []);
 
   const { resolvedData, latestData, status } = usePaginatedQuery(
-    ['allDrinks', page, queryString],
+    ['allDrinks', page, queryString, order, limit],
     fetchDrinks,
     {
       initialData: drinks,
@@ -67,7 +115,266 @@ const ProductsPage = ({ drinks }) => {
               <h1>Beer, Wine and Spirits</h1>
             </div>
             <div>
-              <ProductResults resolvedData={resolvedData} postcode={postcode} />
+              <div className='flex flex-col mb-5 pb-3'>
+                <div className='flex items-center justify-between tracking-wide'>
+                  <h1 className='text-md text-gray-700'>
+                    {resolvedData.total === 0 ? (
+                      <span>No results found</span>
+                    ) : (
+                      <>
+                        <span>
+                          Showing {resolvedData.firstItem}-
+                          {resolvedData.lastItem} of {resolvedData.total}{' '}
+                          results nearby to{' '}
+                        </span>
+                        <span className='italic'>{postcode}</span>
+                      </>
+                    )}
+                  </h1>
+                  <div className='flex items-center'>
+                    <div className='relative mr-4'>
+                      <a
+                        className='cursor-pointer flex hover:text-gray-500 transition ease-out duration-100'
+                        onClick={() => setShowFilter(!showFilter)}
+                      >
+                        <p className='mr-2'>Order By</p>
+                        <svg
+                          class='w-6 h-6'
+                          fill='none'
+                          stroke='currentColor'
+                          viewBox='0 0 24 24'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
+                            d='M19 9l-7 7-7-7'
+                          ></path>
+                        </svg>
+                      </a>
+                      {showFilter && (
+                        <div
+                          ref={dropdownRef}
+                          className='dropdown absolute right-0 h-auto shadow-lg z-10 w-56 mt-3'
+                        >
+                          <ul className='bg-gray-100 border-2 border-blue-700 rounded-md text-left text-sm tracking-tight'>
+                            <li
+                              onClick={() => {
+                                setOrder('asc');
+                                setShowFilter(false);
+                              }}
+                              className='flex justify-between items-center border-gray-700 border-b py-3 px-5 hover:text-white hover:bg-blue-700 cursor-pointer rounded-tr-md rounded-tl-md'
+                            >
+                              Product Name A-Z
+                              {order === 'asc' && (
+                                <svg
+                                  class='w-6 h-6'
+                                  fill='none'
+                                  stroke='currentColor'
+                                  viewBox='0 0 24 24'
+                                  xmlns='http://www.w3.org/2000/svg'
+                                >
+                                  <path
+                                    strokeLinecap='round'
+                                    strokeLinejoin='round'
+                                    strokeWidth='2'
+                                    d='M5 13l4 4L19 7'
+                                  ></path>
+                                </svg>
+                              )}
+                            </li>
+                            <li
+                              onClick={() => {
+                                setOrder('desc');
+                                setShowFilter(false);
+                              }}
+                              className='flex justify-between items-center border-gray-700 border-b py-3 px-5 hover:text-white hover:bg-blue-700 cursor-pointer rounded-bl-md rounded-br-md'
+                            >
+                              Product Name Z-A
+                              {order === 'desc' && (
+                                <svg
+                                  class='w-6 h-6'
+                                  fill='none'
+                                  stroke='currentColor'
+                                  viewBox='0 0 24 24'
+                                  xmlns='http://www.w3.org/2000/svg'
+                                >
+                                  <path
+                                    strokeLinecap='round'
+                                    strokeLinejoin='round'
+                                    strokeWidth='2'
+                                    d='M5 13l4 4L19 7'
+                                  ></path>
+                                </svg>
+                              )}
+                            </li>
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                    <div className='relative'>
+                      <a
+                        className='ml-4 cursor-pointer flex hover:text-gray-500 transition ease-out duration-100'
+                        onClick={() => setShowLimit(!showLimit)}
+                      >
+                        <p className='mr-2'>Results Per Page</p>
+                        <svg
+                          class='w-6 h-6'
+                          fill='none'
+                          stroke='currentColor'
+                          viewBox='0 0 24 24'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
+                            d='M19 9l-7 7-7-7'
+                          ></path>
+                        </svg>
+                      </a>
+                      {showLimit && (
+                        <div
+                          ref={limitRef}
+                          className='dropdown absolute right-0 h-auto shadow-lg z-10 w-20 mt-3'
+                        >
+                          <ul className='bg-gray-100 border-2 border-blue-700 rounded-md text-left text-sm'>
+                            <li
+                              onClick={() => {
+                                setLimit(10);
+                                setShowLimit(false);
+                              }}
+                              className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer rounded-tr-md rounded-tl-md'
+                            >
+                              10
+                              {limit === 10 && (
+                                <svg
+                                  class='w-6 h-6'
+                                  fill='none'
+                                  stroke='currentColor'
+                                  viewBox='0 0 24 24'
+                                  xmlns='http://www.w3.org/2000/svg'
+                                >
+                                  <path
+                                    strokeLinecap='round'
+                                    strokeLinejoin='round'
+                                    strokeWidth='2'
+                                    d='M5 13l4 4L19 7'
+                                  ></path>
+                                </svg>
+                              )}
+                            </li>
+                            <li
+                              onClick={() => {
+                                setLimit(20);
+                                setShowLimit(false);
+                              }}
+                              className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer'
+                            >
+                              20
+                              {limit === 20 && (
+                                <svg
+                                  class='w-6 h-6'
+                                  fill='none'
+                                  stroke='currentColor'
+                                  viewBox='0 0 24 24'
+                                  xmlns='http://www.w3.org/2000/svg'
+                                >
+                                  <path
+                                    strokeLinecap='round'
+                                    strokeLinejoin='round'
+                                    strokeWidth='2'
+                                    d='M5 13l4 4L19 7'
+                                  ></path>
+                                </svg>
+                              )}
+                            </li>
+                            <li
+                              onClick={() => {
+                                setLimit(30);
+                                setShowLimit(false);
+                              }}
+                              className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer'
+                            >
+                              30
+                              {limit === 30 && (
+                                <svg
+                                  class='w-6 h-6'
+                                  fill='none'
+                                  stroke='currentColor'
+                                  viewBox='0 0 24 24'
+                                  xmlns='http://www.w3.org/2000/svg'
+                                >
+                                  <path
+                                    strokeLinecap='round'
+                                    strokeLinejoin='round'
+                                    strokeWidth='2'
+                                    d='M5 13l4 4L19 7'
+                                  ></path>
+                                </svg>
+                              )}
+                            </li>
+                            <li
+                              onClick={() => {
+                                setLimit(40);
+                                setShowLimit(false);
+                              }}
+                              className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer'
+                            >
+                              40
+                              {limit === 40 && (
+                                <svg
+                                  class='w-6 h-6'
+                                  fill='none'
+                                  stroke='currentColor'
+                                  viewBox='0 0 24 24'
+                                  xmlns='http://www.w3.org/2000/svg'
+                                >
+                                  <path
+                                    strokeLinecap='round'
+                                    strokeLinejoin='round'
+                                    strokeWidth='2'
+                                    d='M5 13l4 4L19 7'
+                                  ></path>
+                                </svg>
+                              )}
+                            </li>
+                            <li
+                              onClick={() => {
+                                setLimit(50);
+                                setShowLimit(false);
+                              }}
+                              className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer rounded-bl-md rounded-br-md'
+                            >
+                              50
+                              {limit === 50 && (
+                                <svg
+                                  class='w-6 h-6'
+                                  fill='none'
+                                  stroke='currentColor'
+                                  viewBox='0 0 24 24'
+                                  xmlns='http://www.w3.org/2000/svg'
+                                >
+                                  <path
+                                    strokeLinecap='round'
+                                    strokeLinejoin='round'
+                                    strokeWidth='2'
+                                    d='M5 13l4 4L19 7'
+                                  ></path>
+                                </svg>
+                              )}
+                            </li>
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className='mt-3 pt-5 pb-8 border-gray-400 border-b border-t'>
+                  <ProductItemList products={resolvedData.results} />
+                </div>
+              </div>
               <div className='flex w-full items-center justify-between px-40'>
                 <button
                   onClick={() => {
