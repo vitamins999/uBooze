@@ -7,17 +7,15 @@ import Layout from '../../../components/Layout';
 import { parseCookies } from '../../../utils/parseCookies';
 
 import ProductResults from '../../../components/ProductResults';
-
-const fetchDrinks = async (key, page = 1, queryString) => {
-  const res = await fetch(
-    `http://localhost:3001/api/products/subtypes/?page=${page}${queryString}`
-  );
-  return res.json();
-};
+import ProductPageChangeButtons from '../../../components/ProductPageChangeButtons';
+import { fetchDrinksSub } from '../../../utils/supermarketListUtils';
 
 const SparklingWinePage = ({ drinks }) => {
   const router = useRouter();
   const [page, setPage] = useState(1);
+
+  const [order, setOrder] = useState('asc');
+  const [limit, setLimit] = useState(10);
 
   const queryString = Cookies.get('queryString') + '&subtype=sparkling';
   const postcode = Cookies.get('currentPostcode');
@@ -29,8 +27,8 @@ const SparklingWinePage = ({ drinks }) => {
   }, []);
 
   const { resolvedData, latestData, status } = usePaginatedQuery(
-    ['sparkling', page, queryString],
-    fetchDrinks,
+    ['sparkling', page, queryString, order, limit],
+    fetchDrinksSub,
     {
       initialData: drinks,
     }
@@ -117,63 +115,20 @@ const SparklingWinePage = ({ drinks }) => {
               </Link>
             </div>
             <div>
-              <ProductResults resolvedData={resolvedData} postcode={postcode} />
-              <div className='flex w-full items-center justify-between px-40'>
-                <button
-                  onClick={() => {
-                    setPage(page - 1);
-                    window.scrollTo(0, 0);
-                  }}
-                  disabled={page === 1}
-                  className={`text-orange-500 hover:text-orange-700 font-bold px-4 rounded ${
-                    page === 1 && 'opacity-0 cursor-default'
-                  }`}
-                >
-                  <svg
-                    viewBox='0 0 20 20'
-                    fill='currentColor'
-                    className='arrow-narrow-left w-8 h-8'
-                  >
-                    <path
-                      fillRule='evenodd'
-                      d='M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z'
-                      clipRule='evenodd'
-                    ></path>
-                  </svg>
-                  Prev
-                </button>
-                <div className='flex w-full items-center justify-center'>
-                  <div className='border-b border-gray-700 w-20'></div>
-                  <span className='text-xl font-semibold tracking-wide text-grey-700 px-5'>
-                    Page {page} of {resolvedData.totalPages}
-                  </span>
-                  <div className='border-b border-gray-700 w-20'></div>
-                </div>
-                <button
-                  onClick={() => {
-                    setPage(page + 1);
-                    window.scrollTo(0, 0);
-                  }}
-                  disabled={!latestData || !latestData.next}
-                  className={`text-orange-500 hover:text-orange-700 font-bold px-4 rounded ${
-                    !latestData ||
-                    (!latestData.next && 'opacity-0 cursor-default')
-                  }`}
-                >
-                  <svg
-                    viewBox='0 0 20 20'
-                    fill='currentColor'
-                    className='arrow-narrow-right w-8 h-8'
-                  >
-                    <path
-                      fillRule='evenodd'
-                      d='M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z'
-                      clipRule='evenodd'
-                    ></path>
-                  </svg>
-                  Next
-                </button>
-              </div>
+              <ProductResults
+                resolvedData={resolvedData}
+                postcode={postcode}
+                order={order}
+                setOrder={setOrder}
+                limit={limit}
+                setLimit={setLimit}
+              />
+              <ProductPageChangeButtons
+                page={page}
+                setPage={setPage}
+                resolvedData={resolvedData}
+                latestData={latestData}
+              />
             </div>
           </div>
         </main>
@@ -187,7 +142,7 @@ export const getServerSideProps = async ({ req }) => {
     const cookies = parseCookies(req);
     const queryStringData = cookies.queryString + '&subtype=sparkling';
 
-    const drinks = await fetchDrinks((queryString = queryStringData));
+    const drinks = await fetchDrinksSub((queryString = queryStringData));
 
     return {
       props: {

@@ -37,3 +37,31 @@ export const supermarketLogo = (supermarket) => {
     return '/tesco_logo.svg';
   }
 };
+
+// Generic fetch drinks from database function (for React Query)
+export const fetchDrinks = async (
+  key,
+  page = 1,
+  queryString,
+  order = 'asc',
+  limit = 10
+) => {
+  const res = await fetch(
+    `http://localhost:3001/api/products/?page=${page}${queryString}&order=${order}&limit=${limit}`
+  );
+  return res.json();
+};
+
+// Generic fetch drinks from database function (for React Query) from subcategory
+export const fetchDrinksSub = async (
+  key,
+  page = 1,
+  queryString,
+  order = 'asc',
+  limit = 10
+) => {
+  const res = await fetch(
+    `http://localhost:3001/api/products/subtypes/?page=${page}${queryString}&order=${order}&limit=${limit}`
+  );
+  return res.json();
+};
