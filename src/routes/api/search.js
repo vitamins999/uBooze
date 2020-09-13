@@ -2,50 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../../models/Product');
 
-const { getSupermarkets } = require('../../utils/geolocater.js');
-
-router.get('/postcode', async (req, res) => {
-  const supermarketList = await getSupermarkets(req.query.postcode);
-  res.send(supermarketList);
-});
-
-router.get('/details', async (req, res) => {
-  const productID = req.query.item;
-
-  const queryToSend = Product.query()
-    .withGraphFetched('supermarketProducts')
-    .modifyGraph('supermarketProducts', (builder) => {
-      builder.where('price', '>', 0);
-      builder.orderBy('price');
-    })
-    .where('productID', productID);
-
-  try {
-    const results = await queryToSend;
-
-    res.send(results[0]);
-  } catch (error) {
-    res.status(500).json({ msg: error.message });
-  }
-});
-
 router.get('/', async (req, res) => {
   const page = parseInt(req.query.page);
   const limit = parseInt(req.query.limit) || 10;
-  let userSupermarkets = req.query.supermarkets;
-
-  if (typeof userSupermarkets === 'string') {
-    userSupermarkets = [userSupermarkets];
-  }
+  const searchText = req.query.search;
 
   const orderBy = req.query.order || 'asc';
-  let drinkType = req.query.type;
-
-  if (!drinkType) {
-    drinkType = ['beer', 'wine', 'spirits'];
-  } else {
-    drinkType = [drinkType];
-  }
 
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
@@ -56,11 +18,10 @@ router.get('/', async (req, res) => {
   const queryTotalResults = Product.query()
     .withGraphFetched('supermarketProducts')
     .modifyGraph('supermarketProducts', (builder) => {
-      builder.whereIn('supermarket', userSupermarkets);
       builder.where('price', '>', 0);
       builder.orderBy('price');
     })
-    .whereIn('drinkType', drinkType)
+    .where('productName', 'ilike', `%${searchText}%`)
     .orderBy([
       { column: 'displayName', order: orderBy },
       { column: 'productID' },
@@ -69,11 +30,10 @@ router.get('/', async (req, res) => {
   const queryToSend = Product.query()
     .withGraphFetched('supermarketProducts')
     .modifyGraph('supermarketProducts', (builder) => {
-      builder.whereIn('supermarket', userSupermarkets);
       builder.where('price', '>', 0);
       builder.orderBy('price');
     })
-    .whereIn('drinkType', drinkType)
+    .where('productName', 'ilike', `%${searchText}%`)
     .orderBy([
       { column: 'displayName', order: orderBy },
       { column: 'productID' },

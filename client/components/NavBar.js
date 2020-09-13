@@ -21,17 +21,17 @@ const NavBar = ({ page }) => {
             </a>
           </Link>
           <nav className='md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center'>
-            <Link href='#'>
+            <Link href='/search/postcode'>
               <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
-                Search by Location
+                Search by Postcode
               </a>
             </Link>
-            <Link href='#'>
+            <Link href='/search/supermarket'>
               <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
                 Search by Supermarket
               </a>
             </Link>
-            <Link href='#'>
+            <Link href='/search/drink'>
               <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
                 Search by Drink
               </a>

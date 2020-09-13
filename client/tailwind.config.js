@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         'light-black': '#27282C',
+        'hero-blend': '#FEFEFE',
       },
       spacing: {
         72: '18rem',
@@ -20,6 +21,9 @@ module.exports = {
       boxShadow: {
         orange: '0 4px 14px 0 rgba(237, 137, 54, 0.39)',
       },
+      backgroundImage: (theme) => ({
+        'hero-image': "url('/couple_drinking.webp')",
+      }),
     },
   },
   variants: {

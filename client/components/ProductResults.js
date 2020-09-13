@@ -8,6 +8,9 @@ const ProductResults = ({
   setOrder,
   limit,
   setLimit,
+  setPage,
+  searchText,
+  noPostcode,
 }) => {
   const [showFilter, setShowFilter] = useState(false);
   const dropdownRef = useRef(null);
@@ -53,14 +56,29 @@ const ProductResults = ({
       <div className='flex items-center justify-between tracking-wide'>
         <h1 className='text-md text-gray-700'>
           {resolvedData.total === 0 ? (
-            <span>No results found</span>
+            <>
+              <span>No results found</span>
+              {searchText && <span> for "{searchText}"</span>}
+            </>
           ) : (
             <>
               <span>
                 Showing {resolvedData.firstItem}-{resolvedData.lastItem} of{' '}
-                {resolvedData.total} results nearby to{' '}
+                {resolvedData.total}{' '}
               </span>
-              <span className='italic'>{postcode}</span>
+              {searchText && (
+                <>
+                  <span>results for </span>
+                  <span className='italic'>"{searchText}"</span>
+                </>
+              )}
+              {noPostcode && <span>results</span>}
+              {!searchText && !noPostcode && (
+                <>
+                  <span>results for </span>
+                  <span className='italic'>{postcode}</span>
+                </>
+              )}
             </>
           )}
         </h1>
@@ -176,6 +194,7 @@ const ProductResults = ({
                   <li
                     onClick={() => {
                       setLimit(10);
+                      setPage(1);
                       setShowLimit(false);
                     }}
                     className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer rounded-tr-md rounded-tl-md'
@@ -201,6 +220,7 @@ const ProductResults = ({
                   <li
                     onClick={() => {
                       setLimit(20);
+                      setPage(1);
                       setShowLimit(false);
                     }}
                     className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer'
@@ -226,6 +246,7 @@ const ProductResults = ({
                   <li
                     onClick={() => {
                       setLimit(30);
+                      setPage(1);
                       setShowLimit(false);
                     }}
                     className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer'
@@ -251,6 +272,7 @@ const ProductResults = ({
                   <li
                     onClick={() => {
                       setLimit(40);
+                      setPage(1);
                       setShowLimit(false);
                     }}
                     className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer'
@@ -276,6 +298,7 @@ const ProductResults = ({
                   <li
                     onClick={() => {
                       setLimit(50);
+                      setPage(1);
                       setShowLimit(false);
                     }}
                     className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer rounded-bl-md rounded-br-md'

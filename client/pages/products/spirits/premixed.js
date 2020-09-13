@@ -117,6 +117,7 @@ const PremixedPage = ({ drinks }) => {
                 setOrder={setOrder}
                 limit={limit}
                 setLimit={setLimit}
+                setPage={setPage}
               />
               <ProductPageChangeButtons
                 page={page}
