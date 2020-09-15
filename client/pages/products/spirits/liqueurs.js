@@ -6,6 +6,7 @@ import Cookies from 'js-cookie';
 import Layout from '../../../components/Layout';
 import { parseCookies } from '../../../utils/parseCookies';
 
+import SupermarketBar from '../../../components/SupermarketBar';
 import ProductResults from '../../../components/ProductResults';
 import ProductPageChangeButtons from '../../../components/ProductPageChangeButtons';
 import { fetchDrinksSub } from '../../../utils/supermarketListUtils';
@@ -40,6 +41,7 @@ const LiqueursPage = ({ drinks }) => {
       {status === 'error' && <div>Error fetching data</div>}
       {status === 'success' && (
         <main className='flex flex-col mb-40'>
+          <SupermarketBar />
           <div className='pb-10 px-5 container mx-auto'>
             <div className='mb-10 mt-20 w-full flex justify-center text-sm text-gray-700'>
               <Link href='/products'>

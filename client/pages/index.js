@@ -38,6 +38,7 @@ export default function Home() {
   const onSubmit = async (e) => {
     e.preventDefault();
     const supermarketList = await fetchSupermarkets(postcode);
+    supermarketList.sort((a, b) => a.localeCompare(b));
 
     if (supermarketList.length > 0) {
       dispatch(setSupermarkets(supermarketList));
