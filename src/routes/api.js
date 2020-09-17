@@ -6,11 +6,13 @@ const profileRoutes = require('./api/profile');
 const productsRoutes = require('./api/products');
 const productsSubtypesRoutes = require('./api/subtypes');
 const searchRoutes = require('./api/search');
+const scraperRoutes = require('./api/scraper');
 
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 app.use('/products', productsRoutes);
 app.use('/products/subtypes', productsSubtypesRoutes);
 app.use('/search', searchRoutes);
+app.use('/scraper', scraperRoutes);
 
 module.exports = app;
