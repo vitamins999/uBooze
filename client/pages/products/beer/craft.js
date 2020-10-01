@@ -2,28 +2,26 @@ import { useState, useEffect } from 'react';
 import { usePaginatedQuery } from 'react-query';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import Layout from '../components/Layout';
-import { parseCookies } from '../utils/parseCookies';
+import Layout from '../../../components/Layout';
+import { parseCookies } from '../../../utils/parseCookies';
 
-import SupermarketBar from '../components/SupermarketBar';
-import CategoryBar from '../components/CategoryBar';
-import ProductResults from '../components/ProductResults';
-import ProductPageChangeButtons from '../components/ProductPageChangeButtons';
-import { fetchDrinks } from '../utils/supermarketListUtils';
+import SupermarketBar from '../../../components/SupermarketBar';
+import CategoryBar from '../../../components/CategoryBar';
+import ProductResults from '../../../components/ProductResults';
+import ProductPageChangeButtons from '../../../components/ProductPageChangeButtons';
+import { fetchDrinksSub } from '../../../utils/supermarketListUtils';
 
-const ProductsPage = ({ drinks }) => {
+const CraftPage = ({ drinks }) => {
   const router = useRouter();
   const [page, setPage] = useState(1);
 
   const [order, setOrder] = useState('asc');
   const [limit, setLimit] = useState(10);
 
-  const queryString = Cookies.get('queryString');
+  const queryString = Cookies.get('queryString') + '&subtype=craft';
   const postcode = Cookies.get('currentPostcode');
 
-  const noPostcode = router.query.postcode;
-
-  const title = 'Beer, Cider, Wine & Spirits';
+  const title = 'Craft Beer';
 
   useEffect(() => {
     if (!queryString) {
@@ -32,8 +30,8 @@ const ProductsPage = ({ drinks }) => {
   }, []);
 
   const { resolvedData, latestData, status } = usePaginatedQuery(
-    ['allDrinks', page, queryString, order, limit],
-    fetchDrinks,
+    ['craft', page, queryString, order, limit],
+    fetchDrinksSub,
     {
       initialData: drinks,
     }
@@ -47,7 +45,7 @@ const ProductsPage = ({ drinks }) => {
         <main className='flex flex-col mb-40'>
           <SupermarketBar />
           <div className='pb-10 px-5 container mx-auto'>
-            <CategoryBar primary='allDrinks' title={title} />
+            <CategoryBar primary='beer' secondary='craft' title={title} />
             <div>
               <ProductResults
                 resolvedData={resolvedData}
@@ -57,7 +55,6 @@ const ProductsPage = ({ drinks }) => {
                 limit={limit}
                 setLimit={setLimit}
                 setPage={setPage}
-                noPostcode={noPostcode}
               />
               <ProductPageChangeButtons
                 page={page}
@@ -76,9 +73,9 @@ const ProductsPage = ({ drinks }) => {
 export const getServerSideProps = async ({ req }) => {
   try {
     const cookies = parseCookies(req);
-    const queryStringData = cookies.queryString;
+    const queryStringData = cookies.queryString + '&subtype=craft';
 
-    const drinks = await fetchDrinks((queryString = queryStringData));
+    const drinks = await fetchDrinksSub((queryString = queryStringData));
 
     return {
       props: {
@@ -92,4 +89,4 @@ export const getServerSideProps = async ({ req }) => {
   }
 };
 
-export default ProductsPage;
+export default CraftPage;

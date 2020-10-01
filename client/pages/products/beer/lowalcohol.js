@@ -7,6 +7,7 @@ import Layout from '../../../components/Layout';
 import { parseCookies } from '../../../utils/parseCookies';
 
 import SupermarketBar from '../../../components/SupermarketBar';
+import CategoryBar from '../../../components/CategoryBar';
 import ProductResults from '../../../components/ProductResults';
 import ProductPageChangeButtons from '../../../components/ProductPageChangeButtons';
 import { fetchDrinksSub } from '../../../utils/supermarketListUtils';
@@ -20,6 +21,8 @@ const LowAlcoholBeerPage = ({ drinks }) => {
 
   const queryString = Cookies.get('queryString') + '&subtype=lowbeer';
   const postcode = Cookies.get('currentPostcode');
+
+  const title = 'Low Alcohol Beer';
 
   useEffect(() => {
     if (!queryString) {
@@ -36,61 +39,18 @@ const LowAlcoholBeerPage = ({ drinks }) => {
   );
 
   return (
-    <Layout title='Low Alcohol Beer'>
+    <Layout title={title}>
       {status === 'loading' && <div>Loading data...</div>}
       {status === 'error' && <div>Error fetching data</div>}
       {status === 'success' && (
         <main className='flex flex-col mb-40'>
           <SupermarketBar />
           <div className='pb-10 px-5 container mx-auto'>
-            <div className='mb-10 mt-20 w-full flex justify-center text-sm text-gray-700'>
-              <Link href='/products'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  All Drinks
-                </a>
-              </Link>
-              <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black text-black bg-gray-300 font-semibold rounded-md'>
-                Beer
-              </a>
-              <Link href='/products/wine'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Wine
-                </a>
-              </Link>
-              <Link href='/products/spirits'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Spirits
-                </a>
-              </Link>
-            </div>
-            <div className='w-full mb-10 text-center text-5xl tracking-wider font-bold text-gray-800'>
-              <h1>Low Alcohol</h1>
-            </div>
-            <div className='mb-10 w-full flex justify-center text-xs text-gray-700'>
-              <Link href='/products/beer'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  All Beer
-                </a>
-              </Link>
-              <Link href='/products/beer/ale'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Ale
-                </a>
-              </Link>
-              <Link href='/products/beer/lager'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Lager
-                </a>
-              </Link>
-              <Link href='/products/beer/cider'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Cider
-                </a>
-              </Link>
-              <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black text-black bg-gray-300 font-semibold rounded-md'>
-                Low Alcohol
-              </a>
-            </div>
+            <CategoryBar
+              primary='beer'
+              secondary='lowAlcoholBeer'
+              title={title}
+            />
             <div>
               <ProductResults
                 resolvedData={resolvedData}

@@ -7,6 +7,7 @@ import Layout from '../../components/Layout';
 import { parseCookies } from '../../utils/parseCookies';
 
 import SupermarketBar from '../../components/SupermarketBar';
+import CategoryBar from '../../components/CategoryBar';
 import ProductResults from '../../components/ProductResults';
 import ProductPageChangeButtons from '../../components/ProductPageChangeButtons';
 import { fetchDrinks } from '../../utils/supermarketListUtils';
@@ -20,6 +21,8 @@ const SpiritsPage = ({ drinks }) => {
 
   const queryString = Cookies.get('queryString') + '&type=spirits';
   const postcode = Cookies.get('currentPostcode');
+
+  const title = 'Spirits';
 
   useEffect(() => {
     if (!queryString) {
@@ -36,81 +39,18 @@ const SpiritsPage = ({ drinks }) => {
   );
 
   return (
-    <Layout title='Spirits'>
+    <Layout title={title}>
       {status === 'loading' && <div>Loading data...</div>}
       {status === 'error' && <div>Error fetching data</div>}
       {status === 'success' && (
         <main className='flex flex-col mb-40'>
           <SupermarketBar />
           <div className='pb-10 px-5 container mx-auto'>
-            <div className='mb-10 mt-20 w-full flex justify-center text-sm text-gray-700'>
-              <Link href='/products'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  All Drinks
-                </a>
-              </Link>
-              <Link href='/products/beer'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Beer
-                </a>
-              </Link>
-              <Link href='/products/wine'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Wine
-                </a>
-              </Link>
-              <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black text-black bg-gray-300 font-semibold rounded-md'>
-                Spirits
-              </a>
-            </div>
-            <div className='w-full mb-10 text-center text-5xl tracking-wider font-bold text-gray-800'>
-              <h1>Spirits</h1>
-            </div>
-            <div className='mb-10 w-full flex justify-center text-xs text-gray-700'>
-              <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black text-black bg-gray-300 font-semibold rounded-md'>
-                All Spirits
-              </a>
-              <Link href='/products/spirits/gin'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Gin
-                </a>
-              </Link>
-              <Link href='/products/spirits/whisky'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Whisky
-                </a>
-              </Link>
-              <Link href='/products/spirits/vodka'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Vodka
-                </a>
-              </Link>
-              <Link href='/products/spirits/rum'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Rum
-                </a>
-              </Link>
-              <Link href='/products/spirits/brandycognac'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Brandy & Cognac
-                </a>
-              </Link>
-              <Link href='/products/spirits/liqueurs'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Tequila & Liqueurs
-                </a>
-              </Link>
-              <Link href='/products/spirits/premixed'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Premixed
-                </a>
-              </Link>
-              <Link href='/products/spirits/lowalcohol'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-black'>
-                  Low Alcohol
-                </a>
-              </Link>
-            </div>
+            <CategoryBar
+              primary='spirits'
+              secondary='allSpirits'
+              title={title}
+            />
             <div>
               <ProductResults
                 resolvedData={resolvedData}

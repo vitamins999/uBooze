@@ -14,6 +14,14 @@ const sainsburysScrapeBeer = require('../../scrapers/sainsburys/beer');
 const sainsburysScrapeWine = require('../../scrapers/sainsburys/wine');
 const sainsburysScrapeSpirits = require('../../scrapers/sainsburys/spirits');
 
+const asdaScrapeBeer = require('../../scrapers/asda/beer');
+const asdaScrapeWine = require('../../scrapers/asda/wine');
+const asdaScrapeSpirits = require('../../scrapers/asda/spirits');
+
+const morrisonsScrapeBeer = require('../../scrapers/morrisons/beer');
+const morrisonsScrapeWine = require('../../scrapers/morrisons/wine');
+const morrisonsScrapeSpirits = require('../../scrapers/morrisons/spirits');
+
 const supermarketNewData = [
   {
     productName: 'Stella Artois Premium Lager Beer Cans 18x440ml',
@@ -186,6 +194,30 @@ router.get('/sainsburys', async (req, res) => {
     upsertIntoDatabase(newDrinksData, "Sainsbury's");
 
     res.send(newDrinksData);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+router.get('/asda', async (req, res) => {
+  try {
+    const beer = await asdaScrapeBeer();
+    const wine = await asdaScrapeWine();
+    const spirits = await asdaScrapeSpirits();
+
+    res.send(spirits);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+router.get('/morrisons', async (req, res) => {
+  try {
+    const beer = await morrisonsScrapeBeer();
+    const wine = await morrisonsScrapeWine();
+    const spirits = await morrisonsScrapeSpirits();
+
+    res.send(spirits);
   } catch (error) {
     res.send(error);
   }
