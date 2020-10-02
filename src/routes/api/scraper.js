@@ -22,6 +22,10 @@ const morrisonsScrapeBeer = require('../../scrapers/morrisons/beer');
 const morrisonsScrapeWine = require('../../scrapers/morrisons/wine');
 const morrisonsScrapeSpirits = require('../../scrapers/morrisons/spirits');
 
+const icelandScrapeBeer = require('../../scrapers/iceland/beer');
+const icelandScrapeWine = require('../../scrapers/iceland/wine');
+const icelandScrapeSpirits = require('../../scrapers/iceland/spirits');
+
 const supermarketNewData = [
   {
     productName: 'Stella Artois Premium Lager Beer Cans 18x440ml',
@@ -216,6 +220,18 @@ router.get('/morrisons', async (req, res) => {
     const beer = await morrisonsScrapeBeer();
     const wine = await morrisonsScrapeWine();
     const spirits = await morrisonsScrapeSpirits();
+
+    res.send(spirits);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+router.get('/iceland', async (req, res) => {
+  try {
+    // const beer = await icelandScrapeBeer();
+    // const wine = await icelandScrapeWine();
+    const spirits = await icelandScrapeSpirits();
 
     res.send(spirits);
   } catch (error) {
