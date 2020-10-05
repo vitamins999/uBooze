@@ -5,7 +5,8 @@ const Product = require('../../models/Product');
 const { getSupermarkets } = require('../../utils/geolocater.js');
 
 router.get('/postcode', async (req, res) => {
-  const supermarketList = await getSupermarkets(req.query.postcode);
+  const radius = req.query.radius || 3200; // 3200m === 2 miles;
+  const supermarketList = await getSupermarkets(req.query.postcode, radius);
   res.send(supermarketList);
 });
 
