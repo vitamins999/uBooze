@@ -3,8 +3,8 @@ const router = express.Router();
 const SupermarketProduct = require('../../models/SupermarketProduct');
 
 const tescoScrapeBeer = require('../../scrapers/tesco/beer');
-const tescoScrapeSpirits = require('../../scrapers/tesco/wine');
-const tescoScrapeWine = require('../../scrapers/tesco/spirits');
+const tescoScrapeWine = require('../../scrapers/tesco/wine');
+const tescoScrapeSpirits = require('../../scrapers/tesco/spirits');
 
 const waitroseScrapeBeer = require('../../scrapers/waitrose/beer');
 const waitroseScrapeWine = require('../../scrapers/waitrose/wine');
@@ -26,86 +26,9 @@ const icelandScrapeBeer = require('../../scrapers/iceland/beer');
 const icelandScrapeWine = require('../../scrapers/iceland/wine');
 const icelandScrapeSpirits = require('../../scrapers/iceland/spirits');
 
-const supermarketNewData = [
-  {
-    productName: 'Stella Artois Premium Lager Beer Cans 18x440ml',
-    price: 1920,
-    offer: 'Has this been added?',
-    link:
-      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/all-lager/stella-artois-premium-lager-beer-cans-18x440ml',
-    image:
-      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/20/5010017109820/5010017109820_L.jpeg',
-    drinkType: 'beer',
-    drinkSubtype: 'lager',
-    supermarket: "Sainsbury's",
-    productID: 7,
-  },
-  {
-    productName: 'Test Beer That Should be Added',
-    price: 190,
-    offer: 'No offer',
-    link:
-      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/all-lager/stella-artois-premium-lager-beer-cans-18x440ml',
-    image:
-      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/20/5010017109820/5010017109820_L.jpeg',
-    drinkType: 'beer',
-    drinkSubtype: 'lager',
-    supermarket: "Sainsbury's",
-    productID: 7,
-  },
-  {
-    productName: 'Another Test Beer That Should be Added',
-    price: 1999,
-    offer: 'No offer',
-    link:
-      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/all-lager/stella-artois-premium-lager-beer-cans-18x440ml',
-    image:
-      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/20/5010017109820/5010017109820_L.jpeg',
-    drinkType: 'beer',
-    drinkSubtype: 'lager',
-    supermarket: "Sainsbury's",
-    productID: 7,
-  },
-  {
-    productName: 'Budweiser Lager Beer Bottles 15x300ml',
-    price: 1200,
-    offer: 'Some offer that is great',
-    link:
-      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/all-lager/budweiser-lager-15x300ml',
-    image:
-      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/17/5014379004717/5014379004717_L.jpeg',
-    drinkType: 'beer',
-    drinkSubtype: 'lager',
-    supermarket: "Sainsbury's",
-    productID: 2,
-  },
-  {
-    productName: 'Peroni Nastro Azzurro Lager 12x330ml',
-    price: 3004,
-    offer: 'I love squirrels!',
-    link:
-      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/all-lager/peroni-nastro-azzuro-12x330ml',
-    image:
-      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/16/8008440122216/8008440122216_L.jpeg',
-    drinkType: 'beer',
-    drinkSubtype: 'lager',
-    supermarket: "Sainsbury's",
-    productID: 8,
-  },
-  {
-    productName: 'Stella Artois Premium Lager Beer Bottles 15x284ml',
-    price: 9900,
-    offer: 'Only Kittens: Save Cats',
-    link:
-      'https://www.sainsburys.co.uk/shop/gb/groceries/product/details/all-lager/stella-artois-15x284ml',
-    image:
-      'https://www.sainsburys.co.uk/wcsstore7.50.4/ExtendedSitesCatalogAssetStore/images/catalog/productImages/99/5010017109899/5010017109899_L.jpeg',
-    drinkType: 'beer',
-    drinkSubtype: 'lager',
-    supermarket: "Sainsbury's",
-    productID: 9,
-  },
-];
+const coopScrapeBeer = require('../../scrapers/coop/beer');
+const coopScrapeWine = require('../../scrapers/coop/wine');
+const coopScrapeSpirits = require('../../scrapers/coop/spirits');
 
 const upsertIntoDatabase = async (newDrinksArr, supermarketName) => {
   newDrinksArr.forEach(async (item) => {
@@ -209,7 +132,11 @@ router.get('/asda', async (req, res) => {
     const wine = await asdaScrapeWine();
     const spirits = await asdaScrapeSpirits();
 
-    res.send(spirits);
+    const newDrinksData = [...beer, ...wine, ...spirits];
+
+    upsertIntoDatabase(newDrinksData, 'Asda');
+
+    res.send(newDrinksData);
   } catch (error) {
     res.send(error);
   }
@@ -221,7 +148,11 @@ router.get('/morrisons', async (req, res) => {
     const wine = await morrisonsScrapeWine();
     const spirits = await morrisonsScrapeSpirits();
 
-    res.send(spirits);
+    const newDrinksData = [...beer, ...wine, ...spirits];
+
+    upsertIntoDatabase(newDrinksData, 'Morrisons');
+
+    res.send(newDrinksData);
   } catch (error) {
     res.send(error);
   }
@@ -229,11 +160,31 @@ router.get('/morrisons', async (req, res) => {
 
 router.get('/iceland', async (req, res) => {
   try {
-    // const beer = await icelandScrapeBeer();
-    // const wine = await icelandScrapeWine();
+    const beer = await icelandScrapeBeer();
+    const wine = await icelandScrapeWine();
     const spirits = await icelandScrapeSpirits();
 
-    res.send(spirits);
+    const newDrinksData = [...beer, ...wine, ...spirits];
+
+    upsertIntoDatabase(newDrinksData, 'Iceland');
+
+    res.send(newDrinksData);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+router.get('/coop', async (req, res) => {
+  try {
+    const beer = await coopScrapeBeer();
+    const wine = await coopScrapeWine();
+    const spirits = await coopScrapeSpirits();
+
+    const newDrinksData = [...beer, ...wine, ...spirits];
+
+    upsertIntoDatabase(newDrinksData, 'Co-op');
+
+    res.send(newDrinksData);
   } catch (error) {
     res.send(error);
   }

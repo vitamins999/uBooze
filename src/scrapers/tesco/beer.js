@@ -1,4 +1,5 @@
 const tescoScraper = require('../utils/tescoScraper');
+const fs = require('fs');
 const removeDuplicates = require('../utils/removeDuplicates');
 
 // Beer URLs
@@ -27,8 +28,8 @@ const beerCraftURL1 =
   'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-craft-and-specialist?page=1&count=48';
 const beerCraftURL2 =
   'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-craft-and-specialist?page=2&count=48';
-const beerCraftURL3 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-craft-and-specialist?page=3&count=48';
+// const beerCraftURL3 =
+// 'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-craft-and-specialist?page=3&count=48';
 
 // Cider
 const beerCiderURL1 =
@@ -80,9 +81,9 @@ const tescoScrapeBeer = async () => {
   // Craft & Specialist
   const beerCraft1 = await tescoScraper(beerCraftURL1, 'beer', 'craft');
   const beerCraft2 = await tescoScraper(beerCraftURL2, 'beer', 'craft');
-  const beerCraft3 = await tescoScraper(beerCraftURL3, 'beer', 'craft');
+  // const beerCraft3 = await tescoScraper(beerCraftURL3, 'beer', 'craft');
 
-  const beerCraft = [...beerCraft1, ...beerCraft2, ...beerCraft3];
+  const beerCraft = [...beerCraft1, ...beerCraft2];
 
   // Cider
   const beerCider1 = await tescoScraper(beerCiderURL1, 'beer', 'cider');
@@ -120,6 +121,9 @@ const tescoScrapeBeer = async () => {
   beer = removeDuplicates(beer);
 
   console.log('Beer Data Scraped!');
+
+  const beerJSON = JSON.stringify(beer);
+  fs.writeFileSync('src/output/tesco-beer.json', beerJSON);
 
   return beer;
 };

@@ -35,6 +35,14 @@ export const supermarketLogo = (supermarket) => {
     return '/sainsburys_logo.svg';
   } else if (supermarket === 'Tesco') {
     return '/tesco_logo.svg';
+  } else if (supermarket === 'Asda') {
+    return '/asda_logo.svg';
+  } else if (supermarket === 'Morrisons') {
+    return '/morrisons_logo.svg';
+  } else if (supermarket === 'Co-op') {
+    return '/coop_logo.svg';
+  } else if (supermarket === 'Iceland') {
+    return '/iceland_logo.svg';
   }
 };
 

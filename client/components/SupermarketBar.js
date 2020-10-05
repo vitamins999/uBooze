@@ -13,11 +13,11 @@ const SupermarketBar = () => {
       <div className='flex items-center'>
         {supermarketList.map((supermarket) => {
           return (
-            <li key={supermarket} className='list-none ml-10'>
+            <li key={supermarket} className='list-none ml-10 align-middle'>
               <img
                 src={supermarketLogo(capitaliseFirstLetter(supermarket))}
                 alt={supermarket}
-                className='w-20'
+                className='h-5'
               />
             </li>
           );

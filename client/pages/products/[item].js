@@ -221,7 +221,7 @@ const ItemPage = ({ itemData }) => {
                         <img
                           src={supermarketLogo(supermarket.supermarket)}
                           alt='logo'
-                          className='w-32'
+                          className='h-8'
                         />
                       </td>
                       <td className='border-t-2 border-gray-200 px-4 py-3'>

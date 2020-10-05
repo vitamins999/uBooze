@@ -10,16 +10,36 @@ const SupermarketSearch = () => {
   const supermarkets = [
     {
       id: 1,
+      name: 'Asda',
+      svgPath: '/asda_logo.svg',
+    },
+    {
+      id: 2,
+      name: 'Co-op',
+      svgPath: '/coop_logo.svg',
+    },
+    {
+      id: 3,
+      name: 'Iceland',
+      svgPath: '/iceland_logo.svg',
+    },
+    {
+      id: 4,
+      name: 'Morrisons',
+      svgPath: '/morrisons_logo.svg',
+    },
+    {
+      id: 5,
       name: "Sainsbury's",
       svgPath: '/sainsburys_logo.svg',
     },
     {
-      id: 2,
+      id: 6,
       name: 'Tesco',
       svgPath: '/tesco_logo.svg',
     },
     {
-      id: 3,
+      id: 7,
       name: 'Waitrose',
       svgPath: '/waitrose_logo.svg',
     },
@@ -96,7 +116,7 @@ const SupermarketSearch = () => {
 
   return (
     <Layout title='Search by Supermarket'>
-      <section className='text-gray-700 body-font bg-hero-blend'>
+      <section className='text-gray-700 body-font bg-hero-blend mb-20'>
         <div className='bg-hero-image h-screen bg-contain bg-no-repeat bg-center'>
           <div className='bg-white h-screen bg-opacity-50'>
             <div className='container mx-auto flex flex-col px-5 py-24 justify-center items-center'>
@@ -111,15 +131,19 @@ const SupermarketSearch = () => {
                   alcohol, along with all the prices.
                 </p>
               </div>
-              <div className='flex w-auto px-10 py-5 rounded-md items-center align-middle justify-center bg-hero-blend'>
-                {supermarketList.length === 0 && <h2>No supermarkets left</h2>}
+              <div className='grid grid-cols-4 gap-3 w-auto py-5 rounded-md items-center align-middle justify-center bg-hero-blend'>
+                {supermarketList.length === 0 && (
+                  <h2 className='col-start-2 col-end-3'>
+                    No supermarkets left
+                  </h2>
+                )}
                 {supermarketList.map((supermarket, index) => {
                   return (
                     <>
                       {index === 0 ? (
                         <li key={supermarket.id} className='list-none'>
                           <motion.img
-                            className='h-auto w-32 cursor-pointer'
+                            className='h-10 ml-10 my-4 cursor-pointer'
                             whileHover={{ scale: 1.3 }}
                             transition={{ duration: 0.2 }}
                             onClick={() => {
@@ -132,7 +156,7 @@ const SupermarketSearch = () => {
                       ) : (
                         <li key={supermarket.id} className='list-none'>
                           <motion.img
-                            className='h-auto w-32 ml-10 cursor-pointer'
+                            className='h-10 ml-10 my-4 cursor-pointer'
                             whileHover={{ scale: 1.3 }}
                             transition={{ duration: 0.2 }}
                             onClick={() => {
@@ -154,9 +178,11 @@ const SupermarketSearch = () => {
                 </h2>
                 <div className='border-b border-gray-600 w-48'></div>
               </div>
-              <div className='flex w-auto px-10 py-5 rounded-md items-center align-middle justify-center bg-hero-blend'>
+              <div className='grid grid-cols-4 gap-3 w-auto py-5 rounded-md items-center align-middle justify-center bg-hero-blend'>
                 {supermarketSelectedList.length === 0 && (
-                  <h2>Selected Supermarkets go here!</h2>
+                  <h2 className='col-start-2 col-end-3'>
+                    Selected Supermarkets go here!
+                  </h2>
                 )}
                 {supermarketSelectedList.map((supermarket, index) => {
                   return (
@@ -164,7 +190,7 @@ const SupermarketSearch = () => {
                       {index === 0 ? (
                         <li key={supermarket.id} className='list-none'>
                           <motion.img
-                            className='h-auto w-32 cursor-pointer'
+                            className='h-10 ml-10 my-4 cursor-pointer'
                             whileHover={{ scale: 1.3 }}
                             transition={{ duration: 0.2 }}
                             onClick={() => {
@@ -177,7 +203,7 @@ const SupermarketSearch = () => {
                       ) : (
                         <li key={supermarket.id} className='list-none'>
                           <motion.img
-                            className='h-auto w-32 ml-10 cursor-pointer'
+                            className='h-10 ml-10 my-4 cursor-pointer'
                             whileHover={{ scale: 1.3 }}
                             transition={{ duration: 0.2 }}
                             onClick={() => {

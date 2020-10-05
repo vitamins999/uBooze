@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -12,6 +12,15 @@ const ProductItem = ({ product }) => {
   const currentPostcode = Cookies.get('currentPostcode');
   const [showOverlay, setShowOverlay] = useState(false);
   const [statsY, setStatsY] = useState(0);
+  const [moreThanThree, setMoreThanThree] = useState(false);
+  const [extraSupermarkets, setExtraSupermarkets] = useState(0);
+
+  useEffect(() => {
+    if (product.supermarketProducts.length > 3) {
+      setMoreThanThree(true);
+      setExtraSupermarkets(product.supermarketProducts.length - 3);
+    }
+  }, []);
 
   const productID = product.productID;
   return (
@@ -82,37 +91,43 @@ const ProductItem = ({ product }) => {
 
         <div className='bg-white pt-5 px-6'>
           {!showOverlay ? (
-            <h3 className='text-gray-700 text-sm'>Lowest Price:</h3>
+            <h3 className='text-gray-700 text-sm -mb-2'>Lowest Price:</h3>
           ) : (
             <h3 className='text-gray-700 text-sm'>All Prices:</h3>
           )}
           {product.supermarketProducts.map((product, index) => {
             return (
-              <div key={product.supermarket}>
-                {index === 0 ? (
-                  <div className='flex justify-between pt-2'>
+              index <= 2 && (
+                <div key={product.supermarket}>
+                  <div
+                    className={`grid grid-cols-2 ${
+                      showOverlay ? 'pt-2' : 'pt-4'
+                    }`}
+                  >
                     <img
                       src={supermarketLogo(product.supermarket)}
                       alt='logo'
-                      className='h-5'
+                      className='h-4'
                     />
-                    <span className='text-orange-500'>
+                    <span
+                      className={`${
+                        index === 0 ? 'text-orange-500' : null
+                      } text-right`}
+                    >
                       {formatter.format(product.price / 100)}
                     </span>
                   </div>
-                ) : (
-                  <div className='flex justify-between pt-4'>
-                    <img
-                      src={supermarketLogo(product.supermarket)}
-                      alt='logo'
-                      className='h-5'
-                    />
-                    <span>{formatter.format(product.price / 100)}</span>
-                  </div>
-                )}
-              </div>
+                </div>
+              )
             );
           })}
+          {moreThanThree && (
+            <Link href='/products/[item]' as={`/products/${productID}`}>
+              <a className='text-xs text-blue-600 underline hover:text-blue-700 mt-2'>
+                And {extraSupermarkets} more
+              </a>
+            </Link>
+          )}
         </div>
       </motion.div>
     </motion.div>

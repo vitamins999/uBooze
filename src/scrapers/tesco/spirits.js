@@ -1,4 +1,5 @@
 const tescoScraper = require('../utils/tescoScraper');
+const fs = require('fs');
 const removeDuplicates = require('../utils/removeDuplicates');
 
 // Spirits URLS
@@ -154,6 +155,9 @@ const tescoScrapeSpirits = async () => {
   spirits = removeDuplicates(spirits);
 
   console.log('Spirits Data Scraped!');
+
+  const spiritsJSON = JSON.stringify(spirits);
+  fs.writeFileSync('src/output/tesco-spirits.json', spiritsJSON);
 
   return spirits;
 };

@@ -578,6 +578,185 @@ const supermarketBaseData = [
     supermarket: 'Waitrose',
     productID: 6,
   },
+  {
+    productName: 'San Miguel Premium Lager Beer 4 x 330ml',
+    price: 450,
+    offer: 'No offer',
+    link:
+      'https://shop.coop.co.uk/product/140e1f5c-9c5f-47b1-8d23-d9a5a7c91767',
+    image:
+      'https://ssonlineorderingpocsst01.blob.core.windows.net/brandbankimages/5010153771677_512x512',
+    drinkType: 'beer',
+    drinkSubtype: '',
+    supermarket: 'Co-op',
+    productID: 1,
+  },
+  {
+    productName: 'San Miguel Premium Lager Beer 4 x 330ml',
+    price: 460,
+    offer: 'No offer',
+    link:
+      'https://groceries.morrisons.com/products/san-miguel-premium-lager-beer-120196011',
+    image:
+      'https://groceries.morrisons.com/productImages/120/120196011_0_150x150.jpg?identifier=6f37e3b5913ffc1461e4eeeedf34aa8a',
+    drinkType: 'beer',
+    drinkSubtype: 'lager',
+    supermarket: 'Morrisons',
+    productID: 1,
+  },
+  {
+    productName: 'Budweiser Lager Beer Bottles 15 x 300ml',
+    price: 1200,
+    offer: 'Budweiser & Pringles Bundle for £13 - ONLY ONLY',
+    link:
+      'https://groceries.morrisons.com/products/budweiser-lager-beer-bottles-415169011',
+    image:
+      'https://groceries.morrisons.com/productImages/415/415169011_0_150x150.jpg?identifier=4685788b3eb17dc62cac25af3b85bc4b',
+    drinkType: 'beer',
+    drinkSubtype: 'lager',
+    supermarket: 'Morrisons',
+    productID: 2,
+  },
+  {
+    productName: 'Blossom Hill Red Wine 75cl',
+    price: 500,
+    offer: 'No offer',
+    link: 'https://groceries.asda.com/product/910002666170',
+    image:
+      'https://ui.assets-asda.com/g/v5/183/581/5060078183581_130_IDShot_4.jpeg',
+    drinkType: 'wine',
+    drinkSubtype: 'red',
+    supermarket: 'Asda',
+    productID: 3,
+  },
+  {
+    productName: 'Blossom Hill Soft & Fruity Red Wine 750ml',
+    price: 575,
+    offer: 'No offer',
+    link:
+      'https://shop.coop.co.uk/product/01d88c44-d774-47c6-8252-c48cb35544f6',
+    image:
+      'https://ssonlineorderingpocsst01.blob.core.windows.net/brandbankimages/5060078183581_512x512',
+    drinkType: 'wine',
+    drinkSubtype: 'red',
+    supermarket: 'Co-op',
+    productID: 3,
+  },
+  {
+    productName: 'Blossom Hill Soft & Fruity Red Wine 750ml',
+    price: 595,
+    offer: '2 for £10.00',
+    link:
+      'https://www.iceland.co.uk/p/blossom-hill-soft-and-fruity-red-wine-750ml/69810.html',
+    image:
+      'https://assets.iceland.co.uk/i/iceland/blossom_hill_soft_fruity_red_wine_750ml_69810_T1.jpg?$producttile$',
+    drinkType: 'wine',
+    drinkSubtype: 'red',
+    supermarket: 'Iceland',
+    productID: 3,
+  },
+  {
+    productName: 'Blossom Hill Red Wine 75cl',
+    price: 550,
+    offer: 'Buy 2 for £10',
+    link:
+      'https://groceries.morrisons.com/products/blossom-hill-red-wine-119761011',
+    image:
+      'https://groceries.morrisons.com/productImages/119/119761011_0_150x150.jpg?identifier=f13e3693b2fac8a2386128d8692a68f3',
+    drinkType: 'wine',
+    drinkSubtype: 'red',
+    supermarket: 'Morrisons',
+    productID: 3,
+  },
+  {
+    productName: "Gordon's Special London Dry Gin 1l",
+    price: 1700,
+    offer: 'No offer',
+    link: 'https://groceries.asda.com/product/18929',
+    image:
+      'https://ui.assets-asda.com/g/v5/110/808/5000289110808_130_IDShot_4.jpeg',
+    drinkType: 'spirits',
+    drinkSubtype: 'gin',
+    supermarket: 'Asda',
+    productID: 5,
+  },
+  {
+    productName: "Gordon's Special Dry London Gin 1L",
+    price: 2000,
+    offer: 'No offer',
+    link:
+      'https://shop.coop.co.uk/product/7dd1a1b8-f808-475a-897d-de8785173de5',
+    image:
+      'https://ssonlineorderingpocsst01.blob.core.windows.net/brandbankimages/5000289110808_512x512',
+    drinkType: 'spirits',
+    drinkSubtype: 'gin',
+    supermarket: 'Co-op',
+    productID: 5,
+  },
+  {
+    productName: "Gordon's Special Dry London Gin 1L",
+    price: 1699,
+    offer: 'No offer',
+    link:
+      'https://groceries.morrisons.com/products/gordon-s-special-dry-london-gin-119500011',
+    image:
+      'https://groceries.morrisons.com/productImages/119/119500011_0_150x150.jpg?identifier=f9c31f8bcdd222c37c529a7c3c8b31ff',
+    drinkType: 'spirits',
+    drinkSubtype: 'gin',
+    supermarket: 'Morrisons',
+    productID: 5,
+  },
+  {
+    productName: "Jack Daniel's Old No. 7 Tennessee Whiskey 70cl",
+    price: 2450,
+    offer: 'No offer',
+    link: 'https://groceries.asda.com/product/18900',
+    image:
+      'https://ui.assets-asda.com:443/dm/asdagroceries/5099873089798?$ProdList$',
+    drinkType: 'spirits',
+    drinkSubtype: 'whisky',
+    supermarket: 'Asda',
+    productID: 6,
+  },
+  {
+    productName: "Jack Daniel's Old No.7 Tennessee Whiskey 70cl",
+    price: 2850,
+    offer: 'No offer',
+    link:
+      'https://shop.coop.co.uk/product/5fd60de5-086d-466c-8ec4-4f51ae5141ef',
+    image:
+      'https://ssonlineorderingpocsst01.blob.core.windows.net/brandbankimages/5099873089798_512x512',
+    drinkType: 'spirits',
+    drinkSubtype: 'whisky',
+    supermarket: 'Co-op',
+    productID: 6,
+  },
+  {
+    productName: "Jack Daniel's Old No.7 Tennessee Whiskey 70cl",
+    price: 2400,
+    offer: 'No offer',
+    link:
+      'https://www.iceland.co.uk/p/jack-daniels-old-no.7-tennessee-whiskey-70cl/66574.html',
+    image:
+      'https://assets.iceland.co.uk/i/iceland/jack_daniels_old_no7_tennessee_whiskey_70cl_66574_T1.jpg?$producttile$',
+    drinkType: 'spirits',
+    drinkSubtype: 'whisky',
+    supermarket: 'Iceland',
+    productID: 6,
+  },
+  {
+    productName: "Jack Daniel's Tennessee Whiskey 70cl",
+    price: 1799,
+    offer: 'Offer price £17.99, was £25',
+    link:
+      'https://groceries.morrisons.com/products/jack-daniel-s-tennessee-whiskey-119493011',
+    image:
+      'https://groceries.morrisons.com/productImages/119/119493011_0_150x150.jpg?identifier=5b26c8f73f00cb96847b388c2f4b3d7f',
+    drinkType: 'spirits',
+    drinkSubtype: 'whisky',
+    supermarket: 'Morrisons',
+    productID: 6,
+  },
 ];
 
 module.exports = { supermarketBaseData };
