@@ -10,11 +10,12 @@ import Layout from '../../components/Layout';
 
 const PostcodeSearch = () => {
   const [postcode, setPostcode] = useState('');
+  const [radius, setRadius] = useState('1609');
   const router = useRouter();
 
   const handleSubmitPostcode = async (e) => {
     e.preventDefault();
-    const supermarketList = await fetchSupermarkets(postcode);
+    const supermarketList = await fetchSupermarkets(postcode, radius);
     supermarketList.sort((a, b) => a.localeCompare(b));
 
     if (supermarketList.length > 0) {
@@ -51,6 +52,19 @@ const PostcodeSearch = () => {
                     className='flex justify-center'
                     onSubmit={handleSubmitPostcode}
                   >
+                    <span className='self-center mr-4 font-medium'>
+                      Search within
+                    </span>
+                    <select
+                      className='border-2 bg-orange-200 rounded mr-4 border-gray-700 focus:outline-none px-4 hover:bg-gray-100 transition duration-150'
+                      value={radius}
+                      onChange={(e) => setRadius(e.currentTarget.value)}
+                    >
+                      <option value='1609'>1 Mile</option>
+                      <option value='3218'>2 Miles</option>
+                      <option value='4828'>3 Miles</option>
+                    </select>
+                    <span className='self-center mr-4 font-medium'>of</span>
                     <input
                       className='border-2 bg-orange-200 rounded mr-4 border-gray-700 focus:outline-none focus:border-gray-900 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 text-base px-4 lg:w-full xl:w-1/2 w-2/4 md:w-full'
                       placeholder='My postcode is...'

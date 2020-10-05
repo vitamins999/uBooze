@@ -22,7 +22,7 @@ const getLongLatFromPostcode = async (postcode) => {
 };
 
 const getSupermarketList = async ({ long, lat }, radius) => {
-  const urlSupermarkets = `https://api.foursquare.com/v2/venues/search?client_id=${clientID}&client_secret=${clientSecret}&ll=${lat},${long}&radius=${radius}&categoryId=52f2ab2ebcbc57f1066b8b46&limit=10&v=20201003`;
+  const urlSupermarkets = `https://api.foursquare.com/v2/venues/search?client_id=${clientID}&client_secret=${clientSecret}&ll=${lat},${long}&radius=${radius}&categoryId=52f2ab2ebcbc57f1066b8b46&limit=30&v=20201003`;
 
   try {
     const { data } = await axios.get(urlSupermarkets);

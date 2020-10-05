@@ -90,7 +90,7 @@ const ProductResults = ({
             >
               <p className='mr-2'>Order By</p>
               <svg
-                class='w-6 h-6'
+                className='w-6 h-6'
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
@@ -120,7 +120,7 @@ const ProductResults = ({
                     Product Name A-Z
                     {order === 'asc' && (
                       <svg
-                        class='w-6 h-6'
+                        className='w-6 h-6'
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
@@ -145,7 +145,7 @@ const ProductResults = ({
                     Product Name Z-A
                     {order === 'desc' && (
                       <svg
-                        class='w-6 h-6'
+                        className='w-6 h-6'
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
@@ -171,7 +171,7 @@ const ProductResults = ({
             >
               <p className='mr-2'>Results Per Page</p>
               <svg
-                class='w-6 h-6'
+                className='w-6 h-6'
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
@@ -202,7 +202,7 @@ const ProductResults = ({
                     10
                     {limit === 10 && (
                       <svg
-                        class='w-6 h-6'
+                        className='w-6 h-6'
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
@@ -228,7 +228,7 @@ const ProductResults = ({
                     20
                     {limit === 20 && (
                       <svg
-                        class='w-6 h-6'
+                        className='w-6 h-6'
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
@@ -254,7 +254,7 @@ const ProductResults = ({
                     30
                     {limit === 30 && (
                       <svg
-                        class='w-6 h-6'
+                        className='w-6 h-6'
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
@@ -280,7 +280,7 @@ const ProductResults = ({
                     40
                     {limit === 40 && (
                       <svg
-                        class='w-6 h-6'
+                        className='w-6 h-6'
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
@@ -306,7 +306,7 @@ const ProductResults = ({
                     50
                     {limit === 50 && (
                       <svg
-                        class='w-6 h-6'
+                        className='w-6 h-6'
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'

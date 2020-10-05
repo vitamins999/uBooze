@@ -5,9 +5,9 @@ export const capitaliseFirstLetter = (string) => {
 
 // Takes a postcode and fetches a list of nearby supermarkets, using the API endpoint
 // designed for that purpose.
-export const fetchSupermarkets = async (postcode) => {
+export const fetchSupermarkets = async (postcode, radius = 3218) => {
   const res = await fetch(
-    `http://localhost:3001/api/products/postcode?postcode=${postcode}`
+    `http://localhost:3001/api/products/postcode?postcode=${postcode}&radius=${radius}`
   );
   return res.json();
 };
