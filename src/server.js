@@ -19,19 +19,10 @@ const port = process.env.PORT || 3001;
 
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cookieParser(process.env.COOKIE_KEY));
-app.use(
-  session({
-    secret: process.env.SESSION_KEY,
-    resave: true,
-    saveUninitialized: true,
-  })
-);
 
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.use('/api', apiRoutes);
 

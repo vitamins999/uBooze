@@ -3,6 +3,7 @@ const router = express.Router();
 
 const passport = require('passport');
 const bcrypt = require('bcrypt');
+const issueJWT = require('../../utils/jwt');
 
 const User = require('../../models/User');
 const { NotFoundError } = require('objection');
@@ -25,6 +26,18 @@ router.get('/currentUser', (req, res) => {
   res.send(req.user);
 });
 
+// Simple route to check protected routes work
+router.get(
+  '/protected',
+  passport.authenticate('jwt', { session: false }),
+  (req, res, next) => {
+    res.status(200).json({
+      success: true,
+      msg: 'You are successfully authenticated for this route!',
+    });
+  }
+);
+
 // Login user
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
@@ -34,12 +47,8 @@ router.post('/login', (req, res, next) => {
     if (!user) {
       res.status(500).send();
     } else {
-      req.logIn(user, (err) => {
-        if (err) {
-          throw err;
-        }
-        res.status(200).send();
-        console.log(req.user);
+      res.status(200).json({
+        user,
       });
     }
   })(req, res, next);
@@ -52,14 +61,21 @@ router.post('/register', async (req, res, next) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    await User.query().insert({
+    const user = await User.query().insert({
       password: hashedPassword,
       email,
       firstName,
       lastName,
       displayName: `${firstName} ${lastName}`,
     });
-    res.status(200).send();
+    const token = issueJWT(user);
+    res.status(201).json({
+      userID: user.userID,
+      email: user.email,
+      displayName: user.displayName,
+      accountType: user.accountType,
+      token: token.token,
+    });
   } catch (error) {
     res.json({ error: error });
   }

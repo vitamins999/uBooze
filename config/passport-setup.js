@@ -2,8 +2,16 @@ const passport = require('passport');
 const FacebookStrategy = require('passport-facebook');
 const GoogleStrategy = require('passport-google-oauth20');
 const LocalStrategy = require('passport-local').Strategy;
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
 const User = require('../src/models/User');
 const bcrypt = require('bcrypt');
+const issueJWT = require('../src/utils/jwt');
+
+const options = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.JWT_SECRET,
+};
 
 const authenticateUser = async (email, password, done) => {
   const user = await User.query().findOne({ email: email });
@@ -14,7 +22,14 @@ const authenticateUser = async (email, password, done) => {
 
   try {
     if (await bcrypt.compare(password, user.password)) {
-      return done(null, user);
+      const tokenObject = issueJWT(user);
+      return done(null, {
+        userID: user.userID,
+        email: user.email,
+        displayName: user.displayName,
+        accountType: user.accountType,
+        token: tokenObject.token,
+      });
     } else {
       console.log('wrong password');
       return done(null, false);
@@ -107,6 +122,23 @@ passport.use(
               });
           }
         });
+    }
+  )
+);
+
+// JWT payload passed into verify callback
+passport.use(
+  new JwtStrategy(
+    {
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: process.env.JWT_SECRET,
+    },
+    async (jwt_payload, done) => {
+      try {
+        return done(null, jwt_payload);
+      } catch (error) {
+        done(error);
+      }
     }
   )
 );
