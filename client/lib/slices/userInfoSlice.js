@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import Cookie from 'js-cookie';
 
 const userInfoSlice = createSlice({
   name: 'userInfo',
