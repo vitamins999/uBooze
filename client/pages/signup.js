@@ -3,6 +3,10 @@ import Head from 'next/head';
 
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
+
+import { useDispatch } from 'react-redux';
+import { loginAsync } from '../lib/slices/userInfoSlice';
+
 import Axios from 'axios';
 import { motion } from 'framer-motion';
 
@@ -14,18 +18,20 @@ const signupPage = () => {
     errors: registerErrors,
   } = useForm();
 
+  const dispatch = useDispatch();
+
   const router = useRouter();
 
   const onRegisterSubmit = async (data) => {
     try {
-      const res = await Axios({
+      await Axios({
         method: 'POST',
         data: data,
         url: 'http://localhost:3001/api/auth/register',
       });
-      if (res.status === 200) {
-        router.push('/');
-      }
+
+      dispatch(loginAsync(data.email, data.password));
+      router.push('/');
     } catch (error) {
       console.log(error);
     }

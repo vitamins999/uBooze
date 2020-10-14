@@ -1,9 +1,13 @@
 import Link from 'next/link';
 import Head from 'next/head';
 
+import { useEffect } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAsync } from '../lib/slices/userInfoSlice';
+
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
-import Axios from 'axios';
 import { motion } from 'framer-motion';
 
 const LoginPage = () => {
@@ -14,25 +18,25 @@ const LoginPage = () => {
     errors: loginErrors,
   } = useForm();
 
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userInfo);
+  const { loading, error, userID } = userLogin;
+
   const router = useRouter();
 
-  const onLoginSubmit = async (data) => {
+  const onLoginSubmit = async ({ email, password }) => {
     try {
-      const res = await Axios({
-        method: 'POST',
-        withCredentials: true,
-        data: data,
-        url: 'http://localhost:3001/api/auth/login',
-      });
-      if (res.status === 200) {
-        router.push('/');
-      } else if (res.status === 500) {
-        router.push('/register');
-      }
+      dispatch(loginAsync(email, password));
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (userID) {
+      router.push('/');
+    }
+  }, [userID]);
 
   return (
     <>

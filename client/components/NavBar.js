@@ -1,6 +1,60 @@
 import Link from 'next/link';
+import { useRef, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { motion } from 'framer-motion';
+import { userLogout, userLoginSuccess } from '../lib/slices/userInfoSlice';
 
 const NavBar = ({ page }) => {
+  const [showUserMenu, setShowUserMenu] = useState(false);
+
+  const userInfo = useSelector((state) => state.userInfo);
+  const { displayName, userID } = userInfo;
+  const userMenuRef = useRef(null);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const userInfoFromStorage = JSON.parse(localStorage.getItem('userInfo'));
+
+    if (userInfoFromStorage) {
+      dispatch(userLoginSuccess(userInfoFromStorage));
+    } else {
+      const defaultState = {
+        user: {
+          userID: null,
+          email: null,
+          displayName: null,
+          accountType: null,
+          token: null,
+        },
+      };
+      dispatch(userLoginSuccess(defaultState));
+    }
+  }, []);
+
+  useEffect(() => {
+    const pageClickEvent = (e) => {
+      if (
+        userMenuRef.current !== null &&
+        !userMenuRef.current.contains(e.target)
+      ) {
+        setShowUserMenu(false);
+      }
+    };
+    if (showUserMenu) {
+      window.addEventListener('click', pageClickEvent);
+    }
+
+    return () => {
+      window.removeEventListener('click', pageClickEvent);
+    };
+  }, [showUserMenu]);
+
+  const logoutHandler = async () => {
+    localStorage.removeItem('userInfo');
+    dispatch(userLogout());
+  };
+
   return (
     <>
       <header className='text-gray-700 body-font border-b'>
@@ -42,17 +96,70 @@ const NavBar = ({ page }) => {
               </a>
             </Link>
           </nav>
-          <Link href='/login'>
-            <a className='inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0'>
-              <svg viewBox='0 0 20 20' fill='#000000' className='user w-6 h-6'>
-                <path
-                  fillRule='evenodd'
-                  d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z'
-                  clipRule='evenodd'
-                ></path>
-              </svg>
-            </a>
-          </Link>
+          {userID ? (
+            <div className='relative'>
+              <motion.a
+                className='cursor-pointer w-32 flex items-center hover:text-gray-500 transition ease-out duration-100'
+                onClick={() => setShowUserMenu(!showUserMenu)}
+              >
+                <p className='mr-2'>{displayName}</p>
+                <svg
+                  className='w-4 h-4'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                    d='M19 9l-7 7-7-7'
+                  ></path>
+                </svg>
+              </motion.a>
+              {showUserMenu && (
+                <div
+                  ref={userMenuRef}
+                  className='dropdown absolute left-0 h-auto shadow-lg z-10 w-20 mt-3'
+                >
+                  <ul className='bg-gray-100 w-40 shadow-lg mt-2 text-left text-sm rounded-lg text-gray-800'>
+                    <li
+                      onClick={() => {}}
+                      className='flex justify-between items-center hover:bg-indigo-500 hover:text-white py-2 px-4 cursor-pointer rounded-t-lg'
+                    >
+                      Profile
+                    </li>
+                    <li
+                      onClick={() => {
+                        logoutHandler();
+                      }}
+                      className='flex justify-between items-center hover:bg-indigo-500 hover:text-white py-2 px-4 cursor-pointer rounded-b-lg'
+                    >
+                      Logout
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link href='/login'>
+              <a className='inline-flex items-center border-0 py-1 px-3  hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out text-md mt-4 md:mt-0'>
+                <svg
+                  viewBox='0 0 20 20'
+                  fill='#000000'
+                  className='user w-5 h-5 mr-2'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z'
+                    clipRule='evenodd'
+                  ></path>
+                </svg>
+                Login
+              </a>
+            </Link>
+          )}
         </div>
       </header>
     </>
