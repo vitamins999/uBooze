@@ -26,8 +26,10 @@ const authenticateUser = async (email, password, done) => {
       return done(null, {
         userID: user.userID,
         email: user.email,
+        username: user.username,
         displayName: user.displayName,
         accountType: user.accountType,
+        gravatar: user.gravatar,
         token: tokenObject.token,
       });
     } else {
@@ -135,7 +137,25 @@ passport.use(
     },
     async (jwt_payload, done) => {
       try {
-        return done(null, jwt_payload);
+        const user = await User.query()
+          .select([
+            'userID',
+            'username',
+            'email',
+            'displayName',
+            'createdAt',
+            'accountType',
+            'gravatar',
+            'facebookID',
+            'googleID',
+          ])
+          .findOne({ userID: jwt_payload.sub });
+
+        if (user) {
+          return done(null, user);
+        } else {
+          return done(null, false);
+        }
       } catch (error) {
         done(error);
       }

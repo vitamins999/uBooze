@@ -1,15 +1,17 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { motion } from 'framer-motion';
 import { userLogout, userLoginSuccess } from '../lib/slices/userInfoSlice';
 
 const NavBar = ({ page }) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   const userInfo = useSelector((state) => state.userInfo);
-  const { displayName, userID } = userInfo;
+  const { gravatar, userID, username } = userInfo;
   const userMenuRef = useRef(null);
+
+  const router = useRouter();
 
   const dispatch = useDispatch();
 
@@ -23,8 +25,10 @@ const NavBar = ({ page }) => {
         user: {
           userID: null,
           email: null,
+          username: null,
           displayName: null,
           accountType: null,
+          gravatar: null,
           token: null,
         },
       };
@@ -53,6 +57,7 @@ const NavBar = ({ page }) => {
   const logoutHandler = async () => {
     localStorage.removeItem('userInfo');
     dispatch(userLogout());
+    router.push('/');
   };
 
   return (
@@ -76,67 +81,79 @@ const NavBar = ({ page }) => {
           </Link>
           <nav className='md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center'>
             <Link href='/search/postcode'>
-              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
+              <a className='mr-5  hover:text-orange-500 font-medium transition duration-300 ease-in-out'>
                 Search by Postcode
               </a>
             </Link>
             <Link href='/search/supermarket'>
-              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
+              <a className='mr-5  hover:text-orange-500 font-medium transition duration-300 ease-in-out'>
                 Search by Supermarket
               </a>
             </Link>
             <Link href='/search/drink'>
-              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
+              <a className='mr-5 hover:text-orange-500 font-medium transition duration-300 ease-in-out'>
                 Search by Drink
               </a>
             </Link>
             <Link href='/products'>
-              <a className='mr-5 hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out'>
+              <a className='mr-5 hover:text-orange-500 font-medium transition duration-300 ease-in-out'>
                 All Products
               </a>
             </Link>
           </nav>
           {userID ? (
             <div className='relative'>
-              <motion.a
-                className='cursor-pointer w-32 flex items-center hover:text-gray-500 transition ease-out duration-100'
-                onClick={() => setShowUserMenu(!showUserMenu)}
+              <div
+                onMouseEnter={() => setShowUserMenu(true)}
+                className='relative flex items-center cursor-pointer'
               >
-                <p className='mr-2'>{displayName}</p>
-                <svg
-                  className='w-4 h-4'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                  xmlns='http://www.w3.org/2000/svg'
+                <p
+                  className='font-medium cursor-pointer'
+                  onMouseEnter={() => setShowUserMenu(true)}
                 >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    d='M19 9l-7 7-7-7'
-                  ></path>
-                </svg>
-              </motion.a>
+                  {username}
+                </p>
+                <img
+                  onMouseEnter={() => setShowUserMenu(true)}
+                  src={gravatar}
+                  className='w-10 rounded-full ml-5 mr-8 cursor-pointer'
+                />
+              </div>
               {showUserMenu && (
                 <div
                   ref={userMenuRef}
-                  className='dropdown absolute left-0 h-auto shadow-lg z-10 w-20 mt-3'
+                  className='dropdown absolute left-0 h-auto shadow-lg z-10 w-20 mt-3 -ml-2'
+                  onMouseLeave={() => setShowUserMenu(!showUserMenu)}
                 >
-                  <ul className='bg-gray-100 w-40 shadow-lg mt-2 text-left text-sm rounded-lg text-gray-800'>
-                    <li
-                      onClick={() => {}}
-                      className='flex justify-between items-center hover:bg-indigo-500 hover:text-white py-2 px-4 cursor-pointer rounded-t-lg'
-                    >
-                      Profile
+                  <ul className='bg-gray-200 w-48 shadow-lg py-2 text-left text-sm tracking-wide rounded-lg text-gray-800'>
+                    <li className='py-2'>
+                      <Link href={`/profile/${username}`}>
+                        <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                          Profile
+                        </a>
+                      </Link>
                     </li>
-                    <li
-                      onClick={() => {
-                        logoutHandler();
-                      }}
-                      className='flex justify-between items-center hover:bg-indigo-500 hover:text-white py-2 px-4 cursor-pointer rounded-b-lg'
-                    >
-                      Logout
+                    <li className='w-48 h-1 border-b border-gray-400 mb-1'></li>
+                    <li className='py-2'>
+                      <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                        Edit Profile
+                      </a>
+                    </li>
+                    <li className='py-2'>
+                      <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                        My Favourite Drinks
+                      </a>
+                    </li>
+                    <li className='w-48 h-1 border-b border-gray-400 mb-1'></li>
+                    <li className='py-2'>
+                      <a
+                        onClick={() => {
+                          logoutHandler();
+                        }}
+                        className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
+                      >
+                        Logout
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -144,7 +161,7 @@ const NavBar = ({ page }) => {
             </div>
           ) : (
             <Link href='/login'>
-              <a className='inline-flex items-center border-0 py-1 px-3  hover:text-gray-900 border-b border-transparent hover:border-orange-700 transition duration-300 ease-in-out text-md mt-4 md:mt-0'>
+              <a className='inline-flex items-center font-medium px-3 hover:text-orange-500 transition duration-300 ease-in-out text-md mt-4 md:mt-0'>
                 <svg
                   viewBox='0 0 20 20'
                   fill='#000000'

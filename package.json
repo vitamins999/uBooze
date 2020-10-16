@@ -30,12 +30,15 @@
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
     "currency.js": "^2.0.0",
+    "dayjs": "^1.9.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-flash": "0.0.2",
     "express-session": "^1.17.1",
+    "gravatar": "^1.8.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.2",
+    "normalize-url": "^5.3.0",
     "objection": "^2.2.1",
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0",
@@ -44,7 +47,6 @@
     "passport-local": "^1.0.0",
     "pg": "^8.3.0",
     "puppeteer": "^5.2.0",
-    "puppeteer-autoscroll-down": "^0.1.5",
-    "redux-persist": "^6.0.0"
+    "puppeteer-autoscroll-down": "^0.1.5"
   }
 }

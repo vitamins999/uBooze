@@ -107,40 +107,42 @@ const ProductResults = ({
             {showFilter && (
               <div
                 ref={dropdownRef}
-                className='dropdown absolute right-0 h-auto shadow-lg z-10 w-56 mt-3'
+                className='dropdown absolute left-0 h-auto shadow-lg z-10 w-20 mt-3 -ml-2'
               >
-                <ul className='bg-gray-100 border-2 border-blue-700 rounded-md text-left text-sm tracking-tight'>
-                  <li
-                    onClick={() => {
-                      setOrder('asc');
-                      setShowFilter(false);
-                    }}
-                    className='flex justify-between items-center border-gray-700 border-b py-3 px-5 hover:text-white hover:bg-blue-700 cursor-pointer rounded-tr-md rounded-tl-md'
-                  >
-                    Product Name A-Z
-                    {order === 'asc' && (
-                      <svg
-                        className='w-6 h-6'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          d='M5 13l4 4L19 7'
-                        ></path>
-                      </svg>
-                    )}
-                  </li>
+                <ul className='bg-gray-200 w-64 shadow-lg py-2 text-left text-sm tracking-wide rounded-lg text-gray-800'>
+                  <div className='py-2'>
+                    <li
+                      onClick={() => {
+                        setOrder('asc');
+                        setShowFilter(false);
+                      }}
+                      className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
+                    >
+                      Product Name A-Z
+                      {order === 'asc' && (
+                        <svg
+                          className='w-6 h-6'
+                          fill='none'
+                          stroke='currentColor'
+                          viewBox='0 0 24 24'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
+                            d='M5 13l4 4L19 7'
+                          ></path>
+                        </svg>
+                      )}
+                    </li>
+                  </div>
                   <li
                     onClick={() => {
                       setOrder('desc');
                       setShowFilter(false);
                     }}
-                    className='flex justify-between items-center border-gray-700 border-b py-3 px-5 hover:text-white hover:bg-blue-700 cursor-pointer rounded-bl-md rounded-br-md'
+                    className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
                   >
                     Product Name Z-A
                     {order === 'desc' && (
@@ -188,16 +190,16 @@ const ProductResults = ({
             {showLimit && (
               <div
                 ref={limitRef}
-                className='dropdown absolute right-0 h-auto shadow-lg z-10 w-20 mt-3'
+                className='dropdown absolute left-0 h-auto shadow-lg z-10 w-20 mt-3 ml-10'
               >
-                <ul className='bg-gray-100 border-2 border-blue-700 rounded-md text-left text-sm'>
+                <ul className='bg-gray-200 w-32 shadow-lg py-2 text-left text-sm tracking-wide rounded-lg text-gray-800'>
                   <li
                     onClick={() => {
                       setLimit(10);
                       setPage(1);
                       setShowLimit(false);
                     }}
-                    className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer rounded-tr-md rounded-tl-md'
+                    className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
                   >
                     10
                     {limit === 10 && (
@@ -223,7 +225,7 @@ const ProductResults = ({
                       setPage(1);
                       setShowLimit(false);
                     }}
-                    className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer'
+                    className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
                   >
                     20
                     {limit === 20 && (
@@ -249,7 +251,7 @@ const ProductResults = ({
                       setPage(1);
                       setShowLimit(false);
                     }}
-                    className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer'
+                    className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
                   >
                     30
                     {limit === 30 && (
@@ -275,7 +277,7 @@ const ProductResults = ({
                       setPage(1);
                       setShowLimit(false);
                     }}
-                    className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer'
+                    className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
                   >
                     40
                     {limit === 40 && (
@@ -301,7 +303,7 @@ const ProductResults = ({
                       setPage(1);
                       setShowLimit(false);
                     }}
-                    className='flex justify-between items-center border-gray-700 border-b p-3 hover:text-white hover:bg-blue-700 cursor-pointer rounded-bl-md rounded-br-md'
+                    className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
                   >
                     50
                     {limit === 50 && (

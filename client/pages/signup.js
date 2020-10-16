@@ -150,7 +150,7 @@ const signupPage = () => {
                       type='text'
                       name='firstName'
                       id='firstName'
-                      ref={register}
+                      ref={register({ required: true })}
                     />
                   </div>
                   <div className='mb-4 w-48'>
@@ -165,7 +165,7 @@ const signupPage = () => {
                       type='text'
                       name='lastName'
                       id='lastName'
-                      ref={register}
+                      ref={register({ required: true })}
                     />
                   </div>
                 </div>
@@ -181,6 +181,21 @@ const signupPage = () => {
                     type='email'
                     name='email'
                     id='email'
+                    ref={register({ required: true })}
+                  />
+                </div>
+                <div className='mb-4'>
+                  <label
+                    htmlFor='username'
+                    className='block text-gray-900 text-md font-bold'
+                  >
+                    Username
+                  </label>
+                  <input
+                    className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-700 bg-orange-200 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                    type='text'
+                    name='username'
+                    id='username'
                     ref={register({ required: true })}
                   />
                 </div>

@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const gravatar = require('gravatar');
+const normalize = require('normalize-url');
+
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 const issueJWT = require('../../utils/jwt');
@@ -32,6 +35,7 @@ router.get(
   passport.authenticate('jwt', { session: false }),
   (req, res, next) => {
     res.status(200).json({
+      user: req.user,
       success: true,
       msg: 'You are successfully authenticated for this route!',
     });
@@ -56,24 +60,37 @@ router.post('/login', (req, res, next) => {
 
 // Create a new user
 router.post('/register', async (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body;
+  const { firstName, lastName, username, email, password } = req.body;
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    const avatar = normalize(
+      gravatar.url(email, {
+        s: '200',
+        r: 'pg',
+        d: 'mm',
+      }),
+      { forceHttps: true }
+    );
+
     const user = await User.query().insert({
       password: hashedPassword,
       email,
+      username,
       firstName,
       lastName,
       displayName: `${firstName} ${lastName}`,
+      gravatar: avatar,
     });
     const token = issueJWT(user);
     res.status(201).json({
       userID: user.userID,
       email: user.email,
+      username: user.username,
       displayName: user.displayName,
       accountType: user.accountType,
+      gravatar: user.gravatar,
       token: token.token,
     });
   } catch (error) {

@@ -1,6 +1,4 @@
-// const { sainsburysDrinksBaseData } = require('./base_data/sainsburys-test.js');
-// const { tescoDrinksBaseData } = require('./base_data/tesco-test.js');
-// const { waitroseDrinksBaseData } = require('./base_data/waitrose-test.js');
+const gravatar = require('gravatar');
 const { supermarketBaseData } = require('./base_data/supermarket-test');
 
 exports.seed = function (knex) {
@@ -29,31 +27,28 @@ exports.seed = function (knex) {
       // Inserts new fake data into users
       return knex('users').insert([
         {
-          // username: 'davedavedave',
-          password: 'mypass123',
+          username: 'davedavedave',
+          password: '123456',
           email: 'davedavedave@gmail.com',
           firstName: 'Dave',
           lastName: 'Fakename',
           defaultPostcode: 'NW3 5PP',
-          gravatar: 'https://www.gravatar.com/davedavedave.jpg',
         },
         {
-          // username: 'jjimson',
-          password: 'youllneverguessthis000!',
+          username: 'jjimson',
+          password: '123456',
           email: 'jjimson000@gmail.com',
           firstName: 'Jim',
           lastName: 'Jimson',
           defaultPostcode: 'FE3 4XX',
-          gravatar: 'https://www.gravatar.com/jjimson.jpg',
         },
         {
-          // username: 'iluvcats',
-          password: 'catsarebrilliant',
+          username: 'iluvcats',
+          password: '123456',
           email: 'iluvcats@gmail.com',
           firstName: 'Kate',
           lastName: 'Smith',
           defaultPostcode: 'SS6 8LQ',
-          gravatar: 'https://www.gravatar.com/iluvcats.jpg',
         },
       ]);
     })

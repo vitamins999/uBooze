@@ -6,8 +6,10 @@ const userInfoSlice = createSlice({
   initialState: {
     userID: null,
     email: null,
+    username: null,
     displayName: null,
     accountType: null,
+    gravatar: null,
     token: null,
   },
   reducers: {
@@ -18,8 +20,10 @@ const userInfoSlice = createSlice({
       (state.loading = false),
         (state.userID = action.payload.user.userID),
         (state.email = action.payload.user.email),
+        (state.username = action.payload.user.username),
         (state.displayName = action.payload.user.displayName),
         (state.accountType = action.payload.user.accountType),
+        (state.gravatar = action.payload.user.gravatar),
         (state.token = action.payload.user.token);
     },
     userLoginFail: (state, action) => {
@@ -28,8 +32,10 @@ const userInfoSlice = createSlice({
     userLogout: (state, action) => {
       (state.userID = null),
         (state.email = null),
+        (state.username = null),
         (state.displayName = null),
         (state.accountType = null),
+        (state.gravatar = null),
         (state.token = null),
         (state.loading = false);
     },
