@@ -119,7 +119,7 @@ const Profile = () => {
                         ></path>
                       </svg>
                       <span className='italic font-medium'>
-                        No location set
+                        {data.location ? data.location : 'No location set'}
                       </span>
                     </div>
                   </div>

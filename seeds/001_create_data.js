@@ -32,7 +32,6 @@ exports.seed = function (knex) {
           email: 'davedavedave@gmail.com',
           firstName: 'Dave',
           lastName: 'Fakename',
-          defaultPostcode: 'NW3 5PP',
         },
         {
           username: 'jjimson',
@@ -40,7 +39,6 @@ exports.seed = function (knex) {
           email: 'jjimson000@gmail.com',
           firstName: 'Jim',
           lastName: 'Jimson',
-          defaultPostcode: 'FE3 4XX',
         },
         {
           username: 'iluvcats',
@@ -48,7 +46,6 @@ exports.seed = function (knex) {
           email: 'iluvcats@gmail.com',
           firstName: 'Kate',
           lastName: 'Smith',
-          defaultPostcode: 'SS6 8LQ',
         },
       ]);
     })

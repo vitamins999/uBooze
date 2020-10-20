@@ -22,7 +22,17 @@ router.get('/', async (req, res) => {
 
   try {
     const user = await User.query()
-      .select(['username', 'userID', 'displayName', 'createdAt', 'gravatar'])
+      .select([
+        'username',
+        'userID',
+        'displayName',
+        'firstName',
+        'lastName',
+        'location',
+        'bio',
+        'createdAt',
+        'gravatar',
+      ])
       .findOne({ username });
 
     if (
@@ -58,7 +68,11 @@ router.get('/', async (req, res) => {
       res.status(200).json({
         username: user.username,
         displayName: user.displayName,
+        firstName: user.firstName,
+        lastName: user.firstName,
         avatar: user.gravatar,
+        location: user.location,
+        bio: user.bio,
         createdAt,
         isUser,
       });
@@ -119,6 +133,109 @@ router.put(
         });
       } else {
         res.send('Wrong Password');
+      }
+    } catch (error) {
+      res.send(error.message);
+    }
+  }
+);
+
+// @desc    Update currently logged in user's profile data
+// @route   PUT /api/profile/currentUser/profile
+// @access  Private
+router.put(
+  '/currentUser/profile',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const user = await User.query().findOne({ userID: req.user.userID });
+    if (user == null) {
+      res.send('No User');
+    }
+
+    try {
+      const updatedUser = await User.query().patchAndFetchById(
+        req.user.userID,
+        {
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          displayName: `${req.body.firstName} ${req.body.lastName}`,
+          location: req.body.location,
+          bio: req.body.bio,
+        }
+      );
+
+      res.json({
+        firstName: updatedUser.firstName,
+        lastName: updatedUser.lastName,
+        displayName: updatedUser.displayName,
+        location: updatedUser.location,
+        bio: updatedUser.bio,
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  }
+);
+
+// @desc    Update currently logged in user's account data
+// @route   PUT /api/profile/currentUser/account
+// @access  Private
+router.put(
+  '/currentUser/account',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const user = await User.query().findOne({ userID: req.user.userID });
+    if (user == null) {
+      res.send('No User');
+    }
+
+    try {
+      const updatedUser = await User.query().patchAndFetchById(
+        req.user.userID,
+        {
+          username: req.body.username,
+          email: req.body.email,
+        }
+      );
+
+      res.json({
+        username: updatedUser.username,
+        email: updatedUser.email,
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  }
+);
+
+// @desc    Update currently logged in user's password
+// @route   PUT /api/profile/currentUser/password
+// @access  Private
+router.put(
+  '/currentUser/password',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const user = await User.query().findOne({ userID: req.user.userID });
+    if (user == null) {
+      res.send('No User');
+    }
+    try {
+      if (await bcrypt.compare(req.body.oldPassword, user.password)) {
+        const hashedPassword = await bcrypt.hash(req.body.newPassword, 10);
+        await User.query().patchAndFetchById(req.user.userID, {
+          password: hashedPassword,
+        });
+
+        res.json({
+          error: false,
+          msg: 'Password changed successfully!',
+        });
+      } else {
+        res.json({
+          error: true,
+          msg:
+            'Oops! Password does not match the one in our records! Please retype and try again.',
+        });
       }
     } catch (error) {
       res.send(error.message);

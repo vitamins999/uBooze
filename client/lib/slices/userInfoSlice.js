@@ -8,6 +8,10 @@ const userInfoSlice = createSlice({
     email: null,
     username: null,
     displayName: null,
+    firstName: null,
+    lastName: null,
+    location: null,
+    bio: null,
     accountType: null,
     gravatar: null,
     token: null,
@@ -22,6 +26,10 @@ const userInfoSlice = createSlice({
         (state.email = action.payload.user.email),
         (state.username = action.payload.user.username),
         (state.displayName = action.payload.user.displayName),
+        (state.firstName = action.payload.user.firstName),
+        (state.lastName = action.payload.user.lastName),
+        (state.location = action.payload.user.location),
+        (state.bio = action.payload.user.bio),
         (state.accountType = action.payload.user.accountType),
         (state.gravatar = action.payload.user.gravatar),
         (state.token = action.payload.user.token);
@@ -34,10 +42,28 @@ const userInfoSlice = createSlice({
         (state.email = null),
         (state.username = null),
         (state.displayName = null),
+        (state.firstName = null),
+        (state.lastName = null),
+        (state.location = null),
+        (state.bio = null),
         (state.accountType = null),
         (state.gravatar = null),
         (state.token = null),
         (state.loading = false);
+    },
+    userUpdateProfile: (state, action) => {
+      (state.firstName = action.payload.firstName),
+        (state.lastName = action.payload.lastName),
+        (state.displayName = action.payload.displayName),
+        (state.location = action.payload.location),
+        (state.bio = action.payload.bio);
+    },
+    userUpdateAccount: (state, action) => {
+      (state.email = action.payload.email),
+        (state.username = action.payload.username);
+    },
+    userUpdateFail: (state, action) => {
+      (state.loading = false), (state.error = action.payload);
     },
   },
 });
@@ -74,11 +100,69 @@ export const logout = () => (dispatch) => {
 
 export const selectUserInfo = (state) => state.userInfo;
 
+export const updateUserProfile = (
+  firstName,
+  lastName,
+  location,
+  bio,
+  token
+) => async (dispatch, getState) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `${token}`,
+      },
+    };
+    const { data } = await axios.put(
+      'http://localhost:3001/api/profile/currentUser/profile',
+      { firstName, lastName, location, bio },
+      config
+    );
+
+    dispatch(userUpdateProfile(data));
+    const { userInfo } = getState();
+    localStorage.removeItem('userInfo');
+    localStorage.setItem('userInfo', JSON.stringify({ user: { ...userInfo } }));
+  } catch (error) {
+    dispatch(userUpdateFail(error.message));
+  }
+};
+
+export const updateUserAccount = (username, email, token) => async (
+  dispatch,
+  getState
+) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `${token}`,
+      },
+    };
+    const { data } = await axios.put(
+      'http://localhost:3001/api/profile/currentUser/account',
+      { username, email },
+      config
+    );
+
+    dispatch(userUpdateAccount(data));
+    const { userInfo } = getState();
+    localStorage.removeItem('userInfo');
+    localStorage.setItem('userInfo', JSON.stringify({ user: { ...userInfo } }));
+  } catch (error) {
+    dispatch(userUpdateFail(error.message));
+  }
+};
+
 export const {
   userLoginRequest,
   userLoginSuccess,
   userLoginFail,
   userLogout,
+  userUpdateProfile,
+  userUpdateAccount,
+  userUpdateFail,
 } = userInfoSlice.actions;
 
 export default userInfoSlice.reducer;

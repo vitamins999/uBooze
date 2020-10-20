@@ -9,7 +9,8 @@ exports.up = function (knex) {
       table.string('firstName');
       table.string('lastName');
       table.string('displayName');
-      table.string('defaultPostcode');
+      table.string('location');
+      table.text('bio');
       table.datetime('createdAt').defaultTo(knex.fn.now());
       table.string('accountType').defaultTo('regular');
       table.string('gravatar');
