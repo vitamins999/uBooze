@@ -88,6 +88,7 @@ const EditProfile = () => {
       dispatch(
         updateUserProfile(firstName, lastName, location, bio, userInfo.token)
       );
+      notifySuccess('Profile updated successfully!');
     } catch (error) {
       console.log(error);
     }
@@ -96,6 +97,7 @@ const EditProfile = () => {
   const onUpdateAccountSubmit = async ({ username, email }) => {
     try {
       dispatch(updateUserAccount(username, email, userInfo.token));
+      notifySuccess('Account settings updated successfully!');
     } catch (error) {
       console.log(error);
     }
@@ -162,8 +164,8 @@ const EditProfile = () => {
                   }`}
                 />
                 <div className='flex flex-col justify-center ml-8'>
-                  <h2 className='text-lg font-bold text-gray-900 tracking-tighter'>
-                    <Link href={`/profile/${data.username}`}>
+                  <h2 className='text-lg font-bold text-gray-900 tracking-wide'>
+                    <Link href={`/profile/${userInfo.username}`}>
                       <a
                         onMouseEnter={() => setHoverOnName(true)}
                         onMouseLeave={() => setHoverOnName(false)}
@@ -180,52 +182,52 @@ const EditProfile = () => {
                     </span>
                   </h2>
                   {currentSection === 'profile' && (
-                    <h3 className='text-md'>
+                    <h3 className='text-sm'>
                       Edit your public profile details.
                     </h3>
                   )}
                   {currentSection === 'account' && (
-                    <h3 className='text-md'>Change your account settings.</h3>
+                    <h3 className='text-sm'>Change your account settings.</h3>
                   )}
                   {currentSection === 'password' && (
-                    <h3 className='text-md'>Update your password.</h3>
+                    <h3 className='text-sm'>Update your password.</h3>
                   )}
                 </div>
               </div>
             </section>
-            <section className='row-span-2 col-start-3 col-end-5 my-12'>
+            <section className='row-span-2 col-start-3 col-end-4 my-12 text-sm'>
               <ul>
-                <li className='pb-2'>
+                <li className='pb-1'>
                   <button
                     onClick={() => setCurrentSection('profile')}
                     className={`py-2 focus:outline-none ${
                       currentSection === 'profile'
-                        ? 'text-gray-900 font-semibold'
-                        : 'hover:text-orange-500 transition ease-in-out duration-200'
+                        ? 'text-gray-900 font-bold'
+                        : 'hover:text-orange-500 transition ease-in-out duration-200 font-medium'
                     }`}
                   >
                     Edit Profile
                   </button>
                 </li>
-                <li className='py-2'>
+                <li className='py-1'>
                   <button
                     onClick={() => setCurrentSection('account')}
                     className={`py-2 focus:outline-none ${
                       currentSection === 'account'
-                        ? 'text-gray-900 font-semibold'
-                        : 'hover:text-orange-500 transition ease-in-out duration-200'
+                        ? 'text-gray-900 font-bold'
+                        : 'hover:text-orange-500 transition ease-in-out duration-200 font-medium'
                     }`}
                   >
                     Account Settings
                   </button>
                 </li>
-                <li className='py-2'>
+                <li className='py-1'>
                   <button
                     onClick={() => setCurrentSection('password')}
                     className={`py-2 focus:outline-none ${
                       currentSection === 'password'
-                        ? 'text-gray-900 font-semibold'
-                        : 'hover:text-orange-500 transition ease-in-out duration-200'
+                        ? 'text-gray-900 font-bold'
+                        : 'hover:text-orange-500 transition ease-in-out duration-200 font-medium'
                     }`}
                   >
                     Change Password
@@ -233,7 +235,7 @@ const EditProfile = () => {
                 </li>
               </ul>
             </section>
-            <section className='row-start-2 row-end-5 col-start-5 col-end-9 my-12'>
+            <section className='row-start-2 row-end-5 col-start-4 col-end-9 my-12 ml-24'>
               {currentSection === 'profile' && (
                 <form
                   className='bg-white rounded pb-8 mb-4 w-full'
@@ -245,7 +247,7 @@ const EditProfile = () => {
                         htmlFor='firstName'
                         className='block text-gray-900 text-sm font-semibold'
                       >
-                        First Name *
+                        First Name <span className='text-red-700'>*</span>
                       </label>
                       <input
                         className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
@@ -263,7 +265,7 @@ const EditProfile = () => {
                         htmlFor='lastName'
                         className='block text-gray-900 text-sm font-semibold'
                       >
-                        Last Name *
+                        Last Name <span className='text-red-700'>*</span>
                       </label>
                       <input
                         className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
@@ -331,7 +333,7 @@ const EditProfile = () => {
                         htmlFor='username'
                         className='block text-gray-900 text-sm font-semibold'
                       >
-                        Username *
+                        Username <span className='text-red-700'>*</span>
                       </label>
                       <input
                         className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
@@ -355,7 +357,7 @@ const EditProfile = () => {
                         htmlFor='email'
                         className='block text-gray-900 text-sm font-semibold'
                       >
-                        Email Address *
+                        Email Address <span className='text-red-700'>*</span>
                       </label>
                       <input
                         className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
@@ -405,7 +407,7 @@ const EditProfile = () => {
                       htmlFor='oldPassword'
                       className='block text-gray-900 text-sm font-semibold'
                     >
-                      Old Password *
+                      Old Password <span className='text-red-700'>*</span>
                     </label>
                     <input
                       className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
@@ -421,7 +423,7 @@ const EditProfile = () => {
                       htmlFor='newPassword'
                       className='block text-gray-900 text-sm font-semibold'
                     >
-                      New Password *
+                      New Password <span className='text-red-700'>*</span>
                     </label>
                     <input
                       className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
@@ -437,7 +439,8 @@ const EditProfile = () => {
                       htmlFor='confirmNewPassword'
                       className='block text-gray-900 text-sm font-semibold'
                     >
-                      Confirm New Password *
+                      Confirm New Password{' '}
+                      <span className='text-red-700'>*</span>
                     </label>
                     <input
                       className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
