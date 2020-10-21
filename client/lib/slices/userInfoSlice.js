@@ -14,6 +14,7 @@ const userInfoSlice = createSlice({
     bio: null,
     accountType: null,
     gravatar: null,
+    favourites: [],
     token: null,
   },
   reducers: {
@@ -32,6 +33,7 @@ const userInfoSlice = createSlice({
         (state.bio = action.payload.user.bio),
         (state.accountType = action.payload.user.accountType),
         (state.gravatar = action.payload.user.gravatar),
+        (state.favourites = action.payload.user.favourites),
         (state.token = action.payload.user.token);
     },
     userLoginFail: (state, action) => {
@@ -48,6 +50,7 @@ const userInfoSlice = createSlice({
         (state.bio = null),
         (state.accountType = null),
         (state.gravatar = null),
+        (state.favourites = []),
         (state.token = null),
         (state.loading = false);
     },
@@ -63,6 +66,12 @@ const userInfoSlice = createSlice({
         (state.username = action.payload.username);
     },
     userUpdateFail: (state, action) => {
+      (state.loading = false), (state.error = action.payload);
+    },
+    userUpdateFavourites: (state, action) => {
+      state.favourites = action.payload.favourites;
+    },
+    userUpdateFavouritesFail: (state, action) => {
       (state.loading = false), (state.error = action.payload);
     },
   },
@@ -155,6 +164,29 @@ export const updateUserAccount = (username, email, token) => async (
   }
 };
 
+export const updateFavourites = (token) => async (dispatch, getState) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `${token}`,
+      },
+    };
+
+    const { data } = await axios.get(
+      'http://localhost:3001/api/favourites',
+      config
+    );
+
+    dispatch(userUpdateFavourites(data));
+    const { userInfo } = getState();
+    localStorage.removeItem('userInfo');
+    localStorage.setItem('userInfo', JSON.stringify({ user: { ...userInfo } }));
+  } catch (error) {
+    dispatch(userUpdateFavouritesFail(error.message));
+  }
+};
+
 export const {
   userLoginRequest,
   userLoginSuccess,
@@ -163,6 +195,8 @@ export const {
   userUpdateProfile,
   userUpdateAccount,
   userUpdateFail,
+  userUpdateFavourites,
+  userUpdateFavouritesFail,
 } = userInfoSlice.actions;
 
 export default userInfoSlice.reducer;

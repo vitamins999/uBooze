@@ -16,27 +16,30 @@ const NavBar = ({ page }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const userInfoFromStorage = JSON.parse(localStorage.getItem('userInfo'));
+    if (!userID) {
+      const userInfoFromStorage = JSON.parse(localStorage.getItem('userInfo'));
 
-    if (userInfoFromStorage) {
-      dispatch(userLoginSuccess(userInfoFromStorage));
-    } else {
-      const defaultState = {
-        user: {
-          userID: null,
-          email: null,
-          username: null,
-          displayName: null,
-          firstName: null,
-          lastName: null,
-          location: null,
-          bio: null,
-          accountType: null,
-          gravatar: null,
-          token: null,
-        },
-      };
-      dispatch(userLoginSuccess(defaultState));
+      if (userInfoFromStorage) {
+        dispatch(userLoginSuccess(userInfoFromStorage));
+      } else {
+        const defaultState = {
+          user: {
+            userID: null,
+            email: null,
+            username: null,
+            displayName: null,
+            firstName: null,
+            lastName: null,
+            location: null,
+            bio: null,
+            accountType: null,
+            gravatar: null,
+            favourites: [],
+            token: null,
+          },
+        };
+        dispatch(userLoginSuccess(defaultState));
+      }
     }
   }, []);
 

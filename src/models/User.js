@@ -32,6 +32,11 @@ class User extends Model {
           minLength: 1,
           maxLength: 255,
         },
+        username: {
+          type: 'string',
+          minLength: 1,
+          maxLength: 255,
+        },
         firstName: {
           type: 'string',
           minLength: 1,
@@ -41,11 +46,6 @@ class User extends Model {
           type: 'string',
           minLength: 1,
           maxLength: 255,
-        },
-        defaultPostcode: {
-          type: 'string',
-          minLength: 1,
-          maxLength: 10,
         },
         accountType: {
           type: 'string',

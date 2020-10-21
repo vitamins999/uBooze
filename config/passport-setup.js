@@ -5,6 +5,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const User = require('../src/models/User');
+const Favourite = require('../src/models/Favourite');
 const bcrypt = require('bcrypt');
 const issueJWT = require('../src/utils/jwt');
 
@@ -22,7 +23,18 @@ const authenticateUser = async (email, password, done) => {
 
   try {
     if (await bcrypt.compare(password, user.password)) {
+      let favourites = await Favourite.query().select('productID').where({
+        userID: user.userID,
+      });
+
+      if (!favourites) {
+        favourites = [];
+      } else {
+        favourites = favourites.map((item) => item.productID);
+      }
+
       const tokenObject = issueJWT(user);
+
       return done(null, {
         userID: user.userID,
         email: user.email,
@@ -34,6 +46,7 @@ const authenticateUser = async (email, password, done) => {
         bio: user.bio,
         accountType: user.accountType,
         gravatar: user.gravatar,
+        favourites,
         token: tokenObject.token,
       });
     } else {
