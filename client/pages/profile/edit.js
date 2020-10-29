@@ -11,7 +11,7 @@ import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import Link from 'next/link';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 const EditProfile = () => {
@@ -33,10 +33,6 @@ const EditProfile = () => {
   );
   const [username, setUsername] = useState(userInfo.username);
   const [email, setEmail] = useState(userInfo.email);
-
-  const [oldPassword, setOldPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmNewPassword, setConfirmNewPassword] = useState('');
 
   const notifyError = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
@@ -139,17 +135,6 @@ const EditProfile = () => {
   return (
     <Layout title={title}>
       <main className='grid grid-cols-10 grid-rows-4'>
-        <ToastContainer
-          position='top-center'
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
         {isLoading && <Loader />}
         {status === 'success' && (
           <>

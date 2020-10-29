@@ -10,14 +10,19 @@ import {
 } from '../utils/supermarketListUtils';
 import { updateFavourites } from '../lib/slices/userInfoSlice';
 
-const ProductItem = ({ product }) => {
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
+const ProductItem = ({ product, publicProfilePage }) => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [statsY, setStatsY] = useState(0);
   const [moreThanThree, setMoreThanThree] = useState(false);
   const [extraSupermarkets, setExtraSupermarkets] = useState(0);
 
-  const { favourites, token } = useSelector((state) => state.userInfo);
+  const { favourites, token, userID } = useSelector((state) => state.userInfo);
   const [isFavourite, setIsFavourite] = useState(false);
+
+  const notifyError = (message) => toast.error(message);
 
   const dispatch = useDispatch();
 
@@ -44,16 +49,22 @@ const ProductItem = ({ product }) => {
   };
 
   const onFavouriteClickHandler = async () => {
-    setIsFavourite(!isFavourite);
-    try {
-      await axios.post(
-        'http://localhost:3001/api/favourites',
-        { productID: product.productID },
-        config
+    if (userID) {
+      setIsFavourite(!isFavourite);
+      try {
+        await axios.post(
+          'http://localhost:3001/api/favourites',
+          { productID: product.productID },
+          config
+        );
+        dispatch(updateFavourites(token));
+      } catch (error) {
+        console.log(error.message);
+      }
+    } else {
+      notifyError(
+        'Easy there! You need to be logged in before you can favourite a drink!'
       );
-      dispatch(updateFavourites(token));
-    } catch (error) {
-      console.log(error.message);
     }
   };
 
@@ -77,7 +88,9 @@ const ProductItem = ({ product }) => {
           {isFavourite ? (
             <svg
               onClick={onFavouriteClickHandler}
-              className='w-6 h-6 absolute top-0 right-0 m-2 z-50 text-yellow-500 cursor-pointer'
+              className={`w-6 h-6 absolute top-0 right-0 m-2 z-30 text-yellow-500 cursor-pointer ${
+                publicProfilePage ? 'hidden' : null
+              }`}
               fill='#ecc94b'
               stroke='currentColor'
               viewBox='0 0 24 24'
@@ -93,7 +106,7 @@ const ProductItem = ({ product }) => {
           ) : (
             <svg
               onClick={onFavouriteClickHandler}
-              className='w-6 h-6 absolute top-0 right-0 m-2 z-50 text-yellow-500 cursor-pointer'
+              className='w-6 h-6 absolute top-0 right-0 m-2 z-30 text-yellow-500 cursor-pointer'
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
@@ -107,6 +120,7 @@ const ProductItem = ({ product }) => {
               ></path>
             </svg>
           )}
+
           <img
             src={product.supermarketProducts[0].image}
             alt={product.productName}

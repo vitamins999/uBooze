@@ -1,18 +1,26 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useQuery } from 'react-query';
+import { useQuery, usePaginatedQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
+import CategoryBar from '../../components/CategoryBar';
+import ProductResults from '../../components/ProductResults';
+import ProductPageChangeButtons from '../../components/ProductPageChangeButtons';
+import { fetchDrinksFavouritesPublic } from '../../utils/supermarketListUtils';
 
-const Profile = () => {
+const Profile = ({ drinks }) => {
   const [currentSection, setCurrentSection] = useState('about');
+  const [page, setPage] = useState(1);
+
+  const [order, setOrder] = useState('asc');
+  const [limit, setLimit] = useState(10);
 
   const router = useRouter();
 
-  const { user } = router.query;
+  const { username } = router.query;
 
   const userInfo = useSelector((state) => state.userInfo);
 
@@ -25,23 +33,35 @@ const Profile = () => {
 
   const fetchProfileInfo = async () => {
     const { data } = await axios.get(
-      `http://localhost:3001/api/profile/?username=${user}`,
+      `http://localhost:3001/api/profile/?username=${username}`,
       config
     );
 
     return data;
   };
 
+  const { resolvedData, latestData, statusDrinks } = usePaginatedQuery(
+    ['favouriteDrinks', page, username, order, limit],
+    fetchDrinksFavouritesPublic,
+    {
+      initialData: drinks,
+    }
+  );
+
   const { isLoading, error, data, status } = useQuery(
     'profileInfo',
     fetchProfileInfo
   );
 
-  const title = user;
+  const title = username;
 
   return (
     <Layout title={title}>
-      <main className='grid grid-cols-3 grid-rows-4'>
+      <main
+        className={`grid grid-cols-3 ${
+          currentSection === 'drinks' ? 'grid-rows-6' : 'grid-rows-2'
+        }`}
+      >
         {isLoading && <Loader />}
         {status === 'success' && (
           <>
@@ -67,7 +87,7 @@ const Profile = () => {
                 </div>
               </div>
             </section>
-            <section className='px-32 row-start-2 row-end-5 col-span-3'>
+            <section className='px-32 row-start-2 row-end-7 col-span-3'>
               <div className='flex w-full border-b border-gray-400'>
                 <button
                   onClick={() => setCurrentSection('about')}
@@ -91,7 +111,7 @@ const Profile = () => {
                 </button>
               </div>
               {currentSection === 'about' && (
-                <div className='px-5 mt-10'>
+                <div className='mt-10'>
                   <div>
                     <p className='py-5'>
                       Member since{' '}
@@ -125,12 +145,57 @@ const Profile = () => {
                   </div>
                 </div>
               )}
+              {currentSection === 'drinks' && (
+                <div className='-mt-10'>
+                  <CategoryBar
+                    primary='favourites'
+                    title={`${username}'s Favourite Drinks`}
+                  />
+                  <div className='my-10'>
+                    <ProductResults
+                      resolvedData={resolvedData}
+                      postcode={null}
+                      order={order}
+                      setOrder={setOrder}
+                      limit={limit}
+                      setLimit={setLimit}
+                      setPage={setPage}
+                      noPostcode={true}
+                      publicProfilePage={true}
+                    />
+                    <ProductPageChangeButtons
+                      page={page}
+                      setPage={setPage}
+                      resolvedData={resolvedData}
+                      latestData={latestData}
+                    />
+                  </div>
+                </div>
+              )}
             </section>
           </>
         )}
       </main>
     </Layout>
   );
+};
+
+export const getServerSideProps = async ({ params }) => {
+  try {
+    const drinks = await fetchDrinksFavouritesPublic(
+      (username = params.username)
+    );
+
+    return {
+      props: {
+        drinks,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {},
+    };
+  }
 };
 
 export default Profile;

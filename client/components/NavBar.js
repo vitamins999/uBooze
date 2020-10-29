@@ -149,9 +149,11 @@ const NavBar = ({ page }) => {
                       </Link>
                     </li>
                     <li className='py-2'>
-                      <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
-                        My Favourite Drinks
-                      </a>
+                      <Link href='/profile/favourites'>
+                        <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                          My Favourite Drinks
+                        </a>
+                      </Link>
                     </li>
                     <li className='w-48 h-1 border-b border-gray-400 mb-1'></li>
                     <li className='py-2'>

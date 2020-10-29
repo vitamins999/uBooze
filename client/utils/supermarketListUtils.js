@@ -73,3 +73,43 @@ export const fetchDrinksSub = async (
   );
   return res.json();
 };
+
+// Generic fetch drinks from database function (for React Query) from favourites
+export const fetchDrinksFavourites = async (
+  key,
+  page = 1,
+  favourites,
+  order = 'asc',
+  limit = 10
+) => {
+  const res = await fetch(
+    `http://localhost:3001/api/favourites/userfavourites?page=${page}&order=${order}&limit=${limit}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({ favourites }),
+    }
+  );
+  return res.json();
+};
+
+// Generic fetch drinks from database function (for React Query) from favourites by userID
+export const fetchDrinksFavouritesPublic = async (
+  key,
+  page = 1,
+  username,
+  order = 'asc',
+  limit = 10
+) => {
+  const res = await fetch(
+    `http://localhost:3001/api/favourites/userfavourites/id?page=${page}&order=${order}&limit=${limit}&username=${username}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  return res.json();
+};

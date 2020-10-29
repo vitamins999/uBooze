@@ -11,6 +11,7 @@ const ProductResults = ({
   setPage,
   searchText,
   noPostcode,
+  publicProfilePage,
 }) => {
   const [showFilter, setShowFilter] = useState(false);
   const dropdownRef = useRef(null);
@@ -107,7 +108,7 @@ const ProductResults = ({
             {showFilter && (
               <div
                 ref={dropdownRef}
-                className='dropdown absolute left-0 h-auto shadow-lg z-10 w-20 mt-3 -ml-2'
+                className='dropdown absolute left-0 h-auto shadow-lg z-40 w-20 mt-3 -ml-2'
               >
                 <ul className='bg-gray-200 w-64 shadow-lg py-2 text-left text-sm tracking-wide rounded-lg text-gray-800'>
                   <div className='py-2'>
@@ -190,7 +191,7 @@ const ProductResults = ({
             {showLimit && (
               <div
                 ref={limitRef}
-                className='dropdown absolute left-0 h-auto shadow-lg z-10 w-20 mt-3 ml-10'
+                className='dropdown absolute left-0 h-auto shadow-lg z-40 w-20 mt-3 ml-10'
               >
                 <ul className='bg-gray-200 w-32 shadow-lg py-2 text-left text-sm tracking-wide rounded-lg text-gray-800'>
                   <li
@@ -330,7 +331,10 @@ const ProductResults = ({
         </div>
       </div>
       <div className='mt-3 pt-5 pb-8 border-gray-400 border-b border-t'>
-        <ProductItemList products={resolvedData.results} />
+        <ProductItemList
+          products={resolvedData.results}
+          publicProfilePage={publicProfilePage}
+        />
       </div>
     </div>
   );

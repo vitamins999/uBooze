@@ -1,12 +1,49 @@
+import { motion } from 'framer-motion';
 import ProductItem from './ProductItem';
 
-const ProductItemList = ({ products }) => {
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 1.5,
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+  },
+};
+
+const ProductItemList = ({ products, publicProfilePage }) => {
   return (
-    <div className='grid grid-cols-4 gap-16'>
+    <motion.div
+      variants={containerVariants}
+      initial='hidden'
+      animate='show'
+      className='grid grid-cols-4 gap-16'
+    >
       {products.map((product) => {
-        return <ProductItem key={product.productID} product={product} />;
+        return (
+          <motion.div variants={itemVariants}>
+            <ProductItem
+              key={product.productID}
+              product={product}
+              publicProfilePage={publicProfilePage}
+            />
+          </motion.div>
+        );
       })}
-    </div>
+    </motion.div>
   );
 };
 
