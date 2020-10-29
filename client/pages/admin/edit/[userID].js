@@ -79,15 +79,29 @@ const EditUserPageAdmin = () => {
     bio,
     admin,
   }) => {
-    try {
-      await axios.put(
-        `http://localhost:3001/api/admin/users/${userID}`,
-        { username, email, firstName, lastName, location, bio, isAdmin: admin },
-        config
+    if (Number(userID) === userInfo.userID) {
+      notifyError(
+        'Editing your own user info in this panel is restricted, to prevent admin accounts from locking themselves out!'
       );
-      notifySuccess('Changes saved successfully!');
-    } catch (error) {
-      notifyError(`Oops! ${error.message}`);
+    } else {
+      try {
+        await axios.put(
+          `http://localhost:3001/api/admin/users/${userID}`,
+          {
+            username,
+            email,
+            firstName,
+            lastName,
+            location,
+            bio,
+            isAdmin: admin,
+          },
+          config
+        );
+        notifySuccess('Changes saved successfully!');
+      } catch (error) {
+        notifyError(`Oops! ${error.message}`);
+      }
     }
   };
 
