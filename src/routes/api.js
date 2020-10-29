@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+const adminRoutes = require('./api/admin');
 const authRoutes = require('./api/auth');
 const favouritesRoutes = require('./api/favourites');
 const profileRoutes = require('./api/profile');
@@ -10,6 +11,7 @@ const searchRoutes = require('./api/search');
 const scraperRoutes = require('./api/scraper');
 
 app.use('/auth', authRoutes);
+app.use('/admin', adminRoutes);
 app.use('/favourites', favouritesRoutes);
 app.use('/profile', profileRoutes);
 app.use('/products', productsRoutes);

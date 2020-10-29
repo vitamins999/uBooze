@@ -8,7 +8,7 @@ const NavBar = ({ page }) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   const userInfo = useSelector((state) => state.userInfo);
-  const { gravatar, userID, username } = userInfo;
+  const { gravatar, userID, username, isAdmin } = userInfo;
   const userMenuRef = useRef(null);
 
   const router = useRouter();
@@ -32,7 +32,7 @@ const NavBar = ({ page }) => {
             lastName: null,
             location: null,
             bio: null,
-            accountType: null,
+            isAdmin: null,
             gravatar: null,
             favourites: [],
             token: null,
@@ -156,6 +156,25 @@ const NavBar = ({ page }) => {
                       </Link>
                     </li>
                     <li className='w-48 h-1 border-b border-gray-400 mb-1'></li>
+                    {isAdmin && (
+                      <>
+                        <li className='py-2'>
+                          <Link href='/admin/users'>
+                            <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                              ADMIN -- Users List
+                            </a>
+                          </Link>
+                        </li>
+                        <li className='py-2'>
+                          <Link href='/admin/drinks'>
+                            <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                              ADMIN -- Drinks List
+                            </a>
+                          </Link>
+                        </li>
+                        <li className='w-48 h-1 border-b border-gray-400 mb-1'></li>
+                      </>
+                    )}
                     <li className='py-2'>
                       <a
                         onClick={() => {

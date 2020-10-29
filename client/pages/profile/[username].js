@@ -74,9 +74,9 @@ const Profile = ({ drinks }) => {
                 />
                 <div className='flex flex-col justify-center ml-8 h-32'>
                   <h2 className='text-2xl font-bold text-gray-900'>
-                    {userInfo.displayName}
+                    {data.displayName}
                   </h2>
-                  <h3 className='text-lg'>{userInfo.username}</h3>
+                  <h3 className='text-lg'>{data.username}</h3>
                   {data.isUser && (
                     <Link href='/profile/edit'>
                       <a className='mt-2 px-2 py-1 w-32 text-sm font-semibold tracking-tighter text-gray-900 border-gray-400 border text-center rounded-md hover:bg-orange-500 hover:text-white transition ease-in-out duration-100 cursor-pointer'>

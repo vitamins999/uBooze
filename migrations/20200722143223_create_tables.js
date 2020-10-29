@@ -12,7 +12,7 @@ exports.up = function (knex) {
       table.string('location');
       table.text('bio');
       table.datetime('createdAt').defaultTo(knex.fn.now());
-      table.string('accountType').defaultTo('regular');
+      table.boolean('isAdmin').defaultTo(false);
       table.string('gravatar');
       table.string('facebookID');
       table.string('googleID');
