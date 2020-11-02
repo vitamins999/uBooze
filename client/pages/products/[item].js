@@ -224,7 +224,7 @@ const ItemPage = ({ itemData }) => {
                           className='h-8'
                         />
                       </td>
-                      <td className='border-t-2 border-gray-200 px-4 py-3'>
+                      <td className='border-t-2 border-gray-200 px-4 py-3 text-xs'>
                         {supermarket.offer}
                       </td>
                       {index === 0 ? (
