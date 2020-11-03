@@ -47,6 +47,14 @@ exports.seed = function (knex) {
           firstName: 'Kate',
           lastName: 'Smith',
         },
+        {
+          username: 'admin',
+          password: '123456',
+          email: 'admin@example.com',
+          firstName: 'Admin',
+          lastName: 'Account',
+          isAdmin: true,
+        },
       ]);
     })
     .then(() => {

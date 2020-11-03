@@ -757,6 +757,18 @@ const supermarketBaseData = [
     supermarket: 'Morrisons',
     productID: 6,
   },
+  {
+    productName: 'Test product',
+    price: 9999,
+    offer: 'Offer price £17.99, was £25',
+    link:
+      'https://groceries.morrisons.com/products/jack-daniel-s-tennessee-whiskey-119493011',
+    image:
+      'https://groceries.morrisons.com/productImages/119/119493011_0_150x150.jpg?identifier=5b26c8f73f00cb96847b388c2f4b3d7f',
+    drinkType: 'spirits',
+    drinkSubtype: 'whisky',
+    supermarket: 'Morrisons',
+  },
 ];
 
 module.exports = { supermarketBaseData };

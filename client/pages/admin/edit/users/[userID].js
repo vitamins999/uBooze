@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import Layout from '../../../components/Layout';
-import Loader from '../../../components/Loader';
+import Layout from '../../../../components/Layout';
+import Loader from '../../../../components/Loader';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';

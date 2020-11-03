@@ -7,7 +7,13 @@ import axios from 'axios';
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 
-const EditUsersPage = () => {
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
+const EditDrinksPage = () => {
+  const notifyError = (message) => toast.error(message);
+  const notifySuccess = (message) => toast.success(message);
+
   const router = useRouter();
 
   const userInfo = useSelector((state) => state.userInfo);
@@ -20,16 +26,16 @@ const EditUsersPage = () => {
     },
   };
 
-  const fetchUsers = async () => {
+  const fetchDrinks = async () => {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/users`,
+      `http://localhost:3001/api/admin/products`,
       config
     );
 
     return data;
   };
 
-  const { isLoading, error, data, status } = useQuery('users', fetchUsers);
+  const { isLoading, error, data, status } = useQuery('drinks', fetchDrinks);
 
   useEffect(() => {
     if (!isAdmin) {
@@ -37,83 +43,61 @@ const EditUsersPage = () => {
     }
   }, [isAdmin]);
 
-  const deleteUserHandler = (userID) => {
+  const deleteDrinkHandler = async (productID) => {
     if (window.confirm('Are you sure?')) {
-      console.log(userID);
+      try {
+        await axios.delete(
+          `http://localhost:3001/api/admin/products/${productID}`,
+          config
+        );
+        notifySuccess('Drink deleted successfully!');
+      } catch (error) {
+        notifyError(`Oops! ${error.message}`);
+      }
     }
   };
 
-  const title = 'Admin Panel - User List';
+  const title = 'Admin Panel - Drinks List';
 
   return (
     <Layout title={title}>
       <main className='flex flex-col w-full justify-center items-center mt-10 mb-40'>
-        <h2 className='text-5xl font-bold my-10'>Users List</h2>
+        <h2 className='text-5xl font-bold my-10'>Drinks List</h2>
         {isLoading && <Loader />}
         {status === 'success' && (
           <table className='table-auto'>
             <thead>
               <tr>
-                <th className='px-4 py-2'>ID</th>
-                <th className='px-4 py-2'>USERNAME</th>
-                <th className='px-4 py-2'>EMAIL</th>
-                <th className='px-4 py-2'>FIRST NAME</th>
-                <th className='px-4 py-2'>LAST NAME</th>
-                <th className='px-4 py-2'>ADMIN</th>
+                <th className='px-4 py-2'>PRODUCT ID</th>
+                <th className='px-4 py-2'>PRODUCT NAME</th>
+                <th className='px-4 py-2'>DISPLAY NAME</th>
+                <th className='px-4 py-2'>VOLUME</th>
+                <th className='px-4 py-2'>DRINK TYPE</th>
+                <th className='px-4 py-2'>DRINK SUBTYPE</th>
                 <th className='px-4 py-2'>EDIT</th>
                 <th className='px-4 py-2'>DELETE</th>
               </tr>
             </thead>
             <tbody>
-              {data.map((user, index) => (
+              {data.map((drink, index) => (
                 <tr
-                  key={user.userID}
+                  key={drink.productID}
                   className={`${index % 2 === 0 && 'bg-gray-200'}`}
                 >
-                  <td className='border px-4 py-2'>{user.userID}</td>
-                  <td className='border px-4 py-2'>{user.username}</td>
+                  <td className='border px-4 py-2'>{drink.productID}</td>
                   <td className='border px-4 py-2'>
-                    <Link href={`mailto:${user.email}`}>
-                      <a className='hover:text-orange-500'>{user.email}</a>
+                    <Link href={`/products/${drink.productID}`}>
+                      <a className='hover:text-orange-500'>
+                        {drink.productName}
+                      </a>
                     </Link>
                   </td>
-                  <td className='border px-4 py-2'>{user.firstName}</td>
-                  <td className='border px-4 py-2'>{user.lastName}</td>
-                  <td className='border px-4 py-2 flex justify-center'>
-                    {user.isAdmin ? (
-                      <svg
-                        className='w-6 h-6'
-                        fill='none'
-                        stroke='#48bb78'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          d='M5 13l4 4L19 7'
-                        ></path>
-                      </svg>
-                    ) : (
-                      <svg
-                        className='w-6 h-6'
-                        fill='none'
-                        stroke='#f56565'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          d='M6 18L18 6M6 6l12 12'
-                        ></path>
-                      </svg>
-                    )}
-                  </td>
+                  <td className='border px-4 py-2'>{drink.displayName}</td>
+                  <td className='border px-4 py-2'>{drink.volume}</td>
+                  <td className='border px-4 py-2'>{drink.drinkType}</td>
+                  <td className='border px-4 py-2'>{drink.drinkSubtype}</td>
                   <td className='border px-4 py-2'>
-                    <Link href={`/admin/edit/users/${user.userID}`}>
+                    <Link href={`/admin/edit/drinks/${drink.productID}`}>
                       <a className='flex justify-center'>
                         <svg
                           className='w-6 h-6 hover:text-orange-500'
@@ -133,7 +117,7 @@ const EditUsersPage = () => {
                     </Link>
                   </td>
                   <td className='border px-4 py-2 flex justify-center'>
-                    <button onClick={() => deleteUserHandler(user.userID)}>
+                    <button onClick={() => deleteDrinkHandler(drink.productID)}>
                       <svg
                         className='w-6 h-6 hover:text-red-700 focus:outline-none'
                         fill='none'
@@ -160,4 +144,4 @@ const EditUsersPage = () => {
   );
 };
 
-export default EditUsersPage;
+export default EditDrinksPage;
