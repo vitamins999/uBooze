@@ -63,7 +63,8 @@ const userInfoSlice = createSlice({
     },
     userUpdateAccount: (state, action) => {
       (state.email = action.payload.email),
-        (state.username = action.payload.username);
+        (state.username = action.payload.username),
+        (state.gravatar = action.payload.gravatar);
     },
     userUpdateFail: (state, action) => {
       (state.loading = false), (state.error = action.payload);

@@ -4,6 +4,9 @@ const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 
+const gravatar = require('gravatar');
+const normalize = require('normalize-url');
+
 const bcrypt = require('bcrypt');
 const dayjs = require('dayjs');
 
@@ -190,17 +193,28 @@ router.put(
     }
 
     try {
+      const avatar = normalize(
+        gravatar.url(req.body.email, {
+          s: '200',
+          r: 'pg',
+          d: 'mm',
+        }),
+        { forceHttps: true }
+      );
+
       const updatedUser = await User.query().patchAndFetchById(
         req.user.userID,
         {
           username: req.body.username,
           email: req.body.email,
+          gravatar: avatar,
         }
       );
 
       res.json({
         username: updatedUser.username,
         email: updatedUser.email,
+        gravatar: updatedUser.gravatar,
       });
     } catch (error) {
       res.send(error.message);

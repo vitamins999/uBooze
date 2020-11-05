@@ -141,7 +141,7 @@ const EditProfile = () => {
             <section className='row-span-1 col-start-3 col-end-9 mt-16 h-32'>
               <div className='flex'>
                 <img
-                  src={data.gravatar}
+                  src={userInfo.gravatar}
                   alt='profile image'
                   className={`rounded-full w-20 h-20 ${
                     hoverOnName &&
