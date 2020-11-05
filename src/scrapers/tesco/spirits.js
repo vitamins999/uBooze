@@ -1,5 +1,4 @@
 const tescoScraper = require('../utils/tescoScraper');
-const fs = require('fs');
 const removeDuplicates = require('../utils/removeDuplicates');
 
 // Spirits URLS
@@ -9,8 +8,8 @@ const spiritsGinURL1 =
   'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/gin?page=1&count=48';
 const spiritsGinURL2 =
   'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/gin?page=2&count=48';
-const spiritsGinURL3 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/gin?page=3&count=48';
+// const spiritsGinURL3 =
+// 'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/gin?page=3&count=48';
 
 // Whisky
 const spiritsWhiskyURL1 =
@@ -40,23 +39,23 @@ const spiritsTequilaLiqueursURL2 =
 
 // Premix
 const spiritsPremixURL1 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/premix-spirits?page=1&count=48';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/ready-to-drink-premixed-spirits-and-cocktails?page=1&count=48';
 const spiritsPremixURL2 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/premix-spirits?page=2&count=48';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/ready-to-drink-premixed-spirits-and-cocktails?page=2&count=48';
 const spiritsPremixURL3 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/premix-spirits?page=3&count=48';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/spirits/ready-to-drink-premixed-spirits-and-cocktails?page=3&count=48';
 
 // Low alcohol
 const spiritsLowAlcoholURL =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/low-and-no-alcohol/low-and-no-alcohol-spirits';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/alcohol-free-and-low-alcohol-drinks/low-and-no-alcohol-spirits';
 
 const tescoScrapeSpirits = async () => {
   // Gin
   const spiritsGin1 = await tescoScraper(spiritsGinURL1, 'spirits', 'gin');
   const spiritsGin2 = await tescoScraper(spiritsGinURL2, 'spirits', 'gin');
-  const spiritsGin3 = await tescoScraper(spiritsGinURL3, 'spirits', 'gin');
+  // const spiritsGin3 = await tescoScraper(spiritsGinURL3, 'spirits', 'gin');
 
-  const spiritsGin = [...spiritsGin1, ...spiritsGin2, ...spiritsGin3];
+  const spiritsGin = [...spiritsGin1, ...spiritsGin2];
 
   // Whisky
   const spiritsWhisky1 = await tescoScraper(
@@ -155,9 +154,6 @@ const tescoScrapeSpirits = async () => {
   spirits = removeDuplicates(spirits);
 
   console.log('Spirits Data Scraped!');
-
-  const spiritsJSON = JSON.stringify(spirits);
-  fs.writeFileSync('src/output/tesco-spirits.json', spiritsJSON);
 
   return spirits;
 };

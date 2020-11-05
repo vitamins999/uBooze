@@ -1,5 +1,4 @@
 const tescoScraper = require('../utils/tescoScraper');
-const fs = require('fs');
 const removeDuplicates = require('../utils/removeDuplicates');
 
 // Beer URLs
@@ -12,24 +11,24 @@ const beerLagerURL2 =
 const beerLagerURL3 =
   'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-lager?page=3&count=48';
 
-const beerLagerWorldURL1 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-world-lager?page=1&count=48';
-const beerLagerWorldURL2 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-world-lager?page=2&count=48';
+// const beerLagerWorldURL1 =
+//   'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-world-lager?page=1&count=48';
+// const beerLagerWorldURL2 =
+//   'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-world-lager?page=2&count=48';
 
 // Ale & Bitter
 const beerAleURL1 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-ale-and-bitter?page=1&count=48';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-real-ale-and-bitter?page=1&count=48';
 const beerAleURL2 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-ale-and-bitter?page=2&count=48';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-real-ale-and-bitter?page=2&count=48';
 
 // Craft & Specialist
 const beerCraftURL1 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-craft-and-specialist?page=1&count=48';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/craft-beer?page=1&count=48';
 const beerCraftURL2 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-craft-and-specialist?page=2&count=48';
-// const beerCraftURL3 =
-// 'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/beer-craft-and-specialist?page=3&count=48';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/craft-beer?page=2&count=48';
+const beerCraftURL3 =
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/craft-beer?page=3&count=48';
 
 // Cider
 const beerCiderURL1 =
@@ -47,7 +46,7 @@ const beerGlutenFreeURL =
 
 // Low alcohol
 const beerLowAlcoholURL =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/low-and-no-alcohol/low-and-no-alcohol-beer-and-cider';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/beer-and-cider/alcohol-free-and-low-alcohol-beer-and-cider';
 
 const tescoScrapeBeer = async () => {
   // Lager
@@ -57,20 +56,20 @@ const tescoScrapeBeer = async () => {
 
   const beerLagerRegular = [...beerLager1, ...beerLager2, ...beerLager3];
 
-  const beerLagerWorld1 = await tescoScraper(
-    beerLagerWorldURL1,
-    'beer',
-    'lager'
-  );
-  const beerLagerWorld2 = await tescoScraper(
-    beerLagerWorldURL2,
-    'beer',
-    'lager'
-  );
+  // const beerLagerWorld1 = await tescoScraper(
+  //   beerLagerWorldURL1,
+  //   'beer',
+  //   'lager'
+  // );
+  // const beerLagerWorld2 = await tescoScraper(
+  //   beerLagerWorldURL2,
+  //   'beer',
+  //   'lager'
+  // );
 
-  const beerLagerWorld = [...beerLagerWorld1, ...beerLagerWorld2];
+  // const beerLagerWorld = [...beerLagerWorld1, ...beerLagerWorld2];
 
-  const beerLager = [...beerLagerRegular, ...beerLagerWorld];
+  const beerLager = [...beerLagerRegular];
 
   // Ale and Bitter
   const beerAle1 = await tescoScraper(beerAleURL1, 'beer', 'ale');
@@ -81,9 +80,9 @@ const tescoScrapeBeer = async () => {
   // Craft & Specialist
   const beerCraft1 = await tescoScraper(beerCraftURL1, 'beer', 'craft');
   const beerCraft2 = await tescoScraper(beerCraftURL2, 'beer', 'craft');
-  // const beerCraft3 = await tescoScraper(beerCraftURL3, 'beer', 'craft');
+  const beerCraft3 = await tescoScraper(beerCraftURL3, 'beer', 'craft');
 
-  const beerCraft = [...beerCraft1, ...beerCraft2];
+  const beerCraft = [...beerCraft1, ...beerCraft2, ...beerCraft3];
 
   // Cider
   const beerCider1 = await tescoScraper(beerCiderURL1, 'beer', 'cider');
@@ -121,9 +120,6 @@ const tescoScrapeBeer = async () => {
   beer = removeDuplicates(beer);
 
   console.log('Beer Data Scraped!');
-
-  const beerJSON = JSON.stringify(beer);
-  fs.writeFileSync('src/output/tesco-beer.json', beerJSON);
 
   return beer;
 };

@@ -158,38 +158,46 @@ const NavBar = ({ page }) => {
                     <li className='w-48 h-1 border-b border-gray-400 mb-1'></li>
                     {isAdmin && (
                       <>
+                        <li className='text-center font-bold mt-2'>Admin</li>
                         <li className='py-2'>
                           <Link href='/admin/users'>
                             <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
-                              ADMIN -- Users List
+                              Users List
                             </a>
                           </Link>
                         </li>
                         <li className='py-2'>
                           <Link href='/admin/drinks'>
                             <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
-                              ADMIN -- Drinks List
+                              Drinks List
                             </a>
                           </Link>
                         </li>
                         <li className='py-2'>
                           <Link href='/admin/newdrink'>
                             <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
-                              ADMIN -- Add New Drink
+                              Add New Drink
                             </a>
                           </Link>
                         </li>
                         <li className='py-2'>
                           <Link href='/admin/supermarketproducts'>
                             <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
-                              ADMIN -- Supermarket Products List
+                              Supermarket Products List
                             </a>
                           </Link>
                         </li>
                         <li className='py-2'>
                           <Link href='/admin/supermarketproductsupdate'>
                             <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
-                              ADMIN -- Supermarket Products To Update
+                              Supermarket Products To Update
+                            </a>
+                          </Link>
+                        </li>
+                        <li className='py-2'>
+                          <Link href='/admin/sync'>
+                            <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                              Sync Supermarkets
                             </a>
                           </Link>
                         </li>

@@ -1,5 +1,4 @@
 const tescoScraper = require('../utils/tescoScraper');
-const fs = require('fs');
 const removeDuplicates = require('../utils/removeDuplicates');
 
 // Wine URLS
@@ -34,9 +33,9 @@ const wineRoseURL2 =
 
 // Champagne & Sparkling
 const wineChampagneSparklingURL1 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/champagne-and-sparkling-wine?page=1&count=48';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/prosecco-champagne-and-sparkling-wine?page=1&count=48';
 const wineChampagneSparklingURL2 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/champagne-and-sparkling-wine?page=2&count=48';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/prosecco-champagne-and-sparkling-wine?page=2&count=48';
 
 // Boxes
 const wineBoxesURL =
@@ -44,25 +43,25 @@ const wineBoxesURL =
 
 // Fruity
 const wineFruityURL =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/fruity-wine';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/fruit-flavoured-wine';
 
 // Dessert
 const wineDessertURL =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/dessert-wine';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/dessert-and-sweeter-style-wines';
 
 // Fortified Wine (Port and Sherry) and Vermouth
 const wineFortifiedVermouthURL =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/fortified-wine-and-vermouth';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/port-sherry-vermouth-and-fortified-wine';
 
 // Small Wine Bottles
 const wineSmallURL1 =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/small-wine-bottles?page=1&count=48';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/small-wine-bottles-and-cans?page=1&count=48';
 // const wineSmallURL2 =
 //   'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/small-wine-bottles?page=2&count=48';
 
 // Low Alcohol
 const wineLowAlcoholURL =
-  'https://www.tesco.com/groceries/en-GB/shop/drinks/low-and-no-alcohol/low-and-no-alcohol-wine';
+  'https://www.tesco.com/groceries/en-GB/shop/drinks/wine/alcohol-free-and-low-alcohol-wine';
 
 const tescoScrapeWine = async () => {
   // Red
@@ -164,9 +163,6 @@ const tescoScrapeWine = async () => {
   wine = removeDuplicates(wine);
 
   console.log('Wine Data Scraped!');
-
-  const wineJSON = JSON.stringify(wine);
-  fs.writeFileSync('src/output/tesco-wine.json', wineJSON);
 
   return wine;
 };

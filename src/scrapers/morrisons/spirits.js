@@ -1,5 +1,4 @@
 const morrisonsScraper = require('../utils/morrisonsScraper');
-const fs = require('fs');
 const removeDuplicates = require('../utils/removeDuplicates');
 
 // Spirits URLs
@@ -87,9 +86,6 @@ const morrisonsScrapeSpirits = async () => {
   spirits = removeDuplicates(spirits);
 
   console.log('Spirits scraped!');
-
-  const spiritsJSON = JSON.stringify(spirits);
-  fs.writeFileSync('src/output/morrisons-spirits.json', spiritsJSON);
 
   return spirits;
 };

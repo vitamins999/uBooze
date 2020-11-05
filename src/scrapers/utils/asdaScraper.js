@@ -11,7 +11,8 @@ const asdaScraper = async (url, drinkType, drinkSubtype) => {
     const page = await browser.newPage();
 
     await page.setViewport({ width: 1300, height: 1000 });
-    await page.goto(url, { waitUntil: 'networkidle2' });
+    await page.goto(url);
+    await page.waitForSelector('.co-product-list');
 
     // Scroll to very top of page
     await page.evaluate((_) => {
@@ -25,7 +26,7 @@ const asdaScraper = async (url, drinkType, drinkSubtype) => {
 
     const $ = cheerio.load(html);
 
-    const items = $('.co-lazy-product-container').find('.co-item');
+    const items = $('.co-product-list__main-cntr').first().find('.co-item');
 
     items.each((i, el) => {
       const productNameText = $(el).find('h3').text().trim();

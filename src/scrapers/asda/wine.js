@@ -1,5 +1,4 @@
 const asdaScraper = require('../utils/asdaScraper');
-const fs = require('fs');
 const removeDuplicates = require('../utils/removeDuplicates');
 
 // Wine URLs
@@ -20,7 +19,7 @@ const wineRedMerlotURL =
 const wineRedOtherURL1 =
   'https://groceries.asda.com/shelf/beer-wine-spirits/wine/red-wine-by-grape/all-other-grapes/1821513990';
 const wineRedOtherURL2 =
-  'https://groceries.asda.com/shelf/beer-wine-spirits/wine/red-wine-by-grape/all-other-grapes/1821513990?facets=shelf%3A1821513990%3A0000&nutrition=&sortBy=&page=60';
+  'https://groceries.asda.com/shelf/beer-wine-spirits/wine/red-wine-by-grape/all-other-grapes/1821513990?page=2';
 
 // White
 const wineWhitePinotGrigioURL =
@@ -42,7 +41,7 @@ const wineRoseURL =
 const wineSparklingURL1 =
   'https://groceries.asda.com/aisle/beer-wine-spirits/prosecco-champagne-sparkling-wine/view-all-fizz/2105356077';
 const wineSparklingURL2 =
-  'https://groceries.asda.com/aisle/beer-wine-spirits/prosecco-champagne-sparkling-wine/view-all-fizz/2105356077?facets=aisle%3A2105356077%3A0000&nutrition=&sortBy=&page=60';
+  'https://groceries.asda.com/aisle/beer-wine-spirits/prosecco-champagne-sparkling-wine/view-all-fizz/2105356077?page=2';
 
 // Wine Boxes
 const wineBoxesWhiteURL =
@@ -192,9 +191,6 @@ const asdaScrapeWine = async () => {
   wine = removeDuplicates(wine);
 
   console.log('Wine Scraped!');
-
-  const wineJSON = JSON.stringify(wine);
-  fs.writeFileSync('src/output/asda-wine.json', wineJSON);
 
   return wine;
 };

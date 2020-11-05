@@ -14,6 +14,7 @@ const tescoScraper = async (url, drinkType, drinkSubtype) => {
       .find('.product-list--list-item')
       .each((i, el) => {
         const productName = $(el).find('h3').text();
+        // console.log(productName);
 
         if (!productName) {
           return;

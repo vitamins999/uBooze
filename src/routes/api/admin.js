@@ -96,10 +96,10 @@ router.put(
 );
 
 // @desc    Get all supermarket products WITHOUT a productID (ie, freshly scraped supermarket products that need to be linked to their drink counterpart in db)
-// @route   GET /api/admin/supermarketproducts/noid
+// @route   GET /api/admin/supermarketproducts/noid/:supermarket
 // @access  Private/Admin
 router.get(
-  '/supermarketproducts/noid',
+  '/supermarketproducts/noid/:supermarket',
   passport.authenticate('jwt', { session: false }),
   admin,
   async (req, res) => {
@@ -118,7 +118,8 @@ router.get(
           'updatedAt',
         ])
         .where('productID', null)
-        .orderBy('supermarket');
+        .where('supermarket', req.params.supermarket)
+        .orderBy('supermarketProductID');
 
       if (supermarketProductsNoID.length > 0) {
         res.json(supermarketProductsNoID);

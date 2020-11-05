@@ -1,22 +1,21 @@
 const asdaScraper = require('../utils/asdaScraper');
-const fs = require('fs');
 const removeDupicates = require('../utils/removeDuplicates');
 
 // Beer URLs
 
 // Lager
 const beerLagerURL1 =
-  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/lager/2056949458?facets=aisle%3A2056949458%3A0000&nutrition=&sortBy=&page=0';
+  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/lager/2056949458';
 const beerLagerURL2 =
-  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/lager/2056949458?facets=aisle%3A2056949458%3A0000&nutrition=&sortBy=&page=60';
+  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/lager/2056949458?page=2';
 const beerLagerURL3 =
-  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/lager/2056949458?facets=aisle%3A2056949458%3A0000&nutrition=&sortBy=&page=120';
+  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/lager/2056949458?page=3';
 
 // Ale
 const beerAleURL1 =
-  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/ale-bitter/2104174534?facets=aisle%3A2104174534%3A0000&nutrition=&sortBy=&page=0';
+  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/ale-bitter/2104174534';
 const beerAleURL2 =
-  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/ale-bitter/2104174534?facets=aisle%3A2104174534%3A0000&nutrition=&sortBy=&page=60';
+  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/ale-bitter/2104174534?page=2';
 
 // Stout
 const beerStoutURL =
@@ -26,7 +25,7 @@ const beerStoutURL =
 const beerCraftURL1 =
   'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/craft-beer/1085905974';
 const beerCraftURL2 =
-  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/craft-beer/1085905974?facets=aisle%3A1085905974%3A0000&nutrition=&sortBy=&page=60';
+  'https://groceries.asda.com/aisle/beer-wine-spirits/beer-lager-ales/craft-beer/1085905974?page=2';
 
 // Low Alcohol
 const beerLowAlcoholURL =
@@ -86,9 +85,6 @@ const asdaScrapeBeer = async () => {
   beer = removeDupicates(beer);
 
   console.log('Beer scraped!');
-
-  const beerJSON = JSON.stringify(beer);
-  fs.writeFileSync('src/output/asda-beer.json', beerJSON);
 
   return beer;
 };

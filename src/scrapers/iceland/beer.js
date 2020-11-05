@@ -1,5 +1,4 @@
 const icelandScraper = require('../utils/icelandScraper');
-const fs = require('fs');
 const removeDuplicates = require('../utils/removeDuplicates');
 
 // Beer URLs
@@ -38,9 +37,6 @@ const icelandScrapeBeer = async () => {
   beer = removeDuplicates(beer);
 
   console.log('Beer scraped!');
-
-  const beerJSON = JSON.stringify(beer);
-  fs.writeFileSync('src/output/iceland-beer.json', beerJSON);
 
   return beer;
 };

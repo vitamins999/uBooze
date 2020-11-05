@@ -56,9 +56,6 @@ const icelandScrapeWine = async () => {
 
   console.log('Wine scraped!');
 
-  const wineJSON = JSON.stringify(wine);
-  fs.writeFileSync('src/output/iceland-wine.json', wineJSON);
-
   return wine;
 };
 

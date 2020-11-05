@@ -1,5 +1,4 @@
 const asdaScraper = require('../utils/asdaScraper');
-const fs = require('fs');
 const removeDuplicates = require('../utils/removeDuplicates');
 
 // Spirits URLs
@@ -8,15 +7,15 @@ const removeDuplicates = require('../utils/removeDuplicates');
 const spiritsGinURL1 =
   'https://groceries.asda.com/aisle/beer-wine-spirits/spirits/gin/1896568675';
 const spiritsGinURL2 =
-  'https://groceries.asda.com/aisle/beer-wine-spirits/spirits/gin/1896568675?facets=aisle%3A1896568675%3A0000&nutrition=&sortBy=&page=60';
+  'https://groceries.asda.com/aisle/beer-wine-spirits/spirits/gin/1896568675?page=2';
 const spiritsGinURL3 =
-  'https://groceries.asda.com/aisle/beer-wine-spirits/spirits/gin/1896568675?facets=aisle%3A1896568675%3A0000&nutrition=&sortBy=&page=120';
+  'https://groceries.asda.com/aisle/beer-wine-spirits/spirits/gin/1896568675?page=3';
 
 // Whisky
 const spiritsWhiskyURL1 =
   'https://groceries.asda.com/aisle/beer-wine-spirits/spirits/whisky/3819661917';
 const spiritsWhiskyURL2 =
-  'https://groceries.asda.com/aisle/beer-wine-spirits/spirits/whisky/3819661917?facets=aisle%3A3819661917%3A0000&nutrition=&sortBy=&page=60';
+  'https://groceries.asda.com/aisle/beer-wine-spirits/spirits/whisky/3819661917?page=2';
 
 // Vodka
 const spiritsVodkaURL =
@@ -109,9 +108,6 @@ const asdaScrapeSpirits = async () => {
   spirits = removeDuplicates(spirits);
 
   console.log('Spirits scraped!');
-
-  const spiritsJSON = JSON.stringify(spirits);
-  fs.writeFileSync('src/output/asda-spirits.json', spiritsJSON);
 
   return spirits;
 };

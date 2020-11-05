@@ -1,5 +1,4 @@
 const coopScraper = require('../utils/coopScraper');
-const fs = require('fs');
 const removeDuplicates = require('../utils/removeDuplicates');
 
 // Beer URL
@@ -11,9 +10,6 @@ const coopScrapeBeer = async () => {
   beer = removeDuplicates(beer);
 
   console.log('Beer Data Scraped!');
-
-  const beerJSON = JSON.stringify(beer);
-  fs.writeFileSync('src/output/coop-beer.json', beerJSON);
 
   return beer;
 };
