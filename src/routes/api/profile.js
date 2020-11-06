@@ -53,7 +53,7 @@ router.get('/', async (req, res) => {
           'email',
           'displayName',
           'createdAt',
-          'accountType',
+          'isAdmin',
           'gravatar',
           'facebookID',
           'googleID',

@@ -8,6 +8,8 @@ const User = require('../src/models/User');
 const Favourite = require('../src/models/Favourite');
 const bcrypt = require('bcrypt');
 const issueJWT = require('../src/utils/jwt');
+const gravatar = require('gravatar');
+const normalize = require('normalize-url');
 
 const options = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -94,18 +96,33 @@ passport.use(
         .findOne({ googleID: profile.id })
         .then((currentUser) => {
           if (currentUser) {
+            const tokenObject = issueJWT(currentUser);
+            currentUser.token = tokenObject.token;
             done(null, currentUser);
           } else {
-            console.log(profile);
+            const avatar = normalize(
+              gravatar.url(profile.emails[0].value, {
+                s: '200',
+                r: 'pg',
+                d: 'mm',
+              }),
+              { forceHttps: true }
+            );
+
             User.query()
               .insert({
                 googleID: profile.id,
                 displayName: profile.displayName,
                 email: profile.emails[0].value,
+                username: profile.emails[0].value.split('@')[0],
+                gravatar: avatar,
                 firstName: profile.name.givenName,
                 lastName: profile.name.familyName,
+                isAdmin: false,
               })
               .then((newUser) => {
+                const tokenObject = issueJWT(newUser);
+                newUser.token = tokenObject.token;
                 done(null, newUser);
               });
           }
@@ -120,7 +137,7 @@ passport.use(
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
       callbackURL: '/api/auth/facebook/redirect',
-      profileFields: ['id', 'displayName', 'emails'],
+      profileFields: ['id', 'displayName', 'first_name', 'last_name', 'emails'],
     },
     (accessToken, refreshToken, profile, done) => {
       User.query()
@@ -129,14 +146,29 @@ passport.use(
           if (currentUser) {
             done(null, currentUser);
           } else {
-            console.log(profile);
+            const avatar = normalize(
+              gravatar.url(profile.emails[0].value, {
+                s: '200',
+                r: 'pg',
+                d: 'mm',
+              }),
+              { forceHttps: true }
+            );
+
             User.query()
               .insert({
                 facebookID: profile.id,
                 displayName: profile.displayName,
                 email: profile.emails[0].value,
+                username: profile.emails[0].value.split('@')[0],
+                gravatar: avatar,
+                firstName: profile.name.givenName,
+                lastName: profile.name.familyName,
+                isAdmin: false,
               })
               .then((newUser) => {
+                const tokenObject = issueJWT(newUser);
+                newUser.token = tokenObject.token;
                 done(null, newUser);
               });
           }

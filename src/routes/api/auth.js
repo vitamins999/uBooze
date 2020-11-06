@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt');
 const issueJWT = require('../../utils/jwt');
 
 const User = require('../../models/User');
+const Favourite = require('../../models/Favourite');
 const { NotFoundError } = require('objection');
 
 // Get all users
@@ -82,6 +83,7 @@ router.post('/register', async (req, res, next) => {
       lastName,
       displayName: `${firstName} ${lastName}`,
       gravatar: avatar,
+      isAdmin: false,
     });
     const token = issueJWT(user);
     res.status(201).json({
@@ -89,7 +91,7 @@ router.post('/register', async (req, res, next) => {
       email: user.email,
       username: user.username,
       displayName: user.displayName,
-      accountType: user.accountType,
+      isAdmin: user.isAdmin,
       gravatar: user.gravatar,
       token: token.token,
     });
@@ -102,19 +104,49 @@ router.post('/register', async (req, res, next) => {
 router.get(
   '/google',
   passport.authenticate('google', {
+    session: false,
     scope: ['profile', 'email'],
   })
 );
 
 // Google callback route
-router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.redirect('http://localhost:3000');
-});
+router.get(
+  '/google/redirect',
+  passport.authenticate('google', { session: false }),
+  async (req, res) => {
+    let favourites = await Favourite.query().select('productID').where({
+      userID: req.user.userID,
+    });
+
+    if (!favourites) {
+      favourites = [];
+    } else {
+      favourites = favourites.map((item) => item.productID);
+    }
+    const user = {
+      userID: req.user.userID,
+      email: req.user.email,
+      username: req.user.username,
+      displayName: req.user.displayName,
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+      location: req.user.location,
+      bio: req.user.bio,
+      isAdmin: req.user.isAdmin,
+      gravatar: req.user.gravatar,
+      favourites,
+      token: req.user.token,
+    };
+    res.cookie('user', JSON.stringify(user));
+    res.redirect('http://localhost:3000');
+  }
+);
 
 // Auth with Facebook
 router.get(
   '/facebook',
   passport.authenticate('facebook', {
+    session: false,
     scope: ['public_profile', 'email'],
   })
 );
@@ -122,8 +154,32 @@ router.get(
 // Facebook callback route
 router.get(
   '/facebook/redirect',
-  passport.authenticate('facebook'),
-  (req, res) => {
+  passport.authenticate('facebook', { session: false }),
+  async (req, res) => {
+    let favourites = await Favourite.query().select('productID').where({
+      userID: req.user.userID,
+    });
+
+    if (!favourites) {
+      favourites = [];
+    } else {
+      favourites = favourites.map((item) => item.productID);
+    }
+    const user = {
+      userID: req.user.userID,
+      email: req.user.email,
+      username: req.user.username,
+      displayName: req.user.displayName,
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+      location: req.user.location,
+      bio: req.user.bio,
+      isAdmin: req.user.isAdmin,
+      gravatar: req.user.gravatar,
+      favourites,
+      token: req.user.token,
+    };
+    res.cookie('user', JSON.stringify(user));
     res.redirect('http://localhost:3000');
   }
 );

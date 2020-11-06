@@ -103,6 +103,30 @@ export const loginAsync = (email, password) => async (dispatch) => {
   }
 };
 
+export const loginGoogleAsync = (user) => async (dispatch) => {
+  try {
+    dispatch(userLoginRequest);
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    };
+
+    const { data } = await axios.get(
+      'http://localhost:3001/api/auth/google',
+      config
+    );
+
+    dispatch(userLoginSuccess(data));
+
+    localStorage.setItem('userInfo', JSON.stringify(data));
+  } catch (error) {
+    dispatch(userLoginFail(error.message));
+  }
+};
+
 export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
   dispatch(userLogout);

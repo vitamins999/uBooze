@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Cookies from 'js-cookie';
 import { userLogout, userLoginSuccess } from '../lib/slices/userInfoSlice';
 
 const NavBar = ({ page }) => {
@@ -22,23 +23,46 @@ const NavBar = ({ page }) => {
       if (userInfoFromStorage) {
         dispatch(userLoginSuccess(userInfoFromStorage));
       } else {
-        const defaultState = {
-          user: {
-            userID: null,
-            email: null,
-            username: null,
-            displayName: null,
-            firstName: null,
-            lastName: null,
-            location: null,
-            bio: null,
-            isAdmin: null,
-            gravatar: null,
-            favourites: [],
-            token: null,
-          },
-        };
-        dispatch(userLoginSuccess(defaultState));
+        let user = Cookies.get('user');
+        if (user) {
+          user = JSON.parse(user);
+          const userState = {
+            user: {
+              userID: user.userID,
+              email: user.email,
+              username: user.username,
+              displayName: user.displayName,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              location: user.location,
+              bio: user.bio,
+              isAdmin: user.isAdmin,
+              gravatar: user.gravatar,
+              favourites: user.favourites,
+              token: user.token,
+            },
+          };
+          Cookies.remove('user');
+          dispatch(userLoginSuccess(userState));
+        } else {
+          const defaultState = {
+            user: {
+              userID: null,
+              email: null,
+              username: null,
+              displayName: null,
+              firstName: null,
+              lastName: null,
+              location: null,
+              bio: null,
+              isAdmin: null,
+              gravatar: null,
+              favourites: [],
+              token: null,
+            },
+          };
+          dispatch(userLoginSuccess(defaultState));
+        }
       }
     }
   }, []);

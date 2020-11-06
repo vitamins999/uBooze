@@ -7,7 +7,13 @@ import axios from 'axios';
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 const EditUsersPage = () => {
+  const notifyError = (message) => toast.error(message);
+  const notifySuccess = (message) => toast.success(message);
+
   const router = useRouter();
 
   const userInfo = useSelector((state) => state.userInfo);
@@ -37,9 +43,23 @@ const EditUsersPage = () => {
     }
   }, [isAdmin]);
 
-  const deleteUserHandler = (userID) => {
-    if (window.confirm('Are you sure?')) {
-      console.log(userID);
+  const deleteUserHandler = async (userID) => {
+    if (Number(userID) === userInfo.userID) {
+      notifyError(
+        'Deleting your own user info in this panel is restricted, to prevent admin accounts from locking themselves out!'
+      );
+    } else {
+      if (window.confirm('Are you sure?')) {
+        try {
+          await axios.delete(
+            `http://localhost:3001/api/admin/users/${userID}`,
+            config
+          );
+          notifySuccess('User deleted successfully!');
+        } catch (error) {
+          notifyError(`Oops! ${error.message}`);
+        }
+      }
     }
   };
 

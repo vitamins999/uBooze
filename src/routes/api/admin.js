@@ -5,6 +5,7 @@ const { admin } = require('../../middleware/authMiddleware');
 const User = require('../../models/User');
 const SupermarketProduct = require('../../models/SupermarketProduct');
 const Product = require('../../models/Product');
+const Favourite = require('../../models/Favourite');
 
 // @desc    Get all users
 // @route   GET /api/admin/users
@@ -386,6 +387,26 @@ router.delete(
 
       res.json('Product successfully deleted!');
     } catch (error) {
+      res.status(400).send(error.message);
+    }
+  }
+);
+
+// @desc    Delete user
+// @route   DELETE /api/admin/users/:id
+// @access  Private/Admin
+router.delete(
+  '/users/:id',
+  passport.authenticate('jwt', { session: false }),
+  admin,
+  async (req, res) => {
+    try {
+      await Favourite.query().delete().where('userID', req.params.id);
+
+      await User.query().deleteById(req.params.id);
+      res.json('User successfully deleted!');
+    } catch (error) {
+      console.log(error);
       res.status(400).send(error.message);
     }
   }
