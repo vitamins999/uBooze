@@ -1,12 +1,17 @@
-import Layout from '../../components/Layout';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
-
+import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
+import Layout from '../../components/Layout';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import {
   capitaliseFirstLetter,
   formatter,
   supermarketLogo,
 } from '../../utils/supermarketListUtils';
+import { updateFavourites } from '../../lib/slices/userInfoSlice';
 
 const fetchDrinkInfo = async (key, item) => {
   const res = await fetch(
@@ -16,12 +21,54 @@ const fetchDrinkInfo = async (key, item) => {
 };
 
 const ItemPage = ({ itemData }) => {
+  const notifyError = (message) => toast.error(message);
+
   const router = useRouter();
-  const { item, postcode } = router.query;
+  const { item } = router.query;
+
+  const [isFavourite, setIsFavourite] = useState(false);
+  const { favourites, token, userID } = useSelector((state) => state.userInfo);
+
+  const dispatch = useDispatch();
 
   const { data, status } = useQuery(['drinkInfo', item], fetchDrinkInfo, {
     initialData: itemData,
   });
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `${token}`,
+      withCredentials: true,
+    },
+  };
+
+  const onFavouriteClickHandler = async () => {
+    if (userID) {
+      setIsFavourite(!isFavourite);
+      try {
+        await axios.post(
+          'http://localhost:3001/api/favourites',
+          { productID: Number(item) },
+          config
+        );
+        dispatch(updateFavourites(token));
+      } catch (error) {
+        console.log(error.message);
+      }
+    } else {
+      notifyError(
+        'Easy there! You need to be logged in before you can favourite a drink!'
+      );
+    }
+  };
+
+  useEffect(() => {
+    const id = favourites.find((productID) => productID === Number(item));
+    if (id) {
+      setIsFavourite(true);
+    }
+  }, [favourites]);
 
   if (status == 'loading')
     return (
@@ -50,10 +97,45 @@ const ItemPage = ({ itemData }) => {
               src={data.supermarketProducts[0].image}
             />
             <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
-              <h2 className='text-sm title-font text-gray-500 tracking-widest'>
-                {capitaliseFirstLetter(data.drinkType)} |{' '}
-                {capitaliseFirstLetter(data.drinkSubtype)}
-              </h2>
+              <div className='flex justify-between'>
+                <h2 className='text-sm title-font text-gray-500 tracking-widest'>
+                  {capitaliseFirstLetter(data.drinkType)} |{' '}
+                  {capitaliseFirstLetter(data.drinkSubtype)}
+                </h2>
+                {isFavourite ? (
+                  <svg
+                    onClick={onFavouriteClickHandler}
+                    className={`w-6 h-6 z-30 text-yellow-500 cursor-pointer`}
+                    fill='#ecc94b'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      d='M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z'
+                    ></path>
+                  </svg>
+                ) : (
+                  <svg
+                    onClick={onFavouriteClickHandler}
+                    className='w-6 h-6 z-30 text-yellow-500 cursor-pointer'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      d='M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z'
+                    ></path>
+                  </svg>
+                )}
+              </div>
               <h1 className='text-gray-900 text-3xl title-font font-medium mb-1'>
                 {data.productName}
               </h1>
@@ -171,18 +253,6 @@ const ItemPage = ({ itemData }) => {
                 >
                   Go To {data.supermarketProducts[0].supermarket}
                 </a>
-                <button className='rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4'>
-                  <svg
-                    fill='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    className='w-5 h-5'
-                    viewBox='0 0 24 24'
-                  >
-                    <path d='M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z'></path>
-                  </svg>
-                </button>
               </div>
             </div>
           </div>
