@@ -94,7 +94,7 @@ const NavBar = ({ page }) => {
   return (
     <>
       <header className='text-gray-700 body-font border-b'>
-        <div className='container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center'>
+        <div className='container mx-auto flex flex-wrap px-5 py-5 flex-col md:flex-row items-center'>
           <Link href='/'>
             <a className='flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0'>
               <svg className='h-8 fill-current inline' viewBox='0 0 512 512'>
@@ -107,10 +107,10 @@ const NavBar = ({ page }) => {
   c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139.2z'
                 />
               </svg>
-              <span className='ml-3 text-xl'>ubooze</span>
+              <span className='ml-3 text-3xl'>ubooze</span>
             </a>
           </Link>
-          <nav className='md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center'>
+          <nav className='text-sm md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center justify-center'>
             <Link href='/search/postcode'>
               <a className='mr-5  hover:text-orange-500 font-medium transition duration-300 ease-in-out'>
                 Search by Postcode
@@ -136,7 +136,7 @@ const NavBar = ({ page }) => {
             <div className='relative'>
               <div
                 onMouseEnter={() => setShowUserMenu(true)}
-                className='relative flex items-center cursor-pointer'
+                className='relative flex items-center cursor-pointer text-sm'
               >
                 <p
                   className='font-medium cursor-pointer'
@@ -156,7 +156,7 @@ const NavBar = ({ page }) => {
                   className='dropdown absolute left-0 h-auto shadow-lg z-10 w-20 mt-3 -ml-2'
                   onMouseLeave={() => setShowUserMenu(!showUserMenu)}
                 >
-                  <ul className='bg-gray-200 w-48 shadow-lg py-2 text-left text-sm tracking-wide rounded-lg text-gray-800'>
+                  <ul className='bg-gray-200 w-48 shadow-lg py-2 text-left text-xs tracking-wide rounded-lg text-gray-800'>
                     <li className='py-2'>
                       <Link href={`/profile/${username}`}>
                         <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
