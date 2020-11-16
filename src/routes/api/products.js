@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../../models/Product');
+const Rating = require('../../models/Rating');
 
 const { getSupermarkets } = require('../../utils/geolocater.js');
 
@@ -21,8 +22,29 @@ router.get('/details', async (req, res) => {
     })
     .where('productID', productID);
 
+  const productRatingsToSend = Rating.query()
+    .select('rating')
+    .where('productID', productID);
+
   try {
     const results = await queryToSend;
+
+    const productRatings = await productRatingsToSend;
+    let rating;
+
+    if (productRatings.length === 0) {
+      rating = 0;
+    } else if (productRatings.length === 1) {
+      rating = productRatings[0].rating;
+    } else {
+      rating =
+        productRatings.reduce((acc, item) => {
+          return acc.rating + item.rating;
+        }) / productRatings.length;
+    }
+
+    results[0].rating = rating;
+    results[0].numRatings = productRatings.length;
 
     res.send(results[0]);
   } catch (error) {

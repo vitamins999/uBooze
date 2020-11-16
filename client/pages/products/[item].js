@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import Layout from '../../components/Layout';
+import Rating from '../../components/Rating';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import {
@@ -26,6 +27,10 @@ const ItemPage = ({ itemData }) => {
   const router = useRouter();
   const { item } = router.query;
 
+  const [productRating, setProductRating] = useState(0);
+  const [userRating, setUserRating] = useState(0);
+  const [numRating, setNumRating] = useState(0);
+
   const [isFavourite, setIsFavourite] = useState(false);
   const { favourites, token, userID } = useSelector((state) => state.userInfo);
 
@@ -41,6 +46,48 @@ const ItemPage = ({ itemData }) => {
       Authorization: `${token}`,
       withCredentials: true,
     },
+  };
+
+  const fetchProductRating = async () => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:3001/api/ratings/${item}`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      setProductRating(data.rating);
+      setNumRating(data.numRating);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchUserRating = async () => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:3001/api/ratings?productid=${item}`,
+        config
+      );
+      setUserRating(data.rating);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const userRatingHandler = async (rating) => {
+    try {
+      const { data } = await axios.post(
+        `http://localhost:3001/api/ratings`,
+        { productID: Number(item), rating },
+        config
+      );
+      setUserRating(data.rating);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const onFavouriteClickHandler = async () => {
@@ -69,6 +116,17 @@ const ItemPage = ({ itemData }) => {
       setIsFavourite(true);
     }
   }, [favourites]);
+
+  useEffect(() => {
+    if (userID) {
+      fetchUserRating();
+      fetchProductRating();
+    }
+  }, [userID, userRating, productRating]);
+
+  useEffect(() => {
+    fetchProductRating();
+  }, []);
 
   if (status == 'loading')
     return (
@@ -105,8 +163,8 @@ const ItemPage = ({ itemData }) => {
                 {isFavourite ? (
                   <svg
                     onClick={onFavouriteClickHandler}
-                    className={`w-6 h-6 z-30 text-yellow-500 cursor-pointer`}
-                    fill='#ecc94b'
+                    className={`w-6 h-6 z-30 text-orange-500 cursor-pointer`}
+                    fill='#ed8936'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
                     xmlns='http://www.w3.org/2000/svg'
@@ -115,13 +173,13 @@ const ItemPage = ({ itemData }) => {
                       strokeLinecap='round'
                       strokeLinejoin='round'
                       strokeWidth='2'
-                      d='M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z'
+                      d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
                     ></path>
                   </svg>
                 ) : (
                   <svg
                     onClick={onFavouriteClickHandler}
-                    className='w-6 h-6 z-30 text-yellow-500 cursor-pointer'
+                    className='w-6 h-6 z-30 text-orange-500 cursor-pointer'
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
@@ -131,7 +189,7 @@ const ItemPage = ({ itemData }) => {
                       strokeLinecap='round'
                       strokeLinejoin='round'
                       strokeWidth='2'
-                      d='M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z'
+                      d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
                     ></path>
                   </svg>
                 )}
@@ -140,72 +198,21 @@ const ItemPage = ({ itemData }) => {
                 {data.productName}
               </h1>
               <h2>{data.volume}</h2>
-              <div className='flex mb-4'>
-                <span className='flex items-center'>
-                  <svg
-                    fill='currentColor'
-                    stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    className='w-4 h-4 text-orange-500'
-                    viewBox='0 0 24 24'
-                  >
-                    <path d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'></path>
-                  </svg>
-                  <svg
-                    fill='currentColor'
-                    stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    className='w-4 h-4 text-orange-500'
-                    viewBox='0 0 24 24'
-                  >
-                    <path d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'></path>
-                  </svg>
-                  <svg
-                    fill='currentColor'
-                    stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    className='w-4 h-4 text-orange-500'
-                    viewBox='0 0 24 24'
-                  >
-                    <path d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'></path>
-                  </svg>
-                  <svg
-                    fill='currentColor'
-                    stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    className='w-4 h-4 text-orange-500'
-                    viewBox='0 0 24 24'
-                  >
-                    <path d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'></path>
-                  </svg>
-                  <svg
-                    fill='none'
-                    stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    className='w-4 h-4 text-orange-500'
-                    viewBox='0 0 24 24'
-                  >
-                    <path d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'></path>
-                  </svg>
-                  <span className='text-gray-600 ml-3'>4 Reviews</span>
-                </span>
+              <div className='flex mb-4 items-center'>
+                <Rating
+                  value={productRating}
+                  text={`${numRating} Rating${numRating === 1 ? '' : 's'}`}
+                  user={userID ? 'true' : 'false'}
+                  userRating={userRating}
+                  userRatingHandler={userRatingHandler}
+                />
                 <span className='flex ml-3 pl-3 py-2 border-l-2 border-gray-200'>
                   <a className='text-gray-500'>
                     <svg
                       fill='currentColor'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      stroke-width='2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
                       className='w-5 h-5'
                       viewBox='0 0 24 24'
                     >
@@ -215,9 +222,9 @@ const ItemPage = ({ itemData }) => {
                   <a className='ml-2 text-gray-500'>
                     <svg
                       fill='currentColor'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      stroke-width='2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
                       className='w-5 h-5'
                       viewBox='0 0 24 24'
                     >
@@ -227,9 +234,9 @@ const ItemPage = ({ itemData }) => {
                   <a className='ml-2 text-gray-500'>
                     <svg
                       fill='currentColor'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      stroke-width='2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
                       className='w-5 h-5'
                       viewBox='0 0 24 24'
                     >
@@ -286,7 +293,7 @@ const ItemPage = ({ itemData }) => {
               <tbody>
                 {data.supermarketProducts.map((supermarket, index) => {
                   return (
-                    <tr>
+                    <tr key={index}>
                       <td className='border-t-2 border-gray-200 px-4 py-3'>
                         <img
                           src={supermarketLogo(supermarket.supermarket)}

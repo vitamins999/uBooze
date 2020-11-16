@@ -1,5 +1,4 @@
 const express = require('express');
-const { constants } = require('fs');
 const router = express.Router();
 
 const passport = require('passport');

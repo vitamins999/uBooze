@@ -244,7 +244,7 @@ const NavBar = ({ page }) => {
             </div>
           ) : (
             <Link href='/login'>
-              <a className='inline-flex items-center font-medium px-3 hover:text-orange-500 transition duration-300 ease-in-out text-md mt-4 md:mt-0'>
+              <a className='inline-flex text-sm items-center font-medium px-3 hover:text-orange-500 transition duration-300 ease-in-out text-md mt-4 md:mt-0'>
                 <svg
                   viewBox='0 0 20 20'
                   fill='#000000'
@@ -256,7 +256,7 @@ const NavBar = ({ page }) => {
                     clipRule='evenodd'
                   ></path>
                 </svg>
-                Login
+                <p>Login</p>
               </a>
             </Link>
           )}

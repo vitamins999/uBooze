@@ -32,9 +32,9 @@ const ProductItemList = ({ products, publicProfilePage }) => {
       animate='show'
       className='grid grid-cols-4 gap-16'
     >
-      {products.map((product) => {
+      {products.map((product, index) => {
         return (
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} key={index}>
             <ProductItem
               key={product.productID}
               product={product}
