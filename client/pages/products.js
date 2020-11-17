@@ -8,7 +8,7 @@ import { parseCookies } from '../utils/parseCookies';
 import SupermarketBar from '../components/SupermarketBar';
 import CategoryBar from '../components/CategoryBar';
 import ProductResults from '../components/ProductResults';
-import ProductPageChangeButtons from '../components/ProductPageChangeButtons';
+
 import Loader from '../components/Loader';
 import { fetchDrinks } from '../utils/supermarketListUtils';
 
@@ -20,9 +20,6 @@ const ProductsPage = ({ drinks }) => {
   const [limit, setLimit] = useState(10);
 
   const queryString = Cookies.get('queryString');
-  const postcode = Cookies.get('currentPostcode');
-
-  const noPostcode = router.query.postcode;
 
   const title = 'Beer, Cider, Wine & Spirits';
 
@@ -48,23 +45,20 @@ const ProductsPage = ({ drinks }) => {
         <main className='flex flex-col mb-40'>
           <SupermarketBar />
           <div className='pb-10 px-5 container mx-auto'>
-            <CategoryBar primary='allDrinks' title={title} />
+            <CategoryBar
+              primary='allDrinks'
+              title={title}
+              resolvedData={resolvedData}
+            />
             <div>
               <ProductResults
                 resolvedData={resolvedData}
-                postcode={postcode}
                 order={order}
                 setOrder={setOrder}
                 limit={limit}
                 setLimit={setLimit}
                 setPage={setPage}
-                noPostcode={noPostcode}
-              />
-              <ProductPageChangeButtons
                 page={page}
-                setPage={setPage}
-                resolvedData={resolvedData}
-                latestData={latestData}
               />
             </div>
           </div>

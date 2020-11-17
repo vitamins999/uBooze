@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { usePaginatedQuery } from 'react-query';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import Cookies from 'js-cookie';
 import Layout from '../../components/Layout';
 import { parseCookies } from '../../utils/parseCookies';
@@ -9,7 +8,7 @@ import { parseCookies } from '../../utils/parseCookies';
 import SupermarketBar from '../../components/SupermarketBar';
 import CategoryBar from '../../components/CategoryBar';
 import ProductResults from '../../components/ProductResults';
-import ProductPageChangeButtons from '../../components/ProductPageChangeButtons';
+import Loader from '../../components/Loader';
 import { fetchDrinks } from '../../utils/supermarketListUtils';
 
 const SpiritsPage = ({ drinks }) => {
@@ -20,9 +19,8 @@ const SpiritsPage = ({ drinks }) => {
   const [limit, setLimit] = useState(10);
 
   const queryString = Cookies.get('queryString') + '&type=spirits';
-  const postcode = Cookies.get('currentPostcode');
 
-  const title = 'Spirits';
+  const title = 'All Spirits';
 
   useEffect(() => {
     if (!queryString) {
@@ -40,7 +38,7 @@ const SpiritsPage = ({ drinks }) => {
 
   return (
     <Layout title={title}>
-      {status === 'loading' && <div>Loading data...</div>}
+      {status === 'loading' && <Loader />}
       {status === 'error' && <div>Error fetching data</div>}
       {status === 'success' && (
         <main className='flex flex-col mb-40'>
@@ -50,22 +48,17 @@ const SpiritsPage = ({ drinks }) => {
               primary='spirits'
               secondary='allSpirits'
               title={title}
+              resolvedData={resolvedData}
             />
             <div>
               <ProductResults
                 resolvedData={resolvedData}
-                postcode={postcode}
                 order={order}
                 setOrder={setOrder}
                 limit={limit}
                 setLimit={setLimit}
                 setPage={setPage}
-              />
-              <ProductPageChangeButtons
                 page={page}
-                setPage={setPage}
-                resolvedData={resolvedData}
-                latestData={latestData}
               />
             </div>
           </div>

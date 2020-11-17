@@ -30,7 +30,7 @@ const ProductItemList = ({ products, publicProfilePage }) => {
       variants={containerVariants}
       initial='hidden'
       animate='show'
-      className='grid grid-cols-4 gap-16'
+      className='grid grid-cols-4 gap-10 ml-4'
     >
       {products.map((product, index) => {
         return (

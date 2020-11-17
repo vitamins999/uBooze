@@ -6,7 +6,6 @@ import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import CategoryBar from '../../components/CategoryBar';
 import ProductResults from '../../components/ProductResults';
-import ProductPageChangeButtons from '../../components/ProductPageChangeButtons';
 import { fetchDrinksFavourites } from '../../utils/supermarketListUtils';
 
 const FavouritesPage = () => {
@@ -37,23 +36,20 @@ const FavouritesPage = () => {
       {status === 'success' && (
         <main className='flex flex-col mb-40'>
           <div className='pb-10 px-5 container mx-auto'>
-            <CategoryBar primary='favourites' title={title} />
+            <CategoryBar
+              primary='favourites'
+              title={title}
+              resolvedData={resolvedData}
+            />
             <div>
               <ProductResults
                 resolvedData={resolvedData}
-                postcode={null}
                 order={order}
                 setOrder={setOrder}
                 limit={limit}
                 setLimit={setLimit}
                 setPage={setPage}
-                noPostcode={true}
-              />
-              <ProductPageChangeButtons
                 page={page}
-                setPage={setPage}
-                resolvedData={resolvedData}
-                latestData={latestData}
               />
             </div>
           </div>

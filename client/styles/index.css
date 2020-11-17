@@ -7,3 +7,8 @@
 .loader-top {
   border-top: 0.5rem solid #3498db;
 }
+
+.bg-blur {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+}

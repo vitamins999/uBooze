@@ -2,11 +2,54 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import CategoryBarSecondary from './CategoryBarSecondary';
+import { capitaliseFirstLetter } from '../utils/supermarketListUtils';
 
-const CategoryBar = ({ primary, secondary, title }) => {
+const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
   return (
     <>
-      <div className='mb-10 mt-20 w-full flex justify-center text-sm text-gray-700'>
+      <div className='mt-10'>
+        <h2
+          className={`${
+            primary === 'allDrinks' ? 'text-gray-700' : 'text-gray-500'
+          }`}
+        >
+          {primary === 'allDrinks' ? (
+            'All Drinks'
+          ) : (
+            <>
+              {primary === 'beer' ? (
+                <Link href='/products/beer'>
+                  <a className='hover:text-green-500'>Beer & Cider</a>
+                </Link>
+              ) : (
+                <Link href={`/products/${primary}`}>
+                  <a className='hover:text-green-500'>
+                    {capitaliseFirstLetter(primary)}
+                  </a>
+                </Link>
+              )}{' '}
+              / <span className='text-gray-700'>{title}</span>
+            </>
+          )}
+        </h2>
+        <h3>
+          {resolvedData && resolvedData.total === 0 ? (
+            <span className='text-gray-700 italic text-sm'>
+              {' '}
+              (No results found)
+            </span>
+          ) : (
+            <>
+              <span className='text-gray-700 italic text-sm'>
+                {' '}
+                (Showing {resolvedData.firstItem}-{resolvedData.lastItem} of{' '}
+                {resolvedData.total} results)
+              </span>
+            </>
+          )}
+        </h3>
+      </div>
+      <div className='mb-10 mt-10 w-full flex justify-center text-sm text-gray-700'>
         {primary === 'favourites' ? (
           <div></div>
         ) : (
@@ -63,9 +106,7 @@ const CategoryBar = ({ primary, secondary, title }) => {
           initial={{ opacity: 0, scale: 1.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-        >
-          {title}
-        </motion.h1>
+        ></motion.h1>
       </div>
       <CategoryBarSecondary primary={primary} secondary={secondary} />
     </>

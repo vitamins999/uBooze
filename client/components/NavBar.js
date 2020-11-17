@@ -107,27 +107,27 @@ const NavBar = ({ page }) => {
   c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139.2z'
                 />
               </svg>
-              <span className='ml-3 text-3xl'>ubooze</span>
+              <span className='ml-3 text-3xl text-green-700'>ubooze</span>
             </a>
           </Link>
           <nav className='text-sm md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center justify-center'>
             <Link href='/search/postcode'>
-              <a className='mr-5  hover:text-orange-500 font-medium transition duration-300 ease-in-out'>
+              <a className='mr-5  hover:text-green-500 font-medium transition duration-300 ease-in-out'>
                 Search by Postcode
               </a>
             </Link>
             <Link href='/search/supermarket'>
-              <a className='mr-5  hover:text-orange-500 font-medium transition duration-300 ease-in-out'>
+              <a className='mr-5  hover:text-green-500 font-medium transition duration-300 ease-in-out'>
                 Search by Supermarket
               </a>
             </Link>
             <Link href='/search/drink'>
-              <a className='mr-5 hover:text-orange-500 font-medium transition duration-300 ease-in-out'>
+              <a className='mr-5 hover:text-green-500 font-medium transition duration-300 ease-in-out'>
                 Search by Drink
               </a>
             </Link>
             <Link href='/products'>
-              <a className='mr-5 hover:text-orange-500 font-medium transition duration-300 ease-in-out'>
+              <a className='mr-5 hover:text-green-500 font-medium transition duration-300 ease-in-out'>
                 All Products
               </a>
             </Link>
@@ -159,7 +159,7 @@ const NavBar = ({ page }) => {
                   <ul className='bg-gray-200 w-48 shadow-lg py-2 text-left text-xs tracking-wide rounded-lg text-gray-800'>
                     <li className='py-2'>
                       <Link href={`/profile/${username}`}>
-                        <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                        <a className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
                           Profile
                         </a>
                       </Link>
@@ -167,14 +167,14 @@ const NavBar = ({ page }) => {
                     <li className='w-48 h-1 border-b border-gray-400 mb-1'></li>
                     <li className='py-2'>
                       <Link href='/profile/edit'>
-                        <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                        <a className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
                           Edit Profile
                         </a>
                       </Link>
                     </li>
                     <li className='py-2'>
                       <Link href='/profile/favourites'>
-                        <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                        <a className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
                           My Favourite Drinks
                         </a>
                       </Link>
@@ -185,42 +185,42 @@ const NavBar = ({ page }) => {
                         <li className='text-center font-bold mt-2'>Admin</li>
                         <li className='py-2'>
                           <Link href='/admin/users'>
-                            <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                            <a className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
                               Users List
                             </a>
                           </Link>
                         </li>
                         <li className='py-2'>
                           <Link href='/admin/drinks'>
-                            <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                            <a className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
                               Drinks List
                             </a>
                           </Link>
                         </li>
                         <li className='py-2'>
                           <Link href='/admin/newdrink'>
-                            <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                            <a className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
                               Add New Drink
                             </a>
                           </Link>
                         </li>
                         <li className='py-2'>
                           <Link href='/admin/supermarketproducts'>
-                            <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                            <a className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
                               Supermarket Products List
                             </a>
                           </Link>
                         </li>
                         <li className='py-2'>
                           <Link href='/admin/supermarketproductsupdate'>
-                            <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                            <a className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
                               Supermarket Products To Update
                             </a>
                           </Link>
                         </li>
                         <li className='py-2'>
                           <Link href='/admin/sync'>
-                            <a className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
+                            <a className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'>
                               Sync Supermarkets
                             </a>
                           </Link>
@@ -233,7 +233,7 @@ const NavBar = ({ page }) => {
                         onClick={() => {
                           logoutHandler();
                         }}
-                        className='flex justify-between items-center hover:bg-orange-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
+                        className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
                       >
                         Logout
                       </a>

@@ -150,17 +150,17 @@ const Profile = ({ drinks }) => {
                   <CategoryBar
                     primary='favourites'
                     title={`${username}'s Favourite Drinks`}
+                    resolvedData={resolvedData}
                   />
                   <div className='my-10'>
                     <ProductResults
                       resolvedData={resolvedData}
-                      postcode={null}
                       order={order}
                       setOrder={setOrder}
                       limit={limit}
                       setLimit={setLimit}
                       setPage={setPage}
-                      noPostcode={true}
+                      page={page}
                       publicProfilePage={true}
                     />
                     <ProductPageChangeButtons

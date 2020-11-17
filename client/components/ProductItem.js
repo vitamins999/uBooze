@@ -86,12 +86,13 @@ const ProductItem = ({ product, publicProfilePage }) => {
       <div>
         <div className='relative'>
           {isFavourite ? (
-            <svg
+            <motion.svg
+              whileHover={{ scale: 1.2 }}
               onClick={onFavouriteClickHandler}
-              className={`w-6 h-6 absolute top-0 right-0 mt-2 mr-4 z-30 text-orange-500 cursor-pointer ${
+              className={`w-6 h-6 absolute top-0 right-0 mt-2 mr-4 z-30 text-gray-700 cursor-pointer ${
                 publicProfilePage ? 'hidden' : null
               }`}
-              fill='#ed8936'
+              fill='#4a5568'
               stroke='currentColor'
               viewBox='0 0 24 24'
               xmlns='http://www.w3.org/2000/svg'
@@ -102,11 +103,12 @@ const ProductItem = ({ product, publicProfilePage }) => {
                 strokeWidth='2'
                 d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
               ></path>
-            </svg>
+            </motion.svg>
           ) : (
-            <svg
+            <motion.svg
+              whileHover={{ scale: 1.2 }}
               onClick={onFavouriteClickHandler}
-              className='w-6 h-6 absolute top-0 right-0 mt-2 mr-4 z-30 text-orange-500 cursor-pointer'
+              className='w-6 h-6 absolute top-0 right-0 mt-2 mr-4 z-30 text-gray-700 cursor-pointer'
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
@@ -118,7 +120,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
                 strokeWidth='2'
                 d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
               ></path>
-            </svg>
+            </motion.svg>
           )}
 
           <img
@@ -135,12 +137,12 @@ const ProductItem = ({ product, publicProfilePage }) => {
                   type: 'tween',
                   ease: 'easeInOut',
                 }}
-                className='absolute top-0 w-64 h-64 bg-blue-900 opacity-75 rounded-md z-10'
+                className='absolute top-0 w-64 h-64 bg-green-700 opacity-75 rounded-md z-10'
               ></motion.div>
               <Link href='/products/[item]' as={`/products/${productID}`}>
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-                  className='absolute top-0 z-20 text-sm cursor-pointer tracking-wide font-medium mt-16 text-center w-1/2 mx-16 border-2 border-orange-500 bg-orange-500 text-white py-1 px-2 rounded hover:bg-orange-600 hover:border-orange-600'
+                  className='absolute top-0 z-20 text-sm cursor-pointer tracking-wide font-medium mt-16 text-center w-1/2 mx-16 border-2 border-gray-100 bg-gray-100 text-green-900 py-1 px-2 rounded'
                 >
                   More Info
                 </motion.a>
@@ -193,7 +195,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
                     />
                     <span
                       className={`${
-                        index === 0 ? 'text-orange-500' : null
+                        index === 0 ? 'text-gray-900' : 'text-gray-500'
                       } text-right`}
                     >
                       {formatter.format(product.price / 100)}
