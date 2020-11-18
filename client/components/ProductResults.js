@@ -53,6 +53,11 @@ const ProductResults = ({
 
   const handlePageClick = (pageNum) => {
     setPage(pageNum);
+    scroll({
+      top: 300,
+      left: 0,
+      behavior: 'smooth',
+    });
   };
 
   return (

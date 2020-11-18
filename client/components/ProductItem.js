@@ -179,26 +179,29 @@ const ProductItem = ({ product, publicProfilePage }) => {
           ) : (
             <h3 className='text-gray-700 text-sm'>All Prices:</h3>
           )}
-          {product.supermarketProducts.map((product, index) => {
+          {product.supermarketProducts.map((productItem, index) => {
             return (
               index <= 2 && (
-                <div key={product.supermarket}>
+                <div key={productItem.supermarket}>
                   <div
                     className={`grid grid-cols-2 ${
                       showOverlay ? 'pt-2' : 'pt-4'
                     }`}
                   >
                     <img
-                      src={supermarketLogo(product.supermarket)}
+                      src={supermarketLogo(productItem.supermarket)}
                       alt='logo'
                       className='h-4'
                     />
                     <span
                       className={`${
-                        index === 0 ? 'text-gray-900' : 'text-gray-500'
+                        productItem.price ===
+                        product.supermarketProducts[0].price
+                          ? 'text-gray-900'
+                          : 'text-gray-500'
                       } text-right`}
                     >
-                      {formatter.format(product.price / 100)}
+                      {formatter.format(productItem.price / 100)}
                     </span>
                   </div>
                 </div>

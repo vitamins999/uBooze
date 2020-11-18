@@ -94,7 +94,7 @@ const NavBar = ({ page }) => {
   return (
     <>
       <header className='text-gray-700 body-font border-b'>
-        <div className='container mx-auto flex flex-wrap px-5 py-5 flex-col md:flex-row items-center'>
+        <div className='container mx-auto flex flex-wrap px-2 py-5 flex-col md:flex-row'>
           <Link href='/'>
             <a className='flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0'>
               <svg className='h-8 fill-current inline' viewBox='0 0 512 512'>
@@ -126,11 +126,11 @@ const NavBar = ({ page }) => {
                 Search by Drink
               </a>
             </Link>
-            <Link href='/products'>
+            {/*<Link href='/products'>
               <a className='mr-5 hover:text-green-500 font-medium transition duration-300 ease-in-out'>
                 All Products
               </a>
-            </Link>
+  </Link>*/}
           </nav>
           {userID ? (
             <div className='relative'>
@@ -243,22 +243,18 @@ const NavBar = ({ page }) => {
               )}
             </div>
           ) : (
-            <Link href='/login'>
-              <a className='inline-flex text-sm items-center font-medium px-3 hover:text-orange-500 transition duration-300 ease-in-out text-md mt-4 md:mt-0'>
-                <svg
-                  viewBox='0 0 20 20'
-                  fill='#000000'
-                  className='user w-5 h-5 mr-2'
-                >
-                  <path
-                    fillRule='evenodd'
-                    d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z'
-                    clipRule='evenodd'
-                  ></path>
-                </svg>
-                <p>Login</p>
-              </a>
-            </Link>
+            <>
+              <Link href='/login'>
+                <a className='inline-flex text-sm items-center font-medium px-3 hover:text-green-500 transition duration-300 ease-in-out text-md mt-4 md:mt-0'>
+                  Login
+                </a>
+              </Link>
+              <Link href='/signup'>
+                <a className='inline-flex text-sm items-center font-medium px-3 hover:text-green-500 transition duration-300 ease-in-out text-md mt-4 md:mt-0'>
+                  Sign Up
+                </a>
+              </Link>
+            </>
           )}
         </div>
       </header>

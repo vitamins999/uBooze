@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 import Layout from '../../components/Layout';
 import Rating from '../../components/Rating';
+import Loader from '../../components/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import {
@@ -78,15 +81,21 @@ const ItemPage = ({ itemData }) => {
   };
 
   const userRatingHandler = async (rating) => {
-    try {
-      const { data } = await axios.post(
-        `http://localhost:3001/api/ratings`,
-        { productID: Number(item), rating },
-        config
+    if (userID) {
+      try {
+        const { data } = await axios.post(
+          `http://localhost:3001/api/ratings`,
+          { productID: Number(item), rating },
+          config
+        );
+        setUserRating(data.rating);
+      } catch (error) {
+        console.log(error.message);
+      }
+    } else {
+      notifyError(
+        'Easy there! You need to be logged in before you can rate a drink!'
       );
-      setUserRating(data.rating);
-    } catch (error) {
-      console.log(error.message);
     }
   };
 
@@ -128,209 +137,250 @@ const ItemPage = ({ itemData }) => {
     fetchProductRating();
   }, []);
 
-  if (status == 'loading')
-    return (
-      <Layout title='Loading...'>
-        <div>Loading data...</div>
-      </Layout>
-    );
+  if (status === 'loading') {
+    return <Loader />;
+  }
 
-  if (status == 'error')
-    return (
-      <Layout title='Error'>
-        <div>Error fetching data.</div>
-      </Layout>
-    );
+  if (status === 'error') {
+    return <div>Error fetching data</div>;
+  }
 
   const title = `${data.productName} ${data.volume}`;
 
   return (
     <Layout title={title}>
-      <section className='text-gray-700 body-font overflow-hidden'>
-        <div className='container px-5 pt-20 pb-32 mx-auto'>
-          <div className='lg:w-4/5 mx-auto flex justify-center items-center'>
-            <img
-              alt='ecommerce'
-              className='w-64 object-cover object-center p-5'
-              src={data.supermarketProducts[0].image}
-            />
-            <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
-              <div className='flex justify-between'>
-                <h2 className='text-sm title-font text-gray-500 tracking-widest'>
-                  {capitaliseFirstLetter(data.drinkType)} |{' '}
-                  {capitaliseFirstLetter(data.drinkSubtype)}
-                </h2>
-                {isFavourite ? (
-                  <svg
-                    onClick={onFavouriteClickHandler}
-                    className={`w-6 h-6 z-30 text-orange-500 cursor-pointer`}
-                    fill='#ed8936'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth='2'
-                      d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
-                    ></path>
-                  </svg>
+      {status === 'success' && (
+        <main>
+          <section className='text-gray-700 body-font overflow-hidden'>
+            <div className='container mx-auto px-2 pt-6 pb-4'>
+              <h2 className='inline-block text-gray-500'>
+                <Link href='/'>
+                  <a className='hover:text-green-500 transition duration-200 ease-in-out'>
+                    Home
+                  </a>
+                </Link>
+              </h2>
+              <span className='text-gray-500'> / </span>
+              <h2 className='inline-block text-gray-500'>
+                {data.drinkType === 'beer' ? (
+                  <Link href='/products/beer'>
+                    <a className='hover:text-green-500 transition duration-200 ease-in-out'>
+                      Beer & Cider
+                    </a>
+                  </Link>
                 ) : (
-                  <svg
-                    onClick={onFavouriteClickHandler}
-                    className='w-6 h-6 z-30 text-orange-500 cursor-pointer'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth='2'
-                      d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
-                    ></path>
-                  </svg>
+                  <Link href={`/products/${data.drinkType}`}>
+                    <a className='hover:text-green-500 transition duration-200 ease-in-out'>
+                      {capitaliseFirstLetter(data.drinkType)}
+                    </a>
+                  </Link>
                 )}
-              </div>
-              <h1 className='text-gray-900 text-3xl title-font font-medium mb-1'>
-                {data.productName}
-              </h1>
-              <h2>{data.volume}</h2>
-              <div className='flex mb-4 items-center'>
-                <Rating
-                  value={productRating}
-                  text={`${numRating} Rating${numRating === 1 ? '' : 's'}`}
-                  user={userID ? 'true' : 'false'}
-                  userRating={userRating}
-                  userRatingHandler={userRatingHandler}
-                />
-                <span className='flex ml-3 pl-3 py-2 border-l-2 border-gray-200'>
-                  <a className='text-gray-500'>
-                    <svg
-                      fill='currentColor'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth='2'
-                      className='w-5 h-5'
-                      viewBox='0 0 24 24'
-                    >
-                      <path d='M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z'></path>
-                    </svg>
-                  </a>
-                  <a className='ml-2 text-gray-500'>
-                    <svg
-                      fill='currentColor'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth='2'
-                      className='w-5 h-5'
-                      viewBox='0 0 24 24'
-                    >
-                      <path d='M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z'></path>
-                    </svg>
-                  </a>
-                  <a className='ml-2 text-gray-500'>
-                    <svg
-                      fill='currentColor'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth='2'
-                      className='w-5 h-5'
-                      viewBox='0 0 24 24'
-                    >
-                      <path d='M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z'></path>
-                    </svg>
-                  </a>
-                </span>
-              </div>
-              <p className='leading-relaxed'></p>
-              <div className='flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5'></div>
-              <div className='flex'>
-                <span className='title-font font-medium text-2xl '>from </span>
-                <span className='title-font font-medium text-2xl text-gray-900 ml-2'>
-                  {formatter.format(data.supermarketProducts[0].price / 100)}
-                </span>
-                <a
-                  href={data.supermarketProducts[0].link}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='flex ml-auto text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded'
+              </h2>
+              <span className='text-gray-500'> / </span>
+              <h2 className='inline-block text-gray-500'>
+                <Link
+                  href={`/products/${
+                    data.drinkType === 'beer' ? 'beer' : data.drinkType
+                  }/${data.drinkSubtype}`}
                 >
-                  Go To {data.supermarketProducts[0].supermarket}
-                </a>
+                  <a className='hover:text-green-500 transition duration-200 ease-in-out'>
+                    {capitaliseFirstLetter(data.drinkSubtype)}
+                  </a>
+                </Link>
+              </h2>
+              <span className='text-gray-500'> / </span>
+              <h2 className='inline-block'>{data.productName}</h2>
+            </div>
+            <div className='container px-5 pt-20 pb-32 mx-auto'>
+              <div className='lg:w-4/5 mx-auto flex justify-center items-center'>
+                <img
+                  alt='ecommerce'
+                  className='w-64 object-cover object-center p-5'
+                  src={data.supermarketProducts[0].image}
+                />
+                <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
+                  <div className='flex justify-between'>
+                    <h2 className='text-sm title-font text-gray-500 tracking-widest'>
+                      {capitaliseFirstLetter(data.drinkType)} |{' '}
+                      {capitaliseFirstLetter(data.drinkSubtype)}
+                    </h2>
+                    {isFavourite ? (
+                      <motion.svg
+                        whileHover={{ scale: 1.2 }}
+                        onClick={onFavouriteClickHandler}
+                        className={`w-6 h-6 z-30 text-gray-700 cursor-pointer`}
+                        fill='#4a5568'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
+                        ></path>
+                      </motion.svg>
+                    ) : (
+                      <motion.svg
+                        whileHover={{ scale: 1.2 }}
+                        onClick={onFavouriteClickHandler}
+                        className='w-6 h-6 z-30 text-gray-700 cursor-pointer'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
+                        ></path>
+                      </motion.svg>
+                    )}
+                  </div>
+                  <h1 className='text-gray-900 text-3xl title-font font-medium mb-1'>
+                    {data.productName}
+                  </h1>
+                  <h2 className='mb-4'>{data.volume}</h2>
+                  <div className='flex mb-4 items-center'>
+                    <Rating
+                      value={productRating}
+                      text={`${numRating} Rating${numRating === 1 ? '' : 's'}`}
+                      user={userID ? 'true' : 'false'}
+                      userRating={userRating}
+                      userRatingHandler={userRatingHandler}
+                    />
+                    <span className='flex ml-3 pl-3 py-2 border-l-2 border-gray-200'>
+                      <a className='text-gray-500'>
+                        <svg
+                          fill='currentColor'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          className='w-5 h-5'
+                          viewBox='0 0 24 24'
+                        >
+                          <path d='M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z'></path>
+                        </svg>
+                      </a>
+                      <a className='ml-2 text-gray-500'>
+                        <svg
+                          fill='currentColor'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          className='w-5 h-5'
+                          viewBox='0 0 24 24'
+                        >
+                          <path d='M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z'></path>
+                        </svg>
+                      </a>
+                      <a className='ml-2 text-gray-500'>
+                        <svg
+                          fill='currentColor'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          className='w-5 h-5'
+                          viewBox='0 0 24 24'
+                        >
+                          <path d='M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z'></path>
+                        </svg>
+                      </a>
+                    </span>
+                  </div>
+                  <p className='leading-relaxed'></p>
+                  <div className='flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5'></div>
+                  <div className='flex'>
+                    <span className='title-font font-medium text-2xl '>
+                      from{' '}
+                    </span>
+                    <span className='title-font font-medium text-2xl text-gray-900 ml-2'>
+                      {formatter.format(
+                        data.supermarketProducts[0].price / 100
+                      )}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <section className='text-gray-700 body-font'>
-        <div className='container px-5 pb-24 mx-auto'>
-          <div className='flex flex-col text-center w-full mb-10'>
-            <h1 className='sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900'>
-              Compare Prices
-            </h1>
-          </div>
-          <div className='lg:w-2/3 w-full mx-auto overflow-auto'>
-            <table className='table-auto w-full text-left whitespace-no-wrap'>
-              <thead>
-                <tr>
-                  <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tl rounded-bl'>
-                    Supermarket
-                  </th>
-                  <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200'>
-                    Offer
-                  </th>
+          <section className='text-gray-700 body-font'>
+            <div className='container px-5 pb-24 mx-auto'>
+              <div className='flex flex-col text-center w-full mb-10'>
+                <h1 className='sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900'>
+                  Compare Prices
+                </h1>
+              </div>
+              <div className='lg:w-2/3 w-full mx-auto overflow-auto'>
+                <table className='table-auto w-full text-left whitespace-no-wrap'>
+                  <thead>
+                    <tr>
+                      <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tl rounded-bl'>
+                        Supermarket
+                      </th>
+                      <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200'>
+                        Offer
+                      </th>
 
-                  <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200'>
-                    Price
-                  </th>
-                  <th className='w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tr rounded-br'></th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.supermarketProducts.map((supermarket, index) => {
-                  return (
-                    <tr key={index}>
-                      <td className='border-t-2 border-gray-200 px-4 py-3'>
-                        <img
-                          src={supermarketLogo(supermarket.supermarket)}
-                          alt='logo'
-                          className='h-8'
-                        />
-                      </td>
-                      <td className='border-t-2 border-gray-200 px-4 py-3 text-xs'>
-                        {supermarket.offer}
-                      </td>
-                      {index === 0 ? (
-                        <td className='border-t-2 border-gray-200 px-4 py-3 text-lg font-medium text-orange-600'>
-                          {formatter.format(supermarket.price / 100)}
-                        </td>
-                      ) : (
-                        <td className='border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-900'>
-                          {formatter.format(supermarket.price / 100)}
-                        </td>
-                      )}
-                      <td className='border-t-2 border-gray-200 w-10'>
-                        <a
-                          href={supermarket.link}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='flex ml-auto text-white bg-orange-500 border-0 py-2 px-5 mr-4 focus:outline-none hover:bg-orange-600 rounded justify-center'
-                        >
-                          Go to {supermarket.supermarket}
-                        </a>
-                      </td>
+                      <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200'>
+                        Price
+                      </th>
+                      <th className='w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tr rounded-br'></th>
                     </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+                  </thead>
+                  <tbody>
+                    {data.supermarketProducts.map((supermarket, index) => {
+                      return (
+                        <tr key={index}>
+                          <td className='border-t-2 border-gray-200 px-4 py-3'>
+                            <img
+                              src={supermarketLogo(supermarket.supermarket)}
+                              alt='logo'
+                              className='h-8'
+                            />
+                          </td>
+                          <td className='border-t-2 border-gray-200 px-4 py-3 text-xs'>
+                            {supermarket.offer}
+                          </td>
+                          {supermarket.price ===
+                          data.supermarketProducts[0].price ? (
+                            <td className='border-t-2 border-gray-200 px-4 py-3 text-lg font-medium text-gray-900'>
+                              {formatter.format(supermarket.price / 100)}
+                            </td>
+                          ) : (
+                            <td className='border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-600'>
+                              {formatter.format(supermarket.price / 100)}
+                            </td>
+                          )}
+                          <td className='border-t-2 border-gray-200 w-10'>
+                            <a
+                              href={supermarket.link}
+                              target='_blank'
+                              rel='noopener noreferrer'
+                              className={`${
+                                supermarket.price ===
+                                data.supermarketProducts[0].price
+                                  ? 'text-white bg-green-500  hover:bg-green-600'
+                                  : 'text-green-500 bg-gray-200 hover:bg-gray-300 hover:text-green-600'
+                              } flex ml-auto shadow py-2 px-5 mr-4 focus:outline-none rounded-lg justify-center transition duration-200 ease-in-out`}
+                            >
+                              Go to {supermarket.supermarket}
+                            </a>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </main>
+      )}
     </Layout>
   );
 };
