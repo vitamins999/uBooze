@@ -145,7 +145,7 @@ const EditProfile = () => {
                   alt='profile image'
                   className={`rounded-full w-20 h-20 ${
                     hoverOnName &&
-                    'opacity-75 transition ease-in-out duration-100'
+                    'opacity-75 transition ease-in-out duration-200'
                   }`}
                 />
                 <div className='flex flex-col justify-center ml-8'>
@@ -154,7 +154,7 @@ const EditProfile = () => {
                       <a
                         onMouseEnter={() => setHoverOnName(true)}
                         onMouseLeave={() => setHoverOnName(false)}
-                        className='text-orange-500 hover:text-orange-700 transition ease-in-out duration-100'
+                        className='text-green-500 hover:text-green-600 transition ease-in-out duration-200'
                       >
                         {userInfo.username}
                       </a>
@@ -300,7 +300,7 @@ const EditProfile = () => {
                   </div>
                   <div className='border-b border-gray-400 w-full my-8'></div>
                   <button
-                    className='text-sm tracking-tight w-52 bg-orange-500 transition duration-100 hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
+                    className='text-sm tracking-tight w-52 bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
                     type='submit'
                   >
                     Save Profile
@@ -374,7 +374,7 @@ const EditProfile = () => {
                     </div>
                     <div className='border-b border-gray-400 w-full my-6'></div>
                     <button
-                      className='text-sm tracking-tight w-52 bg-orange-500 transition duration-100 hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
+                      className='text-sm tracking-tight w-52 bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
                       type='submit'
                     >
                       Save Account Settings
@@ -438,7 +438,7 @@ const EditProfile = () => {
                   </div>
                   <div className='border-b border-gray-400 w-full my-8'></div>
                   <button
-                    className='text-sm tracking-tight w-52 bg-orange-500 transition duration-100 hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
+                    className='text-sm tracking-tight w-52 bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
                     type='submit'
                   >
                     Update Password
