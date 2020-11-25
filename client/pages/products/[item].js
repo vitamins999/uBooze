@@ -329,7 +329,7 @@ const ItemPage = ({ itemData }) => {
                       <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200'>
                         Price
                       </th>
-                      <th className='w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tr rounded-br'></th>
+                      <th className='w-48 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tr rounded-br'></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -364,9 +364,9 @@ const ItemPage = ({ itemData }) => {
                               className={`${
                                 supermarket.price ===
                                 data.supermarketProducts[0].price
-                                  ? 'text-white bg-green-500  hover:bg-green-600'
-                                  : 'text-green-500 bg-gray-200 hover:bg-gray-300 hover:text-green-600'
-                              } flex ml-auto shadow py-2 px-5 mr-4 focus:outline-none rounded-lg justify-center transition duration-200 ease-in-out`}
+                                  ? 'text-white bg-green-500  hover:bg-green-600 border-transparent'
+                                  : 'text-gray-700 bg-white hover:bg-gray-50 border-gray-300'
+                              } flex ml-auto w-auto mr-4 shadow-sm py-2 px-4 border rounded-lg justify-center text-sm font-medium transition duration-200 ease-in-out`}
                             >
                               Go to {supermarket.supermarket}
                             </a>

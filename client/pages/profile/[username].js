@@ -79,7 +79,7 @@ const Profile = ({ drinks }) => {
                   <h3 className='text-lg'>{data.username}</h3>
                   {data.isUser && (
                     <Link href='/profile/edit'>
-                      <a className='mt-2 px-2 py-1 w-32 text-sm font-semibold tracking-tighter text-gray-900 border-gray-400 border text-center rounded-md hover:bg-orange-500 hover:text-white transition ease-in-out duration-100 cursor-pointer'>
+                      <a className='mt-2 px-4 py-2 w-32 text-sm font-medium text-gray-700 border-gray-300 border text-center rounded-lg shadow-sm hover:bg-gray-50 transition ease-in-out duration-200'>
                         Edit Profile
                       </a>
                     </Link>

@@ -1,8 +1,6 @@
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-  },
   purge: [],
+  darkMode: false,
   theme: {
     extend: {
       fontFamily: {

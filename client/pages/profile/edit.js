@@ -24,13 +24,9 @@ const EditProfile = () => {
   const [firstName, setFirstName] = useState(userInfo.firstName);
   const [lastName, setLastName] = useState(userInfo.lastName);
   const [location, setLocation] = useState(
-    userInfo.location ? userInfo.location : "Let us know where you're from... "
+    userInfo.location ? userInfo.location : ''
   );
-  const [bio, setBio] = useState(
-    userInfo.bio
-      ? userInfo.bio
-      : 'Share something about yourself with the rest of the community...'
-  );
+  const [bio, setBio] = useState(userInfo.bio ? userInfo.bio : '');
   const [username, setUsername] = useState(userInfo.username);
   const [email, setEmail] = useState(userInfo.email);
 
@@ -180,41 +176,89 @@ const EditProfile = () => {
                 </div>
               </div>
             </section>
-            <section className='row-span-2 col-start-3 col-end-4 my-12 text-sm'>
+            <section className='row-span-2 col-start-3 col-end-4 my-12 text-sm w-64'>
               <ul>
                 <li className='pb-1'>
                   <button
                     onClick={() => setCurrentSection('profile')}
-                    className={`py-2 focus:outline-none ${
+                    className={`flex items-center py-2 focus:outline-none ${
                       currentSection === 'profile'
-                        ? 'text-gray-900 font-bold'
-                        : 'hover:text-orange-500 transition ease-in-out duration-200 font-medium'
+                        ? 'text-gray-900 font-semibold'
+                        : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
                     }`}
                   >
+                    <svg
+                      class='w-6 h-6 mr-4'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        d='M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z'
+                      ></path>
+                    </svg>
                     Edit Profile
                   </button>
                 </li>
                 <li className='py-1'>
                   <button
                     onClick={() => setCurrentSection('account')}
-                    className={`py-2 focus:outline-none ${
+                    className={`flex justify-center py-2 focus:outline-none ${
                       currentSection === 'account'
-                        ? 'text-gray-900 font-bold'
-                        : 'hover:text-orange-500 transition ease-in-out duration-200 font-medium'
+                        ? 'text-gray-900 font-semibold'
+                        : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
                     }`}
                   >
+                    <svg
+                      class='w-6 h-6 mr-4'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        stroke-width='2'
+                        d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
+                      ></path>
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+                      ></path>
+                    </svg>
                     Account Settings
                   </button>
                 </li>
                 <li className='py-1'>
                   <button
                     onClick={() => setCurrentSection('password')}
-                    className={`py-2 focus:outline-none ${
+                    className={`flex justify-center py-2 focus:outline-none ${
                       currentSection === 'password'
-                        ? 'text-gray-900 font-bold'
-                        : 'hover:text-orange-500 transition ease-in-out duration-200 font-medium'
+                        ? 'text-gray-900 font-semibold'
+                        : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
                     }`}
                   >
+                    <svg
+                      class='w-6 h-6 mr-4'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        d='M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z'
+                      ></path>
+                    </svg>
                     Change Password
                   </button>
                 </li>
@@ -230,12 +274,12 @@ const EditProfile = () => {
                     <div className='mb-6 w-full pr-2'>
                       <label
                         htmlFor='firstName'
-                        className='block text-gray-900 text-sm font-semibold'
+                        className='block text-gray-700 text-sm font-medium'
                       >
-                        First Name <span className='text-red-700'>*</span>
+                        First name <span className='text-red-700'>*</span>
                       </label>
                       <input
-                        className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                        className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                         type='text'
                         name='firstName'
                         id='firstName'
@@ -248,12 +292,12 @@ const EditProfile = () => {
                     <div className='mb-6 w-full pl-2'>
                       <label
                         htmlFor='lastName'
-                        className='block text-gray-900 text-sm font-semibold'
+                        className='block text-gray-700 text-sm font-medium'
                       >
-                        Last Name <span className='text-red-700'>*</span>
+                        Last name <span className='text-red-700'>*</span>
                       </label>
                       <input
-                        className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                        className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                         type='text'
                         name='lastName'
                         id='lastName'
@@ -267,15 +311,16 @@ const EditProfile = () => {
                   <div className='mb-6'>
                     <label
                       htmlFor='location'
-                      className='block text-gray-900 text-sm font-semibold'
+                      className='block text-gray-700 text-sm font-medium'
                     >
                       Location
                     </label>
                     <input
-                      className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='location'
                       name='location'
                       id='location'
+                      placeholder="Let us know where you're from... "
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
                       ref={updateProfile()}
@@ -284,27 +329,30 @@ const EditProfile = () => {
                   <div className='mb-4'>
                     <label
                       htmlFor='bio'
-                      className='block text-gray-900 text-sm font-semibold'
+                      className='block text-gray-700 text-sm font-medium'
                     >
                       Bio
                     </label>
                     <textarea
-                      className='w-full h-32 shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                      className='h-32 mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='text'
                       name='bio'
                       id='bio'
+                      placeholder='Share something about yourself with the rest of the community...'
                       value={bio}
                       onChange={(e) => setBio(e.target.value)}
                       ref={updateProfile()}
                     />
                   </div>
-                  <div className='border-b border-gray-400 w-full my-8'></div>
-                  <button
-                    className='text-sm tracking-tight w-52 bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
-                    type='submit'
-                  >
-                    Save Profile
-                  </button>
+                  <div className='border-b border-gray-300 w-full my-8'></div>
+                  <div className='w-full flex justify-end'>
+                    <button
+                      className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
+                      type='submit'
+                    >
+                      Save
+                    </button>
+                  </div>
                 </form>
               )}
               {currentSection === 'account' && (
@@ -316,12 +364,12 @@ const EditProfile = () => {
                     <div className='mb-6'>
                       <label
                         htmlFor='username'
-                        className='block text-gray-900 text-sm font-semibold'
+                        className='block text-gray-700 text-sm font-medium'
                       >
                         Username <span className='text-red-700'>*</span>
                       </label>
                       <input
-                        className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                        className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                         type='username'
                         name='username'
                         id='username'
@@ -340,12 +388,12 @@ const EditProfile = () => {
                     <div className='mb-10'>
                       <label
                         htmlFor='email'
-                        className='block text-gray-900 text-sm font-semibold'
+                        className='block text-gray-700 text-sm font-medium'
                       >
-                        Email Address <span className='text-red-700'>*</span>
+                        Email address <span className='text-red-700'>*</span>
                       </label>
                       <input
-                        className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                        className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                         type='email'
                         name='email'
                         id='email'
@@ -355,7 +403,7 @@ const EditProfile = () => {
                         required
                       />
                     </div>
-                    <div className='border-b border-gray-400 w-full my-6'></div>
+                    <div className='border-b border-gray-300 w-full my-6'></div>
                     <div className='flex justify-between py-5'>
                       <div>
                         <p className='text-gray-900 text-xl font-semibold'>
@@ -372,13 +420,15 @@ const EditProfile = () => {
                         Close Account
                       </a>
                     </div>
-                    <div className='border-b border-gray-400 w-full my-6'></div>
-                    <button
-                      className='text-sm tracking-tight w-52 bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
-                      type='submit'
-                    >
-                      Save Account Settings
-                    </button>
+                    <div className='border-b border-gray-300 w-full my-6'></div>
+                    <div className='w-full flex justify-end'>
+                      <button
+                        className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
+                        type='submit'
+                      >
+                        Save
+                      </button>
+                    </div>
                   </div>
                 </form>
               )}
@@ -390,12 +440,12 @@ const EditProfile = () => {
                   <div className='mb-6'>
                     <label
                       htmlFor='oldPassword'
-                      className='block text-gray-900 text-sm font-semibold'
+                      className='block text-gray-700 text-sm font-medium'
                     >
-                      Old Password <span className='text-red-700'>*</span>
+                      Old password <span className='text-red-700'>*</span>
                     </label>
                     <input
-                      className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='password'
                       name='oldPassword'
                       id='oldPassword'
@@ -406,12 +456,12 @@ const EditProfile = () => {
                   <div className='mb-6'>
                     <label
                       htmlFor='newPassword'
-                      className='block text-gray-900 text-sm font-semibold'
+                      className='block text-gray-700 text-sm font-medium'
                     >
-                      New Password <span className='text-red-700'>*</span>
+                      New password <span className='text-red-700'>*</span>
                     </label>
                     <input
-                      className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='password'
                       name='newPassword'
                       id='newPassword'
@@ -422,13 +472,13 @@ const EditProfile = () => {
                   <div className='mb-6'>
                     <label
                       htmlFor='confirmNewPassword'
-                      className='block text-gray-900 text-sm font-semibold'
+                      className='block text-gray-700 text-sm font-medium'
                     >
-                      Confirm New Password{' '}
+                      Confirm new password{' '}
                       <span className='text-red-700'>*</span>
                     </label>
                     <input
-                      className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='password'
                       name='confirmNewPassword'
                       id='confirmNewPassword'
@@ -436,13 +486,15 @@ const EditProfile = () => {
                       required
                     />
                   </div>
-                  <div className='border-b border-gray-400 w-full my-8'></div>
-                  <button
-                    className='text-sm tracking-tight w-52 bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
-                    type='submit'
-                  >
-                    Update Password
-                  </button>
+                  <div className='border-b border-gray-300 w-full my-8'></div>
+                  <div className='w-full flex justify-end'>
+                    <button
+                      className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
+                      type='submit'
+                    >
+                      Update Password
+                    </button>
+                  </div>
                 </form>
               )}
             </section>

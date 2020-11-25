@@ -118,7 +118,7 @@ const SupermarketSearch = () => {
     <Layout title='Search by Supermarket'>
       <section className='text-gray-700 body-font bg-hero-blend mb-20'>
         <div className='bg-hero-image h-screen bg-contain bg-no-repeat bg-center'>
-          <div className='bg-white h-screen bg-opacity-50'>
+          <div className='bg-green-200 h-screen bg-opacity-50'>
             <div className='container mx-auto flex flex-col px-5 py-24 justify-center items-center'>
               <div className='w-full md:w-2/3 flex flex-col mb-16 items-center text-center'>
                 <h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
@@ -220,7 +220,7 @@ const SupermarketSearch = () => {
               </div>
               <button
                 onClick={() => handleOnClick()}
-                className='text-sm mt-10 w-40 bg-blue-600 transition duration-100 hover:bg-blue-800 text-white font-medium py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline'
+                className='mt-5 text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
               >
                 Search
               </button>

@@ -92,7 +92,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
               className={`w-6 h-6 absolute top-0 right-0 mt-2 mr-4 z-30 text-gray-700 cursor-pointer ${
                 publicProfilePage ? 'hidden' : null
               }`}
-              fill='#4a5568'
+              fill='#374151'
               stroke='currentColor'
               viewBox='0 0 24 24'
               xmlns='http://www.w3.org/2000/svg'
@@ -173,7 +173,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
           </h2>
         </div>
 
-        <div className='bg-white pt-5 px-6'>
+        <div className='bg-white pt-6 px-6'>
           {!showOverlay ? (
             <h3 className='text-gray-700 text-sm -mb-2'>Lowest Price:</h3>
           ) : (

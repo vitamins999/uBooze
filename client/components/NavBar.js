@@ -250,7 +250,7 @@ const NavBar = ({ page }) => {
                 </a>
               </Link>
               <Link href='/signup'>
-                <a className='inline-flex text-sm items-center font-medium px-3 hover:text-green-500 transition duration-300 ease-in-out text-md mt-4 md:mt-0'>
+                <a className='ml-2 text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'>
                   Sign Up
                 </a>
               </Link>

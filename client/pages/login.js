@@ -56,11 +56,11 @@ const LoginPage = () => {
         <title>uBooze | Log In</title>
       </Head>
       <main className='grid grid-cols-3 font-body'>
-        <div className='flex flex-col h-screen px-16 bg-gradient-to-r from-orange-300 to-orange-400 text-orange-900'>
+        <div className='flex flex-col h-screen px-16 bg-gradient-to-r from-green-300 to-green-400 text-green-900'>
           <div>
             <Link href='/'>
               <a>
-                <h1 className='text-xl tracking-widest mt-16 mb-10 text-orange-700 hover:text-orange-900 transition duration-100'>
+                <h1 className='text-xl tracking-widest mt-16 mb-10 text-green-800 hover:text-green-900 transition duration-100'>
                   ubooze
                 </h1>
               </a>
@@ -141,12 +141,12 @@ const LoginPage = () => {
                 <div className='mb-4 pt-8'>
                   <label
                     htmlFor='email'
-                    className='block text-gray-900 text-md font-bold'
+                    className='block text-gray-700 text-sm font-medium'
                   >
-                    Email Address
+                    Email address
                   </label>
                   <input
-                    className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-700 bg-orange-200 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='email'
                     name='email'
                     id='email'
@@ -156,12 +156,12 @@ const LoginPage = () => {
                 <div className='mb-6'>
                   <label
                     htmlFor='password'
-                    className='block text-gray-900 text-md font-bold'
+                    className='block text-gray-700 text-sm font-medium'
                   >
                     Password
                   </label>
                   <input
-                    className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-700 bg-orange-200 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='password'
                     name='password'
                     id='password'
@@ -169,10 +169,10 @@ const LoginPage = () => {
                   />
                 </div>
                 <button
-                  className='text-sm w-40 bg-blue-600 transition duration-100 hover:bg-blue-800 text-white font-medium py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline'
+                  className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
                   type='submit'
                 >
-                  Log In
+                  Login
                 </button>
               </form>
             </div>

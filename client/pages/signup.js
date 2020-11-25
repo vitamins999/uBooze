@@ -55,11 +55,11 @@ const signupPage = () => {
         <title>uBooze | Sign Up</title>
       </Head>
       <main className='grid grid-cols-3 font-body'>
-        <div className='flex flex-col h-screen px-16 bg-gradient-to-r from-orange-300 to-orange-400 text-orange-900'>
+        <div className='flex flex-col h-screen px-16 bg-gradient-to-r from-green-300 to-green-400 text-green-900'>
           <div>
             <Link href='/'>
               <a>
-                <h1 className='text-xl tracking-widest mt-16 mb-10 text-orange-700 hover:text-orange-900 transition duration-100'>
+                <h1 className='text-xl tracking-widest mt-16 mb-10 text-green-800 hover:text-green-900 transition duration-100'>
                   ubooze
                 </h1>
               </a>
@@ -86,10 +86,10 @@ const signupPage = () => {
             </div>
             <div className='pt-12 pl-40 pr-56'>
               <form
-                className='bg-white rounded px-8 pt-6 pb-8 mb-4 w-full'
+                className='bg-white rounded px-8 pt-6 pb-8 w-full'
                 onSubmit={handleRegisterSubmit(onRegisterSubmit)}
               >
-                <h3 className='text-4xl font-bold mb-5 tracking-wide'>
+                <h3 className='text-3xl font-bold mb-5 tracking-wide'>
                   Sign up to ubooze
                 </h3>
                 <div>
@@ -130,23 +130,23 @@ const signupPage = () => {
                     </motion.li>
                   </ul>
                 </div>
-                <div className='flex w-full items-center justify-center mt-4'>
+                <div className='flex w-full items-center justify-center mt-2'>
                   <div className='border-b border-gray-600 w-full'></div>
                   <h2 className='text-md text-gray-600 tracking-wider mx-2'>
                     Or
                   </h2>
                   <div className='border-b border-gray-600 w-full'></div>
                 </div>
-                <div className='flex justify-between pt-8'>
+                <div className='flex justify-between pt-6'>
                   <div className='mb-4 w-48'>
                     <label
                       htmlFor='firstName'
-                      className='block text-gray-900 text-md font-bold'
+                      className='block text-gray-700 text-sm font-medium'
                     >
-                      First Name
+                      First name
                     </label>
                     <input
-                      className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-700 bg-orange-200 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='text'
                       name='firstName'
                       id='firstName'
@@ -156,12 +156,12 @@ const signupPage = () => {
                   <div className='mb-4 w-48'>
                     <label
                       htmlFor='lastName'
-                      className='block text-gray-900 text-md font-bold'
+                      className='block text-gray-700 text-sm font-medium'
                     >
-                      Last Name
+                      Last name
                     </label>
                     <input
-                      className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-700 bg-orange-200 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='text'
                       name='lastName'
                       id='lastName'
@@ -172,12 +172,12 @@ const signupPage = () => {
                 <div className='mb-4'>
                   <label
                     htmlFor='email'
-                    className='block text-gray-900 text-md font-bold'
+                    className='block text-gray-700 text-sm font-medium'
                   >
-                    Email Address
+                    Email address
                   </label>
                   <input
-                    className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-700 bg-orange-200 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='email'
                     name='email'
                     id='email'
@@ -187,12 +187,12 @@ const signupPage = () => {
                 <div className='mb-4'>
                   <label
                     htmlFor='username'
-                    className='block text-gray-900 text-md font-bold'
+                    className='block text-gray-700 text-sm font-medium'
                   >
                     Username
                   </label>
                   <input
-                    className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-700 bg-orange-200 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='text'
                     name='username'
                     id='username'
@@ -202,12 +202,12 @@ const signupPage = () => {
                 <div className='mb-6'>
                   <label
                     htmlFor='password'
-                    className='block text-gray-900 text-md font-bold'
+                    className='block text-gray-700 text-sm font-medium'
                   >
                     Password
                   </label>
                   <input
-                    className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-700 bg-orange-200 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='password'
                     name='password'
                     id='password'
@@ -215,7 +215,7 @@ const signupPage = () => {
                   />
                 </div>
                 <button
-                  className='text-sm bg-orange-600 w-40 transition duration-100 hover:bg-orange-800 text-white font-medium py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline'
+                  className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
                   type='submit'
                 >
                   Create Account

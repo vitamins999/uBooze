@@ -35,13 +35,13 @@ const PostcodeSearch = () => {
     <Layout title='Search by Postcode'>
       <section className='text-gray-700 body-font bg-hero-blend'>
         <div className='bg-hero-image h-screen bg-contain bg-no-repeat bg-center'>
-          <div className='bg-white h-screen bg-opacity-50'>
+          <div className='bg-green-200 h-screen bg-opacity-50'>
             <div className='container mx-auto flex flex-col px-5 py-24 justify-center items-center'>
               <div className='w-full md:w-2/3 flex flex-col mb-16 items-center text-center'>
                 <h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
                   Search by Postcode
                 </h1>
-                <p className='mb-8 leading-relaxed'>
+                <p className='mb-8 leading-relaxed text-gray-700'>
                   Looking for the cheapest alcohol prices near you? We've got
                   you covered. Just type your UK postcode in the box below and
                   we'll gather a list of all available alcohol at your nearest
@@ -56,7 +56,7 @@ const PostcodeSearch = () => {
                       Search within
                     </span>
                     <select
-                      className='border-2 bg-orange-200 rounded mr-4 border-gray-700 focus:outline-none px-4 hover:bg-gray-100 transition duration-150'
+                      className='shadow-inner rounded-md mr-4 px-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       value={radius}
                       onChange={(e) => setRadius(e.currentTarget.value)}
                     >
@@ -66,7 +66,7 @@ const PostcodeSearch = () => {
                     </select>
                     <span className='self-center mr-4 font-medium'>of</span>
                     <input
-                      className='border-2 bg-orange-200 rounded mr-4 border-gray-700 focus:outline-none focus:border-gray-900 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 text-base px-4 lg:w-full xl:w-1/2 w-2/4 md:w-full'
+                      className='shadow-inner rounded-md mr-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2 px-4 lg:w-full xl:w-1/2 w-2/4 md:w-full'
                       placeholder='My postcode is...'
                       type='text'
                       onChange={(e) =>
@@ -76,7 +76,7 @@ const PostcodeSearch = () => {
                       }
                     />
                     <button
-                      className='inline-flex text-gray-700 border-0 py-2 px-2 -ml-16 hover:text-gray-900'
+                      className='inline-flex text-gray-700 border-0 py-2 px-2 -ml-16 hover:text-green-500 transition duration-150 ease-in-out'
                       type='submit'
                     >
                       <svg

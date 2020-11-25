@@ -4,16 +4,16 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
       <div className='flex'>
         <span>
           <svg
-            className='w-6 h-6 text-yellow-500'
+            className='w-6 h-6 text-yellow-400'
             fill={`${
-              value >= 1 ? '#ecc94b' : value >= 0.5 ? 'url(#grad)' : 'none'
+              value >= 1 ? '#fbbf24' : value >= 0.5 ? 'url(#grad)' : 'none'
             }`}
             stroke='currentColor'
             viewBox='0 0 24 24'
             xmlns='http://www.w3.org/2000/svg'
           >
             <linearGradient id='grad' x1='0' x2='100%' y1='0' y2='0'>
-              <stop offset='50%' stopColor='#ecc94b' />
+              <stop offset='50%' stopColor='#fbbf24' />
               <stop offset='50%' stopColor='white' />
             </linearGradient>
 
@@ -27,16 +27,16 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
         </span>
         <span>
           <svg
-            className='w-6 h-6 text-yellow-500'
+            className='w-6 h-6 text-yellow-400'
             fill={`${
-              value >= 2 ? '#ecc94b' : value >= 1.5 ? 'url(#grad)' : 'none'
+              value >= 2 ? '#fbbf24' : value >= 1.5 ? 'url(#grad)' : 'none'
             }`}
             stroke='currentColor'
             viewBox='0 0 24 24'
             xmlns='http://www.w3.org/2000/svg'
           >
             <linearGradient id='grad' x1='0' x2='100%' y1='0' y2='0'>
-              <stop offset='50%' stopColor='#ecc94b' />
+              <stop offset='50%' stopColor='#fbbf24' />
               <stop offset='50%' stopColor='white' />
             </linearGradient>
             <path
@@ -49,16 +49,16 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
         </span>
         <span>
           <svg
-            className='w-6 h-6 text-yellow-500'
+            className='w-6 h-6 text-yellow-400'
             fill={`${
-              value >= 3 ? '#ecc94b' : value >= 2.5 ? 'url(#grad)' : 'none'
+              value >= 3 ? '#fbbf24' : value >= 2.5 ? 'url(#grad)' : 'none'
             }`}
             stroke='currentColor'
             viewBox='0 0 24 24'
             xmlns='http://www.w3.org/2000/svg'
           >
             <linearGradient id='grad' x1='0' x2='100%' y1='0' y2='0'>
-              <stop offset='50%' stopColor='#ecc94b' />
+              <stop offset='50%' stopColor='#fbbf24' />
               <stop offset='50%' stopColor='white' />
             </linearGradient>
             <path
@@ -71,16 +71,16 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
         </span>
         <span>
           <svg
-            className='w-6 h-6 text-yellow-500'
+            className='w-6 h-6 text-yellow-400'
             fill={`${
-              value >= 4 ? '#ecc94b' : value >= 3.5 ? 'url(#grad)' : 'none'
+              value >= 4 ? '#fbbf24' : value >= 3.5 ? 'url(#grad)' : 'none'
             }`}
             stroke='currentColor'
             viewBox='0 0 24 24'
             xmlns='http://www.w3.org/2000/svg'
           >
             <linearGradient id='grad' x1='0' x2='100%' y1='0' y2='0'>
-              <stop offset='50%' stopColor='#ecc94b' />
+              <stop offset='50%' stopColor='#fbbf24' />
               <stop offset='50%' stopColor='white' />
             </linearGradient>
             <path
@@ -93,16 +93,16 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
         </span>
         <span>
           <svg
-            className='w-6 h-6 text-yellow-500'
+            className='w-6 h-6 text-yellow-400'
             fill={`${
-              value >= 5 ? '#ecc94b' : value >= 4.5 ? 'url(#grad)' : 'none'
+              value >= 5 ? '#fbbf24' : value >= 4.5 ? 'url(#grad)' : 'none'
             }`}
             stroke='currentColor'
             viewBox='0 0 24 24'
             xmlns='http://www.w3.org/2000/svg'
           >
             <linearGradient id='grad' x1='0' x2='100%' y1='0' y2='0'>
-              <stop offset='50%' stopColor='#ecc94b' />
+              <stop offset='50%' stopColor='#fbbf24' />
               <stop offset='50%' stopColor='white' />
             </linearGradient>
             <path
@@ -123,10 +123,10 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
             onClick={() => userRatingHandler(1)}
           >
             <svg
-              className='w-6 h-6 text-yellow-500'
+              className='w-6 h-6 text-yellow-400'
               fill={`${
                 userRating >= 1
-                  ? '#ecc94b'
+                  ? '#fbbf24'
                   : userRating >= 0.5
                   ? 'url(#grad)'
                   : 'none'
@@ -136,7 +136,7 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
               xmlns='http://www.w3.org/2000/svg'
             >
               <linearGradient id='grad' x1='0' x2='100%' y1='0' y2='0'>
-                <stop offset='50%' stopColor='#ecc94b' />
+                <stop offset='50%' stopColor='#fbbf24' />
                 <stop offset='50%' stopColor='white' />
               </linearGradient>
 
@@ -153,10 +153,10 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
             onClick={() => userRatingHandler(2)}
           >
             <svg
-              className='w-6 h-6 text-yellow-500'
+              className='w-6 h-6 text-yellow-400'
               fill={`${
                 userRating >= 2
-                  ? '#ecc94b'
+                  ? '#fbbf24'
                   : userRating >= 1.5
                   ? 'url(#grad)'
                   : 'none'
@@ -166,7 +166,7 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
               xmlns='http://www.w3.org/2000/svg'
             >
               <linearGradient id='grad' x1='0' x2='100%' y1='0' y2='0'>
-                <stop offset='50%' stopColor='#ecc94b' />
+                <stop offset='50%' stopColor='#fbbf24' />
                 <stop offset='50%' stopColor='white' />
               </linearGradient>
               <path
@@ -182,10 +182,10 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
             onClick={() => userRatingHandler(3)}
           >
             <svg
-              className='w-6 h-6 text-yellow-500'
+              className='w-6 h-6 text-yellow-400'
               fill={`${
                 userRating >= 3
-                  ? '#ecc94b'
+                  ? '#fbbf24'
                   : userRating >= 2.5
                   ? 'url(#grad)'
                   : 'none'
@@ -195,7 +195,7 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
               xmlns='http://www.w3.org/2000/svg'
             >
               <linearGradient id='grad' x1='0' x2='100%' y1='0' y2='0'>
-                <stop offset='50%' stopColor='#ecc94b' />
+                <stop offset='50%' stopColor='#fbbf24' />
                 <stop offset='50%' stopColor='white' />
               </linearGradient>
               <path
@@ -211,10 +211,10 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
             onClick={() => userRatingHandler(4)}
           >
             <svg
-              className='w-6 h-6 text-yellow-500'
+              className='w-6 h-6 text-yellow-400'
               fill={`${
                 userRating >= 4
-                  ? '#ecc94b'
+                  ? '#fbbf24'
                   : userRating >= 3.5
                   ? 'url(#grad)'
                   : 'none'
@@ -224,7 +224,7 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
               xmlns='http://www.w3.org/2000/svg'
             >
               <linearGradient id='grad' x1='0' x2='100%' y1='0' y2='0'>
-                <stop offset='50%' stopColor='#ecc94b' />
+                <stop offset='50%' stopColor='#fbbf24' />
                 <stop offset='50%' stopColor='white' />
               </linearGradient>
               <path
@@ -240,10 +240,10 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
             onClick={() => userRatingHandler(5)}
           >
             <svg
-              className='w-6 h-6 text-yellow-500'
+              className='w-6 h-6 text-yellow-400'
               fill={`${
                 userRating >= 5
-                  ? '#ecc94b'
+                  ? '#fbbf24'
                   : userRating >= 4.5
                   ? 'url(#grad)'
                   : 'none'
@@ -253,7 +253,7 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
               xmlns='http://www.w3.org/2000/svg'
             >
               <linearGradient id='grad' x1='0' x2='100%' y1='0' y2='0'>
-                <stop offset='50%' stopColor='#ecc94b' />
+                <stop offset='50%' stopColor='#fbbf24' />
                 <stop offset='50%' stopColor='white' />
               </linearGradient>
               <path

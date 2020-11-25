@@ -35,7 +35,7 @@ const DrinkSearch = () => {
     <Layout title='Search by Drink'>
       <section className='text-gray-700 body-font bg-hero-blend'>
         <div className='bg-hero-image h-screen bg-contain bg-no-repeat bg-center'>
-          <div className='bg-white h-screen bg-opacity-50'>
+          <div className='bg-green-200 h-screen bg-opacity-50'>
             <div className='container mx-auto flex flex-col px-5 py-24 justify-center items-center'>
               <div className='w-full md:w-2/3 flex flex-col mb-16 items-center text-center'>
                 <h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
@@ -52,14 +52,14 @@ const DrinkSearch = () => {
                     className='flex w-full justify-center'
                   >
                     <input
-                      className='border-2 bg-orange-200 rounded mr-4 border-gray-700 focus:outline-none focus:border-gray-900 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 text-base px-4 lg:w-full xl:w-1/2 w-2/4 md:w-full'
+                      className='shadow-inner rounded-md mr-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2 px-4 lg:w-full xl:w-1/2 w-2/4 md:w-full'
                       placeholder='The drink I want is...'
                       type='text'
                       onChange={(e) => setSearchText(e.target.value)}
                     />
                     <button
                       type='submit'
-                      className='inline-flex text-gray-700 border-0 py-2 px-2 -ml-16 hover:text-gray-900'
+                      className='inline-flex text-gray-700 border-0 py-2 px-2 -ml-16 hover:text-green-500 transition duration-150 ease-in-out'
                     >
                       <svg
                         className='w-6 h-6'
@@ -78,7 +78,7 @@ const DrinkSearch = () => {
                     </button>
                   </form>
                 </div>
-                <div className='z-10'>
+                <ul className='z-10 shadow-md'>
                   {filteredDrinksData.map((drink) => {
                     return (
                       <Link
@@ -88,7 +88,7 @@ const DrinkSearch = () => {
                         <a>
                           <li
                             key={drink.productID}
-                            className='px-5 py-10 cursor-pointer list-none w-96 h-16 flex flex-col justify-center text-left bg-white border-b border-gray-500 hover:bg-gray-200 hover:text-gray-800'
+                            className='px-5 py-10 cursor-pointer list-none w-96 h-16 flex flex-col justify-center text-left bg-white border-gray-200 hover:bg-gray-200 hover:text-gray-800'
                           >
                             <h2 className='text-sm font-semibold tracking-wider'>
                               {drink.productName}
@@ -102,7 +102,7 @@ const DrinkSearch = () => {
                       </Link>
                     );
                   })}
-                </div>
+                </ul>
               </div>
             </div>
           </div>
