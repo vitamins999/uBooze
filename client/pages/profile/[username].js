@@ -94,7 +94,7 @@ const Profile = ({ drinks }) => {
                   className={`pr-5 py-5 focus:outline-none ${
                     currentSection === 'about'
                       ? 'text-gray-900 font-medium'
-                      : 'hover:text-orange-500 transition ease-in-out duration-200'
+                      : 'hover:text-green-500 transition ease-in-out duration-200 tracking-wide'
                   }`}
                 >
                   About Me
@@ -104,7 +104,7 @@ const Profile = ({ drinks }) => {
                   className={`px-5 py-2 focus:outline-none ${
                     currentSection === 'drinks'
                       ? 'text-gray-900 font-medium'
-                      : 'hover:text-orange-500 transition ease-in-out duration-200'
+                      : 'hover:text-green-500 transition ease-in-out duration-200 tracking-wide'
                   }`}
                 >
                   Favourite Drinks
@@ -146,13 +146,13 @@ const Profile = ({ drinks }) => {
                 </div>
               )}
               {currentSection === 'drinks' && (
-                <div className='-mt-10'>
+                <div className=''>
                   <CategoryBar
                     primary='favourites'
                     title={`${username}'s Favourite Drinks`}
                     resolvedData={resolvedData}
                   />
-                  <div className='my-10'>
+                  <div className='-mt-20'>
                     <ProductResults
                       resolvedData={resolvedData}
                       order={order}
@@ -162,12 +162,6 @@ const Profile = ({ drinks }) => {
                       setPage={setPage}
                       page={page}
                       publicProfilePage={true}
-                    />
-                    <ProductPageChangeButtons
-                      page={page}
-                      setPage={setPage}
-                      resolvedData={resolvedData}
-                      latestData={latestData}
                     />
                   </div>
                 </div>

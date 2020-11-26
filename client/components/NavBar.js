@@ -107,7 +107,9 @@ const NavBar = ({ page }) => {
   c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139.2z'
                 />
               </svg>
-              <span className='ml-3 text-3xl text-green-700'>ubooze</span>
+              <span className='ml-3 text-3xl text-green-700 font-heading'>
+                ubooze
+              </span>
             </a>
           </Link>
           <nav className='text-sm md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center justify-center'>
@@ -153,7 +155,7 @@ const NavBar = ({ page }) => {
               {showUserMenu && (
                 <div
                   ref={userMenuRef}
-                  className='dropdown absolute left-0 h-auto shadow-lg z-10 w-20 mt-3 -ml-2'
+                  className='dropdown absolute left-0 h-auto shadow-lg z-20 w-20 mt-3 -ml-2'
                   onMouseLeave={() => setShowUserMenu(!showUserMenu)}
                 >
                   <ul className='bg-gray-200 w-48 shadow-lg py-2 text-left text-xs tracking-wide rounded-lg text-gray-800'>

@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className='text-gray-900 body-font bg-gray-300 border-t border-gray-400'>
+    <footer className='text-gray-900 body-font bg-gray-200 border-t border-gray-300'>
       <div className='container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col'>
         <a className='flex title-font font-medium items-center md:justify-start justify-center'>
           <svg className='h-8 fill-current inline' viewBox='0 0 512 512'>
@@ -13,7 +13,9 @@ c-0.32-3.52-0.533-7.061-0.533-10.667c0-25.899,15.211-76.309,30.315-117.333h175.2
 c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139.2z'
             />
           </svg>
-          <span className='ml-2 text-xl'>ubooze</span>
+          <span className='ml-2 text-xl font-heading text-green-700'>
+            ubooze
+          </span>
         </a>
         <p className='text-sm text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-700 sm:py-2 sm:mt-0 mt-4'>
           © 2020 ubooze —

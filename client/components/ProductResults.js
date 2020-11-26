@@ -66,7 +66,7 @@ const ProductResults = ({
         <div className='flex items-center'>
           <div className='relative mr-4'>
             <a
-              className='cursor-pointer flex hover:text-green-500 transition ease-out duration-100 text-gray-900'
+              className='cursor-pointer flex hover:text-green-500 transition ease-out duration-200 text-gray-900'
               onClick={() => setShowFilter(!showFilter)}
             >
               <p className='mr-2'>Order By</p>
@@ -149,7 +149,7 @@ const ProductResults = ({
           </div>
           <div className='relative'>
             <a
-              className='ml-4 cursor-pointer flex hover:text-green-500 transition ease-out duration-100 text-gray-900'
+              className='ml-4 cursor-pointer flex hover:text-green-500 transition ease-out duration-200 text-gray-900'
               onClick={() => setShowLimit(!showLimit)}
             >
               <p className='mr-2'>Results Per Page</p>

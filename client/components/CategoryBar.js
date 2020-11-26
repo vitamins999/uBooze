@@ -8,7 +8,7 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
   return (
     <>
       <div className='mt-10'>
-        <h2 className='inline-block text-gray-500'>
+        <h2 className='inline-block font-heading text-gray-500'>
           <Link href='/'>
             <a className='hover:text-green-500'>Home</a>
           </Link>
@@ -17,7 +17,7 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
         <h2
           className={`${
             primary === 'allDrinks' ? 'text-gray-700' : 'text-gray-500 '
-          } inline-block`}
+          } inline-block font-heading`}
         >
           {primary === 'allDrinks' ? (
             'All Drinks'
@@ -28,7 +28,13 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
                   <a className='hover:text-green-500'>Beer & Cider</a>
                 </Link>
               ) : (
-                <Link href={`/products/${primary}`}>
+                <Link
+                  href={
+                    primary === 'favourites'
+                      ? '/profile/favourites'
+                      : `/products/${primary}`
+                  }
+                >
                   <a className='hover:text-green-500'>
                     {capitaliseFirstLetter(primary)}
                   </a>

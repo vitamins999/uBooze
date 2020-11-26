@@ -161,7 +161,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
         }}
       >
         <div className='bg-white px-6'>
-          <h1 className='uppercase text-gray-900 title-font text-sm font-semibold pt-4'>
+          <h1 className='uppercase text-gray-900 text-sm font-semibold pt-4'>
             {product.displayName}
           </h1>
           <h2 className='text-gray-500 text-xs tracking-widest title-font mb-1'>

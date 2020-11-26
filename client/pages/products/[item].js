@@ -152,7 +152,7 @@ const ItemPage = ({ itemData }) => {
       {status === 'success' && (
         <main>
           <section className='text-gray-700 body-font overflow-hidden'>
-            <div className='container mx-auto px-2 pt-6 pb-4'>
+            <div className='container mx-auto px-2 pt-6 pb-4 font-heading'>
               <h2 className='inline-block text-gray-500'>
                 <Link href='/'>
                   <a className='hover:text-green-500 transition duration-200 ease-in-out'>
@@ -240,7 +240,7 @@ const ItemPage = ({ itemData }) => {
                       </motion.svg>
                     )}
                   </div>
-                  <h1 className='text-gray-900 text-3xl title-font font-medium mb-1'>
+                  <h1 className='text-gray-900 text-3xl font-heading font-medium mb-1'>
                     {data.productName}
                   </h1>
                   <h2 className='mb-4'>{data.volume}</h2>
@@ -311,7 +311,7 @@ const ItemPage = ({ itemData }) => {
           <section className='text-gray-700 body-font'>
             <div className='container px-5 pb-24 mx-auto'>
               <div className='flex flex-col text-center w-full mb-10'>
-                <h1 className='sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900'>
+                <h1 className='sm:text-4xl text-3xl font-medium font-heading mb-2 text-gray-900'>
                   Compare Prices
                 </h1>
               </div>

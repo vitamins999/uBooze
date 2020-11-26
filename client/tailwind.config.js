@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         body: ['Montserrat'],
+        heading: ['Libre Baskerville'],
       },
       colors: {
         'light-black': '#27282C',
