@@ -59,7 +59,7 @@ const SyncPage = () => {
               />
               <button
                 onClick={() => handleSyncData(supermarket.routeName)}
-                className='text-sm tracking-tight w-52 bg-orange-500 transition duration-100 hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
+                className='text-sm shadow-sm tracking-tight w-52 bg-green-500 transition duration-100 hover:bg-green-700 text-green-50 font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
               >
                 Sync {capitaliseFirstLetter(supermarket.name)}
               </button>
