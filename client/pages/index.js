@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import Cookie from 'js-cookie';
 
 import Layout from '../components/Layout';
@@ -16,7 +18,26 @@ import 'react-toastify/dist/ReactToastify.min.css';
 const Home = () => {
   const [postcode, setPostcode] = useState('');
   const [radius, setRadius] = useState('1609');
+
   const router = useRouter();
+
+  const useInViewOptions = {
+    triggerOnce: true,
+    rootMargin: '-100px 0px',
+  };
+
+  const [refSearchOptionsTitle, inViewSearchOptionsTitle] = useInView(
+    useInViewOptions
+  );
+  const [refSearchOptionsBody, inViewSearchOptionsBody] = useInView(
+    useInViewOptions
+  );
+  const [refMemberBenefitsTitle, inViewMemberBenefitsTitle] = useInView(
+    useInViewOptions
+  );
+  const [refMemberBenefitsBody, inViewMemberBenefitsBody] = useInView(
+    useInViewOptions
+  );
 
   const notifyError = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
@@ -41,13 +62,41 @@ const Home = () => {
     }
   };
 
+  const defaultDuration = 1.3;
+
+  const heroVariants = {
+    start: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: defaultDuration,
+      },
+    },
+  };
+
   const title = 'Home';
 
   return (
-    <Layout title={title}>
+    <Layout title={title} landingPage={true}>
       <section className='text-gray-700 body-font'>
-        <div className='container pl-5 pr-3 pb-24 pt-32 mx-auto flex flex-wrap items-center'>
+        <motion.div
+          variants={heroVariants}
+          initial='start'
+          animate='animate'
+          className='container pl-5 pr-3 pb-24 pt-32 mx-auto flex flex-wrap items-center'
+        >
           <div className='lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0'>
+            <div className='uppercase flex justify-between w-3/5 text-gray-400 mb-4 tracking-widest'>
+              <p>We</p>
+              <p>Are</p>
+              <p>ubooze</p>
+              <p>and</p>
+              <p>we</p>
+              <p>specialise</p>
+              <p>in</p>
+            </div>
             <h1 className='font-heading font-medium text-5xl text-gray-900'>
               Cheap drinks. In your area.
             </h1>
@@ -57,8 +106,8 @@ const Home = () => {
               <span className='font-heading text-green-700 font-semibold'>
                 ubooze
               </span>{' '}
-              -- a price comparison website for supermarket alcohol prices,
-              engineered to find the cheapest deals closest to you.
+              -- a price comparison website specifically for supermarket alcohol
+              prices, engineered to find the cheapest deals closest to you.
             </p>
           </div>
           <form
@@ -106,7 +155,7 @@ const Home = () => {
             </button>
             <p className='text-xs text-gray-500 mt-3'>UK postcodes only.</p>
           </form>
-        </div>
+        </motion.div>
         <svg
           className='-mt-48 z-0'
           xmlns='http://www.w3.org/2000/svg'
@@ -122,7 +171,13 @@ const Home = () => {
 
       <section className='text-gray-800 body-font bg-green-500'>
         <div className='container px-5 py-24 mx-auto'>
-          <div className='text-center mb-20'>
+          <motion.div
+            ref={refSearchOptionsTitle}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: inViewSearchOptionsTitle ? 1 : 0 }}
+            transition={{ duration: defaultDuration }}
+            className='text-center mb-20'
+          >
             <h1 className='sm:text-3xl text-2xl font-medium font-heading text-gray-900 mb-4'>
               Easy Search Options
             </h1>
@@ -135,9 +190,15 @@ const Home = () => {
             <div className='flex mt-6 justify-center'>
               <div className='w-16 h-1 rounded-full bg-gray-500 inline-flex'></div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className='flex flex-wrap -m-4'>
+          <motion.div
+            ref={refSearchOptionsBody}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: inViewSearchOptionsBody ? 1 : 0 }}
+            transition={{ duration: defaultDuration }}
+            className='flex flex-wrap -m-4'
+          >
             <div className='p-4 md:w-1/3'>
               <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col shadow-md'>
                 <div className='flex items-center mb-3'>
@@ -280,7 +341,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
         <svg
           className='-mt-44 z-0'
@@ -297,7 +358,13 @@ const Home = () => {
 
       <section className='text-gray-700 body-font'>
         <div className='container px-5 py-24 mx-auto'>
-          <div className='text-center'>
+          <motion.div
+            ref={refMemberBenefitsTitle}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: inViewMemberBenefitsTitle ? 1 : 0 }}
+            transition={{ duration: defaultDuration }}
+            className='text-center'
+          >
             <h1 className='sm:text-3xl text-2xl font-medium text-center font-heading text-gray-900 mb-4'>
               Member Benefits
             </h1>
@@ -305,11 +372,18 @@ const Home = () => {
               Sign up for a free account right now, and gain all the following
               extra benefits and more, as they're added.
             </p>
-          </div>
-          <div className='flex mb-20 mt-6 justify-center'>
-            <div className='w-16 h-1 rounded-full bg-green-500 inline-flex'></div>
-          </div>
-          <div className='flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2'>
+            <div className='flex mb-20 mt-6 justify-center'>
+              <div className='w-16 h-1 rounded-full bg-green-500 inline-flex'></div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            ref={refMemberBenefitsBody}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: inViewMemberBenefitsBody ? 1 : 0 }}
+            transition={{ duration: defaultDuration }}
+            className='flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2'
+          >
             <div className='p-2 sm:w-1/2 w-full'>
               <div className='bg-gray-200 rounded flex p-4 h-full items-center'>
                 <svg
@@ -384,7 +458,7 @@ const Home = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
           <a>
             <button
               onClick={() => router.push('/signup')}

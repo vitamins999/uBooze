@@ -2,7 +2,7 @@ import Head from 'next/head';
 import NavBar from './NavBar';
 import Footer from './Footer';
 
-const Layout = ({ children, title, page }) => {
+const Layout = ({ children, title, landingPage }) => {
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ const Layout = ({ children, title, page }) => {
         <title>uBooze | {title}</title>
       </Head>
       <div className='font-body text-gray-600 bg-white'>
-        <NavBar page={page} />
+        <NavBar landingPage={landingPage} />
         <div className='text-gray-700'>{children}</div>
       </div>
       <Footer />

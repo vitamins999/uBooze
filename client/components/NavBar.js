@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { motion } from 'framer-motion';
 import Cookies from 'js-cookie';
 import { userLogout, userLoginSuccess } from '../lib/slices/userInfoSlice';
 
-const NavBar = ({ page }) => {
+const NavBar = ({ landingPage }) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   const userInfo = useSelector((state) => state.userInfo);
@@ -91,10 +92,27 @@ const NavBar = ({ page }) => {
     router.push('/');
   };
 
+  const navbarVariants = {
+    start: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 1.3,
+      },
+    },
+  };
+
   return (
     <>
       <header className='text-gray-700 body-font border-b'>
-        <div className='container mx-auto flex flex-wrap px-2 py-5 flex-col md:flex-row'>
+        <motion.div
+          variants={landingPage && navbarVariants}
+          initial='start'
+          animate='animate'
+          className='container mx-auto flex flex-wrap px-2 py-5 flex-col md:flex-row'
+        >
           <Link href='/'>
             <a className='flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0'>
               <svg className='h-8 fill-current inline' viewBox='0 0 512 512'>
@@ -258,7 +276,7 @@ const NavBar = ({ page }) => {
               </Link>
             </>
           )}
-        </div>
+        </motion.div>
       </header>
     </>
   );
