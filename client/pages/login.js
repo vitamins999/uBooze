@@ -29,6 +29,7 @@ const LoginPage = () => {
   const { loading, error: userLoginError, userID } = userLogin;
 
   const router = useRouter();
+  const queryStringError = router.query.error;
 
   const onLoginSubmit = async ({ email, password }) => {
     dispatch(loginAsync(email, password));
@@ -45,6 +46,20 @@ const LoginPage = () => {
       notifyError(userLoginError);
     }
   }, [userLoginError]);
+
+  useEffect(() => {
+    if (queryStringError) {
+      if (queryStringError === 'alreadyregisteredgoogle') {
+        notifyError(
+          "Oops. Google log in doesn't seem to be working.  Have you already registered with the same email address using Facebook or the regular register form?"
+        );
+      } else if (queryStringError === 'alreadyregisteredfacebook') {
+        notifyError(
+          "Oops. Facebook log in doesn't seem to be working.  Have you already registered with the same email address using Google or the regular register form?"
+        );
+      }
+    }
+  }, [queryStringError]);
 
   return (
     <>

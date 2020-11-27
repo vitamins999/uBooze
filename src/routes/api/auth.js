@@ -130,7 +130,11 @@ router.get(
 // Google callback route
 router.get(
   '/google/redirect',
-  passport.authenticate('google', { session: false }),
+  passport.authenticate('google', {
+    session: false,
+    failureRedirect:
+      'http://localhost:3000/login?error=alreadyregisteredgoogle',
+  }),
   async (req, res) => {
     let favourites = await Favourite.query().select('productID').where({
       userID: req.user.userID,
@@ -172,7 +176,11 @@ router.get(
 // Facebook callback route
 router.get(
   '/facebook/redirect',
-  passport.authenticate('facebook', { session: false }),
+  passport.authenticate('facebook', {
+    session: false,
+    failureRedirect:
+      'http://localhost:3000/login?error=alreadyregisteredfacebook',
+  }),
   async (req, res) => {
     let favourites = await Favourite.query().select('productID').where({
       userID: req.user.userID,

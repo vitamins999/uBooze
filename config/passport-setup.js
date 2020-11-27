@@ -100,7 +100,6 @@ passport.use(
               .findOne({ email: profile.emails[0].value })
               .then((currentUserEmailExists) => {
                 if (currentUserEmailExists) {
-                  console.log('duplicate account');
                   done(null, false);
                 } else {
                   const avatar = normalize(
@@ -151,30 +150,38 @@ passport.use(
           if (currentUser) {
             done(null, currentUser);
           } else {
-            const avatar = normalize(
-              gravatar.url(profile.emails[0].value, {
-                s: '200',
-                r: 'pg',
-                d: 'mm',
-              }),
-              { forceHttps: true }
-            );
-
             User.query()
-              .insert({
-                facebookID: profile.id,
-                displayName: profile.displayName,
-                email: profile.emails[0].value,
-                username: profile.emails[0].value.split('@')[0],
-                gravatar: avatar,
-                firstName: profile.name.givenName,
-                lastName: profile.name.familyName,
-                isAdmin: false,
-              })
-              .then((newUser) => {
-                const tokenObject = issueJWT(newUser);
-                newUser.token = tokenObject.token;
-                done(null, newUser);
+              .findOne({ email: profile.emails[0].value })
+              .then((currentUserEmailExists) => {
+                if (currentUserEmailExists) {
+                  done(null, false);
+                } else {
+                  const avatar = normalize(
+                    gravatar.url(profile.emails[0].value, {
+                      s: '200',
+                      r: 'pg',
+                      d: 'mm',
+                    }),
+                    { forceHttps: true }
+                  );
+
+                  User.query()
+                    .insert({
+                      facebookID: profile.id,
+                      displayName: profile.displayName,
+                      email: profile.emails[0].value,
+                      username: profile.emails[0].value.split('@')[0],
+                      gravatar: avatar,
+                      firstName: profile.name.givenName,
+                      lastName: profile.name.familyName,
+                      isAdmin: false,
+                    })
+                    .then((newUser) => {
+                      const tokenObject = issueJWT(newUser);
+                      newUser.token = tokenObject.token;
+                      done(null, newUser);
+                    });
+                }
               });
           }
         });
