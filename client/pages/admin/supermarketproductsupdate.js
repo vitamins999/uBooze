@@ -53,7 +53,7 @@ const EditSupermarketProductsNoIDPage = () => {
   return (
     <Layout title={title}>
       <main className='flex flex-col w-full justify-center items-center mt-10 mb-40'>
-        <h2 className='text-5xl font-bold my-10'>
+        <h2 className='text-5xl font-heading font-bold my-10'>
           Supermarket Products To Be Added/Linked
         </h2>
         {isLoading && <Loader />}

@@ -51,7 +51,9 @@ const EditSupermarketProductsPage = () => {
   return (
     <Layout title={title}>
       <main className='flex flex-col w-full justify-center items-center mt-10 mb-40'>
-        <h2 className='text-5xl font-bold my-10'>Supermarket Products List</h2>
+        <h2 className='text-5xl font-heading font-bold my-10'>
+          Supermarket Products List
+        </h2>
         {isLoading && <Loader />}
         {status === 'success' && (
           <table className='table-auto text-xs'>

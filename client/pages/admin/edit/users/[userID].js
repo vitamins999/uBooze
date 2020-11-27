@@ -113,7 +113,7 @@ const EditUserPageAdmin = () => {
         {isLoading && <Loader />}
         {status === 'success' && (
           <div className='container px-64 flex flex-col justify-center items-center'>
-            <h2 className='text-5xl font-bold my-10'>
+            <h2 className='text-5xl font-bold font-heading my-10'>
               Edit User - {data.username}
             </h2>
             <form
@@ -124,12 +124,12 @@ const EditUserPageAdmin = () => {
                 <div className='mb-6'>
                   <label
                     htmlFor='username'
-                    className='block text-gray-900 text-sm font-semibold'
+                    className='block text-gray-700 text-sm font-medium'
                   >
                     Username <span className='text-red-700'>*</span>
                   </label>
                   <input
-                    className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='username'
                     name='username'
                     id='username'
@@ -146,12 +146,12 @@ const EditUserPageAdmin = () => {
                 <div className='mb-10'>
                   <label
                     htmlFor='email'
-                    className='block text-gray-900 text-sm font-semibold'
+                    className='block text-gray-700 text-sm font-medium'
                   >
                     Email Address <span className='text-red-700'>*</span>
                   </label>
                   <input
-                    className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='email'
                     name='email'
                     id='email'
@@ -161,16 +161,16 @@ const EditUserPageAdmin = () => {
                     required
                   />
                 </div>
-                <div className='border-b border-gray-400 w-full my-6'></div>
+                <div className='border-b border-gray-200 w-full my-6'></div>
                 <div className='mb-6 w-full'>
                   <label
                     htmlFor='firstName'
-                    className='block text-gray-900 text-sm font-semibold'
+                    className='block text-gray-700 text-sm font-medium'
                   >
                     First Name <span className='text-red-700'>*</span>
                   </label>
                   <input
-                    className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='text'
                     name='firstName'
                     id='firstName'
@@ -183,12 +183,12 @@ const EditUserPageAdmin = () => {
                 <div className='mb-6 w-full'>
                   <label
                     htmlFor='lastName'
-                    className='block text-gray-900 text-sm font-semibold'
+                    className='block text-gray-700 text-sm font-medium'
                   >
                     Last Name <span className='text-red-700'>*</span>
                   </label>
                   <input
-                    className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='text'
                     name='lastName'
                     id='lastName'
@@ -202,12 +202,12 @@ const EditUserPageAdmin = () => {
               <div className='mb-6'>
                 <label
                   htmlFor='location'
-                  className='block text-gray-900 text-sm font-semibold'
+                  className='block text-gray-700 text-sm font-medium'
                 >
                   Location
                 </label>
                 <input
-                  className='w-full shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                  className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                   type='location'
                   name='location'
                   id='location'
@@ -219,12 +219,12 @@ const EditUserPageAdmin = () => {
               <div className='mb-4'>
                 <label
                   htmlFor='bio'
-                  className='block text-gray-900 text-sm font-semibold'
+                  className='block text-gray-700 text-sm font-medium'
                 >
                   Bio
                 </label>
                 <textarea
-                  className='w-full h-32 shadow appearance-none border transition duration-150 hover:border-orange-500 focus:border-orange-500 rounded py-2 px-3 text-gray-800 bg-orange-100 hover:bg-white focus:bg-white leading-tight focus:outline-none focus:shadow-outline'
+                  className='h-32 mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                   type='text'
                   name='bio'
                   id='bio'
@@ -233,7 +233,7 @@ const EditUserPageAdmin = () => {
                   ref={updateAccount()}
                 />
               </div>
-              <div className='border-b border-gray-400 w-full my-6'></div>
+              <div className='border-b border-gray-200 w-full my-6'></div>
               <input
                 type='checkbox'
                 id='admin'
@@ -242,13 +242,15 @@ const EditUserPageAdmin = () => {
                 onChange={(e) => setAdmin(e.target.checked)}
                 ref={updateAccount()}
               />
-              <label className='text-lg ml-5'>Is Admin?</label>
-              <div className='border-b border-gray-400 w-full my-6'></div>
+              <label className='ml-5 text-gray-700 text-sm font-medium'>
+                Is Admin?
+              </label>
+              <div className='border-b border-gray-200 w-full my-6'></div>
               <button
-                className='text-sm tracking-tight w-52 bg-orange-500 transition duration-100 hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline'
+                className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
                 type='submit'
               >
-                Save Changes
+                Save
               </button>
             </form>
           </div>

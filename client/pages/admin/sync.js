@@ -45,7 +45,9 @@ const SyncPage = () => {
   return (
     <Layout title={title}>
       <main className='flex flex-col justify-center items-center mt-10 mb-40'>
-        <h2 className='text-5xl font-bold my-10'>Sync Supermarket Data</h2>
+        <h2 className='text-5xl font-heading font-bold my-10'>
+          Sync Supermarket Data
+        </h2>
         <ul className='mt-10'>
           {supermarketsArr.map((supermarket, index) => (
             <li
