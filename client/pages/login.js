@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { loginAsync } from '../lib/slices/userInfoSlice';
+import { loginAsync, userLoginFail } from '../lib/slices/userInfoSlice';
 
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
@@ -44,6 +44,7 @@ const LoginPage = () => {
   useEffect(() => {
     if (userLoginError) {
       notifyError(userLoginError);
+      dispatch(userLoginFail(null));
     }
   }, [userLoginError]);
 

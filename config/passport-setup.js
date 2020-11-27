@@ -18,7 +18,8 @@ const options = {
 
 const authenticateUser = async (email, password, done) => {
   const user = await User.query().findOne({ email: email });
-  if (user == null) {
+
+  if (!user) {
     return done(null, false);
   }
 
