@@ -25,9 +25,6 @@ const Home = () => {
     errors: postcodeErrors,
   } = useForm();
 
-  // const [postcode, setPostcode] = useState('');
-  // const [radius, setRadius] = useState('1609');
-
   const router = useRouter();
 
   const useInViewOptions = {

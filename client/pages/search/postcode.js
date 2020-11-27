@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
 import Cookie from 'js-cookie';
 import {
   fetchSupermarkets,
@@ -8,13 +9,24 @@ import {
 
 import Layout from '../../components/Layout';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 const PostcodeSearch = () => {
-  const [postcode, setPostcode] = useState('');
-  const [radius, setRadius] = useState('1609');
+  const {
+    register: postcode,
+    handleSubmit: handlePostcodeSubmit,
+    watch: postcodeWatch,
+    errors: postcodeErrors,
+  } = useForm();
+
   const router = useRouter();
 
-  const handleSubmitPostcode = async (e) => {
-    e.preventDefault();
+  const notifyError = (message) => toast.error(message);
+  const notifySuccess = (message) => toast.success(message);
+
+  const handleSubmitPostcode = async ({ unformattedPostcode, radius }) => {
+    const postcode = unformattedPostcode.split(' ').join('').toUpperCase();
     const supermarketList = await fetchSupermarkets(postcode, radius);
     supermarketList.sort((a, b) => a.localeCompare(b));
 
@@ -27,9 +39,17 @@ const PostcodeSearch = () => {
 
       router.push(`/products`);
     } else {
-      console.log('No supermarkets found');
+      notifyError(
+        'No supermarkets found! Try increasing the search distance or try another postcode!'
+      );
     }
   };
+
+  useEffect(() => {
+    if (postcodeErrors.unformattedPostcode?.type === 'required') {
+      notifyError('Postcode is required!');
+    }
+  }, [postcodeErrors]);
 
   return (
     <Layout title='Search by Postcode'>
@@ -50,15 +70,16 @@ const PostcodeSearch = () => {
                 <div className='w-full'>
                   <form
                     className='flex justify-center'
-                    onSubmit={handleSubmitPostcode}
+                    onSubmit={handlePostcodeSubmit(handleSubmitPostcode)}
                   >
                     <span className='self-center mr-4 font-medium'>
                       Search within
                     </span>
                     <select
                       className='shadow-inner rounded-md mr-4 px-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                      value={radius}
-                      onChange={(e) => setRadius(e.currentTarget.value)}
+                      name='radius'
+                      id='radius'
+                      ref={postcode({ required: true })}
                     >
                       <option value='1609'>1 Mile</option>
                       <option value='3218'>2 Miles</option>
@@ -69,11 +90,9 @@ const PostcodeSearch = () => {
                       className='shadow-inner rounded-md mr-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2 px-4 lg:w-full xl:w-1/2 w-2/4 md:w-full'
                       placeholder='My postcode is...'
                       type='text'
-                      onChange={(e) =>
-                        setPostcode(
-                          e.target.value.split(' ').join('').toUpperCase()
-                        )
-                      }
+                      id='unformattedPostcode'
+                      name='unformattedPostcode'
+                      ref={postcode({ required: true })}
                     />
                     <button
                       className='inline-flex text-gray-700 border-0 py-2 px-2 -ml-16 hover:text-green-500 transition duration-150 ease-in-out'
