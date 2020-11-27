@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import { useForm } from 'react-hook-form';
+
 import { useInView } from 'react-intersection-observer';
 import Cookie from 'js-cookie';
 
@@ -16,8 +18,15 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 const Home = () => {
-  const [postcode, setPostcode] = useState('');
-  const [radius, setRadius] = useState('1609');
+  const {
+    register: postcode,
+    handleSubmit: handlePostcodeSubmit,
+    watch: postcodeWatch,
+    errors: postcodeErrors,
+  } = useForm();
+
+  // const [postcode, setPostcode] = useState('');
+  // const [radius, setRadius] = useState('1609');
 
   const router = useRouter();
 
@@ -42,8 +51,8 @@ const Home = () => {
   const notifyError = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
 
-  const onPostcodeSearchSubmit = async (e) => {
-    e.preventDefault();
+  const onPostcodeSearchSubmit = async ({ unformattedPostcode, radius }) => {
+    const postcode = unformattedPostcode.split(' ').join('').toUpperCase();
     const supermarketList = await fetchSupermarkets(postcode, radius);
     supermarketList.sort((a, b) => a.localeCompare(b));
 
@@ -61,6 +70,12 @@ const Home = () => {
       );
     }
   };
+
+  useEffect(() => {
+    if (postcodeErrors.unformattedPostcode?.type === 'required') {
+      notifyError('Postcode is required!');
+    }
+  }, [postcodeErrors]);
 
   const defaultDuration = 1.3;
 
@@ -111,7 +126,7 @@ const Home = () => {
             </p>
           </div>
           <form
-            onSubmit={onPostcodeSearchSubmit}
+            onSubmit={handlePostcodeSubmit(onPostcodeSearchSubmit)}
             className='z-10 lg:w-2/6 md:w-1/2 bg-gray-200 shadow-sm rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0'
           >
             <div className='relative mb-4'>
@@ -122,8 +137,9 @@ const Home = () => {
                 I want to search within
               </label>
               <select
-                value={radius}
-                onChange={(e) => setRadius(e.currentTarget.value)}
+                name='radius'
+                id='radius'
+                ref={postcode({ required: true })}
                 className='w-40 ml-7 shadow-inner rounded-md py-2 px-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
               >
                 <option value='1609'>1 Mile</option>
@@ -137,14 +153,11 @@ const Home = () => {
               </label>
               <input
                 type='text'
-                id='postcode'
-                name='postcode'
-                onChange={(e) =>
-                  setPostcode(e.target.value.split(' ').join('').toUpperCase())
-                }
+                id='unformattedPostcode'
+                name='unformattedPostcode'
+                ref={postcode({ required: true })}
                 placeholder='Enter postcode...'
                 className='mt-1 ml-6 shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                required
               />
             </div>
             <button
