@@ -10,7 +10,13 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 const LoginPage = () => {
+  const notifyError = (message) => toast.error(message);
+  const notifySuccess = (message) => toast.success(message);
+
   const {
     register: login,
     handleSubmit: handleLoginSubmit,
@@ -20,16 +26,12 @@ const LoginPage = () => {
 
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userInfo);
-  const { loading, error, userID } = userLogin;
+  const { loading, error: userLoginError, userID } = userLogin;
 
   const router = useRouter();
 
   const onLoginSubmit = async ({ email, password }) => {
-    try {
-      dispatch(loginAsync(email, password));
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(loginAsync(email, password));
   };
 
   useEffect(() => {
@@ -37,6 +39,12 @@ const LoginPage = () => {
       router.push('/');
     }
   }, [userID]);
+
+  useEffect(() => {
+    if (userLoginError) {
+      notifyError(userLoginError);
+    }
+  }, [userLoginError]);
 
   return (
     <>

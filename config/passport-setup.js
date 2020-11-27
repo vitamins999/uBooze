@@ -19,7 +19,6 @@ const options = {
 const authenticateUser = async (email, password, done) => {
   const user = await User.query().findOne({ email: email });
   if (user == null) {
-    console.log('no user');
     return done(null, false);
   }
 
@@ -52,7 +51,6 @@ const authenticateUser = async (email, password, done) => {
         token: tokenObject.token,
       });
     } else {
-      console.log('wrong password');
       return done(null, false);
     }
   } catch (error) {
@@ -62,12 +60,10 @@ const authenticateUser = async (email, password, done) => {
 };
 
 passport.serializeUser((user, done) => {
-  console.log('serializing...');
   done(null, user.userID);
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('deserializing...');
   User.query()
     .findById(id)
     .then((user) => {
@@ -100,30 +96,39 @@ passport.use(
             currentUser.token = tokenObject.token;
             done(null, currentUser);
           } else {
-            const avatar = normalize(
-              gravatar.url(profile.emails[0].value, {
-                s: '200',
-                r: 'pg',
-                d: 'mm',
-              }),
-              { forceHttps: true }
-            );
-
             User.query()
-              .insert({
-                googleID: profile.id,
-                displayName: profile.displayName,
-                email: profile.emails[0].value,
-                username: profile.emails[0].value.split('@')[0],
-                gravatar: avatar,
-                firstName: profile.name.givenName,
-                lastName: profile.name.familyName,
-                isAdmin: false,
-              })
-              .then((newUser) => {
-                const tokenObject = issueJWT(newUser);
-                newUser.token = tokenObject.token;
-                done(null, newUser);
+              .findOne({ email: profile.emails[0].value })
+              .then((currentUserEmailExists) => {
+                if (currentUserEmailExists) {
+                  console.log('duplicate account');
+                  done(null, false);
+                } else {
+                  const avatar = normalize(
+                    gravatar.url(profile.emails[0].value, {
+                      s: '200',
+                      r: 'pg',
+                      d: 'mm',
+                    }),
+                    { forceHttps: true }
+                  );
+
+                  User.query()
+                    .insert({
+                      googleID: profile.id,
+                      displayName: profile.displayName,
+                      email: profile.emails[0].value,
+                      username: profile.emails[0].value.split('@')[0],
+                      gravatar: avatar,
+                      firstName: profile.name.givenName,
+                      lastName: profile.name.familyName,
+                      isAdmin: false,
+                    })
+                    .then((newUser) => {
+                      const tokenObject = issueJWT(newUser);
+                      newUser.token = tokenObject.token;
+                      done(null, newUser);
+                    });
+                }
               });
           }
         });

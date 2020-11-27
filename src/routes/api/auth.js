@@ -50,7 +50,11 @@ router.post('/login', (req, res, next) => {
       throw err;
     }
     if (!user) {
-      res.status(500).send();
+      res
+        .status(401)
+        .send(
+          "Whoops! User credentials don't match our database. Either the email/password is incorrect, or you haven't registered."
+        );
     } else {
       res.status(200).json({
         user,
@@ -63,40 +67,54 @@ router.post('/login', (req, res, next) => {
 router.post('/register', async (req, res, next) => {
   const { firstName, lastName, username, email, password } = req.body;
 
-  try {
-    const hashedPassword = await bcrypt.hash(password, 10);
+  const userExists = await User.query().findOne({ email });
 
-    const avatar = normalize(
-      gravatar.url(email, {
-        s: '200',
-        r: 'pg',
-        d: 'mm',
-      }),
-      { forceHttps: true }
-    );
+  if (userExists) {
+    res.status(401).send('This email address is already registered!');
+  } else {
+    const usernameExists = await User.query().findOne({ username });
 
-    const user = await User.query().insert({
-      password: hashedPassword,
-      email,
-      username,
-      firstName,
-      lastName,
-      displayName: `${firstName} ${lastName}`,
-      gravatar: avatar,
-      isAdmin: false,
-    });
-    const token = issueJWT(user);
-    res.status(201).json({
-      userID: user.userID,
-      email: user.email,
-      username: user.username,
-      displayName: user.displayName,
-      isAdmin: user.isAdmin,
-      gravatar: user.gravatar,
-      token: token.token,
-    });
-  } catch (error) {
-    res.json({ error: error });
+    if (usernameExists) {
+      res
+        .status(401)
+        .send('This username is already taken. Please try another one.');
+    } else {
+      try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const avatar = normalize(
+          gravatar.url(email, {
+            s: '200',
+            r: 'pg',
+            d: 'mm',
+          }),
+          { forceHttps: true }
+        );
+
+        const user = await User.query().insert({
+          password: hashedPassword,
+          email,
+          username,
+          firstName,
+          lastName,
+          displayName: `${firstName} ${lastName}`,
+          gravatar: avatar,
+          isAdmin: false,
+        });
+        const token = issueJWT(user);
+        res.status(201).json({
+          userID: user.userID,
+          email: user.email,
+          username: user.username,
+          displayName: user.displayName,
+          isAdmin: user.isAdmin,
+          gravatar: user.gravatar,
+          token: token.token,
+        });
+      } catch (error) {
+        res.json({ error: error });
+      }
+    }
   }
 });
 

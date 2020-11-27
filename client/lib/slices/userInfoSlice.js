@@ -52,7 +52,8 @@ const userInfoSlice = createSlice({
         (state.gravatar = null),
         (state.favourites = []),
         (state.token = null),
-        (state.loading = false);
+        (state.loading = false),
+        (state.error = null);
     },
     userUpdateProfile: (state, action) => {
       (state.firstName = action.payload.firstName),
@@ -99,7 +100,7 @@ export const loginAsync = (email, password) => async (dispatch) => {
 
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
-    dispatch(userLoginFail(error.message));
+    dispatch(userLoginFail(error.response.data));
   }
 };
 

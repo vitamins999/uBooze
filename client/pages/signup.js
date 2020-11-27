@@ -1,16 +1,23 @@
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 
-import { useDispatch } from 'react-redux';
-import { loginAsync } from '../lib/slices/userInfoSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAsync, userLoginFail } from '../lib/slices/userInfoSlice';
 
 import Axios from 'axios';
 import { motion } from 'framer-motion';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 const signupPage = () => {
+  const notifyError = (message) => toast.error(message);
+  const notifySuccess = (message) => toast.success(message);
+
   const {
     register,
     handleSubmit: handleRegisterSubmit,
@@ -19,6 +26,8 @@ const signupPage = () => {
   } = useForm();
 
   const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userInfo);
+  const { loading, error: userLoginError, userID } = userLogin;
 
   const router = useRouter();
 
@@ -33,9 +42,15 @@ const signupPage = () => {
       dispatch(loginAsync(data.email, data.password));
       router.push('/');
     } catch (error) {
-      console.log(error);
+      dispatch(userLoginFail(error.response.data));
     }
   };
+
+  useEffect(() => {
+    if (userLoginError) {
+      notifyError(userLoginError);
+    }
+  }, [userLoginError]);
 
   return (
     <>
