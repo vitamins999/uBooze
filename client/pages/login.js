@@ -62,6 +62,15 @@ const LoginPage = () => {
     }
   }, [queryStringError]);
 
+  useEffect(() => {
+    if (loginErrors.email?.type === 'required') {
+      notifyError('Username is required');
+    }
+    if (loginErrors.password?.type === 'required') {
+      notifyError('Password is required');
+    }
+  }, [loginErrors]);
+
   return (
     <>
       <Head>

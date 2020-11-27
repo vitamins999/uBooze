@@ -52,6 +52,30 @@ const signupPage = () => {
     }
   }, [userLoginError]);
 
+  useEffect(() => {
+    if (registerErrors.password?.type === 'minLength') {
+      notifyError('Password must be at least 6 characters');
+    }
+    if (registerErrors.password?.type === 'maxLength') {
+      notifyError('Password cannot exceed 20 characters');
+    }
+    if (registerErrors.firstName?.type === 'required') {
+      notifyError('First name is required');
+    }
+    if (registerErrors.lastName?.type === 'required') {
+      notifyError('Last name is required');
+    }
+    if (registerErrors.email?.type === 'required') {
+      notifyError('Email address is required');
+    }
+    if (registerErrors.username?.type === 'required') {
+      notifyError('Username is required');
+    }
+    if (registerErrors.password?.type === 'required') {
+      notifyError('Password is required');
+    }
+  }, [registerErrors]);
+
   return (
     <>
       <Head>
@@ -226,7 +250,11 @@ const signupPage = () => {
                     type='password'
                     name='password'
                     id='password'
-                    ref={register({ required: true })}
+                    ref={register({
+                      required: true,
+                      minLength: 6,
+                      maxLength: 20,
+                    })}
                   />
                 </div>
                 <button
