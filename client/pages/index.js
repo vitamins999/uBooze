@@ -29,6 +29,11 @@ const Home = () => {
 
   const useInViewOptions = {
     triggerOnce: true,
+    rootMargin: '-75px 0px',
+  };
+
+  const useInViewOptionsMemberItems = {
+    triggerOnce: true,
     rootMargin: '-100px 0px',
   };
 
@@ -42,7 +47,7 @@ const Home = () => {
     useInViewOptions
   );
   const [refMemberBenefitsBody, inViewMemberBenefitsBody] = useInView(
-    useInViewOptions
+    useInViewOptionsMemberItems
   );
 
   const notifyError = (message) => toast.error(message);
@@ -74,8 +79,6 @@ const Home = () => {
     }
   }, [postcodeErrors]);
 
-  const defaultDuration = 1.3;
-
   const heroVariants = {
     start: {
       opacity: 0,
@@ -83,7 +86,63 @@ const Home = () => {
     animate: {
       opacity: 1,
       transition: {
-        duration: defaultDuration,
+        duration: 1,
+      },
+    },
+  };
+
+  const optionsVariants = {
+    start: {
+      opacity: 0,
+      y: 200,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const memberVariants = {
+    start: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const memberItemVariantsLeft = {
+    start: {
+      opacity: 0,
+      x: -200,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+  const memberItemVariantsRight = {
+    start: {
+      opacity: 0,
+      x: 200,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
       },
     },
   };
@@ -183,20 +242,26 @@ const Home = () => {
         <div className='container px-5 py-24 mx-auto'>
           <motion.div
             ref={refSearchOptionsTitle}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inViewSearchOptionsTitle ? 1 : 0 }}
-            transition={{ duration: defaultDuration }}
+            variants={optionsVariants}
+            initial='start'
+            animate={inViewSearchOptionsTitle && 'animate'}
             className='text-center mb-20'
           >
-            <h1 className='sm:text-3xl text-2xl font-medium font-heading text-gray-900 mb-4'>
+            <motion.h1
+              variants={optionsVariants}
+              className='sm:text-3xl text-2xl font-medium font-heading text-gray-900 mb-4'
+            >
               Easy Search Options
-            </h1>
-            <p className='text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto'>
+            </motion.h1>
+            <motion.p
+              variants={optionsVariants}
+              className='text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto'
+            >
               We want to make it as easy as possible for you to find the
               cheapest alcohol deals. That's why we've provided the following
               different search options, so you can search for the drinks you
               want, the way you want.
-            </p>
+            </motion.p>
             <div className='flex mt-6 justify-center'>
               <div className='w-16 h-1 rounded-full bg-gray-500 inline-flex'></div>
             </div>
@@ -204,12 +269,12 @@ const Home = () => {
 
           <motion.div
             ref={refSearchOptionsBody}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inViewSearchOptionsBody ? 1 : 0 }}
-            transition={{ duration: defaultDuration }}
+            variants={optionsVariants}
+            initial='start'
+            animate={inViewSearchOptionsBody && 'animate'}
             className='flex flex-wrap -m-4'
           >
-            <div className='p-4 md:w-1/3'>
+            <motion.div variants={optionsVariants} className='p-4 md:w-1/3'>
               <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col shadow-md'>
                 <div className='flex items-center mb-3'>
                   <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
@@ -255,8 +320,8 @@ const Home = () => {
                   </Link>
                 </div>
               </div>
-            </div>
-            <div className='p-4 md:w-1/3'>
+            </motion.div>
+            <motion.div variants={optionsVariants} className='p-4 md:w-1/3'>
               <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col shadow-md'>
                 <div className='flex items-center mb-3'>
                   <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
@@ -302,8 +367,11 @@ const Home = () => {
                   </Link>
                 </div>
               </div>
-            </div>
-            <div className='p-4 md:w-1/3 z-10'>
+            </motion.div>
+            <motion.div
+              variants={optionsVariants}
+              className='p-4 md:w-1/3 z-10'
+            >
               <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col shadow-md'>
                 <div className='flex items-center mb-3'>
                   <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
@@ -350,7 +418,7 @@ const Home = () => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
         <svg
@@ -370,9 +438,9 @@ const Home = () => {
         <div className='container px-5 py-24 mx-auto'>
           <motion.div
             ref={refMemberBenefitsTitle}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inViewMemberBenefitsTitle ? 1 : 0 }}
-            transition={{ duration: defaultDuration }}
+            variants={optionsVariants}
+            initial='start'
+            animate={inViewMemberBenefitsTitle && 'animate'}
             className='text-center'
           >
             <h1 className='sm:text-3xl text-2xl font-medium text-center font-heading text-gray-900 mb-4'>
@@ -389,12 +457,15 @@ const Home = () => {
 
           <motion.div
             ref={refMemberBenefitsBody}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inViewMemberBenefitsBody ? 1 : 0 }}
-            transition={{ duration: defaultDuration }}
+            variants={memberVariants}
+            initial='start'
+            animate={inViewMemberBenefitsBody && 'animate'}
             className='flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2'
           >
-            <div className='p-2 sm:w-1/2 w-full'>
+            <motion.div
+              variants={memberItemVariantsLeft}
+              className='p-2 sm:w-1/2 w-full'
+            >
               <div className='bg-gray-200 rounded flex p-4 h-full items-center'>
                 <svg
                   fill='none'
@@ -412,8 +483,11 @@ const Home = () => {
                   Public profile page
                 </span>
               </div>
-            </div>
-            <div className='p-2 sm:w-1/2 w-full'>
+            </motion.div>
+            <motion.div
+              variants={memberItemVariantsRight}
+              className='p-2 sm:w-1/2 w-full'
+            >
               <div className='bg-gray-200 rounded flex p-4 h-full items-center'>
                 <svg
                   fill='none'
@@ -431,8 +505,11 @@ const Home = () => {
                   Save your favourite drinks
                 </span>
               </div>
-            </div>
-            <div className='p-2 sm:w-1/2 w-full'>
+            </motion.div>
+            <motion.div
+              variants={memberItemVariantsLeft}
+              className='p-2 sm:w-1/2 w-full'
+            >
               <div className='bg-gray-200 rounded flex p-4 h-full items-center'>
                 <svg
                   fill='none'
@@ -448,8 +525,11 @@ const Home = () => {
                 </svg>
                 <span className='title-font font-medium'>Rate products</span>
               </div>
-            </div>
-            <div className='p-2 sm:w-1/2 w-full'>
+            </motion.div>
+            <motion.div
+              variants={memberItemVariantsRight}
+              className='p-2 sm:w-1/2 w-full'
+            >
               <div className='bg-gray-200 rounded flex p-4 h-full items-center'>
                 <svg
                   fill='none'
@@ -467,15 +547,18 @@ const Home = () => {
                   Google and Facebook login compatible
                 </span>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
           <a>
-            <button
+            <motion.button
+              initial={{ opacity: 0, y: 200 }}
+              animate={inViewMemberBenefitsBody && { opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.5 }}
               onClick={() => router.push('/signup')}
               className='flex mx-auto mt-16 font-medium shadow-sm text-green-50 bg-green-500 border-0 py-2 px-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 hover:bg-green-600 rounded-lg text-lg transition duration-200 ease-in-out'
             >
               Sign up now
-            </button>
+            </motion.button>
           </a>
         </div>
       </section>
