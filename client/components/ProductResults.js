@@ -317,7 +317,7 @@ const ProductResults = ({
           totalPages={resolvedData.totalPages}
         />
       </div>
-      <div className='mt-3 pt-5 pb-8 border-gray-400 border-b border-t'>
+      <div className='mt-3 pt-5 pb-8 border-gray-200 border-b border-t'>
         <ProductItemList
           products={resolvedData.results}
           publicProfilePage={publicProfilePage}

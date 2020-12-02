@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -57,6 +57,66 @@ const EditProfile = () => {
     watch: updatePasswordWatch,
     errors: updatePasswordErrors,
   } = useForm();
+
+  useEffect(() => {
+    if (updateProfileErrors.firstName?.type === 'required') {
+      notifyError('First name is required');
+    }
+    if (updateProfileErrors.lastName?.type === 'required') {
+      notifyError('Last name is required');
+    }
+    if (updateProfileErrors.location?.type === 'maxLength') {
+      notifyError('Location cannot exceed 50 characters');
+    }
+    if (updateProfileErrors.bio?.type === 'maxLength') {
+      notifyError('Bio cannot exceed 200 characters');
+    }
+  }, [updateProfileErrors]);
+
+  useEffect(() => {
+    if (updateAccountErrors.username?.type === 'required') {
+      notifyError('Username is required');
+    }
+    if (updateAccountErrors.username?.type === 'maxLength') {
+      notifyError('Username cannot exceed 30 characters');
+    }
+    if (updateAccountErrors.email?.type === 'required') {
+      notifyError('Email is required');
+    }
+    if (updateAccountErrors.email?.type === 'maxLength') {
+      notifyError('Email cannot exceed 200 characters');
+    }
+  }, [updateAccountErrors]);
+
+  useEffect(() => {
+    if (updatePasswordErrors.oldPassword?.type === 'minLength') {
+      notifyError('Old password must be at least 6 characters');
+    }
+    if (updatePasswordErrors.oldPassword?.type === 'maxLength') {
+      notifyError('Old password cannot exceed 20 characters');
+    }
+    if (updatePasswordErrors.oldPassword?.type === 'required') {
+      notifyError('Old password is required');
+    }
+    if (updatePasswordErrors.newPassword?.type === 'minLength') {
+      notifyError('New password must be at least 6 characters');
+    }
+    if (updatePasswordErrors.newPassword?.type === 'maxLength') {
+      notifyError('New password cannot exceed 20 characters');
+    }
+    if (updatePasswordErrors.newPassword?.type === 'required') {
+      notifyError('New password is required');
+    }
+    if (updatePasswordErrors.confirmNewPassword?.type === 'minLength') {
+      notifyError('Confirm new password must be at least 6 characters');
+    }
+    if (updatePasswordErrors.confirmNewPassword?.type === 'maxLength') {
+      notifyError('Confirm new password cannot exceed 20 characters');
+    }
+    if (updatePasswordErrors.confirmNewPassword?.type === 'required') {
+      notifyError('Confirm new password is required');
+    }
+  }, [updatePasswordErrors]);
 
   const config = {
     headers: {
@@ -333,7 +393,7 @@ const EditProfile = () => {
                       placeholder="Let us know where you're from... "
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
-                      ref={updateProfile()}
+                      ref={updateProfile({ maxLength: 50 })}
                     />
                   </div>
                   <div className='mb-4'>
@@ -351,10 +411,10 @@ const EditProfile = () => {
                       placeholder='Share something about yourself with the rest of the community...'
                       value={bio}
                       onChange={(e) => setBio(e.target.value)}
-                      ref={updateProfile()}
+                      ref={updateProfile({ maxLength: 200 })}
                     />
                   </div>
-                  <div className='border-b border-gray-300 w-full my-8'></div>
+                  <div className='border-b border-gray-200 w-full my-8'></div>
                   <div className='w-full flex justify-end'>
                     <button
                       className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
@@ -385,7 +445,7 @@ const EditProfile = () => {
                         id='username'
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        ref={updateAccount({ required: true })}
+                        ref={updateAccount({ required: true, maxLength: 30 })}
                         required
                       />
                       <p className='text-sm text-gray-500 pt-1'>
@@ -409,11 +469,11 @@ const EditProfile = () => {
                         id='email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        ref={updateAccount({ required: true })}
+                        ref={updateAccount({ required: true, maxLength: 200 })}
                         required
                       />
                     </div>
-                    <div className='border-b border-gray-300 w-full my-6'></div>
+                    <div className='border-b border-gray-200 w-full my-6'></div>
                     <div className='flex justify-between py-5'>
                       <div>
                         <p className='text-gray-900 text-xl font-semibold'>
@@ -430,7 +490,7 @@ const EditProfile = () => {
                         Close Account
                       </a>
                     </div>
-                    <div className='border-b border-gray-300 w-full my-6'></div>
+                    <div className='border-b border-gray-200 w-full my-6'></div>
                     <div className='w-full flex justify-end'>
                       <button
                         className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
@@ -459,7 +519,11 @@ const EditProfile = () => {
                       type='password'
                       name='oldPassword'
                       id='oldPassword'
-                      ref={updatePassword({ required: true })}
+                      ref={updatePassword({
+                        required: true,
+                        minLength: 6,
+                        maxLength: 20,
+                      })}
                       required
                     />
                   </div>
@@ -475,7 +539,11 @@ const EditProfile = () => {
                       type='password'
                       name='newPassword'
                       id='newPassword'
-                      ref={updatePassword({ required: true })}
+                      ref={updatePassword({
+                        required: true,
+                        minLength: 6,
+                        maxLength: 20,
+                      })}
                       required
                     />
                   </div>
@@ -492,11 +560,15 @@ const EditProfile = () => {
                       type='password'
                       name='confirmNewPassword'
                       id='confirmNewPassword'
-                      ref={updatePassword({ required: true })}
+                      ref={updatePassword({
+                        required: true,
+                        minLength: 6,
+                        maxLength: 20,
+                      })}
                       required
                     />
                   </div>
-                  <div className='border-b border-gray-300 w-full my-8'></div>
+                  <div className='border-b border-gray-200 w-full my-8'></div>
                   <div className='w-full flex justify-end'>
                     <button
                       className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
