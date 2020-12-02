@@ -4,6 +4,16 @@ import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  RedditShareButton,
+  RedditIcon,
+  EmailShareButton,
+  EmailIcon,
+} from 'react-share';
 
 import { motion } from 'framer-motion';
 import { fadeOutPage } from '../../animations/navigation';
@@ -162,8 +172,16 @@ const ItemPage = ({ itemData }) => {
 
   const title = `${data.productName} ${data.volume}`;
 
+  const shareURL = `http://localhost:3000${router.asPath}`;
+  const shareQuote = `uBooze - The cheapest deals on ${data.productName} ${data.volume}`;
+
   return (
-    <Layout title={title}>
+    <Layout
+      title={title}
+      image={data.supermarketProducts[0].image}
+      description={shareQuote}
+      url={shareURL}
+    >
       {status === 'success' && (
         <motion.main
           variants={fadeOutPage}
@@ -273,42 +291,36 @@ const ItemPage = ({ itemData }) => {
                       userRatingHandler={userRatingHandler}
                     />
                     <span className='flex ml-3 pl-3 py-2 border-l-2 border-gray-200'>
-                      <a className='text-gray-500'>
-                        <svg
-                          fill='currentColor'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          className='w-5 h-5'
-                          viewBox='0 0 24 24'
-                        >
-                          <path d='M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z'></path>
-                        </svg>
-                      </a>
-                      <a className='ml-2 text-gray-500'>
-                        <svg
-                          fill='currentColor'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          className='w-5 h-5'
-                          viewBox='0 0 24 24'
-                        >
-                          <path d='M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z'></path>
-                        </svg>
-                      </a>
-                      <a className='ml-2 text-gray-500'>
-                        <svg
-                          fill='currentColor'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          className='w-5 h-5'
-                          viewBox='0 0 24 24'
-                        >
-                          <path d='M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z'></path>
-                        </svg>
-                      </a>
+                      <FacebookShareButton
+                        url={shareURL}
+                        quote={shareQuote}
+                        hashtag='#ubooze'
+                        className='focus:outline-none hover:opacity-80 transition duration-200 ease-in-out'
+                      >
+                        <FacebookIcon size={32} round className='mr-1' />
+                      </FacebookShareButton>
+                      <TwitterShareButton
+                        url={shareURL}
+                        title={shareQuote}
+                        hashtags={['ubooze', 'cheapdrinks', 'deals']}
+                        className='focus:outline-none hover:opacity-80 transition duration-200 ease-in-out'
+                      >
+                        <TwitterIcon size={32} round className='mr-1' />
+                      </TwitterShareButton>
+                      <RedditShareButton
+                        url={shareURL}
+                        title={shareQuote}
+                        className='focus:outline-none hover:opacity-80 transition duration-200 ease-in-out'
+                      >
+                        <RedditIcon size={32} round className='mr-1' />
+                      </RedditShareButton>
+                      <EmailShareButton
+                        url={shareURL}
+                        subject={shareQuote}
+                        className='focus:outline-none hover:opacity-80 transition duration-200 ease-in-out'
+                      >
+                        <EmailIcon size={32} round />
+                      </EmailShareButton>
                     </span>
                   </div>
                   <p className='leading-relaxed'></p>
