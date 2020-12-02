@@ -2,7 +2,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { motion } from 'framer-motion';
+import { fadeOutPage } from '../animations/navigation';
+
 import Cookies from 'js-cookie';
 import { userLogout, userLoginSuccess } from '../lib/slices/userInfoSlice';
 
@@ -106,7 +109,13 @@ const NavBar = ({ landingPage }) => {
 
   return (
     <>
-      <header className='text-gray-700 body-font border-b'>
+      <motion.header
+        variants={fadeOutPage}
+        exit='exit'
+        initial='initial'
+        animate='animate'
+        className='text-gray-700 body-font border-b'
+      >
         <motion.div
           variants={landingPage && navbarVariants}
           initial='start'
@@ -277,7 +286,7 @@ const NavBar = ({ landingPage }) => {
             </>
           )}
         </motion.div>
-      </header>
+      </motion.header>
     </>
   );
 };

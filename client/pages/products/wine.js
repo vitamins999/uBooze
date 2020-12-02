@@ -5,6 +5,9 @@ import Cookies from 'js-cookie';
 import Layout from '../../components/Layout';
 import { parseCookies } from '../../utils/parseCookies';
 
+import { motion } from 'framer-motion';
+import { fadeOutPage } from '../../animations/navigation';
+
 import SupermarketBar from '../../components/SupermarketBar';
 import CategoryBar from '../../components/CategoryBar';
 import ProductResults from '../../components/ProductResults';
@@ -42,7 +45,13 @@ const WinePage = ({ drinks }) => {
       {status === 'loading' && <Loader />}
       {status === 'error' && <div>Error fetching data</div>}
       {status === 'success' && (
-        <main className='flex flex-col mb-40'>
+        <motion.main
+          variants={fadeOutPage}
+          exit='exit'
+          initial='initial'
+          animate='animate'
+          className='flex flex-col mb-40'
+        >
           <SupermarketBar />
           <div className='pb-10 px-5 container mx-auto'>
             <CategoryBar
@@ -63,7 +72,7 @@ const WinePage = ({ drinks }) => {
               />
             </div>
           </div>
-        </main>
+        </motion.main>
       )}
     </Layout>
   );

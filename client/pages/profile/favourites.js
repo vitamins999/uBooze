@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import { usePaginatedQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+
+import { motion } from 'framer-motion';
+import { fadeOutPage } from '../../animations/navigation';
+
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import CategoryBar from '../../components/CategoryBar';
@@ -34,7 +38,13 @@ const FavouritesPage = () => {
       {status === 'loading' && <Loader />}
       {status === 'error' && <div>Error fetching data</div>}
       {status === 'success' && (
-        <main className='flex flex-col mb-40'>
+        <motion.main
+          variants={fadeOutPage}
+          exit='exit'
+          initial='initial'
+          animate='animate'
+          className='flex flex-col mb-40'
+        >
           <div className='pb-10 px-5 container mx-auto'>
             <CategoryBar
               primary='favourites'
@@ -53,7 +63,7 @@ const FavouritesPage = () => {
               />
             </div>
           </div>
-        </main>
+        </motion.main>
       )}
     </Layout>
   );

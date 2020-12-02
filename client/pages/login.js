@@ -10,6 +10,8 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 
+import { fadeOutPage } from '../animations/navigation';
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -88,7 +90,13 @@ const LoginPage = () => {
         />
         <title>uBooze | Log In</title>
       </Head>
-      <main className='grid grid-cols-3 font-body'>
+      <motion.main
+        variants={fadeOutPage}
+        exit='exit'
+        initial='initial'
+        animate='animate'
+        className='grid grid-cols-3 font-body'
+      >
         <div className='flex flex-col h-screen px-16 bg-gradient-to-r from-green-300 to-green-400 text-green-900'>
           <div>
             <Link href='/'>
@@ -211,7 +219,7 @@ const LoginPage = () => {
             </div>
           </div>
         </div>
-      </main>
+      </motion.main>
     </>
   );
 };

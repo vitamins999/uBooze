@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import { motion } from 'framer-motion';
 import Cookie from 'js-cookie';
 import {
   fetchSupermarkets,
@@ -8,6 +9,8 @@ import {
 } from '../../utils/supermarketListUtils';
 
 import Layout from '../../components/Layout';
+
+import { fadeOutPage } from '../../animations/navigation';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -53,7 +56,13 @@ const PostcodeSearch = () => {
 
   return (
     <Layout title='Search by Postcode'>
-      <section className='text-gray-700 body-font bg-hero-blend'>
+      <motion.section
+        variants={fadeOutPage}
+        exit='exit'
+        initial='initial'
+        animate='animate'
+        className='text-gray-700 body-font bg-hero-blend'
+      >
         <div className='bg-hero-image h-screen bg-contain bg-no-repeat bg-center'>
           <div className='bg-green-200 h-screen bg-opacity-50'>
             <div className='container mx-auto flex flex-col px-5 py-24 justify-center items-center'>
@@ -119,7 +128,7 @@ const PostcodeSearch = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </Layout>
   );
 };

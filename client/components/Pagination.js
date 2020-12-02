@@ -25,7 +25,7 @@ const Pagination = ({
           } flex pr-3 text-gray-900 focus:outline-none hover:text-green-500 transition duration-200 ease-in-out`}
         >
           <svg
-            class='w-6 h-6'
+            className='w-6 h-6'
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'
@@ -62,7 +62,7 @@ const Pagination = ({
         >
           <span>Next</span>
           <svg
-            class='w-6 h-6'
+            className='w-6 h-6'
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'

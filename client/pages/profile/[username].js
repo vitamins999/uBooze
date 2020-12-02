@@ -4,11 +4,14 @@ import Link from 'next/link';
 import { useQuery, usePaginatedQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+
+import { motion } from 'framer-motion';
+import { fadeOutPage } from '../../animations/navigation';
+
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import CategoryBar from '../../components/CategoryBar';
 import ProductResults from '../../components/ProductResults';
-import ProductPageChangeButtons from '../../components/ProductPageChangeButtons';
 import { fetchDrinksFavouritesPublic } from '../../utils/supermarketListUtils';
 
 const Profile = ({ drinks }) => {
@@ -57,7 +60,11 @@ const Profile = ({ drinks }) => {
 
   return (
     <Layout title={title}>
-      <main
+      <motion.main
+        variants={fadeOutPage}
+        exit='exit'
+        initial='initial'
+        animate='animate'
         className={`grid grid-cols-3 ${
           currentSection === 'drinks' ? 'grid-rows-6' : 'grid-rows-2'
         }`}
@@ -169,7 +176,7 @@ const Profile = ({ drinks }) => {
             </section>
           </>
         )}
-      </main>
+      </motion.main>
     </Layout>
   );
 };

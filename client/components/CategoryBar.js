@@ -21,6 +21,8 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
         >
           {primary === 'allDrinks' ? (
             'All Drinks'
+          ) : primary === 'search' ? (
+            'Search Results'
           ) : (
             <>
               {primary === 'beer' ? (
@@ -62,7 +64,7 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
         </h3>
       </div>
       <div className='mb-10 mt-10 w-full flex justify-center text-sm text-gray-700'>
-        {primary === 'favourites' ? null : (
+        {primary === 'favourites' || primary === 'search' ? null : (
           <>
             {primary === 'allDrinks' ? (
               <a className='mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>

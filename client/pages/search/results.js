@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { usePaginatedQuery } from 'react-query';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import Cookies from 'js-cookie';
-import Layout from '../../components/Layout';
 
+import { motion } from 'framer-motion';
+import { fadeOutPage } from '../../animations/navigation';
+
+import Layout from '../../components/Layout';
+import CategoryBar from '../../components/CategoryBar';
 import ProductResults from '../../components/ProductResults';
-import ProductPageChangeButtons from '../../components/ProductPageChangeButtons';
+import Loader from '../../components/Loader';
 
 const fetchDrinks = async (
   key,
@@ -45,36 +48,39 @@ const SearchResultsPage = ({ drinks }) => {
     }
   );
 
+  const title = 'Search Results';
+
   return (
-    <Layout title='Search Results'>
-      {status === 'loading' && <div>Loading data...</div>}
+    <Layout title={title}>
+      {status === 'loading' && <Loader />}
       {status === 'error' && <div>Error fetching data</div>}
       {status === 'success' && (
-        <main className='flex flex-col mb-40'>
+        <motion.main
+          variants={fadeOutPage}
+          exit='exit'
+          initial='initial'
+          animate='animate'
+          className='flex flex-col mb-40'
+        >
           <div className='pb-10 px-5 container mx-auto'>
-            <div className='w-full mb-10 mt-20 text-center text-5xl tracking-wider font-bold text-gray-800'>
-              <h1>Search Results</h1>
-            </div>
+            <CategoryBar
+              primary='search'
+              title={title}
+              resolvedData={resolvedData}
+            />
             <div>
               <ProductResults
                 resolvedData={resolvedData}
-                postcode={postcode}
                 order={order}
                 setOrder={setOrder}
                 limit={limit}
                 setLimit={setLimit}
                 setPage={setPage}
-                searchText={queryString}
-              />
-              <ProductPageChangeButtons
                 page={page}
-                setPage={setPage}
-                resolvedData={resolvedData}
-                latestData={latestData}
               />
             </div>
           </div>
-        </main>
+        </motion.main>
       )}
     </Layout>
   );

@@ -7,6 +7,10 @@ import {
 } from '../../lib/slices/userInfoSlice';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+
+import { motion } from 'framer-motion';
+import { fadeOutPage } from '../../animations/navigation';
+
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import Link from 'next/link';
@@ -130,7 +134,13 @@ const EditProfile = () => {
 
   return (
     <Layout title={title}>
-      <main className='grid grid-cols-10 grid-rows-4'>
+      <motion.main
+        variants={fadeOutPage}
+        exit='exit'
+        initial='initial'
+        animate='animate'
+        className='grid grid-cols-10 grid-rows-4'
+      >
         {isLoading && <Loader />}
         {status === 'success' && (
           <>
@@ -500,7 +510,7 @@ const EditProfile = () => {
             </section>
           </>
         )}
-      </main>
+      </motion.main>
     </Layout>
   );
 };

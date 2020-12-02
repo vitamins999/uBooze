@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+
+import { fadeOutPage } from '../../animations/navigation';
 
 import Layout from '../../components/Layout';
 import allDrinksData from '../../data/allDrinks';
@@ -33,7 +36,13 @@ const DrinkSearch = () => {
 
   return (
     <Layout title='Search by Drink'>
-      <section className='text-gray-700 body-font bg-hero-blend'>
+      <motion.section
+        variants={fadeOutPage}
+        exit='exit'
+        initial='initial'
+        animate='animate'
+        className='text-gray-700 body-font bg-hero-blend'
+      >
         <div className='bg-hero-image h-screen bg-contain bg-no-repeat bg-center'>
           <div className='bg-green-200 h-screen bg-opacity-50'>
             <div className='container mx-auto flex flex-col px-5 py-24 justify-center items-center'>
@@ -59,7 +68,7 @@ const DrinkSearch = () => {
                     />
                     <button
                       type='submit'
-                      className='inline-flex text-gray-700 border-0 py-2 px-2 -ml-16 hover:text-green-500 transition duration-150 ease-in-out'
+                      className='inline-flex text-gray-700 border-0 py-2 px-2 -ml-16 hover:text-green-500 focus:outline-none transition duration-150 ease-in-out'
                     >
                       <svg
                         className='w-6 h-6'
@@ -107,7 +116,7 @@ const DrinkSearch = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </Layout>
   );
 };

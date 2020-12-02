@@ -4,7 +4,10 @@ import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+
 import { motion } from 'framer-motion';
+import { fadeOutPage } from '../../animations/navigation';
+
 import Layout from '../../components/Layout';
 import Rating from '../../components/Rating';
 import Loader from '../../components/Loader';
@@ -28,8 +31,20 @@ const ItemPage = ({ itemData }) => {
   const notifyError = (message) => toast.error(message);
 
   const router = useRouter();
-  const { item } = router.query;
+  const { item: itemID } = router.query;
 
+  // This may look simple, but it's so specific I thought best to address it for clarity's sake.
+  // It's a bit of a hack needed to get Framer Motion's animatePresence to
+  // work properly with Nextjs and React Query. AnimatePresence needs to be wrapped around the components in _app.js
+  // to work, but from what I can tell, it takes a second or so for the animation to run when it
+  // unmounts the component when exiting, which has the side effect of setting the query parameter on this page to null
+  // when navigating to a new page from this one. Normally, this wouldn't be a problem, but React Query automatically
+  // retries to fetch the data.  Except now it has null as the productID it's checking on the API. It gets nothing back,
+  // and all the functions that rely on that value crash because they have null to work with. I fixed it giving it a default
+  // value of '1' if the value returned from the query string is null. We never see what it fetches, but it stops crashing. Phew!
+  const item = itemID ? itemID : '1';
+
+  // const [item, setItem] = useState('1');
   const [productRating, setProductRating] = useState(0);
   const [userRating, setUserRating] = useState(0);
   const [numRating, setNumRating] = useState(0);
@@ -150,7 +165,12 @@ const ItemPage = ({ itemData }) => {
   return (
     <Layout title={title}>
       {status === 'success' && (
-        <main>
+        <motion.main
+          variants={fadeOutPage}
+          exit='exit'
+          initial='initial'
+          animate='animate'
+        >
           <section className='text-gray-700 body-font overflow-hidden'>
             <div className='container mx-auto px-2 pt-6 pb-4 font-heading'>
               <h2 className='inline-block text-gray-500'>
@@ -209,7 +229,7 @@ const ItemPage = ({ itemData }) => {
                         whileHover={{ scale: 1.2 }}
                         onClick={onFavouriteClickHandler}
                         className={`w-6 h-6 z-30 text-gray-700 cursor-pointer`}
-                        fill='#4a5568'
+                        fill='#374151'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
                         xmlns='http://www.w3.org/2000/svg'
@@ -365,7 +385,7 @@ const ItemPage = ({ itemData }) => {
                                 supermarket.price ===
                                 data.supermarketProducts[0].price
                                   ? 'text-white bg-green-500  hover:bg-green-600 border-transparent'
-                                  : 'text-gray-700 bg-white hover:bg-gray-50 border-gray-300'
+                                  : 'text-gray-700 bg-white hover:text-gray-800 hover:bg-gray-100 border-gray-300'
                               } flex ml-auto w-auto mr-4 shadow-sm py-2 px-4 border rounded-lg justify-center text-sm font-medium transition duration-200 ease-in-out`}
                             >
                               Go to {supermarket.supermarket}
@@ -379,7 +399,7 @@ const ItemPage = ({ itemData }) => {
               </div>
             </div>
           </section>
-        </main>
+        </motion.main>
       )}
     </Layout>
   );
