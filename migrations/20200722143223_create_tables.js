@@ -17,6 +17,14 @@ exports.up = function (knex) {
       table.string('facebookID');
       table.string('googleID');
     })
+    .createTable('userRefreshTokens', (table) => {
+      table.increments('refreshTokenID');
+      table.integer('userID').unsigned().notNullable();
+      table.string('refreshToken');
+
+      // Foreign Keys
+      table.foreign('userID').references('userID').inTable('users');
+    })
     .createTable('products', (table) => {
       table.increments('productID');
       table.string('productName');
@@ -24,18 +32,6 @@ exports.up = function (knex) {
       table.string('volume');
       table.string('drinkType');
       table.string('drinkSubtype');
-    })
-    .createTable('productComments', (table) => {
-      table.increments('commentID');
-      table.text('comment').notNullable();
-      table.datetime('createdAt').defaultTo(knex.fn.now());
-      table.datetime('lastEditedAt');
-      table.integer('userID').unsigned().notNullable();
-      table.integer('productID').unsigned().notNullable();
-
-      // Foreign Keys
-      table.foreign('userID').references('userID').inTable('users');
-      table.foreign('productID').references('productID').inTable('products');
     })
     .createTable('productRatings', (table) => {
       table.increments('ratingID');
@@ -56,18 +52,6 @@ exports.up = function (knex) {
       // Foreign Keys
       table.foreign('userID').references('userID').inTable('users');
       table.foreign('productID').references('productID').inTable('products');
-    })
-    .createTable('productCommentLikes', (table) => {
-      table.increments('commentLikeID');
-      table.integer('userID').unsigned().notNullable();
-      table.integer('commentID').unsigned().notNullable();
-
-      // Foreign Keys
-      table.foreign('userID').references('userID').inTable('users');
-      table
-        .foreign('commentID')
-        .references('commentID')
-        .inTable('productComments');
     })
     .createTable('supermarketProducts', (table) => {
       table.increments('supermarketProductID');
@@ -90,10 +74,9 @@ exports.up = function (knex) {
 exports.down = function (knex) {
   return knex.schema
     .dropTableIfExists('supermarketProducts')
-    .dropTableIfExists('productCommentLikes')
     .dropTableIfExists('productFavourites')
     .dropTableIfExists('productRatings')
-    .dropTableIfExists('productComments')
     .dropTableIfExists('products')
+    .dropTableIfExists('userRefreshTokens')
     .dropTableIfExists('users');
 };

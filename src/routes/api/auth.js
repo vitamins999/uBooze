@@ -6,10 +6,12 @@ const normalize = require('normalize-url');
 
 const passport = require('passport');
 const bcrypt = require('bcrypt');
-const issueJWT = require('../../utils/jwt');
+const jsonwebtoken = require('jsonwebtoken');
+const { issueJWT, issueRefreshJWT } = require('../../utils/jwt');
 
 const User = require('../../models/User');
 const Favourite = require('../../models/Favourite');
+const RefreshToken = require('../../models/RefreshToken');
 const { NotFoundError } = require('objection');
 
 // Get all users
@@ -43,9 +45,54 @@ router.get(
   }
 );
 
+// Refresh JWT
+router.post('/token', async (req, res) => {
+  const refreshToken = req.cookies.refreshToken;
+
+  if (!refreshToken) {
+    res.sendStatus(403);
+  }
+
+  try {
+    const refreshTokenExists = await RefreshToken.query().findOne({
+      refreshToken,
+    });
+
+    if (refreshTokenExists) {
+      const { userID } = jsonwebtoken.verify(
+        refreshToken,
+        process.env.JWT_REFRESH_SECRET
+      );
+
+      const newAccessToken = issueJWT({ userID });
+      const newRefreshToken = issueRefreshJWT({ userID });
+
+      await RefreshToken.query()
+        .patch({
+          refreshToken: newRefreshToken,
+        })
+        .findOne({
+          userID,
+        });
+
+      res.cookie('refreshToken', newRefreshToken, {
+        httpOnly: true,
+      });
+
+      res.status(200).json({
+        token: newAccessToken.token,
+      });
+    } else {
+      res.sendStatus(403);
+    }
+  } catch (error) {
+    res.sendStatus(403);
+  }
+});
+
 // Login user
 router.post('/login', (req, res, next) => {
-  passport.authenticate('local', (err, user, info) => {
+  passport.authenticate('local', async (err, user, info) => {
     if (err) {
       throw err;
     }
@@ -56,6 +103,16 @@ router.post('/login', (req, res, next) => {
           "Whoops! User credentials don't match our database. Either the email/password is incorrect, or you haven't registered."
         );
     } else {
+      const refreshToken = issueRefreshJWT(user);
+
+      await RefreshToken.query()
+        .patch({ refreshToken })
+        .findOne({ userID: user.userID });
+
+      res.cookie('refreshToken', refreshToken, {
+        httpOnly: true,
+      });
+
       res.status(200).json({
         user,
       });
@@ -102,6 +159,18 @@ router.post('/register', async (req, res, next) => {
           isAdmin: false,
         });
         const token = issueJWT(user);
+
+        const refreshToken = issueRefreshJWT(user);
+
+        await RefreshToken.query().insert({
+          userID: user.userID,
+          refreshToken,
+        });
+
+        res.cookie('refreshToken', refreshToken, {
+          httpOnly: true,
+        });
+
         res.status(201).json({
           userID: user.userID,
           email: user.email,

@@ -7,7 +7,7 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 const User = require('../src/models/User');
 const Favourite = require('../src/models/Favourite');
 const bcrypt = require('bcrypt');
-const issueJWT = require('../src/utils/jwt');
+const { issueJWT } = require('../src/utils/jwt');
 const gravatar = require('gravatar');
 const normalize = require('normalize-url');
 

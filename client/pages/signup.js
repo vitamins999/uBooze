@@ -38,6 +38,7 @@ const signupPage = () => {
       await Axios({
         method: 'POST',
         data: data,
+        withCredentials: true,
         url: 'http://localhost:3001/api/auth/register',
       });
 

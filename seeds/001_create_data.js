@@ -6,19 +6,16 @@ exports.seed = function (knex) {
   return knex('supermarketProducts')
     .del()
     .then(() => {
-      return knex('productCommentLikes').del();
-    })
-    .then(() => {
       return knex('productFavourites').del();
     })
     .then(() => {
       return knex('productRatings').del();
     })
     .then(() => {
-      return knex('productComments').del();
+      return knex('products').del();
     })
     .then(() => {
-      return knex('products').del();
+      return knex('userRefreshTokens').del();
     })
     .then(() => {
       return knex('users').del();
@@ -46,14 +43,6 @@ exports.seed = function (knex) {
           email: 'iluvcats@gmail.com',
           firstName: 'Kate',
           lastName: 'Smith',
-        },
-        {
-          username: 'admin',
-          password: '123456',
-          email: 'admin@example.com',
-          firstName: 'Admin',
-          lastName: 'Account',
-          isAdmin: true,
         },
       ]);
     })

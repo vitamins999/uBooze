@@ -18,6 +18,7 @@ const apiRoutes = require('./routes/api');
 const port = process.env.PORT || 3001;
 
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

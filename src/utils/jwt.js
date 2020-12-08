@@ -2,7 +2,7 @@ const jsonwebtoken = require('jsonwebtoken');
 
 const issueJWT = (user) => {
   const ID = user.userID;
-  const expiresIn = '30d';
+  const expiresIn = '10s';
 
   const payload = {
     sub: ID,
@@ -19,4 +19,13 @@ const issueJWT = (user) => {
   };
 };
 
-module.exports = issueJWT;
+const issueRefreshJWT = (user) => {
+  const ID = user.userID;
+  const expiresIn = '30d';
+
+  return jsonwebtoken.sign({ userID: ID }, process.env.JWT_REFRESH_SECRET, {
+    expiresIn,
+  });
+};
+
+module.exports = { issueJWT, issueRefreshJWT };
