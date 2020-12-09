@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -29,13 +28,12 @@ import {
   supermarketLogo,
 } from '../../utils/supermarketListUtils';
 import { updateFavourites } from '../../lib/slices/userInfoSlice';
-
-const fetchDrinkInfo = async (key, item) => {
-  const res = await fetch(
-    `http://localhost:3001/api/products/details?item=${item}`
-  );
-  return res.json();
-};
+import { fetchDrinkInfo, fetchOverallProductRating } from '../../api/public';
+import {
+  fetchUserRatingPrivate,
+  saveUserRatingPrivate,
+  saveFavouriteStatusPrivate,
+} from '../../api/private';
 
 const ItemPage = ({ itemData }) => {
   const notifyError = (message) => toast.error(message);
@@ -54,7 +52,6 @@ const ItemPage = ({ itemData }) => {
   // value of '1' if the value returned from the query string is null. We never see what it fetches, but it stops crashing. Phew!
   const item = itemID ? itemID : '1';
 
-  // const [item, setItem] = useState('1');
   const [productRating, setProductRating] = useState(0);
   const [userRating, setUserRating] = useState(0);
   const [numRating, setNumRating] = useState(0);
@@ -78,14 +75,7 @@ const ItemPage = ({ itemData }) => {
 
   const fetchProductRating = async () => {
     try {
-      const { data } = await axios.get(
-        `http://localhost:3001/api/ratings/${item}`,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const data = await fetchOverallProductRating(item);
       setProductRating(data.rating);
       setNumRating(data.numRating);
     } catch (error) {
@@ -95,24 +85,17 @@ const ItemPage = ({ itemData }) => {
 
   const fetchUserRating = async () => {
     try {
-      const { data } = await axios.get(
-        `http://localhost:3001/api/ratings?productid=${item}`,
-        config
-      );
+      const data = await fetchUserRatingPrivate(config, item);
       setUserRating(data.rating);
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  const userRatingHandler = async (rating) => {
+  const handleUserRatingClick = async (rating) => {
     if (userID) {
       try {
-        const { data } = await axios.post(
-          `http://localhost:3001/api/ratings`,
-          { productID: Number(item), rating },
-          config
-        );
+        const data = await saveUserRatingPrivate(config, item, rating);
         setUserRating(data.rating);
       } catch (error) {
         console.log(error.message);
@@ -124,15 +107,11 @@ const ItemPage = ({ itemData }) => {
     }
   };
 
-  const onFavouriteClickHandler = async () => {
+  const handleFavouriteButtonClick = async () => {
     if (userID) {
       setIsFavourite(!isFavourite);
       try {
-        await axios.post(
-          'http://localhost:3001/api/favourites',
-          { productID: Number(item) },
-          config
-        );
+        await saveFavouriteStatusPrivate(config, item);
         dispatch(updateFavourites(token));
       } catch (error) {
         console.log(error.message);
@@ -245,7 +224,7 @@ const ItemPage = ({ itemData }) => {
                     {isFavourite ? (
                       <motion.svg
                         whileHover={{ scale: 1.2 }}
-                        onClick={onFavouriteClickHandler}
+                        onClick={handleFavouriteButtonClick}
                         className={`w-6 h-6 z-30 text-gray-700 cursor-pointer`}
                         fill='#374151'
                         stroke='currentColor'
@@ -262,7 +241,7 @@ const ItemPage = ({ itemData }) => {
                     ) : (
                       <motion.svg
                         whileHover={{ scale: 1.2 }}
-                        onClick={onFavouriteClickHandler}
+                        onClick={handleFavouriteButtonClick}
                         className='w-6 h-6 z-30 text-gray-700 cursor-pointer'
                         fill='none'
                         stroke='currentColor'
@@ -288,7 +267,7 @@ const ItemPage = ({ itemData }) => {
                       text={`${numRating} Rating${numRating === 1 ? '' : 's'}`}
                       user={userID ? 'true' : 'false'}
                       userRating={userRating}
-                      userRatingHandler={userRatingHandler}
+                      userRatingHandler={handleUserRatingClick}
                     />
                     <span className='flex ml-3 pl-3 py-2 border-l-2 border-gray-200'>
                       <FacebookShareButton
@@ -420,7 +399,7 @@ const ItemPage = ({ itemData }) => {
 export const getServerSideProps = async ({ query }) => {
   try {
     const itemID = query.item;
-    const itemData = await fetchDrinks((item = itemID));
+    const itemData = await fetchDrinkInfo((item = itemID));
     return {
       props: {
         itemData,

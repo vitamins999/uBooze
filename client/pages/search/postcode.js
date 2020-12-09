@@ -3,10 +3,8 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import Cookie from 'js-cookie';
-import {
-  fetchSupermarkets,
-  createQueryString,
-} from '../../utils/supermarketListUtils';
+import { createQueryString } from '../../utils/supermarketListUtils';
+import { fetchSupermarkets } from '../../api/public';
 
 import Layout from '../../components/Layout';
 

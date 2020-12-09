@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import { restAPI } from '../../../../api/calls';
 import Layout from '../../../../components/Layout';
 import Loader from '../../../../components/Loader';
 
@@ -42,10 +42,7 @@ const EditUserPageAdmin = () => {
   };
 
   const fetchUserProfile = async () => {
-    const { data } = await axios.get(
-      `http://localhost:3001/api/admin/users/${userID}`,
-      config
-    );
+    const { data } = await restAPI.get(`/admin/users/${userID}`, config);
 
     setUsername(data.username);
     setEmail(data.email);
@@ -85,8 +82,8 @@ const EditUserPageAdmin = () => {
       );
     } else {
       try {
-        await axios.put(
-          `http://localhost:3001/api/admin/users/${userID}`,
+        await restAPI.put(
+          `/admin/users/${userID}`,
           {
             username,
             email,

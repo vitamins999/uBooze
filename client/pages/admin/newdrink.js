@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
 import Layout from '../../components/Layout';
+import { addNewProductAdmin } from '../../api/admin';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -46,17 +46,14 @@ const AddNewDrinkPageAdmin = () => {
     drinkSubtype,
   }) => {
     try {
-      await axios.post(
-        `http://localhost:3001/api/admin/products`,
-        {
-          productID,
-          productName,
-          displayName,
-          volume,
-          drinkType,
-          drinkSubtype,
-        },
-        config
+      await addNewProductAdmin(
+        config,
+        productID,
+        productName,
+        displayName,
+        volume,
+        drinkType,
+        drinkSubtype
       );
       notifySuccess('New drink added successfully!');
     } catch (error) {

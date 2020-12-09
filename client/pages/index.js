@@ -9,10 +9,8 @@ import Cookie from 'js-cookie';
 
 import Layout from '../components/Layout';
 
-import {
-  fetchSupermarkets,
-  createQueryString,
-} from '../utils/supermarketListUtils';
+import { createQueryString } from '../utils/supermarketListUtils';
+import { fetchSupermarkets } from '../api/public';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';

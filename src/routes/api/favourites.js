@@ -188,18 +188,25 @@ router.post('/userfavourites', async (req, res) => {
 // @route   PUT /api/favourites/userfavourites/id
 // @access  Public
 router.get('/userfavourites/id', async (req, res) => {
-  const user = await User.query()
-    .select('userID')
-    .findOne({ username: req.query.username });
+  const username = req.query.username;
+  let favourites = [];
 
-  let favourites = await Favourite.query().select('productID').where({
-    userID: user.userID,
-  });
+  try {
+    const user = await User.query().select('userID').findOne({ username });
 
-  if (!favourites) {
-    favourites = [];
-  } else {
-    favourites = favourites.map((item) => item.productID);
+    if (user) {
+      const favouriteList = await Favourite.query().select('productID').where({
+        userID: user.userID,
+      });
+
+      if (!favouriteList) {
+        favourites = [];
+      } else {
+        favourites = favouriteList.map((item) => item.productID);
+      }
+    }
+  } catch (error) {
+    console.log(error);
   }
 
   const page = parseInt(req.query.page);

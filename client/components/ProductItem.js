@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
@@ -9,6 +8,7 @@ import {
   formatter,
 } from '../utils/supermarketListUtils';
 import { updateFavourites } from '../lib/slices/userInfoSlice';
+import { restAPI } from '../api/calls';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -52,8 +52,8 @@ const ProductItem = ({ product, publicProfilePage }) => {
     if (userID) {
       setIsFavourite(!isFavourite);
       try {
-        await axios.post(
-          'http://localhost:3001/api/favourites',
+        await restAPI.post(
+          '/favourites',
           { productID: product.productID },
           config
         );

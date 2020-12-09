@@ -3,15 +3,6 @@ export const capitaliseFirstLetter = (string) => {
   return `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
 };
 
-// Takes a postcode and fetches a list of nearby supermarkets, using the API endpoint
-// designed for that purpose.
-export const fetchSupermarkets = async (postcode, radius = 3218) => {
-  const res = await fetch(
-    `http://localhost:3001/api/products/postcode?postcode=${postcode}&radius=${radius}`
-  );
-  return res.json();
-};
-
 // Creates a query string of an array supermarkets array, to be sent to the API.
 export const createQueryString = (supermarketList) => {
   const data = supermarketList.map((supermarket) => {
@@ -44,72 +35,4 @@ export const supermarketLogo = (supermarket) => {
   } else if (supermarket === 'Iceland') {
     return '/iceland_logo.svg';
   }
-};
-
-// Generic fetch drinks from database function (for React Query)
-export const fetchDrinks = async (
-  key,
-  page = 1,
-  queryString,
-  order = 'asc',
-  limit = 10
-) => {
-  const res = await fetch(
-    `http://localhost:3001/api/products/?page=${page}${queryString}&order=${order}&limit=${limit}`
-  );
-  return res.json();
-};
-
-// Generic fetch drinks from database function (for React Query) from subcategory
-export const fetchDrinksSub = async (
-  key,
-  page = 1,
-  queryString,
-  order = 'asc',
-  limit = 10
-) => {
-  const res = await fetch(
-    `http://localhost:3001/api/products/subtypes/?page=${page}${queryString}&order=${order}&limit=${limit}`
-  );
-  return res.json();
-};
-
-// Generic fetch drinks from database function (for React Query) from favourites
-export const fetchDrinksFavourites = async (
-  key,
-  page = 1,
-  favourites,
-  order = 'asc',
-  limit = 10
-) => {
-  const res = await fetch(
-    `http://localhost:3001/api/favourites/userfavourites?page=${page}&order=${order}&limit=${limit}`,
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify({ favourites }),
-    }
-  );
-  return res.json();
-};
-
-// Generic fetch drinks from database function (for React Query) from favourites by userID
-export const fetchDrinksFavouritesPublic = async (
-  key,
-  page = 1,
-  username,
-  order = 'asc',
-  limit = 10
-) => {
-  const res = await fetch(
-    `http://localhost:3001/api/favourites/userfavourites/id?page=${page}&order=${order}&limit=${limit}&username=${username}`,
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  );
-  return res.json();
 };

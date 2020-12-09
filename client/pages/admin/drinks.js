@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import { restAPI } from '../../api/calls';
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 
@@ -27,10 +27,7 @@ const EditDrinksPage = () => {
   };
 
   const fetchDrinks = async () => {
-    const { data } = await axios.get(
-      `http://localhost:3001/api/admin/products`,
-      config
-    );
+    const { data } = await restAPI.get(`/admin/products`, config);
 
     return data;
   };
@@ -46,10 +43,7 @@ const EditDrinksPage = () => {
   const deleteDrinkHandler = async (productID) => {
     if (window.confirm('Are you sure?')) {
       try {
-        await axios.delete(
-          `http://localhost:3001/api/admin/products/${productID}`,
-          config
-        );
+        await restAPI.delete(`/admin/products/${productID}`, config);
         notifySuccess('Drink deleted successfully!');
       } catch (error) {
         notifyError(`Oops! ${error.message}`);

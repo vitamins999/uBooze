@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginAsync, userLoginFail } from '../lib/slices/userInfoSlice';
 
-import Axios from 'axios';
+import { registerUserAccountAPI } from '../api/public';
 import { motion } from 'framer-motion';
 
 import { fadeOutPage } from '../animations/navigation';
@@ -35,12 +35,7 @@ const signupPage = () => {
 
   const onRegisterSubmit = async (data) => {
     try {
-      await Axios({
-        method: 'POST',
-        data: data,
-        withCredentials: true,
-        url: 'http://localhost:3001/api/auth/register',
-      });
+      await registerUserAccountAPI(data);
 
       dispatch(loginAsync(data.email, data.password));
       router.push('/');

@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { loginUserAccountAPI } from '../../api/public';
+import {
+  updateUserProfileAPI,
+  updateUserAccountAPI,
+  fetchUserFavouritesPrivate,
+} from '../../api/private';
 
 const userInfoSlice = createSlice({
   name: 'userInfo',
@@ -90,11 +95,7 @@ export const loginAsync = (email, password) => async (dispatch) => {
       withCredentials: true,
     };
 
-    const { data } = await axios.post(
-      'http://localhost:3001/api/auth/login',
-      { email, password },
-      config
-    );
+    const data = await loginUserAccountAPI(config, email, password);
 
     dispatch(userLoginSuccess(data));
 
@@ -104,29 +105,29 @@ export const loginAsync = (email, password) => async (dispatch) => {
   }
 };
 
-export const loginGoogleAsync = (user) => async (dispatch) => {
-  try {
-    dispatch(userLoginRequest);
+// export const loginGoogleAsync = (user) => async (dispatch) => {
+//   try {
+//     dispatch(userLoginRequest);
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      withCredentials: true,
-    };
+//     const config = {
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       withCredentials: true,
+//     };
 
-    const { data } = await axios.get(
-      'http://localhost:3001/api/auth/google',
-      config
-    );
+//     const { data } = await axios.get(
+//       'http://localhost:3001/api/auth/google',
+//       config
+//     );
 
-    dispatch(userLoginSuccess(data));
+//     dispatch(userLoginSuccess(data));
 
-    localStorage.setItem('userInfo', JSON.stringify(data));
-  } catch (error) {
-    dispatch(userLoginFail(error.message));
-  }
-};
+//     localStorage.setItem('userInfo', JSON.stringify(data));
+//   } catch (error) {
+//     dispatch(userLoginFail(error.message));
+//   }
+// };
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
@@ -149,9 +150,11 @@ export const updateUserProfile = (
         Authorization: `${token}`,
       },
     };
-    const { data } = await axios.put(
-      'http://localhost:3001/api/profile/currentUser/profile',
-      { firstName, lastName, location, bio },
+    const data = await updateUserProfileAPI(
+      firstName,
+      lastName,
+      location,
+      bio,
       config
     );
 
@@ -175,11 +178,7 @@ export const updateUserAccount = (username, email, token) => async (
         Authorization: `${token}`,
       },
     };
-    const { data } = await axios.put(
-      'http://localhost:3001/api/profile/currentUser/account',
-      { username, email },
-      config
-    );
+    const data = await updateUserAccountAPI(username, email, config);
 
     dispatch(userUpdateAccount(data));
     const { userInfo } = getState();
@@ -199,10 +198,7 @@ export const updateFavourites = (token) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      'http://localhost:3001/api/favourites',
-      config
-    );
+    const data = await fetchUserFavouritesPrivate(config);
 
     dispatch(userUpdateFavourites(data));
     const { userInfo } = getState();

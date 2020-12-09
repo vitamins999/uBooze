@@ -10,7 +10,7 @@ import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import CategoryBar from '../../components/CategoryBar';
 import ProductResults from '../../components/ProductResults';
-import { fetchDrinksFavourites } from '../../utils/supermarketListUtils';
+import { fetchDrinksFavourites } from '../../api/public';
 
 const FavouritesPage = () => {
   const router = useRouter();

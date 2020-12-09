@@ -13,7 +13,7 @@ import CategoryBar from '../components/CategoryBar';
 import ProductResults from '../components/ProductResults';
 
 import Loader from '../components/Loader';
-import { fetchDrinks } from '../utils/supermarketListUtils';
+import { fetchDrinks } from '../api/public';
 
 const ProductsPage = ({ drinks }) => {
   const router = useRouter();

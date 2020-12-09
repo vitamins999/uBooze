@@ -12,7 +12,7 @@ import SupermarketBar from '../../../components/SupermarketBar';
 import CategoryBar from '../../../components/CategoryBar';
 import ProductResults from '../../../components/ProductResults';
 import Loader from '../../../components/Loader';
-import { fetchDrinksSub } from '../../../utils/supermarketListUtils';
+import { fetchDrinksSub } from '../../../api/public';
 
 const SparklingWinePage = ({ drinks }) => {
   const router = useRouter();

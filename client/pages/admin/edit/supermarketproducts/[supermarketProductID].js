@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import { restAPI } from '../../../../api/calls';
 import Layout from '../../../../components/Layout';
 import Loader from '../../../../components/Loader';
 
@@ -44,8 +44,8 @@ const EditDrinkPageAdmin = () => {
   };
 
   const fetchSupermarketProductProfile = async () => {
-    const { data } = await axios.get(
-      `http://localhost:3001/api/admin/supermarketproducts/${supermarketProductID}`,
+    const { data } = await restAPI.get(
+      `/admin/supermarketproducts/${supermarketProductID}`,
       config
     );
 
@@ -86,8 +86,8 @@ const EditDrinkPageAdmin = () => {
     drinkSubtype,
   }) => {
     try {
-      await axios.put(
-        `http://localhost:3001/api/admin/supermarketproducts/${supermarketProductID}`,
+      await restAPI.put(
+        `/admin/supermarketproducts/${supermarketProductID}`,
         {
           productName,
           productID,

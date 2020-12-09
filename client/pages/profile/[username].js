@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useQuery, usePaginatedQuery } from 'react-query';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
+import { restAPI } from '../../api/calls';
 
 import { motion } from 'framer-motion';
 import { fadeOutPage } from '../../animations/navigation';
@@ -12,7 +12,7 @@ import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import CategoryBar from '../../components/CategoryBar';
 import ProductResults from '../../components/ProductResults';
-import { fetchDrinksFavouritesPublic } from '../../utils/supermarketListUtils';
+import { fetchDrinksFavouritesPublic } from '../../api/public';
 
 const Profile = ({ drinks }) => {
   const [currentSection, setCurrentSection] = useState('about');
@@ -34,9 +34,14 @@ const Profile = ({ drinks }) => {
     },
   };
 
+  // This API call is left in here rather than refactored into the api/private file.  For some reason, it won't work if I
+  // import it and I can't figure out why.  It seems to think the router.query parameter is the favicon image name instead
+  // of the username that's actually in the parameter.  I can only assume this is because of how Next JS serves the page
+  // and it's populating the query parameter AFTER react query sees it, so react query is sending the wrong username
+  // to the API.
   const fetchProfileInfo = async () => {
-    const { data } = await axios.get(
-      `http://localhost:3001/api/profile/?username=${username}`,
+    const { data } = await restAPI.get(
+      `/profile/?username=${username}`,
       config
     );
 

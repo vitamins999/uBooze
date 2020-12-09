@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import { restAPI } from '../../api/calls';
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 
@@ -27,10 +27,7 @@ const EditUsersPage = () => {
   };
 
   const fetchUsers = async () => {
-    const { data } = await axios.get(
-      `http://localhost:3001/api/admin/users`,
-      config
-    );
+    const { data } = await restAPI.get(`/admin/users`, config);
 
     return data;
   };
@@ -51,10 +48,7 @@ const EditUsersPage = () => {
     } else {
       if (window.confirm('Are you sure?')) {
         try {
-          await axios.delete(
-            `http://localhost:3001/api/admin/users/${userID}`,
-            config
-          );
+          await restAPI.delete(`/admin/users/${userID}`, config);
           notifySuccess('User deleted successfully!');
         } catch (error) {
           notifyError(`Oops! ${error.message}`);

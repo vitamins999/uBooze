@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import { restAPI } from '../../api/calls';
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import { supermarketsArr } from '../../data/supermarketsArr';
@@ -23,8 +23,8 @@ const EditSupermarketProductsNoIDPage = () => {
   };
 
   const fetchDrinks = async (key, currentSupermarket = 'Asda') => {
-    const { data } = await axios.get(
-      `http://localhost:3001/api/admin/supermarketproducts/noid/${currentSupermarket}`,
+    const { data } = await restAPI.get(
+      `/admin/supermarketproducts/noid/${currentSupermarket}`,
       config
     );
 

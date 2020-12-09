@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useQuery } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -6,14 +7,13 @@ import {
   updateUserAccount,
 } from '../../lib/slices/userInfoSlice';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import { restAPI } from '../../api/calls';
 
 import { motion } from 'framer-motion';
 import { fadeOutPage } from '../../animations/navigation';
 
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
-import Link from 'next/link';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -126,10 +126,7 @@ const EditProfile = () => {
   };
 
   const fetchCurrentProfile = async () => {
-    const { data } = await axios.get(
-      `http://localhost:3001/api/profile/currentUser`,
-      config
-    );
+    const { data } = await restAPI.get(`/profile/currentUser`, config);
 
     return data;
   };
@@ -169,8 +166,8 @@ const EditProfile = () => {
     }
 
     try {
-      const { data } = await axios.put(
-        `http://localhost:3001/api/profile/currentUser/password`,
+      const { data } = await restAPI.put(
+        `/profile/currentUser/password`,
         { oldPassword, newPassword },
         config
       );
@@ -258,7 +255,7 @@ const EditProfile = () => {
                     }`}
                   >
                     <svg
-                      class='w-6 h-6 mr-4'
+                      className='w-6 h-6 mr-4'
                       fill='none'
                       stroke='currentColor'
                       viewBox='0 0 24 24'
@@ -284,16 +281,16 @@ const EditProfile = () => {
                     }`}
                   >
                     <svg
-                      class='w-6 h-6 mr-4'
+                      className='w-6 h-6 mr-4'
                       fill='none'
                       stroke='currentColor'
                       viewBox='0 0 24 24'
                       xmlns='http://www.w3.org/2000/svg'
                     >
                       <path
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                        stroke-width='2'
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
                         d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
                       ></path>
                       <path
@@ -316,7 +313,7 @@ const EditProfile = () => {
                     }`}
                   >
                     <svg
-                      class='w-6 h-6 mr-4'
+                      className='w-6 h-6 mr-4'
                       fill='none'
                       stroke='currentColor'
                       viewBox='0 0 24 24'

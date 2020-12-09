@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { usePaginatedQuery } from 'react-query';
 import { useRouter } from 'next/router';
-import Cookies from 'js-cookie';
 
 import { motion } from 'framer-motion';
 import { fadeOutPage } from '../../animations/navigation';
@@ -10,19 +9,7 @@ import Layout from '../../components/Layout';
 import CategoryBar from '../../components/CategoryBar';
 import ProductResults from '../../components/ProductResults';
 import Loader from '../../components/Loader';
-
-const fetchDrinks = async (
-  key,
-  page = 1,
-  queryString,
-  order = 'asc',
-  limit = 10
-) => {
-  const res = await fetch(
-    `http://localhost:3001/api/search/?page=${page}&search=${queryString}&order=${order}&limit=${limit}`
-  );
-  return res.json();
-};
+import { fetchDrinksSearch } from '../../api/public';
 
 const SearchResultsPage = ({ drinks }) => {
   const router = useRouter();
@@ -32,7 +19,6 @@ const SearchResultsPage = ({ drinks }) => {
   const [limit, setLimit] = useState(10);
 
   const queryString = router.query.search;
-  const postcode = Cookies.get('currentPostcode');
 
   useEffect(() => {
     if (!queryString) {
@@ -42,7 +28,7 @@ const SearchResultsPage = ({ drinks }) => {
 
   const { resolvedData, latestData, status } = usePaginatedQuery(
     ['allDrinks', page, queryString, order, limit],
-    fetchDrinks,
+    fetchDrinksSearch,
     {
       initialData: drinks,
     }
@@ -90,7 +76,7 @@ export const getServerSideProps = async ({ req, query }) => {
   try {
     const queryStringData = query.search;
 
-    const drinks = await fetchDrinks((queryString = queryStringData));
+    const drinks = await fetchDrinksSearch((queryString = queryStringData));
 
     return {
       props: {

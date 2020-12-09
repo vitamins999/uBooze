@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
+import { restAPI } from '../../api/calls';
 import Layout from '../../components/Layout';
 import {
   capitaliseFirstLetter,
@@ -30,7 +30,7 @@ const SyncPage = () => {
   const handleSyncData = async (supermarket) => {
     try {
       setInprogress('Syncing... Please wait...');
-      await axios.get(`http://localhost:3001/api/scraper/${supermarket}`);
+      await restAPI.get(`/scraper/${supermarket}`);
       notifySuccess(
         `${capitaliseFirstLetter(supermarket)} updated successfully!`
       );

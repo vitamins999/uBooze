@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import { restAPI } from '../../../../api/calls';
 import Layout from '../../../../components/Layout';
 import Loader from '../../../../components/Loader';
 
@@ -40,10 +40,7 @@ const EditDrinkPageAdmin = () => {
   };
 
   const fetchProductProfile = async () => {
-    const { data } = await axios.get(
-      `http://localhost:3001/api/admin/products/${productID}`,
-      config
-    );
+    const { data } = await restAPI.get(`/admin/products/${productID}`, config);
 
     setProductName(data.productName);
     setDisplayName(data.displayName);
@@ -74,8 +71,8 @@ const EditDrinkPageAdmin = () => {
     drinkSubtype,
   }) => {
     try {
-      await axios.put(
-        `http://localhost:3001/api/admin/products/${productID}`,
+      await restAPI.put(
+        `/admin/products/${productID}`,
         {
           productName,
           displayName,
