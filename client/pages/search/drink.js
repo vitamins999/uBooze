@@ -93,12 +93,10 @@ const DrinkSearch = () => {
                       <Link
                         href='/products/[item]'
                         as={`/products/${drink.productID}`}
+                        key={drink.productID}
                       >
                         <a>
-                          <li
-                            key={drink.productID}
-                            className='px-5 py-10 cursor-pointer list-none w-96 h-16 flex flex-col justify-center text-left bg-white border-gray-200 hover:bg-gray-200 hover:text-gray-800'
-                          >
+                          <li className='px-5 py-10 cursor-pointer list-none w-96 h-16 flex flex-col justify-center text-left bg-white border-gray-200 hover:bg-gray-200 hover:text-gray-800'>
                             <h2 className='text-sm font-semibold tracking-wider'>
                               {drink.productName}
                             </h2>

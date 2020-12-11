@@ -98,7 +98,7 @@ router.post('/login', (req, res, next) => {
     }
     if (!user) {
       res
-        .status(401)
+        .status(500)
         .send(
           "Whoops! User credentials don't match our database. Either the email/password is incorrect, or you haven't registered."
         );
@@ -127,13 +127,13 @@ router.post('/register', async (req, res, next) => {
   const userExists = await User.query().findOne({ email });
 
   if (userExists) {
-    res.status(401).send('This email address is already registered!');
+    res.status(400).send('This email address is already registered!');
   } else {
     const usernameExists = await User.query().findOne({ username });
 
     if (usernameExists) {
       res
-        .status(401)
+        .status(400)
         .send('This username is already taken. Please try another one.');
     } else {
       try {
