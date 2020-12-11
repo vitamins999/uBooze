@@ -2,7 +2,7 @@ const jsonwebtoken = require('jsonwebtoken');
 
 const issueJWT = (user) => {
   const ID = user.userID;
-  const expiresIn = '30s';
+  const expiresIn = '1h';
 
   const payload = {
     sub: ID,
