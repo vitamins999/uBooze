@@ -15,17 +15,9 @@ const EditSupermarketProductsNoIDPage = () => {
   const userInfo = useSelector((state) => state.userInfo);
   const { isAdmin } = userInfo;
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${userInfo.token}`,
-    },
-  };
-
   const fetchDrinks = async (key, currentSupermarket = 'Asda') => {
     const { data } = await restAPI.get(
-      `/admin/supermarketproducts/noid/${currentSupermarket}`,
-      config
+      `/admin/supermarketproducts/noid/${currentSupermarket}`
     );
 
     return data;

@@ -25,25 +25,8 @@ const Profile = ({ drinks }) => {
 
   const { username } = router.query;
 
-  const userInfo = useSelector((state) => state.userInfo);
-
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${userInfo.token}`,
-    },
-  };
-
-  // This API call is left in here rather than refactored into the api/private file.  For some reason, it won't work if I
-  // import it and I can't figure out why.  It seems to think the router.query parameter is the favicon image name instead
-  // of the username that's actually in the parameter.  I can only assume this is because of how Next JS serves the page
-  // and it's populating the query parameter AFTER react query sees it, so react query is sending the wrong username
-  // to the API.
   const fetchProfileInfo = async () => {
-    const { data } = await restAPI.get(
-      `/profile/?username=${username}`,
-      config
-    );
+    const { data } = await restAPI.get(`/profile/?username=${username}`);
 
     return data;
   };

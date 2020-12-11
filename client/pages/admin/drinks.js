@@ -19,15 +19,8 @@ const EditDrinksPage = () => {
   const userInfo = useSelector((state) => state.userInfo);
   const { isAdmin } = userInfo;
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${userInfo.token}`,
-    },
-  };
-
   const fetchDrinks = async () => {
-    const { data } = await restAPI.get(`/admin/products`, config);
+    const { data } = await restAPI.get(`/admin/products`);
 
     return data;
   };
@@ -43,7 +36,7 @@ const EditDrinksPage = () => {
   const deleteDrinkHandler = async (productID) => {
     if (window.confirm('Are you sure?')) {
       try {
-        await restAPI.delete(`/admin/products/${productID}`, config);
+        await restAPI.delete(`/admin/products/${productID}`);
         notifySuccess('Drink deleted successfully!');
       } catch (error) {
         notifyError(`Oops! ${error.message}`);

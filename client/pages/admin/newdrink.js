@@ -23,13 +23,6 @@ const AddNewDrinkPageAdmin = () => {
     }
   }, [isAdmin]);
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${userInfo.token}`,
-    },
-  };
-
   const {
     register: addProduct,
     handleSubmit: handleAddProductSubmit,
@@ -47,7 +40,6 @@ const AddNewDrinkPageAdmin = () => {
   }) => {
     try {
       await addNewProductAdmin(
-        config,
         productID,
         productName,
         displayName,

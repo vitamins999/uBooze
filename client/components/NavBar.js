@@ -23,13 +23,18 @@ const NavBar = ({ landingPage }) => {
   useEffect(() => {
     if (!userID) {
       const userInfoFromStorage = JSON.parse(localStorage.getItem('userInfo'));
+      const user = {
+        user: {
+          ...userInfoFromStorage,
+        },
+      };
 
-      if (userInfoFromStorage) {
-        dispatch(userLoginSuccess(userInfoFromStorage));
+      if (user) {
+        dispatch(userLoginSuccess(user));
       } else {
-        let user = Cookies.get('user');
-        if (user) {
-          user = JSON.parse(user);
+        let userCookie = Cookies.get('user');
+        if (userCookie) {
+          userCookie = JSON.parse(userCookie);
           const userState = {
             user: {
               userID: user.userID,
@@ -43,7 +48,6 @@ const NavBar = ({ landingPage }) => {
               isAdmin: user.isAdmin,
               gravatar: user.gravatar,
               favourites: user.favourites,
-              token: user.token,
             },
           };
           Cookies.remove('user');
@@ -62,7 +66,6 @@ const NavBar = ({ landingPage }) => {
               isAdmin: null,
               gravatar: null,
               favourites: [],
-              token: null,
             },
           };
           dispatch(userLoginSuccess(defaultState));
@@ -91,6 +94,7 @@ const NavBar = ({ landingPage }) => {
 
   const logoutHandler = async () => {
     localStorage.removeItem('userInfo');
+    localStorage.removeItem('accessToken');
     dispatch(userLogout());
     router.push('/');
   };

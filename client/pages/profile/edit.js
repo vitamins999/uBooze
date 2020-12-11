@@ -118,15 +118,8 @@ const EditProfile = () => {
     }
   }, [updatePasswordErrors]);
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${userInfo.token}`,
-    },
-  };
-
   const fetchCurrentProfile = async () => {
-    const { data } = await restAPI.get(`/profile/currentUser`, config);
+    const { data } = await restAPI.get(`/profile/currentUser`);
 
     return data;
   };
@@ -138,9 +131,7 @@ const EditProfile = () => {
     bio,
   }) => {
     try {
-      dispatch(
-        updateUserProfile(firstName, lastName, location, bio, userInfo.token)
-      );
+      dispatch(updateUserProfile(firstName, lastName, location, bio));
       notifySuccess('Profile updated successfully!');
     } catch (error) {
       console.log(error);
@@ -149,7 +140,7 @@ const EditProfile = () => {
 
   const onUpdateAccountSubmit = async ({ username, email }) => {
     try {
-      dispatch(updateUserAccount(username, email, userInfo.token));
+      dispatch(updateUserAccount(username, email));
       notifySuccess('Account settings updated successfully!');
     } catch (error) {
       console.log(error);
@@ -166,11 +157,10 @@ const EditProfile = () => {
     }
 
     try {
-      const { data } = await restAPI.put(
-        `/profile/currentUser/password`,
-        { oldPassword, newPassword },
-        config
-      );
+      const { data } = await restAPI.put(`/profile/currentUser/password`, {
+        oldPassword,
+        newPassword,
+      });
 
       if (data.error) {
         notifyError(data.msg);

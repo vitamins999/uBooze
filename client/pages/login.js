@@ -4,7 +4,11 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { loginAsync, userLoginFail } from '../lib/slices/userInfoSlice';
+import {
+  loginAsync,
+  userLoginFail,
+  userLogout,
+} from '../lib/slices/userInfoSlice';
 
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
@@ -32,6 +36,7 @@ const LoginPage = () => {
 
   const router = useRouter();
   const queryStringError = router.query.error;
+  const logoutTrue = router.query.logout === 'true' ? true : false;
 
   const onLoginSubmit = async ({ email, password }) => {
     dispatch(loginAsync(email, password));
@@ -72,6 +77,16 @@ const LoginPage = () => {
       notifyError('Password is required');
     }
   }, [loginErrors]);
+
+  // Logs out if logout query string is found
+  // (used to force logout on a 403 error from axios intercepter that occurs when refresh token has expired)
+  useEffect(() => {
+    if (logoutTrue) {
+      localStorage.removeItem('userInfo');
+      localStorage.removeItem('accessToken');
+      dispatch(userLogout());
+    }
+  }, [logoutTrue]);
 
   return (
     <>

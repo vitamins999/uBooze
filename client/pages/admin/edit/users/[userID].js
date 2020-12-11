@@ -34,15 +34,8 @@ const EditUserPageAdmin = () => {
     }
   }, [isAdmin]);
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${userInfo.token}`,
-    },
-  };
-
   const fetchUserProfile = async () => {
-    const { data } = await restAPI.get(`/admin/users/${userID}`, config);
+    const { data } = await restAPI.get(`/admin/users/${userID}`);
 
     setUsername(data.username);
     setEmail(data.email);
@@ -82,19 +75,15 @@ const EditUserPageAdmin = () => {
       );
     } else {
       try {
-        await restAPI.put(
-          `/admin/users/${userID}`,
-          {
-            username,
-            email,
-            firstName,
-            lastName,
-            location,
-            bio,
-            isAdmin: admin,
-          },
-          config
-        );
+        await restAPI.put(`/admin/users/${userID}`, {
+          username,
+          email,
+          firstName,
+          lastName,
+          location,
+          bio,
+          isAdmin: admin,
+        });
         notifySuccess('Changes saved successfully!');
       } catch (error) {
         notifyError(`Oops! ${error.message}`);

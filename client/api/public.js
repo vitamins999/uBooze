@@ -119,12 +119,8 @@ export const registerUserAccountAPI = async (data) => {
 };
 
 // Login to User Account
-export const loginUserAccountAPI = async (config, email, password) => {
-  const { data } = await restAPI.post(
-    '/auth/login',
-    { email, password },
-    config
-  );
+export const loginUserAccountAPI = async (email, password) => {
+  const { data } = await restAPI.post('/auth/login', { email, password });
 
   return data;
 };

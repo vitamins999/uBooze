@@ -19,15 +19,8 @@ const EditUsersPage = () => {
   const userInfo = useSelector((state) => state.userInfo);
   const { isAdmin } = userInfo;
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${userInfo.token}`,
-    },
-  };
-
   const fetchUsers = async () => {
-    const { data } = await restAPI.get(`/admin/users`, config);
+    const { data } = await restAPI.get(`/admin/users`);
 
     return data;
   };
@@ -48,7 +41,7 @@ const EditUsersPage = () => {
     } else {
       if (window.confirm('Are you sure?')) {
         try {
-          await restAPI.delete(`/admin/users/${userID}`, config);
+          await restAPI.delete(`/admin/users/${userID}`);
           notifySuccess('User deleted successfully!');
         } catch (error) {
           notifyError(`Oops! ${error.message}`);

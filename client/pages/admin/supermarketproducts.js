@@ -13,15 +13,8 @@ const EditSupermarketProductsPage = () => {
   const userInfo = useSelector((state) => state.userInfo);
   const { isAdmin } = userInfo;
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${userInfo.token}`,
-    },
-  };
-
   const fetchDrinks = async () => {
-    const { data } = await restAPI.get(`/admin/supermarketproducts`, config);
+    const { data } = await restAPI.get(`/admin/supermarketproducts`);
 
     return data;
   };

@@ -20,7 +20,6 @@ const userInfoSlice = createSlice({
     isAdmin: null,
     gravatar: null,
     favourites: [],
-    token: null,
   },
   reducers: {
     userLoginRequest: (state, action) => {
@@ -38,8 +37,7 @@ const userInfoSlice = createSlice({
         (state.bio = action.payload.user.bio),
         (state.isAdmin = action.payload.user.isAdmin),
         (state.gravatar = action.payload.user.gravatar),
-        (state.favourites = action.payload.user.favourites),
-        (state.token = action.payload.user.token);
+        (state.favourites = action.payload.user.favourites);
     },
     userLoginFail: (state, action) => {
       (state.loading = false), (state.error = action.payload);
@@ -56,7 +54,6 @@ const userInfoSlice = createSlice({
         (state.isAdmin = null),
         (state.gravatar = null),
         (state.favourites = []),
-        (state.token = null),
         (state.loading = false),
         (state.error = null);
     },
@@ -88,18 +85,28 @@ export const loginAsync = (email, password) => async (dispatch) => {
   try {
     dispatch(userLoginRequest);
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      withCredentials: true,
-    };
-
-    const data = await loginUserAccountAPI(config, email, password);
+    const data = await loginUserAccountAPI(email, password);
+    const { user } = data;
 
     dispatch(userLoginSuccess(data));
 
-    localStorage.setItem('userInfo', JSON.stringify(data));
+    localStorage.setItem(
+      'userInfo',
+      JSON.stringify({
+        userID: user.userID,
+        email: user.email,
+        username: user.username,
+        displayName: user.displayName,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        location: user.location,
+        bio: user.bio,
+        isAdmin: user.isAdmin,
+        gravatar: user.gravatar,
+        favourites: user.favourites,
+      })
+    );
+    localStorage.setItem('accessToken', JSON.stringify(user.token));
   } catch (error) {
     dispatch(userLoginFail(error.response.data));
   }
@@ -130,60 +137,38 @@ export const loginAsync = (email, password) => async (dispatch) => {
 // };
 
 export const logout = () => (dispatch) => {
-  localStorage.removeItem('userInfo');
   dispatch(userLogout);
 };
 
 export const selectUserInfo = (state) => state.userInfo;
 
-export const updateUserProfile = (
-  firstName,
-  lastName,
-  location,
-  bio,
-  token
-) => async (dispatch, getState) => {
+export const updateUserProfile = (firstName, lastName, location, bio) => async (
+  dispatch,
+  getState
+) => {
   try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `${token}`,
-      },
-    };
-    const data = await updateUserProfileAPI(
-      firstName,
-      lastName,
-      location,
-      bio,
-      config
-    );
+    const data = await updateUserProfileAPI(firstName, lastName, location, bio);
 
     dispatch(userUpdateProfile(data));
     const { userInfo } = getState();
     localStorage.removeItem('userInfo');
-    localStorage.setItem('userInfo', JSON.stringify({ user: { ...userInfo } }));
+    localStorage.setItem('userInfo', JSON.stringify({ ...userInfo }));
   } catch (error) {
     dispatch(userUpdateFail(error.message));
   }
 };
 
-export const updateUserAccount = (username, email, token) => async (
+export const updateUserAccount = (username, email) => async (
   dispatch,
   getState
 ) => {
   try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `${token}`,
-      },
-    };
-    const data = await updateUserAccountAPI(username, email, config);
+    const data = await updateUserAccountAPI(username, email);
 
     dispatch(userUpdateAccount(data));
     const { userInfo } = getState();
     localStorage.removeItem('userInfo');
-    localStorage.setItem('userInfo', JSON.stringify({ user: { ...userInfo } }));
+    localStorage.setItem('userInfo', JSON.stringify({ ...userInfo }));
   } catch (error) {
     dispatch(userUpdateFail(error.message));
   }
@@ -191,19 +176,12 @@ export const updateUserAccount = (username, email, token) => async (
 
 export const updateFavourites = (token) => async (dispatch, getState) => {
   try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `${token}`,
-      },
-    };
-
-    const data = await fetchUserFavouritesPrivate(config);
+    const data = await fetchUserFavouritesPrivate();
 
     dispatch(userUpdateFavourites(data));
     const { userInfo } = getState();
     localStorage.removeItem('userInfo');
-    localStorage.setItem('userInfo', JSON.stringify({ user: { ...userInfo } }));
+    localStorage.setItem('userInfo', JSON.stringify({ ...userInfo }));
   } catch (error) {
     dispatch(userUpdateFavouritesFail(error.message));
   }

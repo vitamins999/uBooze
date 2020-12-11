@@ -40,23 +40,11 @@ const ProductItem = ({ product, publicProfilePage }) => {
     }
   }, [favourites]);
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${token}`,
-      withCredentials: true,
-    },
-  };
-
   const onFavouriteClickHandler = async () => {
     if (userID) {
       setIsFavourite(!isFavourite);
       try {
-        await restAPI.post(
-          '/favourites',
-          { productID: product.productID },
-          config
-        );
+        await restAPI.post('/favourites', { productID: product.productID });
         dispatch(updateFavourites(token));
       } catch (error) {
         console.log(error.message);

@@ -65,14 +65,6 @@ const ItemPage = ({ itemData }) => {
     initialData: itemData,
   });
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${token}`,
-      withCredentials: true,
-    },
-  };
-
   const fetchProductRating = async () => {
     try {
       const data = await fetchOverallProductRating(item);
@@ -85,7 +77,7 @@ const ItemPage = ({ itemData }) => {
 
   const fetchUserRating = async () => {
     try {
-      const data = await fetchUserRatingPrivate(config, item);
+      const data = await fetchUserRatingPrivate(item);
       setUserRating(data.rating);
     } catch (error) {
       console.log(error.message);
@@ -95,7 +87,7 @@ const ItemPage = ({ itemData }) => {
   const handleUserRatingClick = async (rating) => {
     if (userID) {
       try {
-        const data = await saveUserRatingPrivate(config, item, rating);
+        const data = await saveUserRatingPrivate(item, rating);
         setUserRating(data.rating);
       } catch (error) {
         console.log(error.message);
@@ -111,7 +103,7 @@ const ItemPage = ({ itemData }) => {
     if (userID) {
       setIsFavourite(!isFavourite);
       try {
-        await saveFavouriteStatusPrivate(config, item);
+        await saveFavouriteStatusPrivate(item);
         dispatch(updateFavourites(token));
       } catch (error) {
         console.log(error.message);

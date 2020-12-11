@@ -2,39 +2,36 @@ import { restAPI } from './calls';
 
 // ADMIN API REQUESTS
 
-export const fetchDrinksAdmin = async (config) => {
-  const { data } = await restAPI.get(`/admin/products`, config);
+export const fetchDrinksAdmin = async () => {
+  const { data } = await restAPI.get(`/admin/products`);
 
   return data;
 };
 
-export const deleteDrinkAdmin = async (config, productID) => {
-  const { data } = await restAPI.delete(`/admin/products/${productID}`, config);
+export const deleteDrinkAdmin = async (productID) => {
+  const { data } = await restAPI.delete(`/admin/products/${productID}`);
 
   return data;
 };
 
-export const fetchSupermarketProductsAdmin = async (config) => {
-  const { data } = await restAPI.get(`/admin/supermarketproducts`, config);
+export const fetchSupermarketProductsAdmin = async () => {
+  const { data } = await restAPI.get(`/admin/supermarketproducts`);
 
   return data;
 };
 
 export const fetchSupermarketProductsNoIDAdmin = async (
   key,
-  currentSupermarket = 'Asda',
-  config
+  currentSupermarket = 'Asda'
 ) => {
   const { data } = await restAPI.get(
-    `/admin/supermarketproducts/noid/${currentSupermarket}`,
-    config
+    `/admin/supermarketproducts/noid/${currentSupermarket}`
   );
 
   return data;
 };
 
 export const addNewProductAdmin = async (
-  config,
   productID,
   productName,
   displayName,
@@ -42,16 +39,12 @@ export const addNewProductAdmin = async (
   drinkType,
   drinkSubtype
 ) => {
-  await restAPI.post(
-    `/admin/products`,
-    {
-      productID,
-      productName,
-      displayName,
-      volume,
-      drinkType,
-      drinkSubtype,
-    },
-    config
-  );
+  await restAPI.post(`/admin/products`, {
+    productID,
+    productName,
+    displayName,
+    volume,
+    drinkType,
+    drinkSubtype,
+  });
 };

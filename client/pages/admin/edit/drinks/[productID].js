@@ -32,15 +32,8 @@ const EditDrinkPageAdmin = () => {
     }
   }, [isAdmin]);
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${userInfo.token}`,
-    },
-  };
-
   const fetchProductProfile = async () => {
-    const { data } = await restAPI.get(`/admin/products/${productID}`, config);
+    const { data } = await restAPI.get(`/admin/products/${productID}`);
 
     setProductName(data.productName);
     setDisplayName(data.displayName);
@@ -71,17 +64,13 @@ const EditDrinkPageAdmin = () => {
     drinkSubtype,
   }) => {
     try {
-      await restAPI.put(
-        `/admin/products/${productID}`,
-        {
-          productName,
-          displayName,
-          volume,
-          drinkType,
-          drinkSubtype,
-        },
-        config
-      );
+      await restAPI.put(`/admin/products/${productID}`, {
+        productName,
+        displayName,
+        volume,
+        drinkType,
+        drinkSubtype,
+      });
       notifySuccess('Changes saved successfully!');
     } catch (error) {
       notifyError(`Oops! ${error.message}`);
