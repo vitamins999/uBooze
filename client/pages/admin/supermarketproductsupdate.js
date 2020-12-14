@@ -8,7 +8,13 @@ import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import { supermarketsArr } from '../../data/supermarketsArr';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 const EditSupermarketProductsNoIDPage = () => {
+  const notifyError = (message) => toast.error(message);
+  const notifySuccess = (message) => toast.success(message);
+
   const [currentSupermarket, setCurrentSupermarket] = useState('Asda');
   const router = useRouter();
 
@@ -34,9 +40,16 @@ const EditSupermarketProductsNoIDPage = () => {
     }
   }, [isAdmin]);
 
-  const deleteDrinkHandler = (supermarketProductID) => {
+  const deleteDrinkHandler = async (supermarketProductID) => {
     if (window.confirm('Are you sure?')) {
-      console.log(supermarketProductID);
+      try {
+        await restAPI.delete(
+          `/admin/supermarketproducts/noid/${supermarketProductID}`
+        );
+        notifySuccess('Supermarket product deleted successfully!');
+      } catch (error) {
+        notifyError(`Oops! ${error.message}`);
+      }
     }
   };
 

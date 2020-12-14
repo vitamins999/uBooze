@@ -7,7 +7,13 @@ import { restAPI } from '../../api/calls';
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 const EditSupermarketProductsPage = () => {
+  const notifyError = (message) => toast.error(message);
+  const notifySuccess = (message) => toast.success(message);
+
   const router = useRouter();
 
   const userInfo = useSelector((state) => state.userInfo);
@@ -30,9 +36,16 @@ const EditSupermarketProductsPage = () => {
     }
   }, [isAdmin]);
 
-  const deleteDrinkHandler = (supermarketProductID) => {
+  const deleteDrinkHandler = async (supermarketProductID) => {
     if (window.confirm('Are you sure?')) {
-      console.log(supermarketProductID);
+      try {
+        await restAPI.delete(
+          `/admin/supermarketproducts/${supermarketProductID}`
+        );
+        notifySuccess('Supermarket product deleted successfully!');
+      } catch (error) {
+        notifyError(`Oops! ${error.message}`);
+      }
     }
   };
 

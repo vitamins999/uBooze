@@ -386,7 +386,25 @@ router.delete(
     try {
       await SupermarketProduct.query().deleteById(req.params.id);
 
-      res.json('Product successfully deleted!');
+      res.json('Supermarket Product successfully deleted!');
+    } catch (error) {
+      res.status(400).send(error.message);
+    }
+  }
+);
+
+// @desc    Delete supermarket product from update list (ie has no supermarketID assigned yet)
+// @route   DELETE /api/admin/supermarketproducts/noid/:id
+// @access  Private/Admin
+router.delete(
+  '/supermarketproducts/noid/:id',
+  passport.authenticate('jwt', { session: false }),
+  admin,
+  async (req, res) => {
+    try {
+      await SupermarketProduct.query().deleteById(req.params.id);
+
+      res.json('Supermarket Product (no ID) successfully deleted!');
     } catch (error) {
       res.status(400).send(error.message);
     }
