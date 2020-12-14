@@ -69,10 +69,11 @@ export const updateUserProfileAPI = async (
 };
 
 // Update current logged in user's account details
-export const updateUserAccountAPI = async (username, email) => {
+export const updateUserAccountAPI = async (username, email, password) => {
   const { data } = await restAPI.put('/profile/currentUser/account', {
     username,
     email,
+    password,
   });
 
   return data;

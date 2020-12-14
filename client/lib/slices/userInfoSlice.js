@@ -158,17 +158,21 @@ export const updateUserProfile = (firstName, lastName, location, bio) => async (
   }
 };
 
-export const updateUserAccount = (username, email) => async (
+export const updateUserAccount = (username, email, password) => async (
   dispatch,
   getState
 ) => {
   try {
-    const data = await updateUserAccountAPI(username, email);
+    const data = await updateUserAccountAPI(username, email, password);
 
-    dispatch(userUpdateAccount(data));
-    const { userInfo } = getState();
-    localStorage.removeItem('userInfo');
-    localStorage.setItem('userInfo', JSON.stringify({ ...userInfo }));
+    if (data.error) {
+      return data;
+    } else {
+      dispatch(userUpdateAccount(data));
+      const { userInfo } = getState();
+      localStorage.removeItem('userInfo');
+      localStorage.setItem('userInfo', JSON.stringify({ ...userInfo }));
+    }
   } catch (error) {
     dispatch(userUpdateFail(error.message));
   }

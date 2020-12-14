@@ -86,6 +86,15 @@ const EditProfile = () => {
     if (updateAccountErrors.email?.type === 'maxLength') {
       notifyError('Email cannot exceed 200 characters');
     }
+    if (updateAccountErrors.confirmPasswordAccount?.type === 'minLength') {
+      notifyError('Password must be at least 6 characters');
+    }
+    if (updateAccountErrors.confirmPasswordAccount?.type === 'maxLength') {
+      notifyError('Password cannot exceed 20 characters');
+    }
+    if (updateAccountErrors.confirmPasswordAccount?.type === 'required') {
+      notifyError('Password is required to save changes');
+    }
   }, [updateAccountErrors]);
 
   useEffect(() => {
@@ -138,10 +147,20 @@ const EditProfile = () => {
     }
   };
 
-  const onUpdateAccountSubmit = async ({ username, email }) => {
+  const onUpdateAccountSubmit = async ({
+    username,
+    email,
+    confirmPasswordAccount,
+  }) => {
     try {
-      dispatch(updateUserAccount(username, email));
-      notifySuccess('Account settings updated successfully!');
+      const isError = await dispatch(
+        updateUserAccount(username, email, confirmPasswordAccount)
+      );
+      if (isError) {
+        notifyError(isError.msg);
+      } else {
+        notifySuccess('Account settings updated successfully!');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -154,21 +173,21 @@ const EditProfile = () => {
   }) => {
     if (newPassword !== confirmNewPassword) {
       notifyError('Your new password and confirm new password DO NOT MATCH!');
-    }
+    } else {
+      try {
+        const { data } = await restAPI.put(`/profile/currentUser/password`, {
+          oldPassword,
+          newPassword,
+        });
 
-    try {
-      const { data } = await restAPI.put(`/profile/currentUser/password`, {
-        oldPassword,
-        newPassword,
-      });
-
-      if (data.error) {
-        notifyError(data.msg);
-      } else {
-        notifySuccess(data.msg);
+        if (data.error) {
+          notifyError(data.msg);
+        } else {
+          notifySuccess(data.msg);
+        }
+      } catch (error) {
+        console.log(error.message);
       }
-    } catch (error) {
-      console.log(error.message);
     }
   };
 
@@ -343,7 +362,6 @@ const EditProfile = () => {
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
                         ref={updateProfile({ required: true })}
-                        required
                       />
                     </div>
                     <div className='mb-6 w-full pl-2'>
@@ -361,7 +379,6 @@ const EditProfile = () => {
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                         ref={updateProfile({ required: true })}
-                        required
                       />
                     </div>
                   </div>
@@ -433,7 +450,6 @@ const EditProfile = () => {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         ref={updateAccount({ required: true, maxLength: 30 })}
-                        required
                       />
                       <p className='text-sm text-gray-500 pt-1'>
                         Your ubooze Profile URL: https://www.ubooze.com/profile/
@@ -457,7 +473,6 @@ const EditProfile = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         ref={updateAccount({ required: true, maxLength: 200 })}
-                        required
                       />
                     </div>
                     <div className='border-b border-gray-200 w-full my-6'></div>
@@ -478,6 +493,26 @@ const EditProfile = () => {
                       </a>
                     </div>
                     <div className='border-b border-gray-200 w-full my-6'></div>
+                    <div className='mb-6'>
+                      <label
+                        htmlFor='confirmNewPassword'
+                        className='block text-gray-700 text-sm font-medium'
+                      >
+                        Confirm password to save changes{' '}
+                        <span className='text-red-700'>*</span>
+                      </label>
+                      <input
+                        className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                        type='password'
+                        name='confirmPasswordAccount'
+                        id='confirmPasswordAccount'
+                        ref={updateAccount({
+                          required: true,
+                          minLength: 6,
+                          maxLength: 20,
+                        })}
+                      />
+                    </div>
                     <div className='w-full flex justify-end'>
                       <button
                         className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
@@ -511,7 +546,6 @@ const EditProfile = () => {
                         minLength: 6,
                         maxLength: 20,
                       })}
-                      required
                     />
                   </div>
                   <div className='mb-6'>
@@ -531,7 +565,6 @@ const EditProfile = () => {
                         minLength: 6,
                         maxLength: 20,
                       })}
-                      required
                     />
                   </div>
                   <div className='mb-6'>
@@ -552,7 +585,6 @@ const EditProfile = () => {
                         minLength: 6,
                         maxLength: 20,
                       })}
-                      required
                     />
                   </div>
                   <div className='border-b border-gray-200 w-full my-8'></div>

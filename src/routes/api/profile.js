@@ -193,29 +193,37 @@ router.put(
     }
 
     try {
-      const avatar = normalize(
-        gravatar.url(req.body.email, {
-          s: '200',
-          r: 'pg',
-          d: 'mm',
-        }),
-        { forceHttps: true }
-      );
+      if (await bcrypt.compare(req.body.password, user.password)) {
+        const avatar = normalize(
+          gravatar.url(req.body.email, {
+            s: '200',
+            r: 'pg',
+            d: 'mm',
+          }),
+          { forceHttps: true }
+        );
 
-      const updatedUser = await User.query().patchAndFetchById(
-        req.user.userID,
-        {
-          username: req.body.username,
-          email: req.body.email,
-          gravatar: avatar,
-        }
-      );
+        const updatedUser = await User.query().patchAndFetchById(
+          req.user.userID,
+          {
+            username: req.body.username,
+            email: req.body.email,
+            gravatar: avatar,
+          }
+        );
 
-      res.json({
-        username: updatedUser.username,
-        email: updatedUser.email,
-        gravatar: updatedUser.gravatar,
-      });
+        res.json({
+          username: updatedUser.username,
+          email: updatedUser.email,
+          gravatar: updatedUser.gravatar,
+        });
+      } else {
+        res.json({
+          error: true,
+          msg:
+            'Oops! Password does not match the one in our records! Please retype and try again.',
+        });
+      }
     } catch (error) {
       res.send(error.message);
     }
