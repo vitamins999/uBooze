@@ -78,3 +78,10 @@ export const updateUserAccountAPI = async (username, email, password) => {
 
   return data;
 };
+
+// Delete current logged in user's account
+export const deleteUserAccountAPI = async (password) => {
+  const { data } = await restAPI.delete(`/profile/currentUser/${password}`);
+
+  return data;
+};

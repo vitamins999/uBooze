@@ -11,6 +11,8 @@ const bcrypt = require('bcrypt');
 const dayjs = require('dayjs');
 
 const User = require('../../models/User');
+const Favourite = require('../../models/Favourite');
+const RefreshToken = require('../../models/RefreshToken');
 const issueJWT = require('../../utils/jwt');
 const { NotFoundError } = require('objection');
 
@@ -251,6 +253,41 @@ router.put(
         res.json({
           error: false,
           msg: 'Password changed successfully!',
+        });
+      } else {
+        res.json({
+          error: true,
+          msg:
+            'Oops! Password does not match the one in our records! Please retype and try again.',
+        });
+      }
+    } catch (error) {
+      res.send(error.message);
+    }
+  }
+);
+
+// @desc    Delete currently logged in user's account
+// @route   Delete /api/profile/currentUser
+// @access  Private
+router.delete(
+  '/currentUser/:password',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const user = await User.query().findOne({ userID: req.user.userID });
+    if (user == null) {
+      res.send('No User');
+    }
+
+    try {
+      if (await bcrypt.compare(req.params.password, user.password)) {
+        await Favourite.query().delete().where('userID', req.user.userID);
+        await RefreshToken.query().delete().where('userID', req.user.userID);
+        await User.query().deleteById(req.user.userID);
+
+        res.json({
+          error: false,
+          msg: 'Account deleted successfully!',
         });
       } else {
         res.json({

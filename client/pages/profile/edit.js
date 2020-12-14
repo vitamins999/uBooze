@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   updateUserProfile,
   updateUserAccount,
+  userLogout,
 } from '../../lib/slices/userInfoSlice';
 import { useForm } from 'react-hook-form';
 import { restAPI } from '../../api/calls';
+import { deleteUserAccountAPI } from '../../api/private';
 
 import { motion } from 'framer-motion';
 import { fadeOutPage } from '../../animations/navigation';
@@ -24,6 +27,7 @@ const EditProfile = () => {
   const userInfo = useSelector((state) => state.userInfo);
 
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const [firstName, setFirstName] = useState(userInfo.firstName);
   const [lastName, setLastName] = useState(userInfo.lastName);
@@ -33,6 +37,8 @@ const EditProfile = () => {
   const [bio, setBio] = useState(userInfo.bio ? userInfo.bio : '');
   const [username, setUsername] = useState(userInfo.username);
   const [email, setEmail] = useState(userInfo.email);
+
+  const [confirmPasswordAccount, setConfirmPasswordAccount] = useState('');
 
   const notifyError = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
@@ -187,6 +193,26 @@ const EditProfile = () => {
         }
       } catch (error) {
         console.log(error.message);
+      }
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    if (confirmPasswordAccount === '') {
+      notifyError('Password is required to delete account');
+    } else {
+      if (
+        window.confirm(
+          'WARNING: THIS CANNOT BE UNDONE.  Are you sure you want to delete your account?'
+        )
+      ) {
+        const data = await deleteUserAccountAPI(confirmPasswordAccount);
+
+        if (data.error) {
+          notifyError(data.msg);
+        } else {
+          router.push('/login?logout=true');
+        }
       }
     }
   };
@@ -486,7 +512,7 @@ const EditProfile = () => {
                         </p>
                       </div>
                       <a
-                        onClick={() => notify('Account deleted!')}
+                        onClick={() => handleDeleteAccount()}
                         className='px-7 py-5 text-md w-48 font-semibold tracking-tighter text-white bg-red-600 border-gray-400 border text-center rounded-md hover:bg-red-800 hover:text-white transition ease-in-out duration-100 cursor-pointer'
                       >
                         Close Account
@@ -506,6 +532,9 @@ const EditProfile = () => {
                         type='password'
                         name='confirmPasswordAccount'
                         id='confirmPasswordAccount'
+                        onChange={(e) =>
+                          setConfirmPasswordAccount(e.target.value)
+                        }
                         ref={updateAccount({
                           required: true,
                           minLength: 6,
