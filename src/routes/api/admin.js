@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+
+const { body, validationResult } = require('express-validator');
 const { admin } = require('../../middleware/authMiddleware');
 const User = require('../../models/User');
 const SupermarketProduct = require('../../models/SupermarketProduct');
@@ -75,9 +77,30 @@ router.get(
 // @access  Private/Admin
 router.put(
   '/users/:id',
+  // Validation and sanitation
+  [
+    body('firstName', 'First name is required').not().isEmpty().trim(),
+    body('lastName', 'Last name is required').not().isEmpty().trim(),
+    body('username', 'Username is required').not().isEmpty().trim(),
+    body('email', 'Must be a valid email address')
+      .not()
+      .isEmpty()
+      .isEmail()
+      .trim()
+      .normalizeEmail(),
+    body('location').trim(),
+    body('bio').trim(),
+  ],
   passport.authenticate('jwt', { session: false }),
   admin,
   async (req, res) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // If no errors:
     try {
       const updatedUser = await User.query().patchAndFetchById(req.params.id, {
         email: req.body.email,
@@ -279,9 +302,24 @@ router.get(
 // @access  Private/Admin
 router.put(
   '/products/:id',
+  // Validation and sanitation
+  [
+    body('productName').not().isEmpty().trim(),
+    body('displayName').not().isEmpty().trim(),
+    body('volume').not().isEmpty().trim(),
+    body('drinkType').not().isEmpty().trim(),
+    body('drinkSubtype').not().isEmpty().trim(),
+  ],
   passport.authenticate('jwt', { session: false }),
   admin,
   async (req, res) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // If no errors:
     try {
       const updatedProduct = await Product.query().patchAndFetchById(
         req.params.id,
@@ -306,9 +344,25 @@ router.put(
 // @access  Private/Admin
 router.post(
   '/products',
+  // Validation and sanitation
+  [
+    body('productID').not().isEmpty().trim(),
+    body('productName').not().isEmpty().trim(),
+    body('displayName').not().isEmpty().trim(),
+    body('volume').not().isEmpty().trim(),
+    body('drinkType').not().isEmpty().trim(),
+    body('drinkSubtype').not().isEmpty().trim(),
+  ],
   passport.authenticate('jwt', { session: false }),
   admin,
   async (req, res) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // If no errors:
     try {
       const product = await Product.query().insert({
         productID: req.body.productID,
@@ -349,9 +403,28 @@ router.delete(
 // @access  Private/Admin
 router.put(
   '/supermarketproducts/:id',
+  // Validation and sanitation
+  [
+    body('productID').trim(),
+    body('productName').not().isEmpty().trim(),
+    body('supermarket').not().isEmpty().trim(),
+    body('price').not().isEmpty().trim(),
+    body('offer').not().isEmpty().trim(),
+    body('link').not().isEmpty().trim(),
+    body('image').not().isEmpty().trim(),
+    body('drinkType').trim(),
+    body('drinkSubtype').trim(),
+  ],
   passport.authenticate('jwt', { session: false }),
   admin,
   async (req, res) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // If no errors:
     try {
       const updatedSupermarketProduct = await SupermarketProduct.query().patchAndFetchById(
         req.params.id,

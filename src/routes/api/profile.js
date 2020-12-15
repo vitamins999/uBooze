@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 
 const gravatar = require('gravatar');
 const normalize = require('normalize-url');
+const { body, validationResult } = require('express-validator');
 
 const bcrypt = require('bcrypt');
 const dayjs = require('dayjs');
@@ -105,8 +106,32 @@ router.get(
 // @access  Private
 router.put(
   '/currentUser',
+  // Validation and sanitation
+  [
+    body('firstName', 'First name is required').not().isEmpty().trim(),
+    body('lastName', 'Last name is required').not().isEmpty().trim(),
+    body('username', 'Username is required').not().isEmpty().trim(),
+    body('email', 'Must be a valid email address')
+      .not()
+      .isEmpty()
+      .isEmail()
+      .trim()
+      .normalizeEmail(),
+    body('password', 'Password must be between 6 and 20 characters')
+      .not()
+      .isEmpty()
+      .isLength({ min: 6, max: 20 })
+      .trim(),
+  ],
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // If no errors:
     const user = await User.query().findOne({ userID: req.user.userID });
     if (user == null) {
       res.send('No User');
@@ -150,8 +175,22 @@ router.put(
 // @access  Private
 router.put(
   '/currentUser/profile',
+  // Validation and sanitation
+  [
+    body('firstName', 'First name is required').not().isEmpty().trim(),
+    body('lastName', 'Last name is required').not().isEmpty().trim(),
+    body('location').trim(),
+    body('bio').trim(),
+  ],
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // If no errors:
     const user = await User.query().findOne({ userID: req.user.userID });
     if (user == null) {
       res.send('No User');
@@ -187,8 +226,30 @@ router.put(
 // @access  Private
 router.put(
   '/currentUser/account',
+  // Validation and sanitation
+  [
+    body('username', 'Username is required').not().isEmpty().trim(),
+    body('email', 'Must be a valid email address')
+      .not()
+      .isEmpty()
+      .isEmail()
+      .trim()
+      .normalizeEmail(),
+    body('password', 'Password must be between 6 and 20 characters')
+      .not()
+      .isEmpty()
+      .isLength({ min: 6, max: 20 })
+      .trim(),
+  ],
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // If no errors:
     const user = await User.query().findOne({ userID: req.user.userID });
     if (user == null) {
       res.send('No User');
@@ -237,8 +298,28 @@ router.put(
 // @access  Private
 router.put(
   '/currentUser/password',
+  // Validation and sanitation
+  [
+    body('oldPassword', 'Old password must be between 6 and 20 characters')
+      .not()
+      .isEmpty()
+      .isLength({ min: 6, max: 20 })
+      .trim(),
+    body('newPassword', 'New password must be between 6 and 20 characters')
+      .not()
+      .isEmpty()
+      .isLength({ min: 6, max: 20 })
+      .trim(),
+  ],
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // If no errors:
     const user = await User.query().findOne({ userID: req.user.userID });
     if (user == null) {
       res.send('No User');

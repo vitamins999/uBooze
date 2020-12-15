@@ -3,6 +3,7 @@ const router = express.Router();
 
 const gravatar = require('gravatar');
 const normalize = require('normalize-url');
+const { body, validationResult } = require('express-validator');
 
 const passport = require('passport');
 const bcrypt = require('bcrypt');
@@ -121,71 +122,98 @@ router.post('/login', (req, res, next) => {
 });
 
 // Create a new user
-router.post('/register', async (req, res, next) => {
-  const { firstName, lastName, username, email, password } = req.body;
+router.post(
+  '/register',
+  // Validation and sanitation
+  [
+    body('firstName', 'First name is required').not().isEmpty().trim(),
+    body('lastName', 'Last name is required').not().isEmpty().trim(),
+    body('username', 'Username is required').not().isEmpty().trim(),
+    body('email', 'Must be a valid email address')
+      .not()
+      .isEmpty()
+      .isEmail()
+      .trim()
+      .normalizeEmail(),
+    body('password', 'Password must be between 6 and 20 characters')
+      .not()
+      .isEmpty()
+      .isLength({ min: 6, max: 20 })
+      .trim(),
+  ],
+  async (req, res, next) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
 
-  const userExists = await User.query().findOne({ email });
+    // If no errors:
+    const { firstName, lastName, username, email, password } = req.body;
 
-  if (userExists) {
-    res.status(400).send('This email address is already registered!');
-  } else {
-    const usernameExists = await User.query().findOne({ username });
+    const userExists = await User.query().findOne({ email });
 
-    if (usernameExists) {
-      res
-        .status(400)
-        .send('This username is already taken. Please try another one.');
+    if (userExists) {
+      res.status(400).send('This email address is already registered!');
     } else {
-      try {
-        const hashedPassword = await bcrypt.hash(password, 10);
+      const usernameExists = await User.query().findOne({ username });
 
-        const avatar = normalize(
-          gravatar.url(email, {
-            s: '200',
-            r: 'pg',
-            d: 'mm',
-          }),
-          { forceHttps: true }
-        );
+      if (usernameExists) {
+        res
+          .status(400)
+          .send('This username is already taken. Please try another one.');
+      } else {
+        try {
+          const hashedPassword = await bcrypt.hash(password, 10);
 
-        const user = await User.query().insert({
-          password: hashedPassword,
-          email,
-          username,
-          firstName,
-          lastName,
-          displayName: `${firstName} ${lastName}`,
-          gravatar: avatar,
-          isAdmin: false,
-        });
-        const token = issueJWT(user);
+          const avatar = normalize(
+            gravatar.url(email, {
+              s: '200',
+              r: 'pg',
+              d: 'mm',
+            }),
+            { forceHttps: true }
+          );
 
-        const refreshToken = issueRefreshJWT(user);
+          const user = await User.query().insert({
+            password: hashedPassword,
+            email,
+            username,
+            firstName,
+            lastName,
+            displayName: `${firstName} ${lastName}`,
+            gravatar: avatar,
+            isAdmin: false,
+          });
+          const token = issueJWT(user);
 
-        await RefreshToken.query().insert({
-          userID: user.userID,
-          refreshToken,
-        });
+          const refreshToken = issueRefreshJWT(user);
 
-        res.cookie('refreshToken', refreshToken, {
-          httpOnly: true,
-        });
+          await RefreshToken.query().insert({
+            userID: user.userID,
+            refreshToken,
+          });
 
-        res.status(201).json({
-          userID: user.userID,
-          email: user.email,
-          username: user.username,
-          displayName: user.displayName,
-          isAdmin: user.isAdmin,
-          gravatar: user.gravatar,
-          token: token.token,
-        });
-      } catch (error) {
-        res.json({ error: error });
+          res.cookie('refreshToken', refreshToken, {
+            httpOnly: true,
+          });
+
+          res.status(201).json({
+            userID: user.userID,
+            email: user.email,
+            username: user.username,
+            displayName: user.displayName,
+            isAdmin: user.isAdmin,
+            gravatar: user.gravatar,
+            token: token.token,
+          });
+        } catch (error) {
+          res.json({ error: error });
+        }
       }
     }
   }
-});
+);
 
 // Auth with Google
 router.get(

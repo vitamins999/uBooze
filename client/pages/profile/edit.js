@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   updateUserProfile,
   updateUserAccount,
-  userLogout,
 } from '../../lib/slices/userInfoSlice';
 import { useForm } from 'react-hook-form';
 import { restAPI } from '../../api/calls';
