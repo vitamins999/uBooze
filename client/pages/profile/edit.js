@@ -433,7 +433,7 @@ const EditProfile = () => {
                       Bio
                     </label>
                     <textarea
-                      className='h-32 mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                      className='h-32 resize-none mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='text'
                       name='bio'
                       id='bio'

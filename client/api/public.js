@@ -124,3 +124,12 @@ export const loginUserAccountAPI = async (email, password) => {
 
   return data;
 };
+
+export const sendContactUsEmail = async ({ name, email, message }) => {
+  const { data } = await restAPI.post('/email', {
+    name,
+    email,
+    message,
+  });
+  return data;
+};

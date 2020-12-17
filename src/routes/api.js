@@ -3,6 +3,7 @@ const app = express();
 
 const adminRoutes = require('./api/admin');
 const authRoutes = require('./api/auth');
+const emailRoutes = require('./api/email');
 const favouritesRoutes = require('./api/favourites');
 const profileRoutes = require('./api/profile');
 const productsRoutes = require('./api/products');
@@ -13,6 +14,7 @@ const scraperRoutes = require('./api/scraper');
 
 app.use('/auth', authRoutes);
 app.use('/admin', adminRoutes);
+app.use('/email', emailRoutes);
 app.use('/favourites', favouritesRoutes);
 app.use('/profile', profileRoutes);
 app.use('/products', productsRoutes);

@@ -71,7 +71,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (loginErrors.email?.type === 'required') {
-      notifyError('Username is required');
+      notifyError('Email is required');
     }
     if (loginErrors.password?.type === 'required') {
       notifyError('Password is required');
