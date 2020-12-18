@@ -43,8 +43,8 @@ const DrinkSearch = () => {
         animate='animate'
         className='text-gray-700 body-font bg-hero-blend'
       >
-        <div className='bg-hero-image h-screen bg-contain bg-no-repeat bg-center'>
-          <div className='bg-green-200 h-screen bg-opacity-50'>
+        <div className=''>
+          <div className=''>
             <div className='container mx-auto flex flex-col px-5 py-24 justify-center items-center'>
               <div className='w-full md:w-2/3 flex flex-col mb-16 items-center text-center'>
                 <h1 className='font-heading sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
@@ -114,6 +114,17 @@ const DrinkSearch = () => {
             </div>
           </div>
         </div>
+        <svg
+          className='-mt-10 z-0'
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 1440 320'
+        >
+          <path
+            fill='#55BA82'
+            fillOpacity='1'
+            d='M0,192L48,186.7C96,181,192,171,288,149.3C384,128,480,96,576,122.7C672,149,768,235,864,240C960,245,1056,171,1152,122.7C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'
+          ></path>
+        </svg>
       </motion.section>
     </Layout>
   );

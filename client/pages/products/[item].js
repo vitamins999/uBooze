@@ -116,9 +116,11 @@ const ItemPage = ({ itemData }) => {
   };
 
   useEffect(() => {
-    const id = favourites.find((productID) => productID === Number(item));
-    if (id) {
-      setIsFavourite(true);
+    if (favourites) {
+      const id = favourites.find((productID) => productID === Number(item));
+      if (id) {
+        setIsFavourite(true);
+      }
     }
   }, [favourites]);
 

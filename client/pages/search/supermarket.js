@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
 import Layout from '../../components/Layout';
 import { motion } from 'framer-motion';
 import Cookie from 'js-cookie';
@@ -7,112 +7,34 @@ import Cookie from 'js-cookie';
 import { fadeOutPage } from '../../animations/navigation';
 
 import { createQueryString } from '../../utils/supermarketListUtils';
+import { supermarketsArr } from '../../data/supermarketsArr';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const SupermarketSearch = () => {
-  const supermarkets = [
-    {
-      id: 1,
-      name: 'Asda',
-      svgPath: '/asda_logo.svg',
-    },
-    {
-      id: 2,
-      name: 'Co-op',
-      svgPath: '/coop_logo.svg',
-    },
-    {
-      id: 3,
-      name: 'Iceland',
-      svgPath: '/iceland_logo.svg',
-    },
-    {
-      id: 4,
-      name: 'Morrisons',
-      svgPath: '/morrisons_logo.svg',
-    },
-    {
-      id: 5,
-      name: "Sainsbury's",
-      svgPath: '/sainsburys_logo.svg',
-    },
-    {
-      id: 6,
-      name: 'Tesco',
-      svgPath: '/tesco_logo.svg',
-    },
-    {
-      id: 7,
-      name: 'Waitrose',
-      svgPath: '/waitrose_logo.svg',
-    },
-  ];
+  const notifyError = (message) => toast.error(message);
+  const notifySuccess = (message) => toast.success(message);
 
-  const selectedSupermarkets = [];
-
-  const [supermarketList, setSupermarketList] = useState(supermarkets);
-  const [supermarketSelectedList, setSupermarketSelectedList] = useState(
-    selectedSupermarkets
-  );
   const router = useRouter();
 
-  const selectSupermarket = (id, index) => {
-    const filteredSupermarket = supermarketList.filter((supermarket) => {
-      return supermarket.id === id;
-    });
+  const {
+    register: registerSupermarketSearch,
+    handleSubmit: handleSupermarketSearchSubmit,
+    watch: watchSupermarketSearch,
+    errors: errorsSupermarketSearch,
+  } = useForm();
 
-    const newSupermarketList = supermarketList.filter((supermarket) => {
-      return supermarket.id !== id;
-    });
-
-    let sortedSupermarketSelectedList = [
-      ...supermarketSelectedList,
-      ...filteredSupermarket,
-    ];
-    sortedSupermarketSelectedList.sort((a, b) => a.name.localeCompare(b.name));
-
-    setSupermarketList([...newSupermarketList]);
-    setSupermarketSelectedList([...sortedSupermarketSelectedList]);
-  };
-
-  const deSelectSupermarket = (id, index) => {
-    const filteredSupermarket = supermarketSelectedList.filter(
-      (supermarket) => {
-        return supermarket.id === id;
-      }
-    );
-
-    const newSupermarketList = supermarketSelectedList.filter((supermarket) => {
-      return supermarket.id !== id;
-    });
-
-    let sortedSupermarketSelectedList = [
-      ...supermarketList,
-      ...filteredSupermarket,
-    ];
-    sortedSupermarketSelectedList.sort((a, b) => a.name.localeCompare(b.name));
-
-    setSupermarketSelectedList([...newSupermarketList]);
-    setSupermarketList([...sortedSupermarketSelectedList]);
-  };
-
-  const handleOnClick = () => {
-    if (supermarketSelectedList.length > 0) {
-      const supermarketListNameOnly = supermarketSelectedList.map(
-        (supermarket) => {
-          return supermarket.name;
-        }
-      );
-
-      const supermarketListQueryString = createQueryString(
-        supermarketListNameOnly
-      );
-
-      Cookie.set('supermarketList', supermarketListNameOnly);
+  const onSupermarketSearchClick = (data) => {
+    if (data.supermarket.length > 0) {
+      const supermarketListQueryString = createQueryString(data.supermarket);
+      Cookie.set('supermarketList', data.supermarket);
       Cookie.set('queryString', supermarketListQueryString);
 
-      router.push(`/products?&postcode=false`);
+      router.push(`/products`);
     } else {
-      console.log('No supermarkets selected');
+      notifyError(
+        'You need to select at least 1 supermarket before trying to search!'
+      );
     }
   };
 
@@ -123,10 +45,10 @@ const SupermarketSearch = () => {
         exit='exit'
         initial='initial'
         animate='animate'
-        className='text-gray-700 body-font bg-hero-blend mb-20'
+        className='text-gray-700'
       >
-        <div className='bg-hero-image h-screen bg-contain bg-no-repeat bg-center'>
-          <div className='bg-green-200 h-screen bg-opacity-50'>
+        <div className=''>
+          <div className=''>
             <div className='container mx-auto flex flex-col px-5 py-24 justify-center items-center'>
               <div className='w-full md:w-2/3 flex flex-col mb-16 items-center text-center'>
                 <h1 className='font-heading sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
@@ -134,107 +56,63 @@ const SupermarketSearch = () => {
                 </h1>
                 <p className='mb-8 leading-relaxed'>
                   Don't want to give us your postcode? No problem. Just select
-                  which supermarkets you want to compare using the tags down
-                  below and click search. We'll gather a list of all available
-                  alcohol, along with all the prices.
+                  which supermarkets you want to compare below and click search.
+                  We'll gather a list of all available alcohol, along with all
+                  the prices.
                 </p>
               </div>
-              <div className='grid grid-cols-4 gap-3 w-auto py-5 rounded-md items-center align-middle justify-center bg-hero-blend'>
-                {supermarketList.length === 0 && (
-                  <h2 className='col-start-2 col-end-3'>
-                    No supermarkets left
-                  </h2>
+              <form
+                className='z-10 bg-gray-50 shadow-md rounded-lg flex flex-col md:ml-auto w-full mt-10 md:mt-0'
+                onSubmit={handleSupermarketSearchSubmit(
+                  onSupermarketSearchClick
                 )}
-                {supermarketList.map((supermarket, index) => {
-                  return (
-                    <>
-                      {index === 0 ? (
-                        <li key={supermarket.id} className='list-none'>
-                          <motion.img
-                            className='h-10 ml-10 my-4 cursor-pointer'
-                            whileHover={{ scale: 1.3 }}
-                            transition={{ duration: 0.2 }}
-                            onClick={() => {
-                              selectSupermarket(supermarket.id, index);
-                            }}
-                            src={supermarket.svgPath}
-                            alt={supermarket.name}
-                          />
-                        </li>
-                      ) : (
-                        <li key={supermarket.id} className='list-none'>
-                          <motion.img
-                            className='h-10 ml-10 my-4 cursor-pointer'
-                            whileHover={{ scale: 1.3 }}
-                            transition={{ duration: 0.2 }}
-                            onClick={() => {
-                              selectSupermarket(supermarket.id, index);
-                            }}
-                            src={supermarket.svgPath}
-                            alt={supermarket.name}
-                          />
-                        </li>
-                      )}
-                    </>
-                  );
-                })}
-              </div>
-              <div className='flex w-full items-center justify-center mt-6 mb-6'>
-                <div className='border-b border-gray-600 w-48'></div>
-                <h2 className='text-md text-center text-gray-900 tracking-wider mx-2'>
-                  Selected Supermarkets
-                </h2>
-                <div className='border-b border-gray-600 w-48'></div>
-              </div>
-              <div className='grid grid-cols-4 gap-3 w-auto py-5 rounded-md items-center align-middle justify-center bg-hero-blend'>
-                {supermarketSelectedList.length === 0 && (
-                  <h2 className='col-start-2 col-end-3'>
-                    Selected Supermarkets go here!
-                  </h2>
-                )}
-                {supermarketSelectedList.map((supermarket, index) => {
-                  return (
-                    <>
-                      {index === 0 ? (
-                        <li key={supermarket.id} className='list-none'>
-                          <motion.img
-                            className='h-10 ml-10 my-4 cursor-pointer'
-                            whileHover={{ scale: 1.3 }}
-                            transition={{ duration: 0.2 }}
-                            onClick={() => {
-                              deSelectSupermarket(supermarket.id, index);
-                            }}
-                            src={supermarket.svgPath}
-                            alt={supermarket.name}
-                          />
-                        </li>
-                      ) : (
-                        <li key={supermarket.id} className='list-none'>
-                          <motion.img
-                            className='h-10 ml-10 my-4 cursor-pointer'
-                            whileHover={{ scale: 1.3 }}
-                            transition={{ duration: 0.2 }}
-                            onClick={() => {
-                              deSelectSupermarket(supermarket.id, index);
-                            }}
-                            src={supermarket.svgPath}
-                            alt={supermarket.name}
-                          />
-                        </li>
-                      )}
-                    </>
-                  );
-                })}
-              </div>
-              <button
-                onClick={() => handleOnClick()}
-                className='mt-5 text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
               >
-                Search
-              </button>
+                <div className='grid grid-cols-3 gap-10 p-5'>
+                  {supermarketsArr.map((supermarket) => {
+                    return (
+                      <motion.label
+                        whileHover={{ scale: 1.1 }}
+                        className='flex items-center bg-white p-5 rounded-lg shadow-md'
+                        key={supermarket.name}
+                      >
+                        <input
+                          className='text-green-500 h-5 w-5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 rounded-md border-green-700'
+                          type='checkbox'
+                          name='supermarket'
+                          value={supermarket.name}
+                          ref={registerSupermarketSearch}
+                        />
+                        <img
+                          className='ml-10 h-10 inline-block'
+                          src={supermarket.svgPath}
+                        ></img>
+                      </motion.label>
+                    );
+                  })}
+                </div>
+                <div className='bg-gray-100 rounded-b-lg flex justify-end px-5'>
+                  <button
+                    type='submit'
+                    className='my-5 font-medium shadow-sm text-green-50 bg-green-500 border-0 py-2 px-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 hover:bg-green-600 rounded-lg text-lg transition duration-200 ease-in-out'
+                  >
+                    Search
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
+        <svg
+          className='-mt-48 z-0'
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 1440 320'
+        >
+          <path
+            fill='#55BA82'
+            fillOpacity='1'
+            d='M0,192L48,186.7C96,181,192,171,288,149.3C384,128,480,96,576,122.7C672,149,768,235,864,240C960,245,1056,171,1152,122.7C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'
+          ></path>
+        </svg>
       </motion.section>
     </Layout>
   );

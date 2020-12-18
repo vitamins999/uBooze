@@ -34,9 +34,13 @@ const ProductItem = ({ product, publicProfilePage }) => {
   }, []);
 
   useEffect(() => {
-    const id = favourites.find((productID) => productID === product.productID);
-    if (id) {
-      setIsFavourite(true);
+    if (favourites) {
+      const id = favourites.find(
+        (productID) => productID === product.productID
+      );
+      if (id) {
+        setIsFavourite(true);
+      }
     }
   }, [favourites]);
 

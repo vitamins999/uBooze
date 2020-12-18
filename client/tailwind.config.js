@@ -26,7 +26,11 @@ module.exports = {
     },
   },
   variants: {
-    visibility: ['responsive', 'hover', 'focus'],
+    extend: {
+      visibility: ['responsive', 'hover', 'focus'],
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
