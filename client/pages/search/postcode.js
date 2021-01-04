@@ -9,9 +9,7 @@ import { fetchSupermarkets } from '../../api/public';
 import Layout from '../../components/Layout';
 
 import { fadeOutPage } from '../../animations/navigation';
-
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError } from '../../utils/alerts';
 
 const PostcodeSearch = () => {
   const {
@@ -22,9 +20,6 @@ const PostcodeSearch = () => {
   } = useForm();
 
   const router = useRouter();
-
-  const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
 
   const handleSubmitPostcode = async ({ unformattedPostcode, radius }) => {
     const postcode = unformattedPostcode.split(' ').join('').toUpperCase();

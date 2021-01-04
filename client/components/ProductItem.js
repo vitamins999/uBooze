@@ -9,9 +9,7 @@ import {
 } from '../utils/supermarketListUtils';
 import { updateFavourites } from '../lib/slices/userInfoSlice';
 import { restAPI } from '../api/calls';
-
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError } from '../utils/alerts';
 
 const ProductItem = ({ product, publicProfilePage }) => {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -21,8 +19,6 @@ const ProductItem = ({ product, publicProfilePage }) => {
 
   const { favourites, token, userID } = useSelector((state) => state.userInfo);
   const [isFavourite, setIsFavourite] = useState(false);
-
-  const notifyError = (message) => toast.error(message);
 
   const dispatch = useDispatch();
 

@@ -8,13 +8,9 @@ import { fadeOutPage } from '../../animations/navigation';
 
 import { createQueryString } from '../../utils/supermarketListUtils';
 import { supermarketsArr } from '../../data/supermarketsArr';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError } from '../utils/alerts';
 
 const SupermarketSearch = () => {
-  const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
-
   const router = useRouter();
 
   const {

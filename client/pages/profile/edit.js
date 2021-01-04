@@ -16,9 +16,7 @@ import { fadeOutPage } from '../../animations/navigation';
 
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
-
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError, notifySuccess } from '../../utils/alerts';
 
 const EditProfile = () => {
   const [currentSection, setCurrentSection] = useState('profile');
@@ -38,9 +36,6 @@ const EditProfile = () => {
   const [email, setEmail] = useState(userInfo.email);
 
   const [confirmPasswordAccount, setConfirmPasswordAccount] = useState('');
-
-  const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
 
   const {
     register: updateProfile,

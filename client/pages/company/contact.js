@@ -6,14 +6,9 @@ import { fadeOutPage } from '../../animations/navigation';
 import Layout from '../../components/Layout';
 
 import { sendContactUsEmail } from '../../api/public';
-
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError, notifySuccess } from '../../utils/alerts';
 
 const ContactUs = () => {
-  const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
-
   const {
     register: contact,
     handleSubmit: handleContactSubmit,

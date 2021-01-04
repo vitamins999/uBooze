@@ -8,13 +8,10 @@ import {
   supermarketLogo,
 } from '../../utils/supermarketListUtils';
 import { supermarketsArr } from '../../data/supermarketsArr';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError, notifySuccess } from '../../utils/alerts';
 
 const SyncPage = () => {
   const [inProgress, setInprogress] = useState('');
-  const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
 
   const router = useRouter();
 

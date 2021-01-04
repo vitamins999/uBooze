@@ -20,8 +20,7 @@ import { fadeOutPage } from '../../animations/navigation';
 import Layout from '../../components/Layout';
 import Rating from '../../components/Rating';
 import Loader from '../../components/Loader';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError } from '../../utils/alerts';
 import {
   capitaliseFirstLetter,
   formatter,
@@ -36,8 +35,6 @@ import {
 } from '../../api/private';
 
 const ItemPage = ({ itemData }) => {
-  const notifyError = (message) => toast.error(message);
-
   const router = useRouter();
   const { item: itemID } = router.query;
 

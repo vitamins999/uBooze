@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useQuery, usePaginatedQuery } from 'react-query';
-import { useSelector } from 'react-redux';
 import { restAPI } from '../../api/calls';
 
 import { motion } from 'framer-motion';

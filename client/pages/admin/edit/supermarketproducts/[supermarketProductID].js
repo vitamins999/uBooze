@@ -6,9 +6,7 @@ import { useQuery } from 'react-query';
 import { restAPI } from '../../../../api/calls';
 import Layout from '../../../../components/Layout';
 import Loader from '../../../../components/Loader';
-
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError, notifySuccess } from '../../../../utils/alerts';
 
 const EditDrinkPageAdmin = () => {
   const [productID, setProductID] = useState(null);
@@ -20,9 +18,6 @@ const EditDrinkPageAdmin = () => {
   const [image, setImage] = useState('');
   const [drinkType, setDrinkType] = useState('');
   const [drinkSubtype, setDrinkSubtype] = useState('');
-
-  const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
 
   const router = useRouter();
 

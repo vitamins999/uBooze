@@ -4,7 +4,7 @@ import store from '../store';
 import { AnimatePresence } from 'framer-motion';
 import '../styles/index.css';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 function MyApp({ Component, pageProps }) {

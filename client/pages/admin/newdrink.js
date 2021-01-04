@@ -4,14 +4,9 @@ import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import Layout from '../../components/Layout';
 import { addNewProductAdmin } from '../../api/admin';
-
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError, notifySuccess } from '../../utils/alerts';
 
 const AddNewDrinkPageAdmin = () => {
-  const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
-
   const router = useRouter();
 
   const userInfo = useSelector((state) => state.userInfo);

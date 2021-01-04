@@ -13,13 +13,9 @@ import { motion } from 'framer-motion';
 
 import { fadeOutPage } from '../animations/navigation';
 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError } from '../utils/alerts';
 
 const signupPage = () => {
-  const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
-
   const {
     register,
     handleSubmit: handleRegisterSubmit,

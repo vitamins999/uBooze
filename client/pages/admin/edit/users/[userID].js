@@ -6,9 +6,7 @@ import { useQuery } from 'react-query';
 import { restAPI } from '../../../../api/calls';
 import Layout from '../../../../components/Layout';
 import Loader from '../../../../components/Loader';
-
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError, notifySuccess } from '../../../../utils/alerts';
 
 const EditUserPageAdmin = () => {
   const [username, setUsername] = useState('');
@@ -18,9 +16,6 @@ const EditUserPageAdmin = () => {
   const [admin, setAdmin] = useState(false);
   const [location, setLocation] = useState('');
   const [bio, setBio] = useState('');
-
-  const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
 
   const router = useRouter();
 

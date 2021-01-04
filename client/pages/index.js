@@ -11,9 +11,7 @@ import Layout from '../components/Layout';
 
 import { createQueryString } from '../utils/supermarketListUtils';
 import { fetchSupermarkets } from '../api/public';
-
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { notifyError } from '../utils/alerts';
 
 const Home = () => {
   const {
@@ -47,9 +45,6 @@ const Home = () => {
   const [refMemberBenefitsBody, inViewMemberBenefitsBody] = useInView(
     useInViewOptionsMemberItems
   );
-
-  const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
 
   const onPostcodeSearchSubmit = async ({ unformattedPostcode, radius }) => {
     const postcode = unformattedPostcode.split(' ').join('').toUpperCase();
