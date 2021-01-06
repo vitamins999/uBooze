@@ -4,6 +4,8 @@ import store from '../store';
 import { AnimatePresence } from 'framer-motion';
 import '../styles/index.css';
 
+import CookieConsent from 'react-cookie-consent';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -24,6 +26,9 @@ function MyApp({ Component, pageProps }) {
           draggable
           pauseOnHover
         />
+        <CookieConsent overlay>
+          This website uses cookies to enhance the user experience.
+        </CookieConsent>
         <Component {...pageProps} key={router.asPath} />
       </Provider>
     </AnimatePresence>
