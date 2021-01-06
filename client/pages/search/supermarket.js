@@ -8,7 +8,7 @@ import { fadeOutPage } from '../../animations/navigation';
 
 import { createQueryString } from '../../utils/supermarketListUtils';
 import { supermarketsArr } from '../../data/supermarketsArr';
-import { notifyError } from '../utils/alerts';
+import { notifyError } from '../../utils/alerts';
 
 const SupermarketSearch = () => {
   const router = useRouter();
