@@ -1,32 +1,33 @@
 const express = require('express');
 const router = express.Router();
-const sgMail = require('@sendgrid/mail');
+const sendEmail = require('../../utils/email');
 
 router.post('/', async (req, res) => {
   const { name, email, message } = req.body;
 
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const text = `
+  <h1>You have received a new message on the ubooze Contact Form</h1>
+  <h2>${name}</h2>
+  <h3>${email}</h3>
+  <p>${message}</p>
+  `;
 
-  const msg = {
-    to: process.env.EMAIL_ADDRESS,
-    from: process.env.EMAIL_ADDRESS,
-    subject: `You have received a message from the ubooze contact form`,
-    text: `${name} (${email}) has sent the following message: ${message}`,
-  };
-
-  sgMail
-    .send(msg)
-    .then(() => {
-      res.json({
-        error: false,
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-      res.json({
-        error,
-      });
+  try {
+    await sendEmail({
+      to: process.env.EMAIL_ADDRESS_CONTACT_FORM,
+      subject: 'You have received a new ubooze Contact Form message',
+      text,
     });
+
+    res.json({
+      error: false,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      error: true,
+    });
+  }
 });
 
 module.exports = router;
