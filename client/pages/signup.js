@@ -98,7 +98,7 @@ const signupPage = () => {
           <div>
             <Link href='/'>
               <a>
-                <h1 className='text-xl tracking-widest mt-16 mb-10 text-green-800 hover:text-green-900 transition duration-100'>
+                <h1 className='text-xl font-heading tracking-widest mt-16 mb-10 text-green-800 hover:text-green-900 transition duration-100'>
                   ubooze
                 </h1>
               </a>
@@ -128,11 +128,11 @@ const signupPage = () => {
                 className='bg-white rounded px-8 pt-6 pb-8 w-full'
                 onSubmit={handleRegisterSubmit(onRegisterSubmit)}
               >
-                <h3 className='text-3xl font-bold mb-5 tracking-wide'>
+                <h3 className='text-3xl font-heading font-bold mb-5 tracking-wide'>
                   Sign up to ubooze
                 </h3>
                 <div>
-                  <h4 className='text-md tracking-wide'>
+                  <h4 className='text-sm tracking-wide'>
                     Have a social media account? Sign up with:
                   </h4>
                   <ul className='py-4 flex items-center'>
