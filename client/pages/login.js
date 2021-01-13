@@ -219,6 +219,11 @@ const LoginPage = () => {
                     id='password'
                     ref={login({ required: true })}
                   />
+                  <Link href='/resetpassword/email'>
+                    <a className='text-xs font-medium text-blue-600 hover:text-blue-800 transition duration-100'>
+                      Forgot password?
+                    </a>
+                  </Link>
                 </div>
                 <button
                   className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
