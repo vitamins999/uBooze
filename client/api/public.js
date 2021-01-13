@@ -125,11 +125,28 @@ export const loginUserAccountAPI = async (email, password) => {
   return data;
 };
 
+// Send Contact Us Email
 export const sendContactUsEmail = async ({ name, email, message }) => {
   const { data } = await restAPI.post('/email', {
     name,
     email,
     message,
+  });
+  return data;
+};
+
+// Send Forgot Password Email Request
+export const sendForgotPasswordRequest = async (email) => {
+  const { data } = await restAPI.post('/auth/forgotpassword', {
+    email,
+  });
+  return data;
+};
+
+// Reset Password
+export const resetPassword = async (token, password) => {
+  const { data } = await restAPI.put(`/auth/resetpassword/${token}`, {
+    password,
   });
   return data;
 };

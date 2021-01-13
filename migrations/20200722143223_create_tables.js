@@ -16,6 +16,8 @@ exports.up = function (knex) {
       table.string('gravatar');
       table.string('facebookID');
       table.string('googleID');
+      table.string('resetPasswordToken');
+      table.string('resetPasswordExpire');
     })
     .createTable('userRefreshTokens', (table) => {
       table.increments('refreshTokenID');

@@ -7,8 +7,11 @@ const { body, validationResult } = require('express-validator');
 
 const passport = require('passport');
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 const jsonwebtoken = require('jsonwebtoken');
 const { issueJWT, issueRefreshJWT } = require('../../utils/jwt');
+const { getPasswordResetToken } = require('../../utils/passwordReset');
+const sendEmail = require('../../utils/email');
 
 const User = require('../../models/User');
 const Favourite = require('../../models/Favourite');
@@ -211,6 +214,152 @@ router.post(
           res.json({ error: error });
         }
       }
+    }
+  }
+);
+
+// Forgot password email
+router.post(
+  '/forgotpassword',
+  // Validation and sanitation
+  [
+    body('email', 'Must be a valid email address')
+      .not()
+      .isEmpty()
+      .isEmail()
+      .trim()
+      .normalizeEmail(),
+  ],
+  async (req, res) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // If no errors:
+    const { email } = req.body;
+
+    try {
+      const user = await User.query().findOne({
+        email: email,
+      });
+
+      if (!user) {
+        res.json({
+          error,
+        });
+      } else {
+        const { resetToken, resetPasswordToken } = getPasswordResetToken();
+
+        await User.query()
+          .patch({
+            resetPasswordToken,
+            resetPasswordExpire: Date.now() + 10 * (60 * 1000), // 10 minutes
+          })
+          .findById(user.userID);
+
+        const resetURL = `http://localhost:3000/resetpassword/${resetToken}`;
+
+        const text = `
+      <p>Hi!</p>
+      <p>It looks like you requested a password reset for ubooze.com</p>
+      <p>Please go to this link to reset your password:</p>
+      <a href=${resetURL} clicktracking=off>${resetURL}</a>
+      <p>Best wishes,</p>
+      <p><strong>The ubooze team</strong></p>
+      `;
+
+        try {
+          await sendEmail({
+            to: user.email,
+            subject: 'ubooze -- You have requested a password reset',
+            text,
+          });
+          res.json({ error: false });
+        } catch (error) {
+          await User.query()
+            .patch({
+              resetPasswordToken: null,
+              resetPasswordExpire: null,
+            })
+            .findById(user.userID);
+          res.json({
+            error,
+          });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      res.json({
+        error,
+      });
+    }
+  }
+);
+
+// Reset password from reset password token URL
+router.put(
+  '/resetpassword/:resettoken',
+  // Validation and sanitation
+  [
+    body('password', 'Password must be between 6 and 20 characters')
+      .not()
+      .isEmpty()
+      .isLength({ min: 6, max: 20 })
+      .trim(),
+  ],
+  async (req, res) => {
+    // Returns array of validation errors, if they exist.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // If no errors:
+    const resetPasswordToken = crypto
+      .createHash('sha256')
+      .update(req.params.resettoken)
+      .digest('hex');
+
+    try {
+      const user = await User.query().findOne({
+        resetPasswordToken,
+      });
+
+      if (!user) {
+        res.json({
+          error:
+            'Invalid password link.  Please resend reset email and try again.',
+        });
+      } else {
+        const resetPasswordExpire = parseInt(user.resetPasswordExpire);
+
+        if (Date.now() > resetPasswordExpire) {
+          res.json({
+            error: 'Reset password link has expired. Please try again.',
+          });
+        } else {
+          const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
+          await User.query()
+            .patch({
+              password: hashedPassword,
+              resetPasswordToken: null,
+              resetPasswordExpire: null,
+            })
+            .findById(user.userID);
+
+          res.status(201).json({
+            error: false,
+          });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      res.json({
+        error,
+      });
     }
   }
 );

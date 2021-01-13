@@ -1,4 +1,3 @@
-const gravatar = require('gravatar');
 const { supermarketBaseData } = require('./base_data/supermarket-test');
 
 exports.seed = function (knex) {
