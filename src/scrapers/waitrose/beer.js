@@ -1,5 +1,6 @@
 const waitroseScraper = require('../utils/waitroseScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Beer URLs
 
@@ -66,4 +67,11 @@ const waitroseScrapeBeer = async () => {
   return beer;
 };
 
+const main = async () => {
+  const beer = await waitroseScrapeBeer();
+  const beerJSON = JSON.stringify(beer);
+  fs.writeFileSync('src/output/waitrose-beer-final.json', beerJSON);
+};
+
+main();
 module.exports = waitroseScrapeBeer;

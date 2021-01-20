@@ -14,8 +14,8 @@ const waitroseScraper = async (url, drinkType, drinkSubtype, scrollNum = 1) => {
     await page.goto(url, { waitUntil: 'networkidle2' });
 
     // Clicks the 'accept cookies' popup
-    await page.focus('button.button___2YB28');
-    await page.click('button.button___2YB28');
+    await page.focus('[data-test="accept-all"]');
+    await page.click('[data-test="accept-all"]');
 
     // Scroll to very top of page
     await page.evaluate((_) => {

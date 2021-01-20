@@ -1,5 +1,6 @@
 const waitroseScraper = require('../utils/waitroseScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Wine URLs
 
@@ -297,5 +298,13 @@ const waitroseScrapeWine = async () => {
   console.log('Wine scraped!');
   return wine;
 };
+
+const main = async () => {
+  const wine = await waitroseScrapeWine();
+  const wineJSON = JSON.stringify(wine);
+  fs.writeFileSync('src/output/waitrose-wine-final.json', wineJSON);
+};
+
+main();
 
 module.exports = waitroseScrapeWine;

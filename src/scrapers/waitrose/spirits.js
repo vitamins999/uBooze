@@ -1,5 +1,6 @@
 const waitroseScraper = require('../utils/waitroseScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Spirits URLs
 
@@ -136,5 +137,13 @@ const waitroseScrapeSpirits = async () => {
   console.log('Spirits scraped!');
   return spirits;
 };
+
+const main = async () => {
+  const spirits = await waitroseScrapeSpirits();
+  const spiritsJSON = JSON.stringify(spirits);
+  fs.writeFileSync('src/output/waitrose-spirits-final.json', spiritsJSON);
+};
+
+main();
 
 module.exports = waitroseScrapeSpirits;

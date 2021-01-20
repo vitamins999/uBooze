@@ -330,7 +330,7 @@ const productsBeer = [
   {
     productID: 42,
     productName: 'Wychwood Brewery Gold Hobgoblin',
-    displayName: 'Wychwood Brewery Gold Hobgoblin',
+    displayName: 'Gold Hobgoblin',
     volume: '500ml',
     drinkType: 'beer',
     drinkSubtype: 'ale',
