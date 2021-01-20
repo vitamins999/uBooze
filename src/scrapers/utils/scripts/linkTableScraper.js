@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 const scrollPageToBottom = require('puppeteer-autoscroll-down');
 const fs = require('fs');
-const removeDuplicates = require('./removeDuplicates');
+const removeDuplicates = require('../removeDuplicates');
 
 const linkTableScraper = async (
   url,
