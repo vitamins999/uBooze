@@ -10,6 +10,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 921,
   },
   {
     productName: 'Tanqueray No. Ten Gin 70cl',
@@ -22,6 +23,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 922,
   },
   {
     productName: 'Bombay Sapphire Gin 70cl',
@@ -34,6 +36,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 923,
   },
   {
     productName: 'Waitrose London Dry Gin 1litre',
@@ -46,6 +49,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 924,
   },
   {
     productName: 'Tanqueray London Dry Gin 70cl',
@@ -58,6 +62,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 925,
   },
   {
     productName: "Hendrick's Gin 70cl",
@@ -70,6 +75,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 927,
   },
   {
     productName: 'Edinburgh Gin 70cl',
@@ -82,6 +88,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 928,
   },
   {
     productName: 'Sipsmith London Dry Gin 70cl',
@@ -94,6 +101,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 926,
   },
   {
     productName: 'Tanqueray Sevilla Gin 700ml',
@@ -106,6 +114,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 929,
   },
   {
     productName: "Gordon's Pink Gin & Tonic 250ml",
@@ -118,6 +127,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 932,
   },
   {
     productName: 'Plymouth Dry Gin 70cl',
@@ -130,6 +140,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 931,
   },
   {
     productName: 'Silent Pool Gin 70cl',
@@ -142,6 +153,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 930,
   },
   {
     productName: 'Waitrose London Dry Gin 70cl',
@@ -154,6 +166,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 1284,
   },
   {
     productName: "Gordon's Gin & Tonic 250ml",
@@ -166,6 +179,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 933,
   },
   {
     productName: 'Roku Japanese Gin 70cl',
@@ -178,6 +192,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 934,
   },
   {
     productName: "Gordon's Premium Pink Distilled Gin 70cl",
@@ -190,6 +205,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 940,
   },
   {
     productName: 'Edinburgh Gin Rhubarb & Ginger 250ml',
@@ -202,6 +218,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 943,
   },
   {
     productName: 'Tanqueray Sevilla Gin & Tonic 275ml',
@@ -214,6 +231,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 936,
   },
   {
     productName: "Gordon's Gin & Diet Tonic 250ml",
@@ -226,6 +244,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 939,
   },
   {
     productName: 'Beefeater London Dry Gin 70cl',
@@ -238,6 +257,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 935,
   },
   {
     productName: 'Monkey 47 Gin 500ml',
@@ -250,6 +270,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 941,
   },
   {
     productName: "Gordon's Gin with Elderflower 250ml",
@@ -262,6 +283,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 937,
   },
   {
     productName: "Warner's Rhubarb Gin 70cl",
@@ -274,6 +296,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 942,
   },
   {
     productName: "Greenall's Gin & Pink Grapefruit 250ml",
@@ -286,6 +309,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 938,
   },
   {
     productName: 'Adnams Copper House Gin 70cl',
@@ -298,6 +322,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 944,
   },
   {
     productName: 'Bloom London Dry Gin & Rose Lemonade 275ml',
@@ -310,6 +335,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 945,
   },
   {
     productName: 'Opihr Oriental Spiced London Dry Gin 70cl',
@@ -322,6 +348,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 946,
   },
   {
     productName: 'Chase Pink Grapefruit & Pomelo Gin 70cl',
@@ -334,6 +361,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 947,
   },
   {
     productName: "Martin Miller's Gin 70cl",
@@ -346,6 +374,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 949,
   },
   {
     productName: 'Cotswolds Dry Gin 700ml',
@@ -358,6 +387,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 948,
   },
   {
     productName: "Hendrick's Lunar Gin 70cl",
@@ -370,6 +400,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 950,
   },
   {
     productName: 'Bloom London Dry Gin & Tonic 275ml',
@@ -382,6 +413,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 952,
   },
   {
     productName: 'Sipsmith Gin & Tonic 250ml',
@@ -394,6 +426,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 955,
   },
   {
     productName: 'Sipsmith Gin & Light Tonic 250ml',
@@ -406,6 +439,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 951,
   },
   {
     productName: "Greenall's Gin & Sicilian Lemon 250ml",
@@ -418,6 +452,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 962,
   },
   {
     productName: 'Chase GB Gin 70cl',
@@ -430,6 +465,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 954,
   },
   {
     productName: 'Gin Mare 700ml',
@@ -442,6 +478,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 953,
   },
   {
     productName: 'Tanqueray Gin & Tonic 275ml',
@@ -454,6 +491,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 961,
   },
   {
     productName: 'Malfy Rosa Gin 70cl',
@@ -466,6 +504,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 957,
   },
   {
     productName: 'The Botanist Islay Dry Gin 700ml',
@@ -478,6 +517,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 956,
   },
   {
     productName: 'Beefeater Blood Orange 70cl',
@@ -490,6 +530,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 958,
   },
   {
     productName: 'Bombay Sapphire Gin & Tonic 250ml',
@@ -502,6 +543,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 1233,
   },
   {
     productName: 'Sipsmith Lemon Drizzle Gin 70cl',
@@ -514,6 +556,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 959,
   },
   {
     productName: "Hayman's London Dry Gin 70cl",
@@ -526,6 +569,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 963,
   },
   {
     productName: "Gordon's Pink Gin & Diet Tonic 250ml",
@@ -538,6 +582,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 964,
   },
   {
     productName: 'Heston Lazy Sunshine Gin 70cl',
@@ -550,6 +595,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 965,
   },
   {
     productName: 'Chase Rhubarb & Bramley Apple Gin 70cl',
@@ -562,6 +608,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 1285,
   },
   {
     productName: 'Bathtub Gin 70cl',
@@ -574,6 +621,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
+    productID: 966,
   },
   {
     productName: 'Johnnie Walker Red Label Blended Scoth Whisky 70cl',
@@ -586,6 +634,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 968,
   },
   {
     productName: 'The Famous Grouse Finest Blended Scotch Whisky 70cl',
@@ -598,6 +647,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 969,
   },
   {
     productName: 'Waitrose Blended Scotch Whisky 1litre',
@@ -610,6 +660,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 970,
   },
   {
     productName: 'Cardhu Gold Reserve Single Malt Scotch Whisky 70cl',
@@ -622,6 +673,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 971,
   },
   {
     productName: 'Tamnavulin Malt Whisky 70cl',
@@ -634,6 +686,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 974,
   },
   {
     productName: 'Talisker Skye Single Malt Scotch Whisky 70cl',
@@ -646,6 +699,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 972,
   },
   {
     productName: "Bell's Blended Scotch Whisky 70cl",
@@ -658,6 +712,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 973,
   },
   {
     productName: 'Haig Club Clubman Single Grain Malt Scotch Whisky 700ml',
@@ -670,6 +725,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1286,
   },
   {
     productName: 'Jameson Irish Whiskey 700ml',
@@ -682,6 +738,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 975,
   },
   {
     productName: 'The Famous Grouse Finest Blended Scotch Whisky Scotland 35cl',
@@ -694,6 +751,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 976,
   },
   {
     productName: 'Waitrose Blended Scotch Whisky 70cl',
@@ -706,6 +764,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1287,
   },
   {
     productName: 'No.1 Woodford Reserve Bourbon Whiskey 70cl',
@@ -718,6 +777,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 977,
   },
   {
     productName: "Dalwhinnie Winter's Gold Single Malt Scotch Whisky 70cl",
@@ -730,6 +790,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 978,
   },
   {
     productName: 'Lagavulin 16 Year Old Single Malt Scotch Whisky 70cl',
@@ -742,6 +803,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1288,
   },
   {
     productName: 'Bushmills Original Irish Whiskey 70cl',
@@ -754,6 +816,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 979,
   },
   {
     productName:
@@ -767,6 +830,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 980,
   },
   {
     productName: 'The Famous Grouse Smoky Black Blended Whisky 70cl',
@@ -779,6 +843,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 981,
   },
   {
     productName: 'No.1 8 Year Old Blended Scotch Whisky 70cl',
@@ -791,6 +856,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 982,
   },
   {
     productName: 'Laphroaig Select Islay Single Malt Scotch Whisky 70cl',
@@ -803,6 +869,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 984,
   },
   {
     productName: "Grant's Triple Wood Blended Scotch Whisky 70cl",
@@ -815,6 +882,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 983,
   },
   {
     productName: 'Glenmorangie 10 Year Old Malt Whisky 70cl',
@@ -827,6 +895,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 986,
   },
   {
     productName: "Jack Daniel's Tennessee Whiskey 70cl",
@@ -839,6 +908,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 989,
   },
   {
     productName: 'Jura Journey Malt Whisky 70cl',
@@ -851,6 +921,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 987,
   },
   {
     productName: 'The Balvenie Doublewood 70cl',
@@ -863,6 +934,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 985,
   },
   {
     productName: 'Talisker Storm Single Malt Scotch Whisky 70cl',
@@ -875,6 +947,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 988,
   },
   {
     productName: 'Glenfiddich aged 12 years Single Malt Whisky Speyside 70cl',
@@ -887,6 +960,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 991,
   },
   {
     productName:
@@ -900,6 +974,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 990,
   },
   {
     productName: 'Monkey Shoulder Scotch Whisky 70cl',
@@ -912,6 +987,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 993,
   },
   {
     productName:
@@ -925,6 +1001,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 992,
   },
   {
     productName: 'Bruichladdich Port Charlotte Malt Whisky 700ml',
@@ -937,6 +1014,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 996,
   },
   {
     productName: 'Jim Beam Kentucky Straight Bourbon Kentucky, USA 70cl',
@@ -949,6 +1027,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 994,
   },
   {
     productName: 'Johnnie Walker Black Label Scotch Whisky 70cl',
@@ -961,6 +1040,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 997,
   },
   {
     productName: 'Highland Park Dragon Legend Single Malt Whisky 70cl',
@@ -973,6 +1053,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 998,
   },
   {
     productName: 'Aberlour 12 Year Old Single Malt Whisky Highlands 70cl',
@@ -985,6 +1066,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1001,
   },
   {
     productName: 'Aberlour Speyside Single Malt Whisky 70cl',
@@ -997,6 +1079,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 995,
   },
   {
     productName: "Jack Daniel's Whiskey & Cola 330ml",
@@ -1009,6 +1092,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1003,
   },
   {
     productName: 'Balvenie Caribbean Cask 14 Year Old Single Malt Whisky 70cl',
@@ -1021,6 +1105,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1009,
   },
   {
     productName: 'Jura 10 Years Old Malt Whisky 70cl',
@@ -1033,6 +1118,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1000,
   },
   {
     productName: 'Canadian Club Blended Whisky 700ml',
@@ -1045,6 +1131,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 999,
   },
   {
     productName: 'Bowmore 12 Year Old Islay Single Malt Whisky 70cl',
@@ -1057,6 +1144,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1002,
   },
   {
     productName: 'The Glenlivet 12 years of age Single Malt Whisky 70cl',
@@ -1069,6 +1157,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1007,
   },
   {
     productName: 'Penderyn Madeira Welsh Single Malt 70cl',
@@ -1081,6 +1170,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1006,
   },
   {
     productName: "Ballantine's Finest Blended Scotch Whisky 70cl",
@@ -1093,6 +1183,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1011,
   },
   {
     productName: 'Buffalo Trace Kentucky straight bourbon whiskey 70cl',
@@ -1105,6 +1196,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1005,
   },
   {
     productName: 'Suntory Whisky Yamazaki Single Malt Whisky 70cl',
@@ -1117,6 +1209,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1013,
   },
   {
     productName:
@@ -1130,6 +1223,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1004,
   },
   {
     productName: 'Jameson Irish Whiskey Ginger &Lime 250ml',
@@ -1142,6 +1236,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1008,
   },
   {
     productName: 'Bushmills Black Bush Irish Whiskey 70cl',
@@ -1154,6 +1249,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1010,
   },
   {
     productName:
@@ -1167,6 +1263,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1012,
   },
   {
     productName: 'Bulleit Bourbon Frontier Whiskey 70cl',
@@ -1179,6 +1276,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1022,
   },
   {
     productName: 'J&B Rare Blended Scotch Whisky 70cl',
@@ -1191,6 +1289,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1014,
   },
   {
     productName: 'Haig Clubman & Ginger Ale 330ml',
@@ -1203,6 +1302,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1019,
   },
   {
     productName: 'The Ardmore Legacy Single Malt Whisky 70cl',
@@ -1215,6 +1315,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1015,
   },
   {
     productName:
@@ -1228,6 +1329,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1017,
   },
   {
     productName: 'Chivas Regal Blended Scotch Whisky 70cl',
@@ -1240,6 +1342,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1016,
   },
   {
     productName: 'Waitrose Blended Scotch Whisky 35cl',
@@ -1252,6 +1355,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1289,
   },
   {
     productName: 'Glenfiddich Unique Solera Reserve 15 Years 700ml',
@@ -1264,6 +1368,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1028,
   },
   {
     productName: 'Dalwhinnie 15 Year Old Single Malt Scotch Whisky 70cl',
@@ -1276,6 +1381,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1023,
   },
   {
     productName: 'Chivas XV 15 Year Old Blended Scotch Whisky 70cl',
@@ -1288,6 +1394,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1018,
   },
   {
     productName: 'Slane Irish Whiskey 70cl',
@@ -1300,6 +1407,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1020,
   },
   {
     productName: 'Jameson Caskmates 70cl',
@@ -1312,6 +1420,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1021,
   },
   {
     productName:
@@ -1325,6 +1434,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1025,
   },
   {
     productName: 'Jameson Irish Whiskey 350ml',
@@ -1337,6 +1447,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1290,
   },
   {
     productName: 'Glenfiddich Fire & Cane Single Malt Whisky 70cl',
@@ -1349,6 +1460,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1024,
   },
   {
     productName: 'The Glenlivet 15 years of age 70cl',
@@ -1361,6 +1473,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1027,
   },
   {
     productName: "Jack Daniel's Tennessee Apple 700ml",
@@ -1373,6 +1486,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1029,
   },
   {
     productName: 'The Famous Grouse Wine Cask 70cl',
@@ -1385,6 +1499,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1030,
   },
   {
     productName: 'The Balvenie Week of Peat aged 14 years 70cl',
@@ -1397,6 +1512,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1031,
   },
   {
     productName: 'Ardbeg single malt scotch whisky 10yr 70cl',
@@ -1409,6 +1525,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1032,
   },
   {
     productName: 'Haig Clubman & Cola 330ml',
@@ -1421,6 +1538,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1026,
   },
   {
     productName: 'The Glenlivet Caribbean Reserve 70cl',
@@ -1433,6 +1551,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1035,
   },
   {
     productName: 'Old Pulteney 12 Year Old Single Malt Whisky 70cl',
@@ -1445,6 +1564,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1034,
   },
   {
     productName: 'Caol Ila 12 Year Old Single Malt Scotch Whisky 70cl',
@@ -1457,6 +1577,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1033,
   },
   {
     productName: 'Ardbeg An Oa 70cl',
@@ -1469,6 +1590,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1036,
   },
   {
     productName: 'Jameson Black Barrel Irish Whiskey 70cl',
@@ -1481,6 +1603,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1037,
   },
   {
     productName: 'Bunnahabhain 12 year old 70cl',
@@ -1493,6 +1616,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1039,
   },
   {
     productName: 'Aberlour Casg Annamh Speyside Single Malt Scotch Whisky 70cl',
@@ -1505,6 +1629,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1046,
   },
   {
     productName: 'Chivas Regal Extra Blended Whisky 70cl',
@@ -1517,6 +1642,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1038,
   },
   {
     productName: 'Glenfiddich 12 Year Old Single Malt Whisky Speyside 35cl',
@@ -1529,6 +1655,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1044,
   },
   {
     productName: 'The Glenrothes 10 Year Old Single Malt Whisky 70cl',
@@ -1541,6 +1668,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1040,
   },
   {
     productName: 'Woodsman Scotch Whisky 70cl',
@@ -1553,6 +1681,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1041,
   },
   {
     productName: 'Cotswolds Single Malt Whisky 700ml',
@@ -1565,6 +1694,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1042,
   },
   {
     productName: 'Shackleton Blended Malt Whisky 70cl',
@@ -1577,6 +1707,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1049,
   },
   {
     productName: 'Roe & Co Irish Whiskey 70cl',
@@ -1589,6 +1720,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1043,
   },
   {
     productName: 'Bruichladdich Classic Malt Whisky 70cl',
@@ -1601,6 +1733,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1051,
   },
   {
     productName: 'Togouchi Premium Japanese Blended Whisky 700ml',
@@ -1613,6 +1746,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1047,
   },
   {
     productName: 'Powers Distillers Cut 700ml',
@@ -1625,6 +1759,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1048,
   },
   {
     productName: 'Teeling Small Batch Whiskey 70cl',
@@ -1637,6 +1772,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1045,
   },
   {
     productName: 'Loch Lomond 10 Year Old Single Malt Whisky 70cl',
@@ -1649,6 +1785,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1053,
   },
   {
     productName: 'Smokey Monkey Scotch Whisky 70cl',
@@ -1661,6 +1798,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1058,
   },
   {
     productName:
@@ -1674,6 +1812,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1054,
   },
   {
     productName: "Michter's Small Batch Bourbon 70cl",
@@ -1686,6 +1825,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1060,
   },
   {
     productName: 'Scapa Skiren Single Malt Scotch Whisky 70cl',
@@ -1698,6 +1838,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1050,
   },
   {
     productName: 'Akashi Japanese Blended Whisky 50cl',
@@ -1710,6 +1851,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1056,
   },
   {
     productName: 'The Glenlivet Founders Reserve Single Malt 35cl',
@@ -1722,6 +1864,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1063,
   },
   {
     productName: 'Glenmorangie Highland Single Malt Whisky 35cl',
@@ -1734,6 +1877,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1064,
   },
   {
     productName: 'Singleton 15 Year Old Malt Scotch Whisky 70cl',
@@ -1746,6 +1890,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1052,
   },
   {
     productName: '1792 Small Batch Straight Bourbon 750ml',
@@ -1758,6 +1903,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1057,
   },
   {
     productName: 'The Sexton Single Malt Irish Whiskey 70cl',
@@ -1770,6 +1916,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1059,
   },
   {
     productName: 'Laphroaig Lore Islay Single Malt Whisky 70cl',
@@ -1782,6 +1929,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1055,
   },
   {
     productName: 'Glenfiddich IPA Experiment 700ml',
@@ -1794,6 +1942,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1061,
   },
   {
     productName:
@@ -1807,6 +1956,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1062,
   },
   {
     productName: 'Eagle Rare Kentucky Bourbon Whiskey 700ml',
@@ -1819,6 +1969,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1065,
   },
   {
     productName: 'The Macallan Double Cask 12 year old 70cl',
@@ -1831,6 +1982,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1066,
   },
   {
     productName: 'Glen Grant aged 10 years 70cl',
@@ -1843,6 +1995,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1067,
   },
   {
     productName: 'Sazerac Rye Whiskey 70cl',
@@ -1855,6 +2008,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1068,
   },
   {
     productName: 'The Balvenie Sweet Toast of American Oak 700ml',
@@ -1867,6 +2021,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1072,
   },
   {
     productName: 'Kavalan Classic Single Malt Taiwan 50cl',
@@ -1879,6 +2034,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1069,
   },
   {
     productName: 'Mackmyra Swedish Whisky 70cl',
@@ -1891,6 +2047,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1071,
   },
   {
     productName: 'Craigellachie aged 13 years Single Malt Whisky 70cl',
@@ -1903,6 +2060,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1074,
   },
   {
     productName: 'Connemara Irish Whiskey 70cl',
@@ -1915,6 +2073,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1075,
   },
   {
     productName: 'Berry Bros. & Rudd Sherry Cask Blended Malt Whisky 70cl',
@@ -1927,6 +2086,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1073,
   },
   {
     productName: 'Fettercairn 12 Year Old Single Malt 70cl',
@@ -1939,6 +2099,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1070,
   },
   {
     productName: 'Glenmorangie The Lasanta Malt Whisky 70cl',
@@ -1951,6 +2112,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
+    productID: 1076,
   },
   {
     productName: 'Waitrose Vodka 1litre',
@@ -1963,6 +2125,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1077,
   },
   {
     productName: 'Absolut Vodka Blue Label 700ml',
@@ -1975,6 +2138,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1078,
   },
   {
     productName: 'Smirnoff Vodka Red Label 70cl',
@@ -1987,6 +2151,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1079,
   },
   {
     productName: 'Absolut Passionfruit 70cl',
@@ -1999,6 +2164,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1080,
   },
   {
     productName: 'Passoa Passionfruit Liqueur The Passion Drink 70cl',
@@ -2011,6 +2177,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1081,
   },
   {
     productName: 'Sweet Freedom Fruit Syrup 350g',
@@ -2023,6 +2190,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1082,
   },
   {
     productName: 'PLj Lime Juice 500ml',
@@ -2035,30 +2203,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
-  },
-  {
-    productName: 'Ester Passion Fruit each',
-    price: 0,
-    offer: 'No offer',
-    link:
-      'https://www.waitrose.com/ecom/products/ester-passion-fruit/088246-45216-45217',
-    image:
-      'https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_088246_BP_3.jpg',
-    drinkType: 'spirits',
-    drinkSubtype: 'vodka',
-    supermarket: 'Waitrose',
-  },
-  {
-    productName: 'The Ice Co Ice Cubes 2kg',
-    price: 120,
-    offer: 'No offer',
-    link:
-      'https://www.waitrose.com/ecom/products/the-ice-co-ice-cubes/019284-9327-9328',
-    image:
-      'https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_019284_BP_3.jpg',
-    drinkType: 'spirits',
-    drinkSubtype: 'vodka',
-    supermarket: 'Waitrose',
+    productID: 1083,
   },
   {
     productName: 'Grey Goose Vodka 70cl',
@@ -2066,10 +2211,12 @@ const waitroseSpirits = [
     offer: 'No offer',
     link:
       'https://www.waitrose.com/ecom/products/grey-goose-vodka/052461-26153-26154',
-    image: 'undefined',
+    image:
+      'https://ecom-su-static-prod.wtrecom.com/images/products/11/LN_052461_BP_11.jpg',
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1086,
   },
   {
     productName: 'Waitrose Vodka 70cl',
@@ -2082,6 +2229,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1291,
   },
   {
     productName: 'Stolichnaya Vodka 70cl',
@@ -2094,6 +2242,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1087,
   },
   {
     productName: 'Reyka Vodka 70cl',
@@ -2106,6 +2255,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1089,
   },
   {
     productName: 'Smirnoff Vodka Soda & Lime 250ml',
@@ -2118,6 +2268,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1088,
   },
   {
     productName: 'Smirnoff Seltzer Raspberry & Rhubarb 250ml',
@@ -2130,6 +2281,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1093,
   },
   {
     productName: 'Tia Maria 70cl',
@@ -2141,18 +2293,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
-  },
-  {
-    productName: 'No.1 Espresso Coffee Roasted & Ground 250g',
-    price: 350,
-    offer: 'Save £1.00. Was £4.50',
-    link:
-      'https://www.waitrose.com/ecom/products/no1-espresso-coffee-roasted-ground/023095-11229-11230',
-    image:
-      'https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_023095_BP_3.jpg',
-    drinkType: 'spirits',
-    drinkSubtype: 'vodka',
-    supermarket: 'Waitrose',
+    productID: 1091,
   },
   {
     productName: 'Waitrose Vodka 35cl',
@@ -2165,6 +2306,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1292,
   },
   {
     productName: 'Smirnoff Vodka & Cranberry 250ml',
@@ -2177,6 +2319,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1090,
   },
   {
     productName: 'Absolut Vanilia 700ml',
@@ -2189,6 +2332,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1094,
   },
   {
     productName: 'Zubrowka Bison Grass Vodka 700ml',
@@ -2201,6 +2345,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1095,
   },
   {
     productName: 'Chase Marmalade Vodka 70cl',
@@ -2213,6 +2358,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1096,
   },
   {
     productName: 'Smirnoff & Diet Cola 250ml',
@@ -2225,6 +2371,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1097,
   },
   {
     productName: 'Belvedere Vodka Polish Rye Vodka 70cl',
@@ -2237,6 +2384,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1101,
   },
   {
     productName: 'Smirnoff Seltzer Orange & Grapefruit 250ml',
@@ -2249,6 +2397,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1099,
   },
   {
     productName: 'Chase Rhubarb Vodka 70cl',
@@ -2261,6 +2410,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1103,
   },
   {
     productName: 'Absolut Vodka Raspberri 700ml',
@@ -2273,6 +2423,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1105,
   },
   {
     productName: 'Black Cow Vodka 50cl',
@@ -2285,6 +2436,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1100,
   },
   {
     productName: 'Snow Queen Vodka 700ml',
@@ -2297,6 +2449,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1102,
   },
   {
     productName: 'Absolut Vodka 350ml',
@@ -2309,6 +2462,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1098,
   },
   {
     productName: 'Cîroc Vodka 700ml',
@@ -2321,6 +2475,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1106,
   },
   {
     productName: 'Stoli Salted Karamel Vodka 0.7litre',
@@ -2333,6 +2488,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1107,
   },
   {
     productName: 'Chase English Potato Vodka 70cl',
@@ -2345,6 +2501,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1104,
   },
   {
     productName: 'Fair Quinoa Vodka 100% Fairtrade 70cl',
@@ -2357,6 +2514,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1108,
   },
   {
     productName: 'Absolut Lime Vodka 700ml',
@@ -2369,6 +2527,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1109,
   },
   {
     productName: "Konik's Tail Vodka 70cl",
@@ -2381,6 +2540,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1110,
   },
   {
     productName: 'Ketel One Vodka 70cl',
@@ -2393,6 +2553,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1111,
   },
   {
     productName: 'Haku Vodka 70cl',
@@ -2405,6 +2566,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1113,
   },
   {
     productName: 'Beluga Noble Russian Vodka 700ml',
@@ -2417,6 +2579,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1112,
   },
   {
     productName: 'Absolut Perfect Chill 5x5cl',
@@ -2429,6 +2592,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
+    productID: 1114,
   },
   {
     productName: 'Mount Gay Barbados Rum 700ml',
@@ -2441,6 +2605,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1115,
   },
   {
     productName: 'Bacardi Carta Blanca Rum 70cl',
@@ -2453,6 +2618,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1116,
   },
   {
     productName: 'Malibu Rum with Coconut & Pineapple 250ml',
@@ -2465,6 +2631,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1117,
   },
   {
     productName: 'Havana Club Rum 3 Year Old 70cl',
@@ -2477,42 +2644,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
-  },
-  {
-    productName: 'Silver Spoon Granulated Sugar 1kg',
-    price: 500,
-    offer: 'No offer',
-    link:
-      'https://www.waitrose.com/ecom/products/silver-spoon-granulated-sugar/008101-3842-3843',
-    image:
-      'https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_008101_BP_3.jpg',
-    drinkType: 'spirits',
-    drinkSubtype: 'rum',
-    supermarket: 'Waitrose',
-  },
-  {
-    productName: 'Essential Lime each',
-    price: 500,
-    offer: 'No offer',
-    link:
-      'https://www.waitrose.com/ecom/products/essential-lime/088461-45403-45404',
-    image:
-      'https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_088461_BP_3.jpg',
-    drinkType: 'spirits',
-    drinkSubtype: 'rum',
-    supermarket: 'Waitrose',
-  },
-  {
-    productName: "Cooks' Ingredients mint 25g",
-    price: 500,
-    offer: 'No offer',
-    link:
-      'https://www.waitrose.com/ecom/products/cooks-ingredients-mint/086106-43929-43930',
-    image:
-      'https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_086106_BP_3.jpg',
-    drinkType: 'spirits',
-    drinkSubtype: 'rum',
-    supermarket: 'Waitrose',
+    productID: 1118,
   },
   {
     productName: 'Schweppes Soda Water 1litre',
@@ -2525,6 +2657,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1122,
   },
   {
     productName: 'Diplomático Reserva Exclusiva Dark Rum 70cl',
@@ -2536,6 +2669,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1123,
   },
   {
     productName: "Lamb's Genuine Navy Rum 700ml",
@@ -2548,6 +2682,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1124,
   },
   {
     productName: 'Captain Morgan Original Spiced Gold Rum 70cl',
@@ -2560,6 +2695,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1126,
   },
   {
     productName: 'Havana Club Rum 7 Year Old 70cl',
@@ -2572,6 +2708,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1125,
   },
   {
     productName: "Goslings Dark'n Stormy 250ml",
@@ -2584,6 +2721,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1128,
   },
   {
     productName: 'The Kraken Black Spiced Rum 700ml',
@@ -2596,6 +2734,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1127,
   },
   {
     productName: 'Schweppes Lemonade 2litre',
@@ -2608,6 +2747,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1129,
   },
   {
     productName: 'Schweppes Ginger Ale 1litre',
@@ -2620,18 +2760,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
-  },
-  {
-    productName: 'Diet Coca-Cola 12x150ml',
-    price: 445,
-    offer: 'Add 2 for £7',
-    link:
-      'https://www.waitrose.com/ecom/products/diet-coca-cola/058787-29588-29589',
-    image:
-      'https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_058787_BP_3.jpg',
-    drinkType: 'spirits',
-    drinkSubtype: 'rum',
-    supermarket: 'Waitrose',
+    productID: 1130,
   },
   {
     productName: 'Schweppes Tonic Water 1litre',
@@ -2644,6 +2773,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1132,
   },
   {
     productName: 'Essential Indian Tonic Water 1litre',
@@ -2656,6 +2786,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1133,
   },
   {
     productName: 'Essential Club Soda 1litre',
@@ -2668,6 +2799,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1134,
   },
   {
     productName: 'Schweppes Russchian 1litre',
@@ -2680,17 +2812,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
-  },
-  {
-    productName: 'Coca-Cola 12x150ml',
-    price: 500,
-    offer: 'Add 2 for £8',
-    link: 'https://www.waitrose.com/ecom/products/coca-cola/058786-29586-29587',
-    image:
-      'https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_058786_BP_3.jpg',
-    drinkType: 'spirits',
-    drinkSubtype: 'rum',
-    supermarket: 'Waitrose',
+    productID: 1135,
   },
   {
     productName: 'Essential Sugar Free Bitter Lemon 1litre',
@@ -2703,6 +2825,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1137,
   },
   {
     productName: 'Captain Morgan The Original Rum 70cl',
@@ -2715,6 +2838,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1138,
   },
   {
     productName: 'Malibu Caribbean Rum with Coconut Flavour 70cl',
@@ -2727,6 +2851,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1139,
   },
   {
     productName: 'Sailor Jerry Spiced Rum 70cl',
@@ -2739,6 +2864,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1141,
   },
   {
     productName: 'Red Leg Spiced Caribbean Rum 70cl',
@@ -2751,6 +2877,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1140,
   },
   {
     productName: 'Woods Old Navy Rum 70cl',
@@ -2763,6 +2890,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1143,
   },
   {
     productName: 'Goslings Black Seal Bermuda Black Rum 70cl',
@@ -2775,6 +2903,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1142,
   },
   {
     productName: 'Havana Club Añejo Especial 70cl',
@@ -2787,6 +2916,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1144,
   },
   {
     productName: 'El Dorado 12 Year Old Rum 70cl',
@@ -2799,6 +2929,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1145,
   },
   {
     productName: 'Appleton Estate 8 Year Old Reserve Jamaica Rum 70cl',
@@ -2811,6 +2942,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1147,
   },
   {
     productName: "Chairman's Reserve Spiced Rum 70cl",
@@ -2823,6 +2955,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1146,
   },
   {
     productName: 'Bacardi Reserva Ocho Rum 70cl',
@@ -2835,6 +2968,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1148,
   },
   {
     productName: 'Mount Gay Black Barrel Rum 70cl',
@@ -2847,6 +2981,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1149,
   },
   {
     productName: 'The Duppy Share Rum 70cl',
@@ -2859,6 +2994,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1150,
   },
   {
     productName: 'Aluna Coconut Rum 70cl',
@@ -2871,6 +3007,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1153,
   },
   {
     productName: 'Wray & Nephew White Overproof Rum 70cl',
@@ -2883,6 +3020,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1151,
   },
   {
     productName: 'Brugal 1888 Premium Rum Dominican Republic 70cl',
@@ -2895,6 +3033,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1152,
   },
   {
     productName:
@@ -2908,6 +3047,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1154,
   },
   {
     productName: 'Diplomatico Mantuano Dark Rum Venezuela 70cl',
@@ -2920,6 +3060,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1155,
   },
   {
     productName: 'Jack Ratt Lugger Rum 70cl',
@@ -2932,6 +3073,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Waitrose',
+    productID: 1156,
   },
   {
     productName: 'Waitrose 3 Year Old French Brandy 1litre',
@@ -2944,6 +3086,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1157,
   },
   {
     productName: 'Rémy Martin 1738 Accord Royal 70cl',
@@ -2956,6 +3099,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1158,
   },
   {
     productName: 'Courvoisier VS Cognac VS Cognac Jarnac, France 35cl',
@@ -2968,6 +3112,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1159,
   },
   {
     productName: 'Rémy Martin Champagne Cognac V.S.O.P 350ml',
@@ -2980,6 +3125,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1160,
   },
   {
     productName: 'Hine Rare VSOP Cognac 70cl',
@@ -2992,6 +3138,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1161,
   },
   {
     productName: 'Waitrose 3 Year Old French Brandy 70cl',
@@ -3004,6 +3151,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1293,
   },
   {
     productName: 'Three Barrels French Brandy 70cl',
@@ -3016,6 +3164,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1163,
   },
   {
     productName: 'Courvoisier Cognac VS 70cl',
@@ -3028,6 +3177,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1162,
   },
   {
     productName: 'Rémy Martin Cognac VSOP 70cl',
@@ -3040,6 +3190,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1164,
   },
   {
     productName: 'No.1 Cognac VSOP 70cl',
@@ -3052,6 +3203,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1165,
   },
   {
     productName: 'St-Rémy XO French Brandy 70cl',
@@ -3064,6 +3216,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1166,
   },
   {
     productName: 'Waitrose 3 Year Old French Brandy 35cl',
@@ -3076,6 +3229,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1294,
   },
   {
     productName: 'Torres 10 Gran Reserva 70cl',
@@ -3088,6 +3242,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1167,
   },
   {
     productName: 'Remy Martin XO 35cl',
@@ -3100,6 +3255,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1168,
   },
   {
     productName: 'Courvoisier VSOP Cognac 70cl',
@@ -3112,6 +3268,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1169,
   },
   {
     productName: 'Martell VS Cognac 70cl',
@@ -3124,6 +3281,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1170,
   },
   {
     productName: 'Metaxa 12 Stars 70cl',
@@ -3136,6 +3294,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1171,
   },
   {
     productName: 'Martell V S 35cl',
@@ -3148,6 +3307,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1172,
   },
   {
     productName: 'No.1 Armagnac VSOP 70cl',
@@ -3160,6 +3320,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1173,
   },
   {
     productName: 'Armagnac XO Domaine Tariquet 70cl',
@@ -3172,6 +3333,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1174,
   },
   {
     productName: 'Seignette Cognac VS 70cl',
@@ -3184,6 +3346,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
+    productID: 1175,
   },
   {
     productName: 'Patrón Silver Tequila 700ml',
@@ -3196,6 +3359,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1176,
   },
   {
     productName: 'Olmeca Altos Plata Tequila 700ml',
@@ -3208,6 +3372,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1177,
   },
   {
     productName: 'El Jimador Tequila Reposado 70cl',
@@ -3220,6 +3385,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1178,
   },
   {
     productName: 'Jose Cuervo Especial 70cl',
@@ -3232,6 +3398,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1180,
   },
   {
     productName: 'El Jimador Tequila Blanco 70cl',
@@ -3244,6 +3411,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1179,
   },
   {
     productName: 'Olmeca Altos Reposado Tequila 700ml',
@@ -3256,6 +3424,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1181,
   },
   {
     productName: '1800 Silver Tequila 70cl',
@@ -3268,6 +3437,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1182,
   },
   {
     productName: 'Herradura Anejo Tequila 70cl',
@@ -3280,6 +3450,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1183,
   },
   {
     productName: 'QuiQuiRiQui Mezcal 70cl',
@@ -3292,6 +3463,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1184,
   },
   {
     productName: 'Herradura Plata Tequila 70cl',
@@ -3304,6 +3476,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1185,
   },
   {
     productName: 'Baileys Original Irish Cream 700ml',
@@ -3316,6 +3489,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1186,
   },
   {
     productName: 'Campari Bitters 70cl',
@@ -3328,6 +3502,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1187,
   },
   {
     productName: 'Cointreau 50cl',
@@ -3340,6 +3515,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1188,
   },
   {
     productName: 'Sawanotsuru Deluxe Sake 720ml',
@@ -3352,6 +3528,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1190,
   },
   {
     productName: 'Kahlúa Coffee Liqueur 70cl',
@@ -3364,6 +3541,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1189,
   },
   {
     productName: 'Kahlua Espresso Martini 200ml',
@@ -3376,6 +3554,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1194,
   },
   {
     productName: 'Dubonnet Wine based Apéritif 75cl',
@@ -3388,6 +3567,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1191,
   },
   {
     productName: 'Aperol 70cl',
@@ -3399,6 +3579,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1193,
   },
   {
     productName: 'Southern Comfort 70cl',
@@ -3411,6 +3592,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1192,
   },
   {
     productName: 'Disaronno Originale 500ml',
@@ -3423,6 +3605,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1199,
   },
   {
     productName: 'Baileys Chocolat Luxe Cream Liqueur 500ml',
@@ -3435,6 +3618,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1195,
   },
   {
     productName: 'Drambuie 70cl',
@@ -3446,6 +3630,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1197,
   },
   {
     productName: "The King's Ginger 500ml",
@@ -3458,6 +3643,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1200,
   },
   {
     productName: 'Grand Marnier Liqueur 500ml',
@@ -3470,6 +3656,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1198,
   },
   {
     productName: 'Chambord Black Raspberry Liqueur 200ml',
@@ -3482,6 +3669,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1196,
   },
   {
     productName: 'Amarula Cream Liqueur S. Africa 700ml',
@@ -3494,6 +3682,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1202,
   },
   {
     productName: 'Henri Bardouin Pastis 70cl',
@@ -3506,6 +3695,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1201,
   },
   {
     productName: 'Santa Marta Limoncello 50cl',
@@ -3518,6 +3708,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1203,
   },
   {
     productName: 'Angostura Bitters 200ml',
@@ -3530,6 +3721,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1205,
   },
   {
     productName: 'Ricard 70cl',
@@ -3541,6 +3733,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1204,
   },
   {
     productName: 'Pernod 70cl',
@@ -3552,6 +3745,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1206,
   },
   {
     productName: 'De Kuyper Triple Sec 35cl',
@@ -3564,6 +3758,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1207,
   },
   {
     productName: 'Campari Negroni 50cl',
@@ -3576,6 +3771,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1208,
   },
   {
     productName: 'Santa Marta Grappa del Piemonte 50cl',
@@ -3588,6 +3784,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1214,
   },
   {
     productName: 'White Heron British Cassis Blackcurrant Liqueur 500ml',
@@ -3600,6 +3797,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1211,
   },
   {
     productName: 'De Kuyper Peach Liqueur 35cl',
@@ -3612,6 +3810,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1210,
   },
   {
     productName: 'Lanique Spirit of Rose 70cl',
@@ -3624,6 +3823,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1209,
   },
   {
     productName: 'Disaronno Velvet Amaretto White Cream Liqueur 500ml',
@@ -3636,6 +3836,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1213,
   },
   {
     productName: 'De Kuyper Blue Curaçao 35cl',
@@ -3648,6 +3849,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1220,
   },
   {
     productName: 'De Kuyper Passionfruit Liqueur 35cl',
@@ -3660,6 +3862,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1217,
   },
   {
     productName: 'Luxardo Sambuca 500ml',
@@ -3672,6 +3875,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1215,
   },
   {
     productName: 'St¯Germain Elderflower Liqueur 50cl',
@@ -3684,6 +3888,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1216,
   },
   {
     productName: 'Pampelle Grapefruit Aperitif 70cl',
@@ -3696,6 +3901,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1221,
   },
   {
     productName: 'Fair Café Liqueur 100% Fairtrade 70cl',
@@ -3708,6 +3914,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1218,
   },
   {
     productName: 'Jagermeister Herb Liqueur 50cl',
@@ -3720,6 +3927,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1222,
   },
   {
     productName: 'Wild-Arbor Luxury Clear Cream Liqueur 700ml',
@@ -3732,6 +3940,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1219,
   },
   {
     productName: "Pimm's No1 & Lemonade 250ml",
@@ -3744,6 +3953,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1223,
   },
   {
     productName: "Pimm's No 1 Cup 70cl",
@@ -3755,6 +3965,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1225,
   },
   {
     productName: 'Miami Cocktail Co. Bellini Spritz 250ml',
@@ -3767,6 +3978,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1224,
   },
   {
     productName: 'Miami Cocktail Co. Margarita Spritz 250ml',
@@ -3779,6 +3991,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1226,
   },
   {
     productName: 'Miami Cocktail Co. Sangria Spritz 250ml',
@@ -3791,6 +4004,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1227,
   },
   {
     productName: "Pimm's Perfectly Mixed with Lemonade 4x250ml",
@@ -3803,6 +4017,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1228,
   },
   {
     productName: "Pimm's & Lemonade 10x250ml",
@@ -3815,6 +4030,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Waitrose',
+    productID: 1229,
   },
   {
     productName: "Gordon's Ultra Low Alcohol with a Hint of Lime 4x250ml",
@@ -3827,6 +4043,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1230,
   },
   {
     productName: "Gordon's Ultra Low Alcohol with Grapefruit 4x250ml",
@@ -3839,6 +4056,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1231,
   },
   {
     productName: 'Pedrino Sherry & Tonic Spritz 200ml',
@@ -3851,6 +4069,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1232,
   },
   {
     productName: 'Lone Wolf Gin & Tonic Ready to Drink Aberdeenshire 250ml',
@@ -3863,6 +4082,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1235,
   },
   {
     productName: 'Miami Cocktail Co. Mimosa Spritz 250ml',
@@ -3875,6 +4095,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1234,
   },
   {
     productName: "Gordon's Gin & Diet Tonic 10x250ml",
@@ -3887,6 +4108,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1295,
   },
   {
     productName: "Gordon's Gin & Tonic 4x250ml",
@@ -3899,6 +4121,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1296,
   },
   {
     productName: "Gordon's Pink Gin & Tonic 10x250ml",
@@ -3911,6 +4134,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1297,
   },
   {
     productName: "Gordon's Gin & Tonic 10x250ml",
@@ -3923,6 +4147,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1298,
   },
   {
     productName: 'Miami Cocktail Co. Paloma Spritz 250ml',
@@ -3935,6 +4160,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1236,
   },
   {
     productName: "Gordon's Pink Gin & Tonic 4x250ml",
@@ -3947,6 +4173,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1299,
   },
   {
     productName: "Gordon's Gin & Diet Tonic 4x250ml",
@@ -3959,6 +4186,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
+    productID: 1300,
   },
   {
     productName: 'Atopia Spiced Citrus 70cl',
@@ -3971,6 +4199,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1237,
   },
   {
     productName: "Ceder's Crisp Non-Alcoholic 50cl",
@@ -3983,6 +4212,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1238,
   },
   {
     productName: 'æcorn Aperitifs Non-Alcoholic Bitter 50cl',
@@ -3995,6 +4225,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1239,
   },
   {
     productName: 'Seedlip Spice 94 70cl',
@@ -4007,6 +4238,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1240,
   },
   {
     productName: 'æcorn Aperitifs Non-Alcoholic Dry 50cl',
@@ -4019,6 +4251,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1241,
   },
   {
     productName: 'Seedlip Garden 108 70cl',
@@ -4031,6 +4264,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1242,
   },
   {
     productName: 'Seedlip Grove 42 700ml',
@@ -4043,6 +4277,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1243,
   },
   {
     productName: 'æcorn Aperitifs Non-Alcoholic Aromatic 50cl',
@@ -4055,6 +4290,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1244,
   },
   {
     productName: 'Belvoir Botanical Juniper & Tonic 750ml',
@@ -4067,6 +4303,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1245,
   },
   {
     productName: 'Nogroni Non-Alcoholic Cocktail 20cl',
@@ -4079,6 +4316,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1246,
   },
   {
     productName: "Ceder's Pink Rose 50cl",
@@ -4091,6 +4329,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1247,
   },
   {
     productName: "Ceder's Classic Non-Alcoholic 50cl",
@@ -4103,6 +4342,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 1248,
   },
 ];
 

@@ -10,6 +10,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 1,
   },
   {
     productName: 'Brewdog Punk AF 4x330ml',
@@ -22,6 +23,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 2,
   },
   {
     productName: 'Big Drop Brewing Co Paradiso Citra IPA Alcohol Free 330ml',
@@ -34,6 +36,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 3,
   },
   {
     productName: 'Whitstable Bay Pale Ale Kent 500ml',
@@ -46,6 +49,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 4,
   },
   {
     productName: 'Old Speckled Hen 6x500ml',
@@ -58,6 +62,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 6,
   },
   {
     productName: "Fuller's Honey Dew Golden Ale 500ml",
@@ -70,6 +75,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 5,
   },
   {
     productName: 'Whitstable Bay Pale Ale Kent 4x500ml',
@@ -82,6 +88,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 1249,
   },
   {
     productName: 'St Austell Proper Job India Pale Ale 500ml',
@@ -94,6 +101,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 7,
   },
   {
     productName: 'Badger Hopping Hare 500ml',
@@ -106,6 +114,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 8,
   },
   {
     productName: 'Badger Brewery Golden Champion Ale 500ml',
@@ -118,6 +127,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 10,
   },
   {
     productName: 'Lagunitas IPA 355ml',
@@ -130,6 +140,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 9,
   },
   {
     productName: "Timothy Taylor's Landlord Pale Ale 500ml",
@@ -142,6 +153,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 11,
   },
   {
     productName: 'Greene King Abbot Reserve 500ml',
@@ -154,6 +166,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 12,
   },
   {
     productName: 'Badger Brewery Blandford Fly Ale 500ml',
@@ -166,6 +179,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 13,
   },
   {
     productName: 'Duchy from Waitrose India Pale Ale England 500ml',
@@ -178,6 +192,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 15,
   },
   {
     productName: 'Shipyard American IPA 500ml',
@@ -190,6 +205,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 14,
   },
   {
     productName: 'Brewdog Punk IPA Scotland 12x330ml',
@@ -202,6 +218,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 16,
   },
   {
     productName: "Sharp's Atlantic Pale Ale 500ml",
@@ -214,6 +231,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 20,
   },
   {
     productName: 'Spitfire Golden 500ml',
@@ -226,6 +244,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 17,
   },
   {
     productName: 'Brewdog Punk IPA 4x330ml',
@@ -238,6 +257,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 21,
   },
   {
     productName: 'Classic Ales 6x500ml',
@@ -250,6 +270,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 18,
   },
   {
     productName: 'Adnams Ghost Ship 4x440ml',
@@ -262,6 +283,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 19,
   },
   {
     productName: 'Hobgoblin IPA 500ml',
@@ -274,6 +296,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 22,
   },
   {
     productName: 'Badger Twice Tangled 500ml',
@@ -286,6 +309,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 26,
   },
   {
     productName: 'Adnams Ghost Ship England 500ml',
@@ -298,6 +322,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 27,
   },
   {
     productName: 'Greene King IPA 4x500ml',
@@ -310,6 +335,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 24,
   },
   {
     productName: 'St. Austell tribute 500ml',
@@ -322,6 +348,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 25,
   },
   {
     productName: 'Greene King Yardbird 500ml',
@@ -334,6 +361,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 23,
   },
   {
     productName: 'Beavertown Neck Oil London 4x330ml',
@@ -346,6 +374,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 28,
   },
   {
     productName: 'Badger The Cranborne Poacher 500ml',
@@ -358,6 +387,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 31,
   },
   {
     productName: 'Oakham Ales Citra Peterborough 500ml',
@@ -370,6 +400,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 30,
   },
   {
     productName: 'Gipsy Hill Hepcat Session IPA 4x330ml',
@@ -382,6 +413,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 29,
   },
   {
     productName: 'Greene King Ice Breaker Pale Ale 330ml',
@@ -394,6 +426,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 32,
   },
   {
     productName: 'Brewdog Mix 8x330ml',
@@ -406,6 +439,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 34,
   },
   {
     productName: 'Camden Pale Ale 4x330ml',
@@ -418,6 +452,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 33,
   },
   {
     productName: "Sharp's Wolf Rock England 500ml",
@@ -430,6 +465,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 39,
   },
   {
     productName: 'Greene King IPA 500ml',
@@ -442,6 +478,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 1250,
   },
   {
     productName: 'Sierra Nevada pale ale 355ml',
@@ -454,6 +491,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 38,
   },
   {
     productName: 'Tribute ale of Cornwall 4x500ml',
@@ -466,6 +504,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 40,
   },
   {
     productName: 'Einstök Icelandic White Ale 330ml',
@@ -478,6 +517,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 41,
   },
   {
     productName: "Fuller's Golden Pride Ale 500ml",
@@ -490,6 +530,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 37,
   },
   {
     productName: 'Beavertown Gamma Ray London 4x330ml',
@@ -502,6 +543,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 35,
   },
   {
     productName: 'Wychwood Brewery Gold Hobgoblin 500ml',
@@ -514,6 +556,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 42,
   },
   {
     productName: "St Peter's golden ale 500ml",
@@ -526,6 +569,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 36,
   },
   {
     productName: 'Little Creatures Pale Ale Australia 330ml',
@@ -538,6 +582,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 43,
   },
   {
     productName: 'Bath Ales Wild Hare Bath 500ml',
@@ -550,6 +595,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 44,
   },
   {
     productName: 'Erdinger Kristall Germany 0.5litre',
@@ -562,6 +608,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 51,
   },
   {
     productName: 'Camden Off Menu IPA 4x330ml',
@@ -574,6 +621,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 45,
   },
   {
     productName: 'Tiny Rebel Clwb Tropica Tropical IPA 4x330ml',
@@ -586,6 +634,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 49,
   },
   {
     productName: 'Goose Island IPA 4x330ml',
@@ -598,6 +647,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 46,
   },
   {
     productName: 'Einstök Icelandic Arctic Pale Ale 330ml',
@@ -610,6 +660,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 48,
   },
   {
     productName: 'Hopback Brewery Summer Lightning England 500ml',
@@ -622,6 +673,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 50,
   },
   {
     productName: 'Siren Lumina Session IPA 330ml',
@@ -634,6 +686,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 55,
   },
   {
     productName: 'Gipsy Hill Bandit Gluten Free 330ml',
@@ -646,6 +699,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 56,
   },
   {
     productName: 'Bath Ales Lansdown IPA 500ml',
@@ -658,6 +712,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 52,
   },
   {
     productName: 'Adnams Southwold Bitter 4x500ml',
@@ -670,6 +725,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 60,
   },
   {
     productName: 'Brew Dog Dead Pony Club Scotland 4x330ml',
@@ -682,6 +738,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 61,
   },
   {
     productName: "St Peter's selection pack 4x500ml",
@@ -694,6 +751,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 53,
   },
   {
     productName: 'Meantime Pale Ale 4x330ml',
@@ -706,6 +764,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 47,
   },
   {
     productName: 'Meantime Anytime IPA 4x330ml',
@@ -718,6 +777,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 54,
   },
   {
     productName: 'Toast Pale Ale 330ml',
@@ -730,6 +790,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 58,
   },
   {
     productName: 'Adnams Mosaic Pale Ale England 330ml',
@@ -742,6 +803,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 59,
   },
   {
     productName: 'Camden Pale Ale 330ml',
@@ -754,6 +816,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 1251,
   },
   {
     productName: 'Beavertown Neck Oil London 330ml',
@@ -766,6 +829,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 1252,
   },
   {
     productName: 'Saltaire blonde 500ml',
@@ -778,6 +842,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 64,
   },
   {
     productName: 'Fourpure Easy Peeler Citrus Session IPA 330ml',
@@ -790,6 +855,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 75,
   },
   {
     productName: 'Northern Monk Eternal Sunshine DDH IPA 440ml',
@@ -802,6 +868,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 65,
   },
   {
     productName: 'Beavertown Lupuloid IPA London 4x330ml',
@@ -814,6 +881,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 63,
   },
   {
     productName: 'Rooster Assassin Baby-Faced Assassin Yorkshire 330ml',
@@ -826,6 +894,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 74,
   },
   {
     productName: 'Brew Dog Punk IPA Scotland 330ml',
@@ -838,6 +907,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 62,
   },
   {
     productName: 'Small Beer Session Pale 350ml',
@@ -850,6 +920,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 68,
   },
   {
     productName: 'Dark Star American Pale Ale 500ml',
@@ -862,6 +933,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 70,
   },
   {
     productName: 'BrewDog Clockwork Tangerine Scotland 4x330ml',
@@ -874,6 +946,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 57,
   },
   {
     productName: 'Brewdog Elvis Juice 330ml',
@@ -886,6 +959,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 81,
   },
   {
     productName: 'And Union Friday IPA 330ml',
@@ -898,6 +972,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 66,
   },
   {
     productName: "McEwan's Champion Scotland 500ml",
@@ -910,6 +985,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 69,
   },
   {
     productName: 'Dark Star Revelation IPA 500ml',
@@ -922,6 +998,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 71,
   },
   {
     productName: 'Yeastie Boys Gunnamatta Earl Grey IPA 330ml',
@@ -934,6 +1011,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 82,
   },
   {
     productName: 'Beavertown Gamma Ray London 330ml',
@@ -946,6 +1024,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 1253,
   },
   {
     productName: 'Hitachino Nest White Ale Japan 330ml',
@@ -958,6 +1037,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 67,
   },
   {
     productName: 'Tiny Rebel Cali Pale Juicy Pale Ale 4x330ml',
@@ -970,6 +1050,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 77,
   },
   {
     productName: 'Northern Monk Faith Hazy Pale Ale 330ml',
@@ -982,6 +1063,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 84,
   },
   {
     productName: 'Purity mad goose pale ale 500ml',
@@ -994,6 +1076,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 76,
   },
   {
     productName: 'Thornbridge Jaipur 4x330ml',
@@ -1006,6 +1089,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 73,
   },
   {
     productName: 'Wild Beer Co Millionaire Somerset 330ml',
@@ -1018,6 +1102,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 80,
   },
   {
     productName: 'Adnams Ease Up I.P.A England 500ml',
@@ -1030,6 +1115,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 72,
   },
   {
     productName: 'Brewdog Triple Hazy 440ml',
@@ -1042,6 +1128,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 88,
   },
   {
     productName: 'Wiper and True Light Pale Ale Small Beer 440ml',
@@ -1054,6 +1141,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 79,
   },
   {
     productName: 'Sierra Nevada California IPA USA 355ml',
@@ -1066,6 +1154,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 78,
   },
   {
     productName: 'Uprising Treason West Coast IPA 330ml',
@@ -1078,6 +1167,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 83,
   },
   {
     productName: 'And Union Sunday Germany 4x330ml',
@@ -1090,6 +1180,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 89,
   },
   {
     productName: 'Fourpure Shapeshifter West Coast IPA 4x330ml',
@@ -1102,6 +1193,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 85,
   },
   {
     productName: 'Magic Rock Saucery Session IPA 330ml',
@@ -1114,6 +1206,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 95,
   },
   {
     productName: 'Northern Monk New World IPA 330ml',
@@ -1126,6 +1219,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 86,
   },
   {
     productName: 'Brooklyn Naranjito Pale Ale 355ml',
@@ -1138,6 +1232,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 87,
   },
   {
     productName: 'Black Sheep Pineapple Milkshake IPA Yorkshire 330ml',
@@ -1150,6 +1245,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 90,
   },
   {
     productName: 'Northern Monk Striding Edge North Yorkshire 440ml',
@@ -1162,6 +1258,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 91,
   },
   {
     productName: 'Crumbs Brewing Sourdough Pale Ale 500ml',
@@ -1174,6 +1271,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 94,
   },
   {
     productName: 'Beavertown Seasonal 330ml',
@@ -1186,6 +1284,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 103,
   },
   {
     productName: 'Wild Beer Co Pogo PA 330ml',
@@ -1198,6 +1297,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 92,
   },
   {
     productName: 'Uprising Wasteland Double IPA 330ml',
@@ -1210,6 +1310,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 96,
   },
   {
     productName: 'Camden Off Menu IPA 330ml',
@@ -1222,6 +1323,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 1254,
   },
   {
     productName: 'Tiny Rebel Clwb Tropica Non-Alc 330ml',
@@ -1234,6 +1336,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 99,
   },
   {
     productName: "City of Cambridge Hobson's Choice 500ml",
@@ -1246,6 +1349,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 100,
   },
   {
     productName: 'Wiper and True Sundance India Pale Ale 440ml',
@@ -1258,6 +1362,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 104,
   },
   {
     productName: 'Wiper and True Pale Ale Kaleidoscope 440ml',
@@ -1270,6 +1375,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 98,
   },
   {
     productName: 'Wild Beer Co Nebula IPA 330ml',
@@ -1282,6 +1388,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 97,
   },
   {
     productName: 'Beavertown Lupuloid IPA London 330ml',
@@ -1294,6 +1401,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 1255,
   },
   {
     productName: 'Siren Craft Brew Soundwave IPA 330ml',
@@ -1306,6 +1414,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 93,
   },
   {
     productName: 'Dark Star Session IPA 4x440ml',
@@ -1318,6 +1427,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 101,
   },
   {
     productName: 'Rooster Yankee 330ml',
@@ -1330,6 +1440,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 111,
   },
   {
     productName: 'Shipyard American Pale Ale 500ml',
@@ -1342,6 +1453,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 105,
   },
   {
     productName: 'Thornbridge Green Mountain 4x330ml',
@@ -1354,6 +1466,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 110,
   },
   {
     productName: 'Brooklyn Defender IPA 330ml',
@@ -1366,6 +1479,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 106,
   },
   {
     productName: 'Toast American Pale Ale 330ml',
@@ -1378,6 +1492,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 102,
   },
   {
     productName: 'London Brew Five Points Pale Ale 330ml',
@@ -1390,6 +1505,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 112,
   },
   {
     productName: 'Cascade pale ale 500ml',
@@ -1402,6 +1518,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 113,
   },
   {
     productName: 'The Wild Beer Co Quantic Session IPA 330ml',
@@ -1414,6 +1531,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 108,
   },
   {
     productName: 'Lost and Grounded Wanna Go to the Sun Pale Ale 440ml',
@@ -1426,6 +1544,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 109,
   },
   {
     productName: "Fuller's Wild River London 330ml",
@@ -1438,6 +1557,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 107,
   },
   {
     productName: 'London Pride Cans 4x500ml',
@@ -1450,6 +1570,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 114,
   },
   {
     productName: "Fuller's E S B London 500ml",
@@ -1462,6 +1583,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 115,
   },
   {
     productName: 'Old Speckled Hen England 500ml',
@@ -1474,6 +1596,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 116,
   },
   {
     productName: "Fuller's London Pride London 500ml",
@@ -1486,6 +1609,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 117,
   },
   {
     productName: 'Badger Fursty Ferret Ale England 500ml',
@@ -1498,6 +1622,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 118,
   },
   {
     productName: "Sharp's Doom Bar 500ml",
@@ -1510,6 +1635,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 121,
   },
   {
     productName: 'Greene King Abbot Ale 500ml',
@@ -1522,6 +1648,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 119,
   },
   {
     productName: 'Shepherd Neame Spitfire Kentish Ale 500ml',
@@ -1534,6 +1661,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 120,
   },
   {
     productName: 'London Pride Bottles 4x500ml',
@@ -1546,6 +1674,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 122,
   },
   {
     productName: 'Morland Old Golden Hen 4x500ml',
@@ -1558,6 +1687,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 124,
   },
   {
     productName: 'Greene King Abbot Ale England 4x500ml',
@@ -1570,6 +1700,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 123,
   },
   {
     productName: 'Old Golden Hen England 500ml',
@@ -1582,6 +1713,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 125,
   },
   {
     productName: 'Doom Bar 4x500ml',
@@ -1594,6 +1726,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 126,
   },
   {
     productName: 'Badger Tangle Foot England 500ml',
@@ -1606,6 +1739,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 127,
   },
   {
     productName: 'Doom Bar Amber Ale 6x500ml',
@@ -1618,6 +1752,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 128,
   },
   {
     productName: 'Wadworth 6X England 4x500ml',
@@ -1630,6 +1765,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 129,
   },
   {
     productName: "St Peter's Best Bitter 500ml",
@@ -1642,6 +1778,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 130,
   },
   {
     productName: 'Ruddles County English Ale 4x500ml',
@@ -1654,6 +1791,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 132,
   },
   {
     productName: 'Black Sheep Ale 500ml',
@@ -1666,6 +1804,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 131,
   },
   {
     productName: 'Bath Gem Ale 500ml',
@@ -1678,6 +1817,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 133,
   },
   {
     productName: 'Adnams Southwold Bitter England 500ml',
@@ -1690,6 +1830,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 134,
   },
   {
     productName: 'Duchy from Waitrose Golden Ale England 500ml',
@@ -1702,6 +1843,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 135,
   },
   {
     productName: 'Hogs Back Brewery T.E.A. 500ml',
@@ -1714,6 +1856,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 136,
   },
   {
     productName: "Woodforde's Wherry 500ml",
@@ -1726,6 +1869,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 138,
   },
   {
     productName: 'Duvel Golden Ale 330ml',
@@ -1738,6 +1882,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 137,
   },
   {
     productName: 'Purity UBU Ale England 500ml',
@@ -1750,6 +1895,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 140,
   },
   {
     productName: "Sharp's Sea Fury England 500ml",
@@ -1762,6 +1908,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 141,
   },
   {
     productName: 'Newcastle Brown Tadcaster 550ml',
@@ -1774,6 +1921,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 139,
   },
   {
     productName: 'Badger Brewery Tangle Foot 4x500ml',
@@ -1786,6 +1934,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 143,
   },
   {
     productName: 'Golden Ales 6x500ml',
@@ -1798,6 +1947,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 142,
   },
   {
     productName: 'The West Berkshire Brewery Good Old Boy Berkshire 500ml',
@@ -1810,6 +1960,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 144,
   },
   {
     productName: 'City of Cambridge Atom Splitter Beer 500ml',
@@ -1822,6 +1973,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 145,
   },
   {
     productName: 'Harviestoun Bitter & Twisted Scotland 500ml',
@@ -1834,6 +1986,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 147,
   },
   {
     productName: "Crumbs Brewing Bloomin' Amber Lager 500ml",
@@ -1846,6 +1999,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 146,
   },
   {
     productName: "S.t Peter's Ruby Red Ale 500ml",
@@ -1858,6 +2012,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 148,
   },
   {
     productName: "Fuller's London Porter 500ml",
@@ -1870,6 +2025,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 149,
   },
   {
     productName: 'Old Crafty Hen Oak Aged Vintage 500ml',
@@ -1882,6 +2038,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 150,
   },
   {
     productName: 'Guinness Draught 10x440ml',
@@ -1894,6 +2051,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 151,
   },
   {
     productName: "Fuller's 1845 Strong Ale 500ml",
@@ -1906,6 +2064,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 152,
   },
   {
     productName: 'Guinness Draught 4x440ml',
@@ -1918,6 +2077,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 1256,
   },
   {
     productName: 'Guinness Original 500ml',
@@ -1930,6 +2090,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 153,
   },
   {
     productName: 'Hobgoblin ruby beer 500ml',
@@ -1942,6 +2103,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 155,
   },
   {
     productName: 'Adnams Broadside England 500ml',
@@ -1954,6 +2116,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 154,
   },
   {
     productName: 'Titanic Plum Porter England 500ml',
@@ -1966,6 +2129,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 156,
   },
   {
     productName: 'Duchy from Waitrose Old Ruby Ale 500ml',
@@ -1978,6 +2142,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 157,
   },
   {
     productName: 'Erdinger Dunkel 0.5litre',
@@ -1990,6 +2155,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 158,
   },
   {
     productName: 'Horninglow Street Limited Edition Series 500ml',
@@ -2002,6 +2168,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 161,
   },
   {
     productName: 'The Rev.James Ale 500ml',
@@ -2014,6 +2181,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 160,
   },
   {
     productName: 'Guinness West Indies Porter 500ml',
@@ -2026,6 +2194,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 159,
   },
   {
     productName: 'Siren Broken Dream Nitro Breakfast Stout 440ml',
@@ -2038,6 +2207,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 162,
   },
   {
     productName: 'Alechemy Bring Out The Imp Stout 330ml',
@@ -2050,6 +2220,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 163,
   },
   {
     productName: 'Redchrch Old Ford Export Stout 330ml',
@@ -2062,6 +2233,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 165,
   },
   {
     productName: 'Wiper and True Milk Stout Milk Shake 440ml',
@@ -2074,6 +2246,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 166,
   },
   {
     productName: 'Dark Star Brewery Series Limited Edition Sussex 440ml',
@@ -2086,6 +2259,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 164,
   },
   {
     productName: 'City of Cambridge Parkers Piece 500ml',
@@ -2098,6 +2272,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Waitrose',
+    productID: 167,
   },
   {
     productName: 'San Miguel 0,0% Alcohol 4x33cl',
@@ -2110,6 +2285,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 168,
   },
   {
     productName: 'Peroni Libera 0% 4x330ml',
@@ -2122,6 +2298,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 169,
   },
   {
     productName: 'Brooklyn Special Effects 0.4% USA 330ml',
@@ -2134,6 +2311,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 170,
   },
   {
     productName: 'Heineken 0.0 6x330ml',
@@ -2146,6 +2324,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 171,
   },
   {
     productName: 'Erdinger Weissbräu Alkohol Frei Germany 50cl',
@@ -2158,6 +2337,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 179,
   },
   {
     productName: 'Peroni Nastro Azzurro 4x330ml',
@@ -2170,6 +2350,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 172,
   },
   {
     productName: 'Hop House 13 12x330ml',
@@ -2182,6 +2363,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 173,
   },
   {
     productName: 'Birra Moretti Zero Alcohol Free Italy 3x330ml',
@@ -2194,6 +2376,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 176,
   },
   {
     productName: 'Clausthaler Unfiltered Dry Hopped Lager Germany 330ml',
@@ -2206,6 +2389,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 174,
   },
   {
     productName: 'San Miguel 12x330ml',
@@ -2218,6 +2402,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 177,
   },
   {
     productName: 'Peroni 18x330ml',
@@ -2229,6 +2414,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 175,
   },
   {
     productName: 'Peroni Nastro Azzurro Gluten Free Italy 4x330ml',
@@ -2241,6 +2427,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 178,
   },
   {
     productName: 'San Miguel 4x330ml',
@@ -2253,6 +2440,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1257,
   },
   {
     productName: 'Birra Moretti Italy 12x330ml',
@@ -2265,6 +2453,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 180,
   },
   {
     productName: 'San Miguel 10x440ml',
@@ -2277,6 +2466,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1257,
   },
   {
     productName: 'Birra Moretti 6x330ml',
@@ -2289,6 +2479,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 182,
   },
   {
     productName: 'Peroni Nastro Azzurro Italy 12x33cl',
@@ -2301,6 +2492,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 183,
   },
   {
     productName: 'Stella Artois 4x440ml',
@@ -2313,6 +2505,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 185,
   },
   {
     productName: "Foster's Australia 10x440ml",
@@ -2325,6 +2518,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 184,
   },
   {
     productName: 'Heineken Holland 6x330ml',
@@ -2337,6 +2531,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 188,
   },
   {
     productName: 'Free Damm 0.0% 4x330ml',
@@ -2349,6 +2544,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 186,
   },
   {
     productName: 'Kronenbourg 1664 France 4x440ml',
@@ -2361,6 +2557,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 187,
   },
   {
     productName: 'Pilsner Urquell Czech Republic 6x330ml',
@@ -2373,6 +2570,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 189,
   },
   {
     productName: 'San Miguel Spain 4x440ml',
@@ -2385,6 +2583,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1258,
   },
   {
     productName: 'Budweiser 15x300ml',
@@ -2397,6 +2596,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 191,
   },
   {
     productName: 'Estrella Damm Spain 6x330ml',
@@ -2409,6 +2609,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 192,
   },
   {
     productName: 'Carlsberg Export Lager Beer Denmark 10x440ml',
@@ -2421,6 +2622,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 190,
   },
   {
     productName: 'Birra Moretti 660ml',
@@ -2433,6 +2635,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1259,
   },
   {
     productName: 'Heineken Holland 12x330ml',
@@ -2445,6 +2648,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1260,
   },
   {
     productName: 'Peroni 6x25cl',
@@ -2456,6 +2660,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1261,
   },
   {
     productName: 'Estrella Damm 12x330ml',
@@ -2468,6 +2673,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 193,
   },
   {
     productName: 'Corona Extra Premium Lager 18x330ml',
@@ -2480,6 +2686,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 194,
   },
   {
     productName: 'Corona Extra Premium Lager 12x33cl',
@@ -2492,6 +2699,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1262,
   },
   {
     productName: 'Gran Riserva Doppio Malto Italy 500ml',
@@ -2504,6 +2712,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 199,
   },
   {
     productName: 'Tiger beer 640ml',
@@ -2516,6 +2725,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 195,
   },
   {
     productName: 'Budweiser Budvar Czech lager 500ml',
@@ -2528,6 +2738,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 196,
   },
   {
     productName: 'Camden Hells 12x330ml',
@@ -2540,6 +2751,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 198,
   },
   {
     productName: 'Estrella Galicia 4x330ml',
@@ -2552,6 +2764,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 200,
   },
   {
     productName: 'Asahi Super Dry Japan 4x330ml',
@@ -2564,6 +2777,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 202,
   },
   {
     productName: 'Birra Moretti Italy 4x330ml',
@@ -2576,6 +2790,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1263,
   },
   {
     productName: 'Kronenbourg 1664 15x275ml',
@@ -2588,6 +2803,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 197,
   },
   {
     productName: 'Corona Extra Premium Lager 4x330ml',
@@ -2600,6 +2816,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1264,
   },
   {
     productName: 'Peroni Nastro Azzurro 6x330ml',
@@ -2612,6 +2829,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1265,
   },
   {
     productName: 'Staropramen Pilsner Lager 660ml',
@@ -2624,6 +2842,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 203,
   },
   {
     productName: 'San Miguel Spain 660ml',
@@ -2636,6 +2855,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1266,
   },
   {
     productName: 'Sol Mexican Beer 4x330ml',
@@ -2648,6 +2868,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 204,
   },
   {
     productName: 'Pilsner Urquell 500ml',
@@ -2660,6 +2881,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 201,
   },
   {
     productName: 'Carlsberg Pilsner 4x568ml',
@@ -2672,6 +2894,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 205,
   },
   {
     productName: 'Peroni Gran Riserva Puro Malto 500ml',
@@ -2684,6 +2907,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    roductID: 206,
   },
   {
     productName: 'Peroni Nastro Azzurro 620ml',
@@ -2696,6 +2920,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1267,
   },
   {
     productName: 'Estrella Damm Spain 4x330ml',
@@ -2708,6 +2933,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1268,
   },
   {
     productName: 'Asahi Super Dry 12x330ml',
@@ -2720,6 +2946,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 207,
   },
   {
     productName: 'Hop House 13 650ml',
@@ -2732,6 +2959,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1269,
   },
   {
     productName: 'St. Austell Brewery Korev Cornwall 500ml',
@@ -2744,6 +2972,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 209,
   },
   {
     productName: 'Innis & Gunn Lager 4x440ml',
@@ -2756,6 +2985,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 212,
   },
   {
     productName: 'Peroni Gran Riserva Rossa Italy 500ml',
@@ -2768,6 +2998,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 211,
   },
   {
     productName: 'Budweiser Budvar Czech Republic 6x330ml',
@@ -2780,6 +3011,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 208,
   },
   {
     productName: 'Estrella Damm 660ml',
@@ -2792,6 +3024,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1270,
   },
   {
     productName: 'Camden Hells 4x330ml',
@@ -2804,6 +3037,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1271,
   },
   {
     productName: 'Grolsch 450ml',
@@ -2815,6 +3049,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 210,
   },
   {
     productName: 'Staropramen Czech Republic 12x330ml',
@@ -2827,6 +3062,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 214,
   },
   {
     productName: 'Brooklyn Lager 12x330ml',
@@ -2839,6 +3075,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 213,
   },
   {
     productName: 'Camden Hells Lager 330ml',
@@ -2851,6 +3088,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 215,
   },
   {
     productName: 'Brooklyn Lager 4x330ml',
@@ -2863,6 +3101,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1272,
   },
   {
     productName: 'Hop House 13 4x330ml',
@@ -2875,6 +3114,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1273,
   },
   {
     productName: 'Jubel Beer Peach 330ml',
@@ -2887,6 +3127,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 223,
   },
   {
     productName: 'Camden Show Off Lager London 330ml',
@@ -2899,6 +3140,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 220,
   },
   {
     productName: 'Carlsberg Special Brew 4x440ml',
@@ -2911,6 +3153,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 216,
   },
   {
     productName: 'Small Beer Lager 350ml',
@@ -2923,6 +3166,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 219,
   },
   {
     productName: 'And Union Saturday Lager 4x330ml',
@@ -2935,6 +3179,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 217,
   },
   {
     productName: 'Curious Brew 33cl',
@@ -2947,6 +3192,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 222,
   },
   {
     productName: 'Singha 630ml',
@@ -2958,6 +3204,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 218,
   },
   {
     productName: 'Camden Hells Lager 660ml',
@@ -2970,6 +3217,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1274,
   },
   {
     productName: 'Anchor California Lager 355ml',
@@ -2982,6 +3230,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 221,
   },
   {
     productName: 'Camden Week Nite Any Day Lager 330ml',
@@ -2994,6 +3243,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 226,
   },
   {
     productName: 'Meantime London Lager London 330ml',
@@ -3006,6 +3256,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 224,
   },
   {
     productName: 'Celia Premium Czech Lager 330ml',
@@ -3018,6 +3269,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 228,
   },
   {
     productName: 'Lost and Grounded Keller Pils Bristol 440ml',
@@ -3030,6 +3282,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 227,
   },
   {
     productName: 'Meantime Easytime Lager 330ml',
@@ -3042,6 +3295,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 229,
   },
   {
     productName: 'And Union Neu Black Lager 330ml',
@@ -3054,6 +3308,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 225,
   },
   {
     productName: 'Cobra 620ml',
@@ -3065,6 +3320,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
+    productID: 1275,
   },
   {
     productName: 'Thatchers Haze Cloudy Cider 4x440ml',
@@ -3077,6 +3333,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 230,
   },
   {
     productName: 'Orchard View Apple Cider 500ml',
@@ -3089,6 +3346,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 231,
   },
   {
     productName: 'Waitrose traditional farmhouse cider dry 2litre',
@@ -3101,6 +3359,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 232,
   },
   {
     productName: 'Thatchers Gold Somerset 4x440ml',
@@ -3113,6 +3372,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 233,
   },
   {
     productName: "Henney's Dry Cider 500ml",
@@ -3125,6 +3385,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 234,
   },
   {
     productName: 'Henry Westons Vintage Cider 500ml',
@@ -3137,6 +3398,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 235,
   },
   {
     productName: 'No.1 English Vintage Cider Herefordshire 500ml',
@@ -3149,6 +3411,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 236,
   },
   {
     productName: 'Aspall Premier Cru Sparkling Cyder 500ml',
@@ -3161,6 +3424,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 237,
   },
   {
     productName: 'Waitrose Apple Cider 500ml',
@@ -3173,6 +3437,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 238,
   },
   {
     productName: 'Thatchers Rascal Cider Somerset 500ml',
@@ -3185,6 +3450,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 239,
   },
   {
     productName: 'Stowford Press Westons Cider 4x440ml',
@@ -3197,6 +3463,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 240,
   },
   {
     productName: 'Waitrose Vintage Cider 500ml',
@@ -3209,6 +3476,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 241,
   },
   {
     productName: 'Wyld Wood Still Cider 3litre',
@@ -3221,6 +3489,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 242,
   },
   {
     productName: 'Aspall Suffolk Draught Cyder 500ml',
@@ -3233,6 +3502,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 243,
   },
   {
     productName: 'Dunkertons Black Fox Cider 500ml',
@@ -3245,6 +3515,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 244,
   },
   {
     productName: 'Thatchers Katy Cider 500ml',
@@ -3257,6 +3528,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 246,
   },
   {
     productName: 'Cornish Orchards Cornish Gold Cider England 500ml',
@@ -3269,6 +3541,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 247,
   },
   {
     productName: 'Strongbow Sparkling Cider Herefordshire 10x440ml',
@@ -3281,6 +3554,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 245,
   },
   {
     productName: 'Strongbow Cider 4x440ml',
@@ -3293,6 +3567,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 248,
   },
   {
     productName: 'Stowford Press Sparkling Cider Herefordshire 500ml',
@@ -3305,6 +3580,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 249,
   },
   {
     productName: 'Aspall Suffolk Cyder 500ml',
@@ -3317,6 +3593,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 250,
   },
   {
     productName: "Thatcher's Vintage Cider 500ml",
@@ -3329,6 +3606,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 251,
   },
   {
     productName: 'Sxollie Golden Delicious South Africa 330ml',
@@ -3341,6 +3619,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 252,
   },
   {
     productName: "Waitrose Leckford Cox's Apple Vintage Cider 500ml",
@@ -3353,6 +3632,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 253,
   },
   {
     productName: 'Galipette Brut Cider 330ml',
@@ -3365,6 +3645,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 254,
   },
   {
     productName: 'Cornish Orchards Dry Cider Cornwall 500ml',
@@ -3377,6 +3658,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 255,
   },
   {
     productName: 'Orchard Pig Reveller England 50cl',
@@ -3389,6 +3671,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 257,
   },
   {
     productName: 'Aspall Premier Cru Suffolk 6x500ml',
@@ -3401,6 +3684,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 256,
   },
   {
     productName: 'Henry Westons Organic Cider 500ml',
@@ -3413,6 +3697,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 258,
   },
   {
     productName: 'Bulmers Original Cider 500ml',
@@ -3425,6 +3710,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 259,
   },
   {
     productName: "Sheppy's 200 Special Edition Cider 500ml",
@@ -3437,6 +3723,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 260,
   },
   {
     productName: 'Westons Old Rosie Herefordshire 2litre',
@@ -3449,6 +3736,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 262,
   },
   {
     productName: 'Caple Road Dry Cider Herefordshire 330ml',
@@ -3461,6 +3749,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 261,
   },
   {
     productName: 'Orchard Pig Truffler Cider Somerset 50cl',
@@ -3473,6 +3762,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 265,
   },
   {
     productName: "Sheppy's Original Cloudy Cider Somerset 500ml",
@@ -3485,6 +3775,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 263,
   },
   {
     productName: 'Henry Westons Cloudy Vintage Herefordshire 500ml',
@@ -3497,6 +3788,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 264,
   },
   {
     productName: 'Hawkes Urban Orchard 4x330ml',
@@ -3509,6 +3801,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 266,
   },
   {
     productName: "Cidersmiths Harry Master' Jersey 500ml",
@@ -3521,6 +3814,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 268,
   },
   {
     productName: "Henney's Autumn Gold 500ml",
@@ -3533,6 +3827,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 267,
   },
   {
     productName: 'Curious Apple Cider Kent 33cl',
@@ -3545,6 +3840,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 269,
   },
   {
     productName: 'Aspall Imperial Vintage Suffolk Cyder 500ml',
@@ -3557,6 +3853,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 270,
   },
   {
     productName: 'Kopparberg Alcohol Free with Mixed Fruit 500ml',
@@ -3569,6 +3866,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 271,
   },
   {
     productName: 'Thatchers Rosé Cider 500ml',
@@ -3581,6 +3879,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 272,
   },
   {
     productName: 'Strongbow Dark Fruit 10x440ml',
@@ -3593,6 +3892,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 278,
   },
   {
     productName: 'Kopparberg Mixed Fruit 10x330ml',
@@ -3605,6 +3905,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 273,
   },
   {
     productName: 'Rekorderlig Botanicals Rhubarb, Lemon & Mint Sweden 330ml',
@@ -3617,6 +3918,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 274,
   },
   {
     productName: 'No.1 English Vintage Perry Herefordshire 500ml',
@@ -3629,6 +3931,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 277,
   },
   {
     productName: 'Waitrose Pear Cider Herefordshire 500ml',
@@ -3641,6 +3944,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 275,
   },
   {
     productName: 'Sxollie Cripps Pink Cider 330ml',
@@ -3653,6 +3957,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 276,
   },
   {
     productName: 'Rekorderlig Botanicals Blackberry & Violet 330ml',
@@ -3665,6 +3970,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 279,
   },
   {
     productName: 'Waitrose Elderflower Cider 500ml',
@@ -3677,6 +3983,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 280,
   },
   {
     productName: 'Rekorderlig Botanicals Peach & Basil 330ml',
@@ -3689,6 +3996,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 281,
   },
   {
     productName: 'Old Mout Cider Pineapple & Raspberry 500ml',
@@ -3701,6 +4009,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 283,
   },
   {
     productName: 'Kopparberg mixed fruit 4x330ml',
@@ -3713,6 +4022,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 284,
   },
   {
     productName: 'Old Mout Cider Kiwi & Lime 500ml',
@@ -3725,6 +4035,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 282,
   },
   {
     productName: 'Kopparberg Pear Sparkling Pear Cider 500ml',
@@ -3737,6 +4048,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 285,
   },
   {
     productName:
@@ -3750,6 +4062,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 286,
   },
   {
     productName: 'Rekorderlig Strawberry & Lime Sparkling Cider Sweden 500ml',
@@ -3762,6 +4075,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 287,
   },
   {
     productName: "Rosie's Pig Rhubarb Cloudy Cider Herefordshire 4x330ml",
@@ -3774,6 +4088,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 288,
   },
   {
     productName: 'Kopparberg Premium Cider With Mixed Fruits 500ml',
@@ -3786,6 +4101,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 289,
   },
   {
     productName: 'Rekorderlig Mango & Raspberry Sweden 500ml',
@@ -3798,6 +4114,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 290,
   },
   {
     productName: 'Kopparberg Strawberry & Lime Cider Sweden 4x330ml',
@@ -3810,6 +4127,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 292,
   },
   {
     productName: 'Old Mout Cider Kiwi & Lime New Zealand 10x330ml',
@@ -3822,6 +4140,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 291,
   },
   {
     productName: 'Pip & Wild Blackberry & Nettle Suffolk 330ml',
@@ -3834,6 +4153,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 295,
   },
   {
     productName: 'Rekorderlig Botanicals Rhubarb, Lemon & Mint 4x330ml',
@@ -3846,6 +4166,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 296,
   },
   {
     productName: 'Stowford Press Mixed Berries 4x440ml',
@@ -3858,6 +4179,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 293,
   },
   {
     productName: 'Cornish Orchards Blush Cider England 500ml',
@@ -3870,6 +4192,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 294,
   },
   {
     productName: 'Henry Westons Vintage Rosé Cider 500ml',
@@ -3882,6 +4205,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 298,
   },
   {
     productName: 'Pip & Wild Strawberry & Rose 330ml',
@@ -3894,6 +4218,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Waitrose',
+    productID: 297,
   },
   {
     productName: 'BrewDog Nanny State 4x330ml',
@@ -3906,6 +4231,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 299,
   },
   {
     productName: 'Doom Bar Zero 0% 500ml',
@@ -3918,6 +4244,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 300,
   },
   {
     productName: 'Big Drop Brewing Co Galactic Milk Stout Alcohol Free 330ml',
@@ -3930,6 +4257,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'low alcohol',
     supermarket: 'Waitrose',
+    productID: 301,
   },
 ];
 
