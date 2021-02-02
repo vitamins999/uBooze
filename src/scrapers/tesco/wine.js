@@ -1,5 +1,6 @@
 const tescoScraper = require('../utils/tescoScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Wine URLS
 
@@ -166,5 +167,13 @@ const tescoScrapeWine = async () => {
 
   return wine;
 };
+
+const main = async () => {
+  const wine = await tescoScrapeWine();
+  const wineJSON = JSON.stringify(wine);
+  fs.writeFileSync('src/output/tesco-wine-final.json', wineJSON);
+};
+
+main();
 
 module.exports = tescoScrapeWine;

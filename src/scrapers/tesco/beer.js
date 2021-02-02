@@ -1,5 +1,6 @@
 const tescoScraper = require('../utils/tescoScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Beer URLs
 
@@ -123,6 +124,14 @@ const tescoScrapeBeer = async () => {
 
   return beer;
 };
+
+const main = async () => {
+  const beer = await tescoScrapeBeer();
+  const beerJSON = JSON.stringify(beer);
+  fs.writeFileSync('src/output/tesco-beer-final.json', beerJSON);
+};
+
+main();
 
 module.exports = tescoScrapeBeer;
 

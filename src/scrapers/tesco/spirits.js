@@ -1,5 +1,6 @@
 const tescoScraper = require('../utils/tescoScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Spirits URLS
 
@@ -134,11 +135,11 @@ const tescoScrapeSpirits = async () => {
   ];
 
   // Low alcohol
-  const spiritsLowAlcohol = await tescoScraper(
-    spiritsLowAlcoholURL,
-    'spirits',
-    'low alcohol'
-  );
+  // const spiritsLowAlcohol = await tescoScraper(
+  //   spiritsLowAlcoholURL,
+  //   'spirits',
+  //   'low alcohol'
+  // );
 
   let spirits = [
     ...spiritsGin,
@@ -148,7 +149,7 @@ const tescoScrapeSpirits = async () => {
     ...spiritsBrandyCognac,
     ...spiritsTequilaLiqueurs,
     ...spiritsPremix,
-    ...spiritsLowAlcohol,
+    // ...spiritsLowAlcohol,
   ];
 
   spirits = removeDuplicates(spirits);
@@ -157,5 +158,13 @@ const tescoScrapeSpirits = async () => {
 
   return spirits;
 };
+
+const main = async () => {
+  const spirits = await tescoScrapeSpirits();
+  const spiritsJSON = JSON.stringify(spirits);
+  fs.writeFileSync('src/output/tesco-spirits-final.json', spiritsJSON);
+};
+
+main();
 
 module.exports = tescoScrapeSpirits;
