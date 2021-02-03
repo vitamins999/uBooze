@@ -582,20 +582,20 @@ const linkTableScrapeWine = async () => {
   return wine;
 };
 
-const main = async () => {
-  const beer = await linkTableScrapeBeer();
-  const beerJSON = JSON.stringify(beer);
-  fs.writeFileSync('src/output/seed-beer.json', beerJSON);
+// const main = async () => {
+//   const beer = await linkTableScrapeBeer();
+//   const beerJSON = JSON.stringify(beer);
+//   fs.writeFileSync('src/output/seed-beer.json', beerJSON);
 
-  const wine = await linkTableScrapeWine();
-  const wineJSON = JSON.stringify(wine);
-  fs.writeFileSync('src/output/seed-wine.json', wineJSON);
+//   const wine = await linkTableScrapeWine();
+//   const wineJSON = JSON.stringify(wine);
+//   fs.writeFileSync('src/output/seed-wine.json', wineJSON);
 
-  const spirits = await linkTableScrapeSpirits();
-  const spiritsJSON = JSON.stringify(spirits);
-  fs.writeFileSync('src/output/seed-spirits.json', spiritsJSON);
+//   const spirits = await linkTableScrapeSpirits();
+//   const spiritsJSON = JSON.stringify(spirits);
+//   fs.writeFileSync('src/output/seed-spirits.json', spiritsJSON);
 
-  console.log('Finished!');
-};
+//   console.log('Finished!');
+// };
 
-main();
+// main();

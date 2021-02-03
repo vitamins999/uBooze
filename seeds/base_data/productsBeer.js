@@ -2480,7 +2480,7 @@ const productsBeer = [
     drinkSubtype: 'lager',
   },
   {
-    productID: 1257,
+    productID: 2467,
     productName: 'San Miguel',
     displayName: 'San Miguel',
     volume: '10x440ml',
@@ -3848,7 +3848,7 @@ const productsBeer = [
     drinkSubtype: 'ale',
   },
   {
-    productID: 1434,
+    productID: 2468,
     productName: 'Newcastle Brown',
     displayName: 'Newcastle Brown',
     volume: '4x500ml',
@@ -3856,7 +3856,7 @@ const productsBeer = [
     drinkSubtype: 'ale',
   },
   {
-    productID: 1435,
+    productID: 2469,
     productName: 'Shandy Carib Ginger Beer',
     displayName: 'Shandy Carib Ginger Beer',
     volume: '275ml',

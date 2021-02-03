@@ -67,11 +67,12 @@ const waitroseScrapeBeer = async () => {
   return beer;
 };
 
-const main = async () => {
-  const beer = await waitroseScrapeBeer();
-  const beerJSON = JSON.stringify(beer);
-  fs.writeFileSync('src/output/waitrose-beer-final.json', beerJSON);
-};
+// const main = async () => {
+//   const beer = await waitroseScrapeBeer();
+//   const beerJSON = JSON.stringify(beer);
+//   fs.writeFileSync('src/output/waitrose-beer-final.json', beerJSON);
+// };
 
-main();
+// main();
+
 module.exports = waitroseScrapeBeer;

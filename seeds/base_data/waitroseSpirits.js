@@ -166,7 +166,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
-    productID: 1284,
+    productID: 2467,
   },
   {
     productName: "Gordon's Gin & Tonic 250ml",
@@ -608,7 +608,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Waitrose',
-    productID: 1285,
+    productID: 2468,
   },
   {
     productName: 'Bathtub Gin 70cl',
@@ -725,7 +725,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
-    productID: 1286,
+    productID: 2469,
   },
   {
     productName: 'Jameson Irish Whiskey 700ml',
@@ -764,7 +764,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
-    productID: 1287,
+    productID: 2470,
   },
   {
     productName: 'No.1 Woodford Reserve Bourbon Whiskey 70cl',
@@ -803,7 +803,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
-    productID: 1288,
+    productID: 2471,
   },
   {
     productName: 'Bushmills Original Irish Whiskey 70cl',
@@ -1355,7 +1355,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
-    productID: 1289,
+    productID: 2472,
   },
   {
     productName: 'Glenfiddich Unique Solera Reserve 15 Years 700ml',
@@ -1447,7 +1447,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Waitrose',
-    productID: 1290,
+    productID: 2473,
   },
   {
     productName: 'Glenfiddich Fire & Cane Single Malt Whisky 70cl',
@@ -2229,7 +2229,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
-    productID: 1291,
+    productID: 2474,
   },
   {
     productName: 'Stolichnaya Vodka 70cl',
@@ -2306,7 +2306,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Waitrose',
-    productID: 1292,
+    productID: 2775,
   },
   {
     productName: 'Smirnoff Vodka & Cranberry 250ml',
@@ -3151,7 +3151,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
-    productID: 1293,
+    productID: 2476,
   },
   {
     productName: 'Three Barrels French Brandy 70cl',
@@ -3229,7 +3229,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Waitrose',
-    productID: 1294,
+    productID: 2477,
   },
   {
     productName: 'Torres 10 Gran Reserva 70cl',
@@ -4108,7 +4108,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
-    productID: 1295,
+    productID: 2478,
   },
   {
     productName: "Gordon's Gin & Tonic 4x250ml",
@@ -4121,7 +4121,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
-    productID: 1296,
+    productID: 2479,
   },
   {
     productName: "Gordon's Pink Gin & Tonic 10x250ml",
@@ -4134,7 +4134,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
-    productID: 1297,
+    productID: 2480,
   },
   {
     productName: "Gordon's Gin & Tonic 10x250ml",
@@ -4147,7 +4147,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
-    productID: 1298,
+    productID: 2481,
   },
   {
     productName: 'Miami Cocktail Co. Paloma Spritz 250ml',
@@ -4173,7 +4173,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
-    productID: 1299,
+    productID: 2482,
   },
   {
     productName: "Gordon's Gin & Diet Tonic 4x250ml",
@@ -4186,7 +4186,7 @@ const waitroseSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Waitrose',
-    productID: 1300,
+    productID: 2483,
   },
   {
     productName: 'Atopia Spiced Citrus 70cl',

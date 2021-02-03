@@ -1089,6 +1089,7 @@ const tescoBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Tesco',
+    productID: 1343,
   },
   {
     productName: 'Tyskie Polish Lager 650Ml',
@@ -1820,7 +1821,7 @@ const tescoBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Tesco',
-    roductID: 1394,
+    productID: 1394,
   },
   {
     productName: 'Greene King Ipa 500Ml',
@@ -2768,7 +2769,7 @@ const tescoBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Tesco',
-    productID: 1434,
+    productID: 3001,
   },
   {
     productName: 'Shandy Carib Ginger Beer 275Ml',
@@ -2780,7 +2781,7 @@ const tescoBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Tesco',
-    productID: 1435,
+    productID: 3002,
   },
   {
     productName: 'Old Speckled Hen 4 X 500Ml Cans',
@@ -3224,6 +3225,7 @@ const tescoBeer = [
     drinkType: 'beer',
     drinkSubtype: 'craft',
     supermarket: 'Tesco',
+    productID: 1462,
   },
   {
     productName: 'Sierra Nevada Hazy Little Thing Ipa 355Ml',
@@ -4951,6 +4953,7 @@ const tescoBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Tesco',
+    productID: 1578,
   },
   {
     productName: 'Champions Cider Strawberry & Rhubarb 500Ml',

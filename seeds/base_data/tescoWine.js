@@ -695,7 +695,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'red',
     supermarket: 'Tesco',
-    productID: 913,
+    productID: 3003,
   },
   {
     productName: 'J P Chenet Merlot 75Cl',
@@ -1807,6 +1807,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'red',
     supermarket: 'Tesco',
+    productID: 3004,
   },
   {
     productName: 'Tesco Finest Barolo Docg 75Cl',
@@ -2371,6 +2372,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'red',
     supermarket: 'Tesco',
+    productID: 1774,
   },
   {
     productName: 'The Magic Box Spectular Shiraz 750Ml',
@@ -2898,6 +2900,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'white',
     supermarket: 'Tesco',
+    productID: 1817,
   },
   {
     productName: 'Oyster Bay Sauvignon Blanc 75Cl',
@@ -4248,7 +4251,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'white',
     supermarket: 'Tesco',
-    productID: 586,
+    productID: 3005,
   },
   {
     productName: 'Hardys Alcohol Free Chardonnay 75Cl',
@@ -5215,6 +5218,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'rose',
     supermarket: 'Tesco',
+    productID: 1996,
   },
   {
     productName: 'Tesco Italian Rose Blush Wine 2.25L',
@@ -5563,6 +5567,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'rose',
     supermarket: 'Tesco',
+    productID: 2022,
   },
   {
     productName: 'Tesco Low Alcohol Garnacha Rose 75Cl',
@@ -6093,7 +6098,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'sparkling',
     supermarket: 'Tesco',
-    productID: 2065,
+    productID: 3006,
   },
   {
     productName: 'Nicolas Feuillatte Brut Champagne 75Cl',
@@ -6273,7 +6278,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'sparkling',
     supermarket: 'Tesco',
-    roductID: 2079,
+    productID: 2079,
   },
   {
     productName: 'Tesco Finest Premier Cru Brut Champagne 75Cl',
@@ -7476,6 +7481,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'small',
     supermarket: 'Tesco',
+    productID: 2164,
   },
   {
     productName: 'Hun Rose 250Ml 13% Volume',
@@ -7512,6 +7518,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'low alcohol',
     supermarket: 'Tesco',
+    productID: 2167,
   },
 ];
 

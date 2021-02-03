@@ -2466,7 +2466,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
-    productID: 1257,
+    productID: 3000,
   },
   {
     productName: 'Birra Moretti 6x330ml',
@@ -2907,7 +2907,7 @@ const waitroseBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Waitrose',
-    roductID: 206,
+    productID: 206,
   },
   {
     productName: 'Peroni Nastro Azzurro 620ml',

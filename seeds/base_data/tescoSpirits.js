@@ -1113,7 +1113,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Tesco',
-    productID: 1290,
+    productID: 2473,
   },
   {
     productName: 'Tamnavulin Single Malt Sherry Cask 1L',
@@ -1533,7 +1533,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Tesco',
-    productID: 1288,
+    productID: 2471,
   },
   {
     productName: 'The Balvenie 12 Year Old Doublewood Single Malt Whisky 70Cl',
@@ -2204,7 +2204,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Tesco',
-    productID: 1286,
+    productID: 2469,
   },
   {
     productName: 'Glenmorangie The Original 35cl Single Malt Scotch Whisky',
@@ -2756,7 +2756,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Tesco',
-    roductID: 1147,
+    productID: 1147,
   },
   {
     productName: 'Flor De Cana Clasico 5 Year Old Dark Golden Rum 70Cl',
@@ -2840,7 +2840,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'rum',
     supermarket: 'Tesco',
-    roductID: 2318,
+    productID: 2318,
   },
   {
     productName: 'Captain Morgan Tiki Mango & Pineapple 700Ml',
@@ -3572,7 +3572,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Tesco',
-    roductID: 1180,
+    productID: 1180,
   },
   {
     productName: 'Fireball Liqueur 70Cl',
@@ -3848,7 +3848,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Tesco',
-    productID: 1295,
+    productID: 2478,
   },
   {
     productName: 'Tesco Low Alcohol Reduced Calorie G & T 4X250ml',
@@ -3872,7 +3872,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Tesco',
-    productID: 1297,
+    productID: 2480,
   },
   {
     productName: "Gordon's Premium Pink Gin & Tonic Premix 4 X 250Ml",
@@ -3884,7 +3884,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Tesco',
-    productID: 1299,
+    productID: 2482,
   },
   {
     productName: "Pimm's & Lemonade 10 X 250Ml",
@@ -4428,7 +4428,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Tesco',
-    productID: 1298,
+    productID: 2481,
   },
   {
     productName: 'Fruiss Creative Pure Cane Sugar Syrup 70Cl',
@@ -4488,7 +4488,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Tesco',
-    productID: 1300,
+    productID: 2483,
   },
   {
     productName: 'Wkd Blue 4X275ml',
@@ -4741,7 +4741,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'premix',
     supermarket: 'Tesco',
-    roductID: 2435,
+    productID: 2435,
   },
   {
     productName: 'Jack Daniels & Ginger 330Ml',

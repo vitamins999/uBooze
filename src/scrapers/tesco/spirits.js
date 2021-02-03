@@ -159,12 +159,12 @@ const tescoScrapeSpirits = async () => {
   return spirits;
 };
 
-const main = async () => {
-  const spirits = await tescoScrapeSpirits();
-  const spiritsJSON = JSON.stringify(spirits);
-  fs.writeFileSync('src/output/tesco-spirits-final.json', spiritsJSON);
-};
+// const main = async () => {
+//   const spirits = await tescoScrapeSpirits();
+//   const spiritsJSON = JSON.stringify(spirits);
+//   fs.writeFileSync('src/output/tesco-spirits-final.json', spiritsJSON);
+// };
 
-main();
+// main();
 
 module.exports = tescoScrapeSpirits;

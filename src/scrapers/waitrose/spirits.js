@@ -138,12 +138,12 @@ const waitroseScrapeSpirits = async () => {
   return spirits;
 };
 
-const main = async () => {
-  const spirits = await waitroseScrapeSpirits();
-  const spiritsJSON = JSON.stringify(spirits);
-  fs.writeFileSync('src/output/waitrose-spirits-final.json', spiritsJSON);
-};
+// const main = async () => {
+//   const spirits = await waitroseScrapeSpirits();
+//   const spiritsJSON = JSON.stringify(spirits);
+//   fs.writeFileSync('src/output/waitrose-spirits-final.json', spiritsJSON);
+// };
 
-main();
+// main();
 
 module.exports = waitroseScrapeSpirits;

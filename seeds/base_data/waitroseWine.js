@@ -4601,7 +4601,7 @@ const waitroseWine = [
     drinkType: 'wine',
     drinkSubtype: 'rose',
     supermarket: 'Waitrose',
-    productID: 643,
+    productID: 3007,
   },
   {
     productName: 'Mirabeau Pure Rosé Provence 75cl',
@@ -7529,6 +7529,7 @@ const waitroseWine = [
       'https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_844966_BP_3.jpg',
     drinkType: 'wine',
     drinkSubtype: 'small',
+    supermarket: 'Waitrose',
     productID: 908,
   },
   {

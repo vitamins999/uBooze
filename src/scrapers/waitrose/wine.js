@@ -299,12 +299,12 @@ const waitroseScrapeWine = async () => {
   return wine;
 };
 
-const main = async () => {
-  const wine = await waitroseScrapeWine();
-  const wineJSON = JSON.stringify(wine);
-  fs.writeFileSync('src/output/waitrose-wine-final.json', wineJSON);
-};
+// const main = async () => {
+//   const wine = await waitroseScrapeWine();
+//   const wineJSON = JSON.stringify(wine);
+//   fs.writeFileSync('src/output/waitrose-wine-final.json', wineJSON);
+// };
 
-main();
+// main();
 
 module.exports = waitroseScrapeWine;

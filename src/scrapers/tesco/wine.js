@@ -168,12 +168,12 @@ const tescoScrapeWine = async () => {
   return wine;
 };
 
-const main = async () => {
-  const wine = await tescoScrapeWine();
-  const wineJSON = JSON.stringify(wine);
-  fs.writeFileSync('src/output/tesco-wine-final.json', wineJSON);
-};
+// const main = async () => {
+//   const wine = await tescoScrapeWine();
+//   const wineJSON = JSON.stringify(wine);
+//   fs.writeFileSync('src/output/tesco-wine-final.json', wineJSON);
+// };
 
-main();
+// main();
 
 module.exports = tescoScrapeWine;
