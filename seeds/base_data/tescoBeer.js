@@ -2133,7 +2133,7 @@ const tescoBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Tesco',
-    productID: 1403,
+    productID: 18,
   },
   {
     productName: 'Adnams Southwold Ghost Ship Ctrus Pale Ale 4X330ml',

@@ -1,5 +1,6 @@
 const sainsburysScraper = require('../utils/sainsburysScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Beer URLs
 
@@ -79,5 +80,13 @@ const sainsburysScrapeBeer = async () => {
   console.log('Beer scraped!');
   return beer;
 };
+
+const mainScrape = async () => {
+  const beer = await sainsburysScrapeBeer();
+  const beerJSON = JSON.stringify(beer);
+  fs.writeFileSync('src/output/sainsburys-beer-final.json', beerJSON);
+};
+
+mainScrape();
 
 module.exports = sainsburysScrapeBeer;

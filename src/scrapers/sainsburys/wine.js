@@ -1,5 +1,6 @@
 const sainsburysScraper = require('../utils/sainsburysScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Wine URLS
 
@@ -98,5 +99,13 @@ const sainsburysScrapeWine = async () => {
   console.log('Wine scraped!');
   return wine;
 };
+
+const mainScrape = async () => {
+  const wine = await sainsburysScrapeWine();
+  const wineJSON = JSON.stringify(wine);
+  fs.writeFileSync('src/output/sainsburys-wine-final.json', wineJSON);
+};
+
+mainScrape();
 
 module.exports = sainsburysScrapeWine;

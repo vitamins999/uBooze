@@ -7193,7 +7193,7 @@ const tescoWine = [
     drinkType: 'wine',
     drinkSubtype: 'fortified and vermouth',
     supermarket: 'Tesco',
-    productID: 2143,
+    productID: 856,
   },
   {
     productName: 'Harveys Bristol Cream Sherry 75Cl',

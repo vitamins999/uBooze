@@ -1,5 +1,6 @@
 const sainsburysScraper = require('../utils/sainsburysScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Spirits URLs
 
@@ -117,5 +118,13 @@ const sainsburysScrapeSpirits = async () => {
   console.log('Spirits scraped!');
   return spirits;
 };
+
+const mainScrape = async () => {
+  const spirits = await sainsburysScrapeSpirits();
+  const spiritsJSON = JSON.stringify(spirits);
+  fs.writeFileSync('src/output/sainsburys-spirits-final.json', spiritsJSON);
+};
+
+mainScrape();
 
 module.exports = sainsburysScrapeSpirits;
