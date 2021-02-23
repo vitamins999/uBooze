@@ -1,5 +1,6 @@
 const icelandScraper = require('../utils/icelandScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Spirits URLs
 
@@ -57,5 +58,13 @@ const icelandScrapeSpirits = async () => {
 
   return spirits;
 };
+
+const mainScrape = async () => {
+  const spirits = await icelandScrapeSpirits();
+  const spiritsJSON = JSON.stringify(spirits);
+  fs.writeFileSync('src/output/iceland-spirits-final.json', spiritsJSON);
+};
+
+mainScrape();
 
 module.exports = icelandScrapeSpirits;

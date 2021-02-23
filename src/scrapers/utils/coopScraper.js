@@ -27,17 +27,24 @@ const coopScraper = async (url, drinkType, drinkSubtype, scrollNum = 1) => {
       await scrollPageToBottom(page, 250, 300);
     }
 
+    await page.screenshot({ path: './screenshot.jpg', type: 'jpeg' });
+
     const html = await page.content();
 
     const $ = cheerio.load(html);
 
     $('article').each((i, el) => {
-      const productName = $(el).find('h1').text().trim();
+      // console.log($(el).find('h2').text().trim());
+      const productName = $(el).find('h2').text().trim();
 
-      const priceText = $(el).find('.product-card--info--price').text().trim();
+      const priceText = $(el).find('.product-card--price').text().trim();
       const price = currency(priceText.slice(1)).intValue;
 
-      const offer = 'No offer';
+      let offer = $(el).find('.product-promo--name').text().trim();
+
+      if (!offer) {
+        offer = 'No offer';
+      }
 
       const linkPartial = $(el).find('a').attr('href');
       const link = `https://shop.coop.co.uk${linkPartial}`;

@@ -59,4 +59,12 @@ const icelandScrapeWine = async () => {
   return wine;
 };
 
+const mainScrape = async () => {
+  const wine = await icelandScrapeWine();
+  const wineJSON = JSON.stringify(wine);
+  fs.writeFileSync('src/output/iceland-wine-final.json', wineJSON);
+};
+
+mainScrape();
+
 module.exports = icelandScrapeWine;

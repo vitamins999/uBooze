@@ -20,6 +20,8 @@ const icelandScraper = async (url, drinkType, drinkSubtype) => {
 
       if (!offer) {
         offer = 'No offer';
+      } else {
+        offer = offer.replace(/\n\n/g, ' ');
       }
 
       const link = $(el).find('.name-link').attr('href');

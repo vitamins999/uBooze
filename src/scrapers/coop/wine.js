@@ -1,5 +1,6 @@
 const coopScraper = require('../utils/coopScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Wine URLs
 
@@ -40,5 +41,13 @@ const coopScrapeWine = async () => {
 
   return wine;
 };
+
+const mainScrape = async () => {
+  const wine = await coopScrapeWine();
+  const wineJSON = JSON.stringify(wine);
+  fs.writeFileSync('src/output/coop-wine-final.json', wineJSON);
+};
+
+mainScrape();
 
 module.exports = coopScrapeWine;

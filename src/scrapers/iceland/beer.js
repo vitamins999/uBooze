@@ -1,5 +1,6 @@
 const icelandScraper = require('../utils/icelandScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Beer URLs
 
@@ -40,5 +41,13 @@ const icelandScrapeBeer = async () => {
 
   return beer;
 };
+
+const mainScrape = async () => {
+  const beer = await icelandScrapeBeer();
+  const beerJSON = JSON.stringify(beer);
+  fs.writeFileSync('src/output/iceland-beer-final.json', beerJSON);
+};
+
+mainScrape();
 
 module.exports = icelandScrapeBeer;

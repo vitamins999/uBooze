@@ -1,5 +1,6 @@
 const coopScraper = require('../utils/coopScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Spirits URLs
 
@@ -46,5 +47,13 @@ const coopScrapeSpirits = async () => {
 
   return spirits;
 };
+
+const mainScrape = async () => {
+  const spirits = await coopScrapeSpirits();
+  const spiritsJSON = JSON.stringify(spirits);
+  fs.writeFileSync('src/output/coop-spirits-final.json', spiritsJSON);
+};
+
+mainScrape();
 
 module.exports = coopScrapeSpirits;
