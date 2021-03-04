@@ -1,5 +1,6 @@
 const morrisonsScraper = require('../utils/morrisonsScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Beer URLs
 
@@ -41,5 +42,13 @@ const morrisonsScrapeBeer = async () => {
 
   return beer;
 };
+
+const mainScrape = async () => {
+  const beer = await morrisonsScrapeBeer();
+  const beerJSON = JSON.stringify(beer);
+  fs.writeFileSync('src/output/morrisons-beer-final.json', beerJSON);
+};
+
+mainScrape();
 
 module.exports = morrisonsScrapeBeer;

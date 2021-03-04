@@ -28,6 +28,10 @@ const morrisonsScraper = async (url, drinkType, drinkSubtype) => {
     const items = $('body').find('.fops-regular').find('.fops-item');
 
     items.each((i, el) => {
+      if ($(el).find('.fop-ribbon__title').attr('title') === 'Advertisement') {
+        return;
+      }
+
       const productNameText = $(el).find('.fop-title').attr('title').trim();
 
       const size = $(el).find('.fop-catch-weight').text().trim();

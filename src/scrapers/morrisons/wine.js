@@ -1,5 +1,6 @@
 const morrisonsScraper = require('../utils/morrisonsScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Wine URLs
 
@@ -89,5 +90,13 @@ const morrisonsScrapeWine = async () => {
 
   return wine;
 };
+
+const mainScrape = async () => {
+  const wine = await morrisonsScrapeWine();
+  const wineJSON = JSON.stringify(wine);
+  fs.writeFileSync('src/output/morrisons-wine-final.json', wineJSON);
+};
+
+mainScrape();
 
 module.exports = morrisonsScrapeWine;
