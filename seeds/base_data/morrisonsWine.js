@@ -5534,7 +5534,7 @@ morrisonsWine = [
     drinkType: 'wine',
     drinkSubtype: 'sparkling',
     supermarket: 'Morrisons',
-    productID: 4289,
+    productID: 4942,
   },
   {
     productName: 'Gran Campo Viejo Cava Brut Reserva Sparkling Wine 75cl',

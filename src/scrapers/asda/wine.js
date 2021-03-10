@@ -1,5 +1,6 @@
 const asdaScraper = require('../utils/asdaScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Wine URLs
 
@@ -194,5 +195,13 @@ const asdaScrapeWine = async () => {
 
   return wine;
 };
+
+const mainScrape = async () => {
+  const wine = await asdaScrapeWine();
+  const wineJSON = JSON.stringify(wine);
+  fs.writeFileSync('src/output/asda-wine-final.json', wineJSON);
+};
+
+mainScrape();
 
 module.exports = asdaScrapeWine;

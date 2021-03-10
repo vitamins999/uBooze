@@ -1,5 +1,6 @@
 const asdaScraper = require('../utils/asdaScraper');
 const removeDupicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Beer URLs
 
@@ -88,5 +89,13 @@ const asdaScrapeBeer = async () => {
 
   return beer;
 };
+
+const mainScrape = async () => {
+  const beer = await asdaScrapeBeer();
+  const beerJSON = JSON.stringify(beer);
+  fs.writeFileSync('src/output/asda-beer-final.json', beerJSON);
+};
+
+mainScrape();
 
 module.exports = asdaScrapeBeer;

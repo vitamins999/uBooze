@@ -716,7 +716,7 @@ const morrisonsBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Morrisons',
-    productID: 3858,
+    productID: 4546,
   },
   {
     productName: 'Stella Artois Premium Lager Bottles 4 x 330ml',

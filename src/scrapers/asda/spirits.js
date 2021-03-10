@@ -1,5 +1,6 @@
 const asdaScraper = require('../utils/asdaScraper');
 const removeDuplicates = require('../utils/removeDuplicates');
+const fs = require('fs');
 
 // Spirits URLs
 
@@ -43,8 +44,6 @@ const asdaScrapeSpirits = async () => {
 
   const spiritsGin = [...spiritsGin1, ...spiritsGin2, ...spiritsGin3];
 
-  console.log('gin scraped');
-
   // Whisky
   const spiritsWhisky1 = await asdaScraper(
     spiritsWhiskyURL1,
@@ -59,17 +58,11 @@ const asdaScrapeSpirits = async () => {
 
   const spiritsWhisky = [...spiritsWhisky1, ...spiritsWhisky2];
 
-  console.log('whisky scraped');
-
   // Vodka
   const spiritsVodka = await asdaScraper(spiritsVodkaURL, 'spirits', 'vodka');
 
-  console.log('vodka scraped');
-
   // Rum
   const spiritsRum = await asdaScraper(spiritsRumURL, 'spirits', 'rum');
-
-  console.log('rum scraped');
 
   // Brandy & Cognac
   const spiritsBrandyCognac = await asdaScraper(
@@ -77,8 +70,6 @@ const asdaScrapeSpirits = async () => {
     'spirits',
     'brandy and cognac'
   );
-
-  console.log('brandy and cognac scraped');
 
   // Liqueurs and Tequila
   const spiritsLiqueur = await asdaScraper(
@@ -93,8 +84,6 @@ const asdaScrapeSpirits = async () => {
   );
 
   const spiritsTequilaLiqueur = [...spiritsTequila, ...spiritsLiqueur];
-
-  console.log('tequila liqueur scraped');
 
   let spirits = [
     ...spiritsGin,
@@ -111,5 +100,13 @@ const asdaScrapeSpirits = async () => {
 
   return spirits;
 };
+
+const mainScrape = async () => {
+  const spirits = await asdaScrapeSpirits();
+  const spiritsJSON = JSON.stringify(spirits);
+  fs.writeFileSync('src/output/asda-spirits-final.json', spiritsJSON);
+};
+
+mainScrape();
 
 module.exports = asdaScrapeSpirits;
