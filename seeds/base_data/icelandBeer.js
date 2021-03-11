@@ -512,7 +512,7 @@ const icelandBeer = [
     drinkType: 'beer',
     drinkSubtype: '',
     supermarket: 'Iceland',
-    productID: 205,
+    productID: 3865,
   },
   {
     productName: 'Birra Moretti Lager Beer 660ml Bottle',
@@ -988,6 +988,7 @@ const icelandBeer = [
     drinkType: 'beer',
     drinkSubtype: '',
     supermarket: 'Iceland',
+    productID: 3844,
   },
   {
     productName: 'Amstel Lager Beer 4 x 440ml Cans',

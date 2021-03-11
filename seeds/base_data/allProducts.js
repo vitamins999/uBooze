@@ -36565,6 +36565,14 @@ const allProducts = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
   },
+  {
+    productID: 5091,
+    productName: 'Hardys Stamp Shiraz Cabernet',
+    displayName: 'Hardys Stamp Shiraz Cabernet',
+    volume: '18.7cl',
+    drinkType: 'wine',
+    drinkSubtype: 'red',
+  },
 ];
 
 module.exports = { allProducts };

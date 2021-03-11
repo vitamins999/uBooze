@@ -1,4 +1,4 @@
-const { coopSpirits } = require('./seeds/base_data/coopSpirits');
+const { icelandSpirits } = require('./seeds/base_data/icelandSpirits');
 
 const duplicateProductID = (productArr) => {
   for (let i = 0; i < productArr.length; i++) {
@@ -16,11 +16,11 @@ const duplicateProductID = (productArr) => {
 
 const missingField = (productArr) => {
   productArr.forEach((product) => {
-    if (product.supermarket === undefined) {
+    if (product.productID === undefined) {
       console.log(product.productName);
     }
   });
 };
 
-// duplicateProductID(coopSpirits);
-missingField(coopSpirits);
+duplicateProductID(icelandSpirits);
+// missingField(icelandSpirits);

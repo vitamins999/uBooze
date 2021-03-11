@@ -634,7 +634,7 @@ const icelandWine = [
     drinkType: 'wine',
     drinkSubtype: 'red',
     supermarket: 'Iceland',
-    productID: 3796,
+    productID: 5091,
   },
   {
     productName: 'Badia San Mercuriale Pinot Grigio Delle Venezie',
@@ -1320,7 +1320,7 @@ const icelandWine = [
     drinkType: 'wine',
     drinkSubtype: 'rose',
     supermarket: 'Iceland',
-    roductID: 2018,
+    productID: 2018,
   },
   {
     productName: 'Hardys Crest Rosé 75cl',
