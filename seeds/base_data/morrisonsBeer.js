@@ -732,19 +732,6 @@ const morrisonsBeer = [
     productID: 1335,
   },
   {
-    productName: 'Stella Artois Premium Lager Beer bottles 20 x 284ml',
-    price: 1200,
-    offer: 'No offer',
-    link:
-      'https://groceries.morrisons.com/products/stella-artois-premium-lager-beer-bottles-210964011',
-    image:
-      'https://groceries.morrisons.com/productImages/210/210964011_0_150x150.jpg?identifier=355aeb5947a1c9090a7dfe07e2d70d6d',
-    drinkType: 'beer',
-    drinkSubtype: 'lager',
-    supermarket: 'Morrisons',
-    productID: 1353,
-  },
-  {
     productName: 'Carlsberg Export 4 X 440Ml (Abv 4.8%) 4 x 440ml',
     price: 425,
     offer: 'No offer',
@@ -961,7 +948,7 @@ const morrisonsBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: 'Morrisons',
-    roductID: 1297,
+    productID: 1297,
   },
   {
     productName: 'Free Damm (Abv 0%) 6 x 330ml',
@@ -2025,7 +2012,7 @@ const morrisonsBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale and stout',
     supermarket: 'Morrisons',
-    productID: 121,
+    productID: 5080,
   },
   {
     productName: "McEwan's Champion 500ml",
@@ -2941,7 +2928,7 @@ const morrisonsBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale and stout',
     supermarket: 'Morrisons',
-    productID: 1250,
+    productID: 5081,
   },
   {
     productName: 'Hook Norton Brewery Hooky Gold (Abv 4.1%) 500ml',
@@ -3071,6 +3058,7 @@ const morrisonsBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale and stout',
     supermarket: 'Morrisons',
+    productID: 3918,
   },
   {
     productName: 'Vocation Brewery Life & Death Ipa 330ml',
@@ -3608,7 +3596,7 @@ const morrisonsBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale and stout',
     supermarket: 'Morrisons',
-    productID: 121,
+    productID: 300,
   },
   {
     productName: 'Brewdog Nanny State 4 x 330ml',
@@ -3906,6 +3894,7 @@ const morrisonsBeer = [
     drinkSubtype: 'ale and stout',
     supermarket: 'Morrisons',
     productID: 3953,
+    productID: 5082,
   },
   {
     productName: 'Brewdog Elvis Juice 330ml',

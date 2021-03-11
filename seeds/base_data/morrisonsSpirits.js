@@ -333,7 +333,7 @@ const morrisonsSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Morrisons',
-    productID: 923,
+    productID: 4978,
   },
   {
     productName: 'KWV Cruxland Gin 70cl',
@@ -3219,7 +3219,7 @@ const morrisonsSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'brandy and cognac',
     supermarket: 'Morrisons',
-    productID: 4488,
+    productID: 5083,
   },
   {
     productName: 'M Best Brandy XO 70cl',

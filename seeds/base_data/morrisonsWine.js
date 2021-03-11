@@ -1,4 +1,4 @@
-morrisonsWine = [
+const morrisonsWine = [
   {
     productName: 'McGuigan Black Label Merlot 75cl',
     price: 675,
@@ -3034,7 +3034,7 @@ morrisonsWine = [
     drinkType: 'wine',
     drinkSubtype: 'white',
     supermarket: 'Morrisons',
-    productID: 4156,
+    productID: 5080,
   },
   {
     productName: 'Barefoot Sauvignon Blanc 75cl',
