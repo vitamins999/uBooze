@@ -1345,7 +1345,7 @@ const asdaSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: 'Asda',
-    productID: 992,
+    productID: 1063,
   },
   {
     productName: 'ASDA Extra Special Highland Single Malt Scotch Whisky 70cl',

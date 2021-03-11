@@ -274,7 +274,7 @@ const asdaWine = [
     drinkType: 'wine',
     drinkSubtype: 'red',
     supermarket: 'Asda',
-    productID: 337,
+    productID: 5087,
   },
   {
     productName: 'ASDA Extra Special Coonawarra Cabernet Sauvignon 75cl',
@@ -1390,7 +1390,7 @@ const asdaWine = [
     drinkType: 'wine',
     drinkSubtype: 'red',
     supermarket: 'Asda',
-    productID: 1703,
+    productID: 5088,
   },
   {
     productName:
@@ -1583,6 +1583,7 @@ const asdaWine = [
     drinkType: 'wine',
     drinkSubtype: 'red',
     supermarket: 'Asda',
+    productID: 4703,
   },
   {
     productName: "Villa Vincini Montepulciano D'Abruzzo 75cl",
@@ -1678,7 +1679,7 @@ const asdaWine = [
     drinkType: 'wine',
     drinkSubtype: 'red',
     supermarket: 'Asda',
-    roductID: 4710,
+    productID: 4710,
   },
   {
     productName: 'Three Mills Reserve Red Wine 75cl',
@@ -1847,6 +1848,7 @@ const asdaWine = [
     drinkType: 'wine',
     drinkSubtype: 'white',
     supermarket: 'Asda',
+    productID: 3344,
   },
   {
     productName: "Ca' Mandato Pinot Grigio Trentino 75cl",
@@ -2963,7 +2965,7 @@ const asdaWine = [
     drinkType: 'wine',
     drinkSubtype: 'white',
     supermarket: 'Asda',
-    roductID: 4771,
+    productID: 4771,
   },
   {
     productName: 'Kumala Chenin Blanc Chardonnay 75cl',
@@ -3779,7 +3781,7 @@ const asdaWine = [
     drinkType: 'wine',
     drinkSubtype: 'rose',
     supermarket: 'Asda',
-    productID: 4824,
+    productID: 5089,
   },
   {
     productName: 'Black Tower Blush 75cl',
@@ -3827,7 +3829,7 @@ const asdaWine = [
     drinkType: 'wine',
     drinkSubtype: 'rose',
     supermarket: 'Asda',
-    productID: 724,
+    productID: 2006,
   },
   {
     productName: "D'Adimant Saint Guilhem Le Desert Rose 75cl",
@@ -4536,7 +4538,7 @@ const asdaWine = [
     drinkType: 'wine',
     drinkSubtype: 'sparkling',
     supermarket: 'Asda',
-    productID: 2068,
+    productID: 760,
   },
   {
     productName: 'Spumante Rose Extra Dry 75cl',

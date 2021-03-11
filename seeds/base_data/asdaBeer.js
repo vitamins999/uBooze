@@ -1665,6 +1665,7 @@ const asdaBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Asda',
+    productID: 5085,
   },
   {
     productName: 'Joseph Holt of Manchester Sixex Ale 500ml',
@@ -1676,6 +1677,7 @@ const asdaBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Asda',
+    productID: 5086,
   },
   {
     productName: 'J.W. Lees Moonraker Ale 500ml',
@@ -2036,7 +2038,7 @@ const asdaBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: 'Asda',
-    productID: 69,
+    productID: 5084,
   },
   {
     productName: 'Robinsons Old Tom The Original Strong Ale 330ml',
@@ -2901,7 +2903,7 @@ const asdaBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Asda',
-    productID: 3966,
+    productID: 3968,
   },
   {
     productName: 'Magners Original Apple Irish Cider 8x500',
@@ -3444,7 +3446,7 @@ const asdaBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: 'Asda',
-    productID: 286,
+    productID: 292,
   },
   {
     productName: 'Kopparberg Premium Cider with Mixed Fruit 4x330',
