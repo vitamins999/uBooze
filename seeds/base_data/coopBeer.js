@@ -75,6 +75,7 @@ const coopBeer = [
     drinkType: 'beer',
     drinkSubtype: '',
     supermarket: 'Co-op',
+    productID: 3632,
   },
   {
     productName: 'Strongbow Dark Fruit Cider 4 x 440ml Cans',
@@ -1349,7 +1350,7 @@ const coopBeer = [
     drinkType: 'beer',
     drinkSubtype: '',
     supermarket: 'Co-op',
-    roductID: 1477,
+    productID: 1477,
   },
   {
     productName: 'Strongbow Dark Fruit Cider 10 x 440ml Cans',

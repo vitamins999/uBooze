@@ -640,7 +640,7 @@ const coopSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'vodka',
     supermarket: 'Co-op',
-    productID: 3751,
+    productID: 5090,
   },
   {
     productName: 'Absolut Raspberri Flavoured Vodka 70cl',

@@ -25853,14 +25853,6 @@ const allProducts = [
   },
   {
     productID: 3751,
-    productName: 'Co-op Imperial Vodka',
-    displayName: 'Co-op Imperial Vodka',
-    volume: '35cl',
-    drinkType: 'spirits',
-    drinkSubtype: 'vodka',
-  },
-  {
-    productID: 3751,
     productName: 'Russian Standard Original Vodka',
     displayName: 'Russian Standard Original Vodka',
     volume: '35cl',
@@ -36564,6 +36556,14 @@ const allProducts = [
     volume: '75cl',
     drinkType: 'wine',
     drinkSubtype: 'rose',
+  },
+  {
+    productID: 5090,
+    productName: 'Co-op Imperial Vodka',
+    displayName: 'Co-op Imperial Vodka',
+    volume: '35cl',
+    drinkType: 'spirits',
+    drinkSubtype: 'vodka',
   },
 ];
 

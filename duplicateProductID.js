@@ -1,4 +1,4 @@
-const { asdaSpirits } = require('./seeds/base_data/asdaSpirits');
+const { coopSpirits } = require('./seeds/base_data/coopSpirits');
 
 const duplicateProductID = (productArr) => {
   for (let i = 0; i < productArr.length; i++) {
@@ -22,5 +22,5 @@ const missingField = (productArr) => {
   });
 };
 
-// duplicateProductID(asdaSpirits);
-missingField(asdaSpirits);
+// duplicateProductID(coopSpirits);
+missingField(coopSpirits);
