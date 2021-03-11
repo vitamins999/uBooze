@@ -912,7 +912,7 @@ const sainsburysSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: "Sainsbury's",
-    productID: 939,
+    productID: 964,
   },
   {
     productName: 'Bombay Sapphire Gin & Tonic 250ml',
@@ -1382,7 +1382,7 @@ const sainsburysSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'whisky',
     supermarket: "Sainsbury's",
-    roductID: 991,
+    productID: 991,
   },
   {
     productName: 'Southern Comfort 70cl',
@@ -4343,7 +4343,7 @@ const sainsburysSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: "Sainsbury's",
-    roductID: 3621,
+    productID: 3621,
   },
   {
     productName: 'Jagermeister 35cl',

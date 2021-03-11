@@ -686,7 +686,7 @@ const sainsburysBeer = [
     drinkType: 'beer',
     drinkSubtype: 'lager',
     supermarket: "Sainsbury's",
-    roductID: 192,
+    productID: 192,
   },
   {
     productName: 'Hop House 13 Lager 650ml',
@@ -1661,7 +1661,7 @@ const sainsburysBeer = [
     drinkType: 'beer',
     drinkSubtype: 'craft',
     supermarket: "Sainsbury's",
-    roductID: 49,
+    productID: 49,
   },
   {
     productName: 'Shandy Caribbean Sorrel 275ml',
@@ -1908,7 +1908,7 @@ const sainsburysBeer = [
     drinkType: 'beer',
     drinkSubtype: 'cider',
     supermarket: "Sainsbury's",
-    roductID: 1544,
+    productID: 1544,
   },
   {
     productName: 'Kopparberg Mixed Fruit Cider 4x330ml',
@@ -3052,7 +3052,7 @@ const sainsburysBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: "Sainsbury's",
-    productID: 3011,
+    productID: 5073,
   },
   {
     productName: 'Badger The Blandford Fly Ale 500ml',
@@ -3364,7 +3364,7 @@ const sainsburysBeer = [
     drinkType: 'beer',
     drinkSubtype: 'ale',
     supermarket: "Sainsbury's",
-    roductID: 152,
+    productID: 152,
   },
   {
     productName: 'Old Crafty Hen Ale 500ml',
