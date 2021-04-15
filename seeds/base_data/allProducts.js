@@ -35098,14 +35098,6 @@ const allProducts = [
     drinkSubtype: 'boxes',
   },
   {
-    productID: 4908,
-    productName: 'Echo Falls Summer Berries Fruit Fusion',
-    displayName: 'Echo Falls Summer Berries Fruit Fusion',
-    volume: '2.25l',
-    drinkType: 'wine',
-    drinkSubtype: 'boxes',
-  },
-  {
     productID: 4909,
     productName: 'ASDA Finest Reserve Port',
     displayName: 'ASDA Finest Reserve Port',
