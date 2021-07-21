@@ -1,13 +1,7 @@
-const credentials = require('./config/db_config');
-
 module.exports = {
   development: {
     client: 'pg',
-    connection: {
-      database: credentials.database,
-      user: credentials.user,
-      password: credentials.password,
-    },
+    connection: process.env.SUPABASE_CONNECTION_DEV,
   },
 
   staging: {
@@ -28,15 +22,7 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password',
-    },
-    pool: {
-      min: 2,
-      max: 10,
-    },
+    connection: process.env.SUPABASE_CONNECTION_PROD,
     migrations: {
       tableName: 'knex_migrations',
     },
