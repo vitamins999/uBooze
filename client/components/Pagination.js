@@ -1,3 +1,5 @@
+import { range } from '../utils/range';
+
 const Pagination = ({
   itemsPerPage,
   totalItems,
@@ -5,10 +7,35 @@ const Pagination = ({
   currentPage,
   totalPages,
 }) => {
-  const pageNumbers = [];
+  const siblingCount = 1;
 
-  for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
-    pageNumbers.push(i);
+  const pagesToShow = siblingCount + 5;
+
+  const leftSibling = Math.max(currentPage - siblingCount, 1);
+  const rightSibling = Math.min(currentPage + siblingCount, totalPages);
+  const showLeftDots = leftSibling > 2;
+  const showRightDots = rightSibling < totalPages - 2;
+
+  let pageNumbers = [];
+
+  if (pagesToShow >= totalPages) {
+    let rangeToInsert = range(1, totalPages);
+
+    pageNumbers = [...rangeToInsert];
+  } else if (!showLeftDots && showRightDots) {
+    let leftItemCount = 3 + 2 * siblingCount;
+    let leftRange = range(1, leftItemCount);
+
+    pageNumbers = [...leftRange, '...', totalPages];
+  } else if (showLeftDots && !showRightDots) {
+    let rightItemCount = 3 + 2 * siblingCount;
+    let rightRange = range(totalPages - rightItemCount + 1, totalPages);
+
+    pageNumbers = [1, '...', ...rightRange];
+  } else if (showLeftDots && showRightDots) {
+    let middleRange = range(leftSibling, rightSibling);
+
+    pageNumbers = [1, '...', ...middleRange, '...', totalPages];
   }
 
   if (totalItems === 0) {
@@ -40,18 +67,27 @@ const Pagination = ({
           </svg>
           <span>Previous</span>
         </button>
-        {pageNumbers.map((number) => (
-          <li className='px-2' key={number}>
-            <button
-              className={`${
-                number === currentPage
-                  ? 'text-gray-900 font-medium border-b-2 border-gray-900 cursor-default'
-                  : 'text-gray-800 hover:text-green-500 transition duration-200 ease-in-out'
-              } focus:outline-none px-3 pb-2`}
-              onClick={() => paginate(number)}
-            >
-              {number}
-            </button>
+        {pageNumbers.map((number, index) => (
+          <li className='px-2' key={index}>
+            {number === '...' ? (
+              <p
+                className='text-gray-800 font-medium tracking-widest cursor-default
+              focus:outline-none px-3 pb-2'
+              >
+                ...
+              </p>
+            ) : (
+              <button
+                className={`${
+                  number === currentPage
+                    ? 'text-gray-900 font-medium border-b-2 border-gray-900 cursor-default'
+                    : 'text-gray-800 hover:text-green-500 transition duration-200 ease-in-out'
+                } focus:outline-none px-3 pb-2`}
+                onClick={() => paginate(number)}
+              >
+                {number}
+              </button>
+            )}
           </li>
         ))}
         <button
