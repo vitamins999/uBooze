@@ -21,7 +21,8 @@ const LowAlcoholBeerPage = ({ drinks }) => {
   const [order, setOrder] = useState('asc');
   const [limit, setLimit] = useState(10);
 
-  const queryString = Cookies.get('queryString') + '&subtype=lowbeer';
+  const queryString =
+    Cookies.get('queryString') + '&subtype=beer%20low%20alcohol';
 
   const title = 'Low Alcohol Beer';
 
@@ -80,7 +81,8 @@ const LowAlcoholBeerPage = ({ drinks }) => {
 export const getServerSideProps = async ({ req }) => {
   try {
     const cookies = parseCookies(req);
-    const queryStringData = cookies.queryString + '&subtype=lowbeer';
+    const queryStringData =
+      cookies.queryString + '&subtype=beer%20low%20alcohol';
 
     const drinks = await fetchDrinksSub((queryString = queryStringData));
 

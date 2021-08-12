@@ -21,7 +21,8 @@ const LiqueursPage = ({ drinks }) => {
   const [order, setOrder] = useState('asc');
   const [limit, setLimit] = useState(10);
 
-  const queryString = Cookies.get('queryString') + '&subtype=liqueurs';
+  const queryString =
+    Cookies.get('queryString') + '&subtype=tequila%20and%20liqueurs';
 
   const title = 'Tequila & Liqueurs';
 
@@ -80,7 +81,8 @@ const LiqueursPage = ({ drinks }) => {
 export const getServerSideProps = async ({ req }) => {
   try {
     const cookies = parseCookies(req);
-    const queryStringData = cookies.queryString + '&subtype=liqueurs';
+    const queryStringData =
+      cookies.queryString + '&subtype=tequila%20and%20liqueurs';
 
     const drinks = await fetchDrinksSub((queryString = queryStringData));
 

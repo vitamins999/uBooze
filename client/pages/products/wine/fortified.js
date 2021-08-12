@@ -21,7 +21,8 @@ const FortifiedWinePage = ({ drinks }) => {
   const [order, setOrder] = useState('asc');
   const [limit, setLimit] = useState(10);
 
-  const queryString = Cookies.get('queryString') + '&subtype=fortified';
+  const queryString =
+    Cookies.get('queryString') + '&subtype=fortified%20and%20vermouth';
 
   const title = 'Port, Sherry & Vermouth';
 
@@ -80,7 +81,8 @@ const FortifiedWinePage = ({ drinks }) => {
 export const getServerSideProps = async ({ req }) => {
   try {
     const cookies = parseCookies(req);
-    const queryStringData = cookies.queryString + '&subtype=fortified';
+    const queryStringData =
+      cookies.queryString + '&subtype=fortified%20and%20vermouth';
 
     const drinks = await fetchDrinksSub((queryString = queryStringData));
 

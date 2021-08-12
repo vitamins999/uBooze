@@ -1,13 +1,31 @@
-const { supermarketBaseData } = require('./base_data/supermarket-test');
-const { productsBeer } = require('./base_data/productsBeer');
-const { productsWine } = require('./base_data/productsWine');
-const { productsSpirits } = require('./base_data/productsSpirits');
+const { asdaBeer } = require('./base_data/asdaBeer');
+const { asdaWine } = require('./base_data/asdaWine');
+const { asdaSpirits } = require('./base_data/asdaSpirits');
+
+const { coopBeer } = require('./base_data/coopBeer');
+const { coopWine } = require('./base_data/coopWine');
+const { coopSpirits } = require('./base_data/coopSpirits');
+
+const { icelandBeer } = require('./base_data/icelandBeer');
+const { icelandWine } = require('./base_data/icelandWine');
+const { icelandSpirits } = require('./base_data/icelandSpirits');
+
+const { morrisonsBeer } = require('./base_data/morrisonsBeer');
+const { morrisonsWine } = require('./base_data/morrisonsWine');
+const { morrisonsSpirits } = require('./base_data/morrisonsSpirits');
+
+const { sainsburysBeer } = require('./base_data/sainsburysBeer');
+const { sainsburysWine } = require('./base_data/sainsburysWine');
+const { sainsburysSpirits } = require('./base_data/sainsburysSpirits');
+
 const { tescoBeer } = require('./base_data/tescoBeer');
 const { tescoWine } = require('./base_data/tescoWine');
 const { tescoSpirits } = require('./base_data/tescoSpirits');
+
 const { waitroseBeer } = require('./base_data/waitroseBeer');
 const { waitroseWine } = require('./base_data/waitroseWine');
 const { waitroseSpirits } = require('./base_data/waitroseSpirits');
+
 const { allProducts } = require('./base_data/allProducts');
 
 exports.seed = function (knex) {
@@ -59,21 +77,66 @@ exports.seed = function (knex) {
       return knex('products').insert(allProducts);
     })
     .then(() => {
-      return knex('supermarketProducts').insert(waitroseBeer)
+      return knex('supermarketProducts').insert(waitroseBeer);
     })
     .then(() => {
-      return knex('supermarketProducts').insert(waitroseWine)
+      return knex('supermarketProducts').insert(waitroseWine);
     })
     .then(() => {
-      return knex('supermarketProducts').insert(waitroseSpirits)
+      return knex('supermarketProducts').insert(waitroseSpirits);
     })
     .then(() => {
-      return knex('supermarketProducts').insert(tescoBeer)
+      return knex('supermarketProducts').insert(tescoBeer);
     })
     .then(() => {
-      return knex('supermarketProducts').insert(tescoWine)
+      return knex('supermarketProducts').insert(tescoWine);
     })
     .then(() => {
-      return knex('supermarketProducts').insert(tescoSpirits)
+      return knex('supermarketProducts').insert(tescoSpirits);
     })
+    .then(() => {
+      return knex('supermarketProducts').insert(sainsburysBeer);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(sainsburysWine);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(sainsburysSpirits);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(morrisonsBeer);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(morrisonsWine);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(morrisonsSpirits);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(icelandBeer);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(icelandWine);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(icelandSpirits);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(coopBeer);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(coopWine);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(coopSpirits);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(asdaBeer);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(asdaWine);
+    })
+    .then(() => {
+      return knex('supermarketProducts').insert(asdaSpirits);
+    });
 };

@@ -21,7 +21,8 @@ const BrandyCognacPage = ({ drinks }) => {
   const [order, setOrder] = useState('asc');
   const [limit, setLimit] = useState(10);
 
-  const queryString = Cookies.get('queryString') + '&subtype=brandycognac';
+  const queryString =
+    Cookies.get('queryString') + '&subtype=brandy%20and%20cognac';
 
   const title = 'Brandy & Cognac';
 
@@ -80,7 +81,8 @@ const BrandyCognacPage = ({ drinks }) => {
 export const getServerSideProps = async ({ req }) => {
   try {
     const cookies = parseCookies(req);
-    const queryStringData = cookies.queryString + '&subtype=brandycognac';
+    const queryStringData =
+      cookies.queryString + '&subtype=brandy%20and%20cognac';
 
     const drinks = await fetchDrinksSub((queryString = queryStringData));
 
