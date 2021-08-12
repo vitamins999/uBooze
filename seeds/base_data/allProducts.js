@@ -5,7 +5,7 @@ const allProducts = [
     displayName: 'Adnams Ghost Ship Alcohol Free 0.5%',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 2,
@@ -21,7 +21,7 @@ const allProducts = [
     displayName: 'Big Drop Brewing Co Paradiso Citra IPA Alcohol Free',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 4,
@@ -1205,7 +1205,7 @@ const allProducts = [
     displayName: 'Guinness Draught',
     volume: '10x440ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 152,
@@ -1221,7 +1221,7 @@ const allProducts = [
     displayName: 'Guinness Original',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 154,
@@ -1293,7 +1293,7 @@ const allProducts = [
     displayName: 'Siren Broken Dream Nitro Breakfast Stout',
     volume: '440ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 163,
@@ -1301,7 +1301,7 @@ const allProducts = [
     displayName: 'Alechemy Bring Out The Imp Stout',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 164,
@@ -1317,7 +1317,7 @@ const allProducts = [
     displayName: 'Redchrch Old Ford Export Stout',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 166,
@@ -1325,7 +1325,7 @@ const allProducts = [
     displayName: 'Wiper and True Milk Stout Milk Shake',
     volume: '440ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 167,
@@ -1341,7 +1341,7 @@ const allProducts = [
     displayName: 'San Miguel 0.0% Alcohol Bottle',
     volume: '4x33cl',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 169,
@@ -1405,7 +1405,7 @@ const allProducts = [
     displayName: 'Birra Moretti Zero Alcohol Free Italy',
     volume: '3x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 177,
@@ -1485,7 +1485,7 @@ const allProducts = [
     displayName: 'Free Damm 0.0%',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 187,
@@ -2165,7 +2165,7 @@ const allProducts = [
     displayName: 'Kopparberg Alcohol Free with Mixed Fruit',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 272,
@@ -2389,7 +2389,7 @@ const allProducts = [
     displayName: 'Brewdog Nanny State',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 300,
@@ -2397,7 +2397,7 @@ const allProducts = [
     displayName: 'Doom Bar Zero 0%',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 301,
@@ -2405,7 +2405,7 @@ const allProducts = [
     displayName: 'Big Drop Brewing Co Galactic Milk Stout Alcohol Free',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1249,
@@ -2469,7 +2469,7 @@ const allProducts = [
     displayName: 'Guinness Draught',
     volume: '4x440ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1257,
@@ -2725,7 +2725,7 @@ const allProducts = [
     displayName: "Beck's Blue Alcohol Free",
     volume: '15x275ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1296,
@@ -2741,7 +2741,7 @@ const allProducts = [
     displayName: 'Bavaria 0.0%',
     volume: '8x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1298,
@@ -2829,7 +2829,7 @@ const allProducts = [
     displayName: 'Heineken Alcohol Free',
     volume: '12x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1309,
@@ -2893,7 +2893,7 @@ const allProducts = [
     displayName: "Beck's Blue Alcohol Free",
     volume: '6x275ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1317,
@@ -2909,7 +2909,7 @@ const allProducts = [
     displayName: 'Bavaria 0.0%',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1319,
@@ -3301,7 +3301,7 @@ const allProducts = [
     displayName: 'Pistonhead Flat Tire Low Alcohol',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1368,
@@ -3357,7 +3357,7 @@ const allProducts = [
     displayName: 'San Miguel 0.0% Alcohol Can',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1375,
@@ -3621,7 +3621,7 @@ const allProducts = [
     displayName: "St Peter's Alcohol Free",
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1409,
@@ -3661,7 +3661,7 @@ const allProducts = [
     displayName: 'Black Sheep Milk Stout',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1414,
@@ -3813,7 +3813,7 @@ const allProducts = [
     displayName: 'Murphys',
     volume: '4x440ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1433,
@@ -3885,7 +3885,7 @@ const allProducts = [
     displayName: 'Brewdog V Evil Twin Nitro Coffee Stout',
     volume: '402ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1440,
@@ -3949,7 +3949,7 @@ const allProducts = [
     displayName: 'Buxton Brewery Storm Shadow Stout',
     volume: '440ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1448,
@@ -4101,7 +4101,7 @@ const allProducts = [
     displayName: 'Guinness Original',
     volume: '12x440ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1467,
@@ -4125,7 +4125,7 @@ const allProducts = [
     displayName: 'Guinness Nigerian Foreign Extra Stout',
     volume: '4x325ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1470,
@@ -4149,7 +4149,7 @@ const allProducts = [
     displayName: 'Vocation Brewery Breakfast Club Stout',
     volume: '440ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1473,
@@ -4181,7 +4181,7 @@ const allProducts = [
     displayName: 'Dg Dragon Stout',
     volume: '284ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1477,
@@ -4245,7 +4245,7 @@ const allProducts = [
     displayName: 'Guinness Nigerian Foreign Extra Stout',
     volume: '600ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1485,
@@ -4253,7 +4253,7 @@ const allProducts = [
     displayName: 'Magic Rock Dark Arts Surreal Stout',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1486,
@@ -4269,7 +4269,7 @@ const allProducts = [
     displayName: 'Mackeson Stout',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1488,
@@ -4309,7 +4309,7 @@ const allProducts = [
     displayName: 'Leffe Blonde 0% Alcohol Free',
     volume: '6x250ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1493,
@@ -4317,7 +4317,7 @@ const allProducts = [
     displayName: 'Brooklyn Special Effects Alcohol Free',
     volume: '4x355ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1494,
@@ -4325,7 +4325,7 @@ const allProducts = [
     displayName: 'Vocation Barrel Chocolate & Cherry Stout',
     volume: '440ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1495,
@@ -4389,7 +4389,7 @@ const allProducts = [
     displayName: 'London Beer Factory Tiramisu Stout',
     volume: '440ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1503,
@@ -4429,7 +4429,7 @@ const allProducts = [
     displayName: 'Brewdog Layer Cake Marshmallow & Chocolate Stout',
     volume: '440ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 1508,
@@ -4605,7 +4605,7 @@ const allProducts = [
     displayName: "Sheppy's Low Alcohol Classic Cider 0.5%",
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1531,
@@ -4621,7 +4621,7 @@ const allProducts = [
     displayName: 'Kopparberg Alcohol Free Pear',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1533,
@@ -4893,7 +4893,7 @@ const allProducts = [
     displayName: 'Friels Low Alcohol Cider',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1568,
@@ -4901,7 +4901,7 @@ const allProducts = [
     displayName: 'Strongbow Dark Fruit Cider Low Alcohol',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1569,
@@ -4909,7 +4909,7 @@ const allProducts = [
     displayName: 'Kopparberg Premium Cider Mixed Fruit Alcohol Free',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1570,
@@ -4981,7 +4981,7 @@ const allProducts = [
     displayName: 'Stowford Press Apple Cider Low Alcohol',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1579,
@@ -5037,7 +5037,7 @@ const allProducts = [
     displayName: 'Kopparberg Cider Plus Strawberry & Lime Alcohol Free',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1586,
@@ -5099,14 +5099,6 @@ const allProducts = [
     productID: 306,
     productName: 'Waitrose Reserve, Claret, French, Red Wine',
     displayName: 'Waitrose Reserve, Claret, French, Red Wine',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'red',
-  },
-  {
-    productID: 307,
-    productName: 'Marquis De Chasse',
-    displayName: 'Marquis De Chasse',
     volume: '75cl',
     drinkType: 'wine',
     drinkSubtype: 'red',
@@ -6432,14 +6424,6 @@ const allProducts = [
     drinkSubtype: 'red',
   },
   {
-    productID: 472,
-    productName: 'Louis Jadot Beaune Premier Cru',
-    displayName: 'Louis Jadot Beaune Premier Cru',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'red',
-  },
-  {
     productID: 473,
     productName: 'Cairanne La Marie Family Gonnet',
     displayName: 'Cairanne La Marie Family Gonnet',
@@ -7616,14 +7600,6 @@ const allProducts = [
     drinkSubtype: 'white',
   },
   {
-    productID: 618,
-    productName: 'Calvet Reserve Sauvignon Blanc Bordeaux, France',
-    displayName: 'Calvet Reserve Sauvignon Blanc Bordeaux, France',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'white',
-  },
-  {
     productID: 619,
     productName: 'Yalumba Organic Viognier',
     displayName: 'Yalumba Organic Viognier',
@@ -8684,73 +8660,9 @@ const allProducts = [
     drinkSubtype: 'sparkling',
   },
   {
-    productID: 751,
-    productName: 'Pol Roger Vintage Brut',
-    displayName: 'Pol Roger Vintage Brut',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
     productID: 752,
     productName: 'Chapel Down Bacchus Sparkling',
     displayName: 'Chapel Down Bacchus Sparkling',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 753,
-    productName: 'Terra Organica OrganicProsecco',
-    displayName: 'Terra Organica OrganicProsecco',
-    volume: '20cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 754,
-    productName: 'Laurent-Perrier Vintage',
-    displayName: 'Laurent-Perrier Vintage',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 755,
-    productName: 'Bird in Hand Sparkling South Australia',
-    displayName: 'Bird in Hand Sparkling South Australia',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 756,
-    productName: 'No.1 Castillo Perelada Cava Brut',
-    displayName: 'No.1 Castillo Perelada Cava Brut',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 757,
-    productName: 'Waitrose Blanc de Blancs Brut NV, French, Champagne',
-    displayName: 'Waitrose Blanc de Blancs Brut NV, French, Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 758,
-    productName: 'Laurent-Perrier La Cuvée Brut NV',
-    displayName: 'Laurent-Perrier La Cuvée Brut NV',
-    volume: '37.5cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 759,
-    productName: 'Veuve Clicquot Ponsardin Brut Rosé NV Champagne',
-    displayName: 'Veuve Clicquot Ponsardin Brut Rosé NV Champagne',
     volume: '75cl',
     drinkType: 'wine',
     drinkSubtype: 'sparkling',
@@ -8764,14 +8676,6 @@ const allProducts = [
     drinkSubtype: 'sparkling',
   },
   {
-    productID: 761,
-    productName: "Jacob's Creek Sparkling Shiraz NV SE Australia",
-    displayName: "Jacob's Creek Sparkling Shiraz NV SE Australia",
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
     productID: 762,
     productName: 'Freixenet Cordon Rosado Seco',
     displayName: 'Freixenet Cordon Rosado Seco',
@@ -8780,194 +8684,10 @@ const allProducts = [
     drinkSubtype: 'sparkling',
   },
   {
-    productID: 763,
-    productName: 'Pol Roger Pure Extra Brut NV Champagne',
-    displayName: 'Pol Roger Pure Extra Brut NV Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 764,
-    productName: 'Vecchia Modena Pignoletto Spumante Brut',
-    displayName: 'Vecchia Modena Pignoletto Spumante Brut',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 765,
-    productName: 'Ridgeview Bloomsbury',
-    displayName: 'Ridgeview Bloomsbury',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 766,
-    productName: 'Chapel Down Brut NV Kent',
-    displayName: 'Chapel Down Brut NV Kent',
-    volume: '1.5litre',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 767,
-    productName: 'Moet Ice Imperial Champagne',
-    displayName: 'Moet Ice Imperial Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
     productID: 768,
     productName: 'The Uncommon Rose Bubbly',
     displayName: 'The Uncommon Rose Bubbly',
     volume: '25cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 769,
-    productName: 'Louis Roederer Cristal Vintage Champagne',
-    displayName: 'Louis Roederer Cristal Vintage Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 770,
-    productName: 'Nicolas Feuillatte Blanc de Blancs Brut',
-    displayName: 'Nicolas Feuillatte Blanc de Blancs Brut',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 771,
-    productName: 'Waitrose Loved & Found Sparkling Pecorino',
-    displayName: 'Waitrose Loved & Found Sparkling Pecorino',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 772,
-    productName: 'Pere Ventura Cava',
-    displayName: 'Pere Ventura Cava',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 773,
-    productName: 'Taittinger Brut Reserve Half Bottles NV',
-    displayName: 'Taittinger Brut Reserve Half Bottles NV',
-    volume: '37.5cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 774,
-    productName: 'Chandon Brut Argentina',
-    displayName: 'Chandon Brut Argentina',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 775,
-    productName: 'Le Mesnil Blanc de Blancs Vintage Grand Cru Champagne',
-    displayName: 'Le Mesnil Blanc de Blancs Vintage Grand Cru Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 776,
-    productName: 'Taittinger Comtes de Champagne',
-    displayName: 'Taittinger Comtes de Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 777,
-    productName: 'Bollinger Rosé Brut',
-    displayName: 'Bollinger Rosé Brut',
-    volume: '37.5cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 778,
-    productName: 'Perrier-Jouet Belle Epoque',
-    displayName: 'Perrier-Jouet Belle Epoque',
-    volume: '1.5litre',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 779,
-    productName: 'Vilmart Cuvée Cellier Premier Cru Brut NV',
-    displayName: 'Vilmart Cuvée Cellier Premier Cru Brut NV',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 780,
-    productName: 'Perrier-Jouët Belle Epoque Champagne',
-    displayName: 'Perrier-Jouët Belle Epoque Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 781,
-    productName: 'Veuve Clicquot La Gr Dame 2006 Vintage Champagne',
-    displayName: 'Veuve Clicquot La Gr Dame 2006 Vintage Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 782,
-    productName: 'Bollinger La Grande Brut Rosé 2005 Vintage Champagne',
-    displayName: 'Bollinger La Grande Brut Rosé 2005 Vintage Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 783,
-    productName: 'Bollinger La Grande Année Brut Vintage Champagne',
-    displayName: 'Bollinger La Grande Année Brut Vintage Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 784,
-    productName: 'Bollinger R.D 2002 Champagne',
-    displayName: 'Bollinger R.D 2002 Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 785,
-    productName: 'Dom Pérignon Vintage Champagne',
-    displayName: 'Dom Pérignon Vintage Champagne',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'sparkling',
-  },
-  {
-    productID: 786,
-    productName: 'Pol Roger Sir Winston Churchill',
-    displayName: 'Pol Roger Sir Winston Churchill',
-    volume: '75cl',
     drinkType: 'wine',
     drinkSubtype: 'sparkling',
   },
@@ -10013,7 +9733,7 @@ const allProducts = [
     displayName: 'Torres Natureo Muscat De-Alcoholised Wine Spain',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 917,
@@ -10021,7 +9741,7 @@ const allProducts = [
     displayName: 'REAL Royal Flush',
     volume: '750ml',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 918,
@@ -10029,7 +9749,7 @@ const allProducts = [
     displayName: 'Thomson & Scott Noughty Alcohol Free Vegan Chardonnay',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 919,
@@ -10037,7 +9757,7 @@ const allProducts = [
     displayName: 'Eisberg Sparkling White',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 920,
@@ -10045,7 +9765,7 @@ const allProducts = [
     displayName: 'Ebony Vale Alcohol Free, Chardonnay, German, White Wine',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 1276,
@@ -10581,7 +10301,7 @@ const allProducts = [
     displayName: 'Tesco Low Alcohol Cabernet Tempranillo',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'red',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 1648,
@@ -10629,7 +10349,7 @@ const allProducts = [
     displayName: "Lindeman's Alcohol Free Cabernet Sauvignon",
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'red',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 1654,
@@ -11216,14 +10936,6 @@ const allProducts = [
     drinkSubtype: 'red',
   },
   {
-    productID: 1727,
-    productName: 'Heritages Chateauneuf Du Pape Red',
-    displayName: 'Heritages Chateauneuf Du Pape Red',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'red',
-  },
-  {
     productID: 1728,
     productName: 'Tesco Finest Barolo Docg',
     displayName: 'Tesco Finest Barolo Docg',
@@ -11709,7 +11421,7 @@ const allProducts = [
     displayName: 'Mcguigan Zero Shiraz Alcohol Free',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'red',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 1790,
@@ -12429,7 +12141,7 @@ const allProducts = [
     displayName: 'Eisberg Sauvignon 75Cl Alcohol Free',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'white',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 1880,
@@ -12493,7 +12205,7 @@ const allProducts = [
     displayName: 'Tesco Low Alcohol Sauvignon Blanc',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'white',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 1888,
@@ -12765,7 +12477,7 @@ const allProducts = [
     displayName: 'Hardys Alcohol Free Chardonnay',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'white',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 1922,
@@ -12813,7 +12525,7 @@ const allProducts = [
     displayName: "Lindeman's Alcohol Free Semillon Chardonnay",
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'white',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 1928,
@@ -13041,14 +12753,6 @@ const allProducts = [
   },
   {
     productID: 1956,
-    productName: 'Cono Sur Gewurztraminer',
-    displayName: 'Cono Sur Gewurztraminer',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'white',
-  },
-  {
-    productID: 1957,
     productName: 'Cono Sur Gewurztraminer',
     displayName: 'Cono Sur Gewurztraminer',
     volume: '75cl',
@@ -13573,7 +13277,7 @@ const allProducts = [
     displayName: 'Eisberg Rose 75Cl Alcohol Free',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'rose',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 2023,
@@ -13581,7 +13285,7 @@ const allProducts = [
     displayName: 'Tesco Low Alcohol Garnacha Rose',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'rose',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 2024,
@@ -14029,7 +13733,7 @@ const allProducts = [
     displayName: 'Freixenet 0.0% Alcohol Free Sparkling',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'sparkling',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 2080,
@@ -14045,7 +13749,7 @@ const allProducts = [
     displayName: 'Freixenet 0.0% Sparkling Rose Alcohol Free',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'sparkling',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 2082,
@@ -14149,7 +13853,7 @@ const allProducts = [
     displayName: 'Tesco Low Alcohol Sparkling White Wine',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'sparkling',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 2095,
@@ -14536,14 +14240,6 @@ const allProducts = [
     drinkSubtype: 'fortified and vermouth',
   },
   {
-    productID: 2143,
-    productName: 'Gonzalez Tio Pepe Sherry',
-    displayName: 'Gonzalez Tio Pepe Sherry',
-    volume: '75cl',
-    drinkType: 'wine',
-    drinkSubtype: 'fortified and vermouth',
-  },
-  {
     productID: 2144,
     productName: 'Harveys Bristol Cream Sherry',
     displayName: 'Harveys Bristol Cream Sherry',
@@ -14725,7 +14421,7 @@ const allProducts = [
     displayName: 'Mcguigan Zero Alcohol Free Sauvignon Blanc',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 2167,
@@ -14733,7 +14429,7 @@ const allProducts = [
     displayName: 'Eisberg Merlot Alcohol Free Wine',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3003,
@@ -15140,14 +14836,6 @@ const allProducts = [
     productName: 'Bathtub Gin',
     displayName: 'Bathtub Gin',
     volume: '70cl',
-    drinkType: 'spirits',
-    drinkSubtype: 'gin',
-  },
-  {
-    productID: 967,
-    productName: 'No.3 London Dry Gin',
-    displayName: 'No.3 London Dry Gin',
-    volume: '700ml',
     drinkType: 'spirits',
     drinkSubtype: 'gin',
   },
@@ -17201,7 +16889,7 @@ const allProducts = [
     displayName: "Gordon's Ultra Low Alcohol with a Hint of Lime",
     volume: '4x250ml',
     drinkType: 'spirits',
-    drinkSubtype: 'premix',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1231,
@@ -17209,7 +16897,7 @@ const allProducts = [
     displayName: "Gordon's Ultra Low Alcohol with Grapefruit",
     volume: '4x250ml',
     drinkType: 'spirits',
-    drinkSubtype: 'premix',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1232,
@@ -17257,7 +16945,7 @@ const allProducts = [
     displayName: 'Atopia Spiced Citrus',
     volume: '70cl',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1238,
@@ -17265,7 +16953,7 @@ const allProducts = [
     displayName: "Ceder's Crisp Non-Alcoholic",
     volume: '50cl',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1239,
@@ -17273,7 +16961,7 @@ const allProducts = [
     displayName: 'æcorn Aperitifs Non-Alcoholic Bitter',
     volume: '50cl',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1240,
@@ -17281,7 +16969,7 @@ const allProducts = [
     displayName: 'Seedlip Spice 94',
     volume: '70cl',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1241,
@@ -17289,7 +16977,7 @@ const allProducts = [
     displayName: 'æcorn Aperitifs Non-Alcoholic Dry',
     volume: '50cl',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1242,
@@ -17297,7 +16985,7 @@ const allProducts = [
     displayName: 'Seedlip Garden 108',
     volume: '70cl',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1243,
@@ -17305,7 +16993,7 @@ const allProducts = [
     displayName: 'Seedlip Grove 42',
     volume: '700ml',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1244,
@@ -17313,7 +17001,7 @@ const allProducts = [
     displayName: 'æcorn Aperitifs Non-Alcoholic Aromatic',
     volume: '50cl',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1245,
@@ -17321,7 +17009,7 @@ const allProducts = [
     displayName: 'Belvoir Botanical Juniper & Tonic',
     volume: '750ml',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1246,
@@ -17329,7 +17017,7 @@ const allProducts = [
     displayName: 'Nogroni Non-Alcoholic Cocktail',
     volume: '20cl',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1247,
@@ -17337,7 +17025,7 @@ const allProducts = [
     displayName: "Ceder's Pink Rose",
     volume: '50cl',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 1248,
@@ -17345,7 +17033,7 @@ const allProducts = [
     displayName: "Ceder's Classic Non-Alcoholic",
     volume: '50cl',
     drinkType: 'spirits',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 2467,
@@ -17535,14 +17223,6 @@ const allProducts = [
     productID: 2174,
     productName: 'Wildcat Passion Passion Fruit & Orange Gin',
     displayName: 'Wildcat Passion Passion Fruit & Orange Gin',
-    volume: '70cl',
-    drinkType: 'spirits',
-    drinkSubtype: 'gin',
-  },
-  {
-    productID: 2175,
-    productName: 'Lonewolf Cloudy Lemon Gin',
-    displayName: 'Lonewolf Cloudy Lemon Gin',
     volume: '70cl',
     drinkType: 'spirits',
     drinkSubtype: 'gin',
@@ -19169,7 +18849,7 @@ const allProducts = [
     displayName: 'Tesco Low Alcohol Reduced Calorie G & T',
     volume: '4x250ml',
     drinkType: 'spirits',
-    drinkSubtype: 'premix',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 2380,
@@ -20257,7 +19937,7 @@ const allProducts = [
     displayName: "Sainsbury's Medium Dry Low Alcohol Apple Cider",
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3057,
@@ -20289,7 +19969,7 @@ const allProducts = [
     displayName: 'Old Mout Berries & Cherries Alcohol Free Cider',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3061,
@@ -20529,7 +20209,7 @@ const allProducts = [
     displayName: 'Guinness Foreign Extra Stout',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 3091,
@@ -20537,7 +20217,7 @@ const allProducts = [
     displayName: 'Thatchers Zero 0.0% Alcohol Free Cider',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3092,
@@ -20545,7 +20225,7 @@ const allProducts = [
     displayName: 'Old Speckled Hen Low Alcohol Beer',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3093,
@@ -20553,7 +20233,7 @@ const allProducts = [
     displayName: 'Free Damm Premium Quality Non Alcoholic Lager',
     volume: '6x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3094,
@@ -20561,7 +20241,7 @@ const allProducts = [
     displayName: 'Bavaria Premium Lager Shandy',
     volume: '6x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3095,
@@ -20569,7 +20249,7 @@ const allProducts = [
     displayName: 'Infinite Session American Pale Ale',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3096,
@@ -20577,7 +20257,7 @@ const allProducts = [
     displayName: 'Beavertown Lazer Crush 0.3% IPA',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3097,
@@ -20585,7 +20265,7 @@ const allProducts = [
     displayName: 'Free Star Light & Refreshing IPA-Style Lager',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3098,
@@ -20593,7 +20273,7 @@ const allProducts = [
     displayName: 'Everleaf Non-Alcoholic Bittersweet Aperitif',
     volume: '50cl',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3099,
@@ -23647,7 +23327,7 @@ const allProducts = [
     displayName: "Sainsbury's Sangria",
     volume: '1l',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3477,
@@ -23655,7 +23335,7 @@ const allProducts = [
     displayName: 'McGuigan Zero Sparkling Alcohol Free Wine',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3478,
@@ -23663,7 +23343,7 @@ const allProducts = [
     displayName: 'Torres Natureo De-Alcoholised Rose',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3479,
@@ -23671,7 +23351,7 @@ const allProducts = [
     displayName: 'Torres Natureo De-Alcoholised Muscat',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3480,
@@ -23679,7 +23359,7 @@ const allProducts = [
     displayName: 'Martini Vibrante Non-Alcoholic Aperitif',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3481,
@@ -23687,7 +23367,7 @@ const allProducts = [
     displayName: "Rawson's Retreat 0.5% Semillon Chardonnay",
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3482,
@@ -23695,7 +23375,7 @@ const allProducts = [
     displayName: "Rawson's Retreat 0.5% Chardonnay Pinot Noir Muscat",
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3483,
@@ -23703,7 +23383,7 @@ const allProducts = [
     displayName: "Rawson's Retreat 0.5% Cabernet Sauvignon",
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3484,
@@ -24905,7 +24585,7 @@ const allProducts = [
     displayName: "Fuller's Black Cab Stout",
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 3633,
@@ -25081,7 +24761,7 @@ const allProducts = [
     displayName: 'Heineken 0.0 Alcohol Free Lager Beer',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3655,
@@ -25137,7 +24817,7 @@ const allProducts = [
     displayName: 'BrewDog Nanny State Alcohol Free Hoppy Ale',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3662,
@@ -25345,7 +25025,7 @@ const allProducts = [
     displayName: 'Co-op Low Alcohol Cabernet Tempranillo',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'red',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3688,
@@ -25385,7 +25065,7 @@ const allProducts = [
     displayName: 'Co-op Low Alcohol Sauvignon Blanc',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'white',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3693,
@@ -25625,7 +25305,7 @@ const allProducts = [
     displayName: 'Co-op Low Alcohol Garnacha Rosé',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'rose',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3723,
@@ -26489,7 +26169,7 @@ const allProducts = [
     displayName: 'Belle & Co. Alcohol Free Sparkling',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'sparkling',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 3831,
@@ -26721,7 +26401,7 @@ const allProducts = [
     displayName: 'San Miguel Alcohol Free Lager Beer',
     volume: '12x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3860,
@@ -26777,7 +26457,7 @@ const allProducts = [
     displayName: 'Stella Artois Alcohol Free Premium Lager Beer Bottles',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3867,
@@ -26849,7 +26529,7 @@ const allProducts = [
     displayName: 'Guinness Draught Cans',
     volume: '15x440ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 3876,
@@ -27067,7 +26747,7 @@ const allProducts = [
     displayName: 'Siren Broken Dream Stout',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 3903,
@@ -27083,7 +26763,7 @@ const allProducts = [
     displayName: 'Glamorgan Welsh Cake Stout',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 3905,
@@ -27363,7 +27043,7 @@ const allProducts = [
     displayName: 'Northern Monk Lervig Collaboration Stout',
     volume: '440ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 3940,
@@ -27419,7 +27099,7 @@ const allProducts = [
     displayName: 'Guinness Original Cans',
     volume: '4x440ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 3947,
@@ -27443,7 +27123,7 @@ const allProducts = [
     displayName: 'Vocation Brewery Brew York Chocolate Fudge Stout',
     volume: '440ml',
     drinkType: 'beer',
-    drinkSubtype: 'ale',
+    drinkSubtype: 'stout',
   },
   {
     productID: 3950,
@@ -27747,7 +27427,7 @@ const allProducts = [
     displayName: 'Morrisons Low Alcohol Cider Bottle',
     volume: '500ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3988,
@@ -27771,7 +27451,7 @@ const allProducts = [
     displayName: 'Stowford Press Low Alcohol',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'cider',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 3991,
@@ -31005,7 +30685,7 @@ const allProducts = [
     displayName: 'Mcguigan Zero Rose',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4395,
@@ -31013,7 +30693,7 @@ const allProducts = [
     displayName: 'Mcguigan Zero Chardonnay',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4396,
@@ -31021,7 +30701,7 @@ const allProducts = [
     displayName: 'La Gioiosa Sparkling Alcohol Free',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4397,
@@ -31029,7 +30709,7 @@ const allProducts = [
     displayName: 'Eisberg Alcohol Free Wine Chardonnay',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4398,
@@ -31037,7 +30717,7 @@ const allProducts = [
     displayName: 'Eisberg Cabernet Sauvignon Alcohol Free Wine',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4399,
@@ -31045,7 +30725,7 @@ const allProducts = [
     displayName: 'Belle And Co 0% Sparkling Rose',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4400,
@@ -31053,7 +30733,7 @@ const allProducts = [
     displayName: 'Nosecco Rose Spumante Alcohol Free',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4401,
@@ -31159,7 +30839,7 @@ const allProducts = [
     displayName: "Gordon's Alcohol Free Gin",
     volume: '70cl',
     drinkType: 'spirits',
-    drinkSubtype: 'gin',
+    drinkSubtype: 'spirits low alcohol',
   },
   {
     productID: 4414,
@@ -32735,7 +32415,7 @@ const allProducts = [
     displayName: 'Bad Co Dark Necessities Milk Stout',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 4611,
@@ -32807,7 +32487,7 @@ const allProducts = [
     displayName: 'Bad Co Denver Milk Stout',
     volume: '330ml',
     drinkType: 'beer',
-    drinkSubtype: 'craft',
+    drinkSubtype: 'stout',
   },
   {
     productID: 4620,
@@ -32847,7 +32527,7 @@ const allProducts = [
     displayName: 'Ulitimalt Premium Non-Alcoholic Malt Drink',
     volume: '6x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 4625,
@@ -32855,7 +32535,7 @@ const allProducts = [
     displayName: 'Adnams Ghost Ship Citrus Pale Ale Alcohol Free',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 4626,
@@ -35391,7 +35071,7 @@ const allProducts = [
     displayName: "Lindeman's Alcohol Free Chardonnay Pinot Nior Muscat",
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4946,
@@ -35399,7 +35079,7 @@ const allProducts = [
     displayName: 'ASDA Extra Special Sparkling Sauvignon Blanc Low Alcohol',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4947,
@@ -35407,7 +35087,7 @@ const allProducts = [
     displayName: 'Shloer Pink Bubbly Non Alcoholic Sparkling Juice Drink',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4948,
@@ -35415,7 +35095,7 @@ const allProducts = [
     displayName: 'Fre Chardonnay Alcohol-Removed Wine',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4949,
@@ -35423,7 +35103,7 @@ const allProducts = [
     displayName: 'Fre Merlot Alcohol-Removed Wine',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4950,
@@ -35431,7 +35111,7 @@ const allProducts = [
     displayName: 'B by Black Tower White Wine',
     volume: '75cl',
     drinkType: 'wine',
-    drinkSubtype: 'low alcohol',
+    drinkSubtype: 'wine low alcohol',
   },
   {
     productID: 4951,

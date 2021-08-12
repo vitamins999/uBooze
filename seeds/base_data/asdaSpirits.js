@@ -839,7 +839,7 @@ const asdaSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Asda',
-    roductID: 957,
+    productID: 957,
   },
   {
     productName: "Gordon's Sloe Gin 70cl",

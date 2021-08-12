@@ -80,7 +80,6 @@ router.get('/', async (req, res) => {
     .withGraphFetched('supermarketProducts')
     .modifyGraph('supermarketProducts', (builder) => {
       builder.whereIn('supermarket', userSupermarkets);
-      builder.where('price', '>', 0);
       builder.orderBy('price');
     })
     .whereIn('drinkType', drinkType)
@@ -93,7 +92,6 @@ router.get('/', async (req, res) => {
     .withGraphFetched('supermarketProducts')
     .modifyGraph('supermarketProducts', (builder) => {
       builder.whereIn('supermarket', userSupermarkets);
-      builder.where('price', '>', 0);
       builder.orderBy('price');
     })
     .whereIn('drinkType', drinkType)

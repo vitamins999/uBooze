@@ -21,7 +21,7 @@ const PremixedPage = ({ drinks }) => {
   const [order, setOrder] = useState('asc');
   const [limit, setLimit] = useState(10);
 
-  const queryString = Cookies.get('queryString') + '&subtype=premixed';
+  const queryString = Cookies.get('queryString') + '&subtype=premix';
 
   const title = 'Premixed Spirits';
 
@@ -80,7 +80,7 @@ const PremixedPage = ({ drinks }) => {
 export const getServerSideProps = async ({ req }) => {
   try {
     const cookies = parseCookies(req);
-    const queryStringData = cookies.queryString + '&subtype=premixed';
+    const queryStringData = cookies.queryString + '&subtype=premix';
 
     const drinks = await fetchDrinksSub((queryString = queryStringData));
 

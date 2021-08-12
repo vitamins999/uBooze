@@ -153,7 +153,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Tesco',
-    productID: 2175,
+    productID: 960,
   },
   {
     productName: 'Bloom Raspberry & Rose Gin 70Cl',
@@ -441,7 +441,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'gin',
     supermarket: 'Tesco',
-    productID: 2197
+    productID: 2197,
   },
   {
     productName: 'Tanqueray London Dry Gin 70Cl',
@@ -3332,7 +3332,7 @@ const tescoSpirits = [
     drinkType: 'spirits',
     drinkSubtype: 'tequila and liqueurs',
     supermarket: 'Tesco',
-    productID: 2345
+    productID: 2345,
   },
   {
     productName: 'Jagermeister 1 Litre Bottle',
