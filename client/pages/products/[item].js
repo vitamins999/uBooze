@@ -297,15 +297,9 @@ const ItemPage = ({ itemData }) => {
                   <div className='flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5'></div>
                   <div className='flex'>
                     <span className='title-font font-medium text-2xl '>
-                      {data.supermarketProducts[0].price > 0
-                        ? 'from '
-                        : 'Out of Stock'}
+                      from{' '}
                     </span>
-                    <span
-                      className={`title-font font-medium text-2xl text-gray-900 ml-2 ${
-                        data.supermarketProducts[0].price === 0 && 'hidden'
-                      }`}
-                    >
+                    <span className='title-font font-medium text-2xl text-gray-900 ml-2'>
                       {formatter.format(
                         data.supermarketProducts[0].price / 100
                       )}
@@ -356,26 +350,12 @@ const ItemPage = ({ itemData }) => {
                           </td>
                           {supermarket.price ===
                           data.supermarketProducts[0].price ? (
-                            <td
-                              className={`border-t-2 border-gray-200 px-4 py-3 font-medium ${
-                                supermarket.price === 0
-                                  ? 'text-xs text-gray-600'
-                                  : 'text-lg text-gray-900'
-                              }`}
-                            >
-                              {supermarket.price > 0
-                                ? formatter.format(supermarket.price / 100)
-                                : 'Out of Stock'}
+                            <td className='border-t-2 border-gray-200 px-4 py-3 text-lg font-medium text-gray-900'>
+                              {formatter.format(supermarket.price / 100)}
                             </td>
                           ) : (
-                            <td
-                              className={`border-t-2 border-gray-200 px-4 py-3 text-gray-600 ${
-                                supermarket.price === 0 ? 'text-xs' : 'text-lg'
-                              }`}
-                            >
-                              {supermarket.price > 0
-                                ? formatter.format(supermarket.price / 100)
-                                : 'Out of Stock'}
+                            <td className='border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-600'>
+                              {formatter.format(supermarket.price / 100)}
                             </td>
                           )}
                           <td className='border-t-2 border-gray-200 w-10'>
