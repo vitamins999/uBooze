@@ -187,9 +187,11 @@ const ProductItem = ({ product, publicProfilePage }) => {
                         product.supermarketProducts[0].price
                           ? 'text-gray-900'
                           : 'text-gray-500'
-                      } text-right`}
+                      } ${productItem.price === 0 && 'text-xs'} text-right`}
                     >
-                      {formatter.format(productItem.price / 100)}
+                      {productItem.price > 0
+                        ? formatter.format(productItem.price / 100)
+                        : 'Out of Stock'}
                     </span>
                   </div>
                 </div>
