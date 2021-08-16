@@ -17,7 +17,6 @@ router.get('/details', async (req, res) => {
   const queryToSend = Product.query()
     .withGraphFetched('supermarketProducts')
     .modifyGraph('supermarketProducts', (builder) => {
-      builder.where('price', '>', 0);
       builder.orderBy('price');
     })
     .where('productID', productID);
