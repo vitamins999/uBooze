@@ -53,7 +53,7 @@ router.get('/details', async (req, res) => {
 
 router.get('/', async (req, res) => {
   const page = parseInt(req.query.page);
-  const limit = parseInt(req.query.limit) || 10;
+  const limit = parseInt(req.query.limit) || 25;
   let userSupermarkets = req.query.supermarkets;
 
   if (typeof userSupermarkets === 'string') {

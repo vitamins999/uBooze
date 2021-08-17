@@ -19,7 +19,7 @@ const LowAlcoholWinePage = ({ drinks }) => {
   const [page, setPage] = useState(1);
 
   const [order, setOrder] = useState('asc');
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(25);
 
   const queryString =
     Cookies.get('queryString') + '&subtype=wine%20low%20alcohol';
