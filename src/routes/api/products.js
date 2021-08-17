@@ -97,9 +97,7 @@ router.get('/', async (req, res) => {
     .orderBy([
       { column: 'displayName', order: orderBy },
       { column: 'productID' },
-    ])
-    .offset(startIndex)
-    .limit(limit);
+    ]);
 
   totalResults.results = await queryTotalResults;
 
@@ -132,6 +130,8 @@ router.get('/', async (req, res) => {
     resultsToSend.results = resultsToSend.results.filter((product) => {
       return product.supermarketProducts.length > 0;
     });
+
+    resultsToSend.results = resultsToSend.results.splice(startIndex, limit);
 
     resultsToSend.results = resultsToSend.results.map((product) => {
       if (product.supermarketProducts.length > 1) {
