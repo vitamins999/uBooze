@@ -6,6 +6,7 @@ import {
   capitaliseFirstLetter,
   supermarketLogo,
   formatter,
+  subtypeFormat,
 } from '../utils/supermarketListUtils';
 import { updateFavourites } from '../lib/slices/userInfoSlice';
 import { restAPI } from '../api/calls';
@@ -157,7 +158,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
           </h2>
           <h2 className='text-gray-500 text-xs tracking-widest title-font pb-3'>
             {capitaliseFirstLetter(product.drinkType)} |{' '}
-            {capitaliseFirstLetter(product.drinkSubtype)}
+            {subtypeFormat(product.drinkSubtype)}
           </h2>
         </div>
 
