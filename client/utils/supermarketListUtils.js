@@ -36,3 +36,21 @@ export const supermarketLogo = (supermarket) => {
     return '/iceland_logo.svg';
   }
 };
+
+export const subtypeFormat = (subtype) => {
+  if (
+    subtype === 'beer low alcohol' ||
+    subtype === 'wine low alcohol' ||
+    subtype === 'spirits low alcohol'
+  ) {
+    return 'Low Alcohol';
+  } else if (subtype === 'fortified and vermouth') {
+    return 'Fortified';
+  } else if (subtype === 'brandy and cognac') {
+    return 'Brandy & Cognac';
+  } else if (subtype === 'tequila and liqueurs') {
+    return 'Tequila & Liqueurs';
+  } else {
+    return capitaliseFirstLetter(subtype);
+  }
+};

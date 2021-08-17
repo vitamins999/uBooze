@@ -25,6 +25,7 @@ import {
   capitaliseFirstLetter,
   formatter,
   supermarketLogo,
+  subtypeFormat,
 } from '../../utils/supermarketListUtils';
 import { updateFavourites } from '../../lib/slices/userInfoSlice';
 import { fetchDrinkInfo, fetchOverallProductRating } from '../../api/public';
@@ -192,7 +193,7 @@ const ItemPage = ({ itemData }) => {
                   }/${data.drinkSubtype}`}
                 >
                   <a className='hover:text-green-500 transition duration-200 ease-in-out'>
-                    {capitaliseFirstLetter(data.drinkSubtype)}
+                    {subtypeFormat(data.drinkSubtype)}
                   </a>
                 </Link>
               </h2>
@@ -210,7 +211,7 @@ const ItemPage = ({ itemData }) => {
                   <div className='flex justify-between'>
                     <h2 className='text-sm title-font text-gray-500 tracking-widest'>
                       {capitaliseFirstLetter(data.drinkType)} |{' '}
-                      {capitaliseFirstLetter(data.drinkSubtype)}
+                      {subtypeFormat(data.drinkSubtype)}
                     </h2>
                     {isFavourite ? (
                       <motion.svg
