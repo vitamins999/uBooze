@@ -176,92 +176,14 @@ const ProductResults = ({
                 <ul className='bg-gray-200 w-32 shadow-lg py-2 text-left text-sm tracking-wide rounded-lg text-gray-900'>
                   <li
                     onClick={() => {
-                      setLimit(10);
+                      setLimit(25);
                       setPage(1);
                       setShowLimit(false);
                     }}
                     className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
                   >
-                    10
-                    {limit === 10 && (
-                      <svg
-                        className='w-6 h-6'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          d='M5 13l4 4L19 7'
-                        ></path>
-                      </svg>
-                    )}
-                  </li>
-                  <li
-                    onClick={() => {
-                      setLimit(20);
-                      setPage(1);
-                      setShowLimit(false);
-                    }}
-                    className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
-                  >
-                    20
-                    {limit === 20 && (
-                      <svg
-                        className='w-6 h-6'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          d='M5 13l4 4L19 7'
-                        ></path>
-                      </svg>
-                    )}
-                  </li>
-                  <li
-                    onClick={() => {
-                      setLimit(30);
-                      setPage(1);
-                      setShowLimit(false);
-                    }}
-                    className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
-                  >
-                    30
-                    {limit === 30 && (
-                      <svg
-                        className='w-6 h-6'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          d='M5 13l4 4L19 7'
-                        ></path>
-                      </svg>
-                    )}
-                  </li>
-                  <li
-                    onClick={() => {
-                      setLimit(40);
-                      setPage(1);
-                      setShowLimit(false);
-                    }}
-                    className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
-                  >
-                    40
-                    {limit === 40 && (
+                    25
+                    {limit === 25 && (
                       <svg
                         className='w-6 h-6'
                         fill='none'
@@ -288,6 +210,58 @@ const ProductResults = ({
                   >
                     50
                     {limit === 50 && (
+                      <svg
+                        className='w-6 h-6'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M5 13l4 4L19 7'
+                        ></path>
+                      </svg>
+                    )}
+                  </li>
+                  <li
+                    onClick={() => {
+                      setLimit(100);
+                      setPage(1);
+                      setShowLimit(false);
+                    }}
+                    className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
+                  >
+                    100
+                    {limit === 100 && (
+                      <svg
+                        className='w-6 h-6'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M5 13l4 4L19 7'
+                        ></path>
+                      </svg>
+                    )}
+                  </li>
+                  <li
+                    onClick={() => {
+                      setLimit(150);
+                      setPage(1);
+                      setShowLimit(false);
+                    }}
+                    className='flex justify-between items-center hover:bg-green-500 hover:text-white py-2 px-4 cursor-pointer transition duration-100 ease-in-out'
+                  >
+                    150
+                    {limit === 150 && (
                       <svg
                         className='w-6 h-6'
                         fill='none'

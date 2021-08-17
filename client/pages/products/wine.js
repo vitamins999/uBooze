@@ -19,7 +19,7 @@ const WinePage = ({ drinks }) => {
   const [page, setPage] = useState(1);
 
   const [order, setOrder] = useState('asc');
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(25);
 
   const queryString = Cookies.get('queryString') + '&type=wine';
   const postcode = Cookies.get('currentPostcode');

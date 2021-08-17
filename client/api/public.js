@@ -23,7 +23,7 @@ export const fetchDrinks = async (
   page = 1,
   queryString,
   order = 'asc',
-  limit = 10
+  limit = 25
 ) => {
   const { data } = await restAPI.get(
     `/products/?page=${page}${queryString}&order=${order}&limit=${limit}`
@@ -37,7 +37,7 @@ export const fetchDrinksSub = async (
   page = 1,
   queryString,
   order = 'asc',
-  limit = 10
+  limit = 25
 ) => {
   const { data } = await restAPI.get(
     `/products/subtypes/?page=${page}${queryString}&order=${order}&limit=${limit}`
@@ -51,7 +51,7 @@ export const fetchDrinksFavourites = async (
   page = 1,
   favourites,
   order = 'asc',
-  limit = 10
+  limit = 25
 ) => {
   const { data } = await restAPI.post(
     `/favourites/userfavourites?page=${page}&order=${order}&limit=${limit}`,
@@ -71,7 +71,7 @@ export const fetchDrinksFavouritesPublic = async (
   page = 1,
   username,
   order = 'asc',
-  limit = 10
+  limit = 25
 ) => {
   const { data } = await restAPI.get(
     `/favourites/userfavourites/id?page=${page}&order=${order}&limit=${limit}&username=${username}`,
@@ -90,7 +90,7 @@ export const fetchDrinksSearch = async (
   page = 1,
   queryString,
   order = 'asc',
-  limit = 10
+  limit = 25
 ) => {
   const { data } = await restAPI.get(
     `/search/?page=${page}&search=${queryString}&order=${order}&limit=${limit}`
