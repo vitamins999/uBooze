@@ -8,7 +8,7 @@ const SupermarketBar = () => {
   const supermarketList = JSON.parse(Cookie.get('supermarketList'));
   supermarketList.sort((a, b) => a.localeCompare(b));
   return (
-    <div className='w-screen h-10 border-b flex items-center px-24 border-gray-300'>
+    <div className='w-full h-10 border-b flex items-center px-48 ml-2 border-gray-300'>
       <h1 className='text-sm tracking-wide'>Showing results for: </h1>
       <div className='flex items-center'>
         {supermarketList.map((supermarket) => {

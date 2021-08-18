@@ -142,6 +142,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
       </div>
       <div></div>
       <motion.div
+        className='flex flex-col justify-between h-full'
         animate={{ y: statsY }}
         transition={{
           duration: 0.3,
@@ -150,28 +151,35 @@ const ProductItem = ({ product, publicProfilePage }) => {
         }}
       >
         <div className='bg-white px-6'>
-          <h1 className='uppercase text-gray-900 text-sm font-semibold pt-4'>
+          <h1 className='uppercase text-gray-900 text-xs font-semibold pt-4 w-4/5'>
             {product.displayName}
           </h1>
-          <h2 className='text-gray-500 text-xs tracking-widest title-font mb-1'>
+          <h2 className='text-gray-500 text-xs tracking-wider title-font mb-1'>
             {product.volume}
           </h2>
-          <h2 className='text-gray-500 text-xs tracking-widest title-font pb-3'>
+          <h2 className='text-gray-500 text-xs tracking-wider title-font pb-3'>
             {capitaliseFirstLetter(product.drinkType)} |{' '}
             {subtypeFormat(product.drinkSubtype)}
           </h2>
         </div>
 
-        <div className='bg-white pt-6 px-6'>
+        <div
+          className={`bg-white px-6 ${
+            product.supermarketProducts[0].price > 0 ? 'pb-3' : 'pb-5'
+          }`}
+        >
           {!showOverlay ? (
-            <h3 className='text-gray-700 text-sm -mb-2'>Lowest Price:</h3>
+            <h3 className='text-gray-700 text-xs -mb-2'>Lowest Price:</h3>
           ) : (
-            <h3 className='text-gray-700 text-sm'>All Prices:</h3>
+            <h3 className='text-gray-700 text-xs'>All Prices:</h3>
           )}
           {product.supermarketProducts.map((productItem, index) => {
             return (
               index <= 2 && (
-                <div key={productItem.supermarket}>
+                <div
+                  key={productItem.supermarket}
+                  className={`${index > 0 && !showOverlay ? 'hidden' : 'null'}`}
+                >
                   <div
                     className={`grid grid-cols-2 ${
                       showOverlay ? 'pt-2' : 'pt-4'
@@ -199,7 +207,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
               )
             );
           })}
-          {moreThanThree && (
+          {moreThanThree && showOverlay && (
             <Link href='/products/[item]' as={`/products/${productID}`}>
               <a className='text-xs text-blue-600 underline hover:text-blue-700 mt-2'>
                 And {extraSupermarkets} more
