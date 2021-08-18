@@ -18,7 +18,6 @@ router.get('/', async (req, res) => {
   const queryTotalResults = Product.query()
     .withGraphFetched('supermarketProducts')
     .modifyGraph('supermarketProducts', (builder) => {
-      builder.where('price', '>', 0);
       builder.orderBy('price');
     })
     .where('productName', 'ilike', `%${searchText}%`)
@@ -30,16 +29,13 @@ router.get('/', async (req, res) => {
   const queryToSend = Product.query()
     .withGraphFetched('supermarketProducts')
     .modifyGraph('supermarketProducts', (builder) => {
-      builder.where('price', '>', 0);
       builder.orderBy('price');
     })
     .where('productName', 'ilike', `%${searchText}%`)
     .orderBy([
       { column: 'displayName', order: orderBy },
       { column: 'productID' },
-    ])
-    .offset(startIndex)
-    .limit(limit);
+    ]);
 
   totalResults.results = await queryTotalResults;
 
@@ -72,6 +68,8 @@ router.get('/', async (req, res) => {
     resultsToSend.results = resultsToSend.results.filter((product) => {
       return product.supermarketProducts.length > 0;
     });
+
+    resultsToSend.results = resultsToSend.results.splice(startIndex, limit);
 
     resultsToSend.results = resultsToSend.results.map((product) => {
       if (product.supermarketProducts.length > 1) {

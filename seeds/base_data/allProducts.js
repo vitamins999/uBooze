@@ -3093,7 +3093,7 @@ const allProducts = [
     displayName: 'Budweiser Zero Alcohol',
     volume: '4x330ml',
     drinkType: 'beer',
-    drinkSubtype: 'lager',
+    drinkSubtype: 'beer low alcohol',
   },
   {
     productID: 1342,

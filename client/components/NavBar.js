@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { motion } from 'framer-motion';
 import { fadeOutPage } from '../animations/navigation';
+import SearchBox from './SearchBox';
 
 import Cookies from 'js-cookie';
 import { userLogout, userLoginSuccess } from '../lib/slices/userInfoSlice';
@@ -154,17 +155,10 @@ const NavBar = ({ landingPage }) => {
                 Search by Supermarket
               </a>
             </Link>
-            <Link href='/search/drink'>
-              <a className='mr-5 hover:text-green-500 font-medium transition duration-300 ease-in-out'>
-                Search by Drink
-              </a>
-            </Link>
-            {/*<Link href='/products'>
-              <a className='mr-5 hover:text-green-500 font-medium transition duration-300 ease-in-out'>
-                All Products
-              </a>
-  </Link>*/}
           </nav>
+          <div className='mr-auto flex align-middle justify-center'>
+            <SearchBox />
+          </div>
           {userID ? (
             <div className='relative'>
               <div
