@@ -69,6 +69,14 @@ const Home = () => {
     }
   }, [postcodeErrors]);
 
+  const scrollToTop = () => {
+    scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
+
   const heroVariants = {
     start: {
       opacity: 0,
@@ -142,15 +150,15 @@ const Home = () => {
   return (
     <Layout title={title} landingPage={true}>
       <motion.div exit={{ opacity: 0 }}>
-        <section className='text-gray-700 body-font'>
+        <section id='top' className='text-gray-700 body-font'>
           <motion.div
             variants={heroVariants}
             initial='start'
             animate='animate'
-            className='container pl-5 pr-3 pb-24 pt-32 mx-auto flex flex-wrap items-center'
+            className='container pl-5 pr-3 pb-24 lg:pt-32 lg:pb-32 2xl:pt-40 2xl:pb-20 pt-32 md:pt-24 md:pb-32 iPad:pt-20 mx-auto flex flex-wrap items-center'
           >
             <div className='lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0'>
-              <div className='uppercase flex justify-between w-3/5 text-gray-400 mb-4 tracking-widest'>
+              <div className='uppercase lg:flex hidden justify-between w-3/5 text-gray-400 mb-4 iPadWidescreen:text-sm iPadPro:text-sm tracking-widest'>
                 <p>We</p>
                 <p>Are</p>
                 <p>ubooze</p>
@@ -159,10 +167,10 @@ const Home = () => {
                 <p>specialise</p>
                 <p>in</p>
               </div>
-              <h1 className='font-heading font-medium text-5xl text-gray-900'>
+              <h1 className='font-heading font-medium lg:text-5xl text-4xl iPad:text-4xl iPadWidescreen:text-4xl iPadPro:text-4xl text-gray-900'>
                 Cheap drinks. In your area.
               </h1>
-              <p className='leading-relaxed mt-4'>
+              <p className='leading-relaxed mt-4 iPad:text-sm lg:text-base text-sm'>
                 Alcohol is expensive. Supermarkets are everywhere. That's why we
                 created{' '}
                 <span className='font-heading text-green-700 font-semibold'>
@@ -175,29 +183,35 @@ const Home = () => {
             </div>
             <form
               onSubmit={handlePostcodeSubmit(onPostcodeSearchSubmit)}
-              className='z-10 lg:w-2/6 md:w-1/2 bg-gray-200 shadow-sm rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0'
+              className='z-10 lg:w-2/6 md:w-1/2 bg-gray-200 2xl:px-14 xl:px-8 px-8 py-8 shadow-sm rounded-lg lg:py-8 lg:px-8 flex flex-col items-center lg:items-start md:ml-auto w-full mt-10 md:mt-0'
             >
-              <div className='relative mb-4'>
-                <h2 className='text-gray-900 text-lg font-medium font-heading mb-5'>
+              <div className='relative w-full lg:mb-4 mb-2 iPad:mb-2 iPadWidescreen:mb-2 iPadPro:mb-2'>
+                <h2 className='text-gray-900 lg:text-lg text-base lg:text-left text-center iPadWidescreen:text-center iPadPro:text-center iPad:text-base 2xl:text-xl tracking-wide iPad:tracking-widest font-medium font-heading lg:mb-5 mb-5 iPadPro:mb-5 iPad:mb-5 iPadWidescreen:mb-5'>
                   Search supermarket prices near you
                 </h2>
-                <label className='leading-7 text-sm text-gray-600'>
-                  I want to search within
-                </label>
-                <select
-                  name='radius'
-                  id='radius'
-                  ref={postcode({ required: true })}
-                  className='w-40 ml-7 shadow-inner rounded-md py-2 px-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                >
-                  <option value='1609'>1 Mile</option>
-                  <option value='3218'>2 Miles</option>
-                  <option value='4828'>3 Miles</option>
-                </select>
+                <div className='w-full flex justify-between align-middle items-center'>
+                  <label className='leading-7 lg:text-sm text-xs text-gray-600'>
+                    <span className='hidden lg:inline-flex lg:mr-1'>
+                      I want to{' '}
+                    </span>
+                    <span className='uppercase lg:lowercase'>s</span>earch
+                    within
+                  </label>
+                  <select
+                    name='radius'
+                    id='radius'
+                    ref={postcode({ required: true })}
+                    className='lg:text-base iPadPro:text-sm iPadWidescreen:text-xs text-xs w-40 lg:ml-7 2xl:ml-8 xl:ml-2 xl:w-40 iPadWidescreen:ml-0 iPadPro:ml-0 2xl:w-48 shadow-inner rounded-md py-2 px-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                  >
+                    <option value='1609'>1 Mile</option>
+                    <option value='3218'>2 Miles</option>
+                    <option value='4828'>3 Miles</option>
+                  </select>
+                </div>
               </div>
-              <div className='relative mb-4'>
-                <label className='leading-7 text-sm text-gray-600'>
-                  of the postcode{' '}
+              <div className='relative mb-4 w-full flex justify-between align-middle items-center'>
+                <label className='leading-7 lg:text-sm text-xs text-gray-600'>
+                  of <span className='hidden lg:inline-flex'>the</span> postcode{' '}
                 </label>
                 <input
                   type='text'
@@ -205,12 +219,12 @@ const Home = () => {
                   name='unformattedPostcode'
                   ref={postcode({ required: true })}
                   placeholder='Enter postcode...'
-                  className='mt-1 ml-6 shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                  className='mt-1 w-40 lg:text-base text-xs iPadPro:text-sm iPadWidescreen:text-xs lg:ml-7 2xl:w-60 2xl:ml-8 xl:ml-2 xl:w-52 iPadWidescreen:ml-0 iPadProWidescreen:w-52 iPadPro:ml-0 shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                 />
               </div>
               <button
                 type='submit'
-                className='text-lg shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-green-50 font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
+                className='text-lg shadow-sm w-full border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-green-50 font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
               >
                 Find cheap drinks
               </button>
@@ -231,7 +245,7 @@ const Home = () => {
         </section>
 
         <section className='text-gray-800 body-font bg-green-500'>
-          <div className='container px-5 py-24 mx-auto'>
+          <div className='container px-5 lg:py-24 py-36 2xl:py-16 iPadWidescreen:pt-20 iPadWidescreen:pb-28 iPadPro:pt-20 iPadPro:pb-28 mx-auto'>
             <motion.div
               ref={refSearchOptionsTitle}
               variants={optionsVariants}
@@ -247,7 +261,7 @@ const Home = () => {
               </motion.h1>
               <motion.p
                 variants={optionsVariants}
-                className='text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto'
+                className='lg:text-base text-sm leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto'
               >
                 We want to make it as easy as possible for you to find the
                 cheapest alcohol deals. That's why we've provided the following
@@ -266,8 +280,11 @@ const Home = () => {
               animate={inViewSearchOptionsBody && 'animate'}
               className='flex flex-wrap -m-4'
             >
-              <motion.div variants={optionsVariants} className='p-4 md:w-1/3'>
-                <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col shadow-md'>
+              <motion.div
+                variants={optionsVariants}
+                className='p-4 md:w-1/3 iPad:z-10'
+              >
+                <div className='flex rounded-lg h-full bg-gray-100 p-8 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
                   <div className='flex items-center mb-3'>
                     <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
                       <svg
@@ -290,13 +307,13 @@ const Home = () => {
                     </h2>
                   </div>
                   <div className='flex-grow'>
-                    <p className='leading-relaxed text-base text-gray-700'>
+                    <p className='leading-relaxed lg:text-base text-sm text-gray-700'>
                       Simply type your postcode in and select the mile radius,
                       and we'll find the supermarkets near you and their prices.
                     </p>
                     <Link href='/search/postcode'>
-                      <a className='mt-3 text-green-500 inline-flex items-center hover:text-green-600 transition duration-200 ease-in-out'>
-                        Learn More
+                      <a className='mt-3 iPadWidescreen:mt-9 iPadPro:mt-9 text-green-500 inline-flex items-center hover:text-green-600 transition duration-200 ease-in-out'>
+                        Go to Postcode Search
                         <svg
                           fill='none'
                           stroke='currentColor'
@@ -313,8 +330,11 @@ const Home = () => {
                   </div>
                 </div>
               </motion.div>
-              <motion.div variants={optionsVariants} className='p-4 md:w-1/3'>
-                <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col shadow-md'>
+              <motion.div
+                variants={optionsVariants}
+                className='p-4 md:w-1/3 iPad:z-10'
+              >
+                <div className='flex rounded-lg h-full bg-gray-100 p-8 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
                   <div className='flex items-center mb-3'>
                     <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
                       <svg
@@ -337,13 +357,13 @@ const Home = () => {
                     </h2>
                   </div>
                   <div className='flex-grow'>
-                    <p className='leading-relaxed text-base text-gray-700'>
+                    <p className='leading-relaxed lg:text-base text-sm text-gray-700'>
                       Don't want to give us your postcode? No problem. Just
                       select manually what supermarkets you want to compare.
                     </p>
                     <Link href='/search/supermarket'>
-                      <a className='mt-3 text-green-500 inline-flex items-center hover:text-green-600 transition duration-200 ease-in-out'>
-                        Learn More
+                      <a className='mt-3 iPad:mt-9 text-green-500 inline-flex items-center hover:text-green-600 transition duration-200 ease-in-out'>
+                        Go to Supermarket Search
                         <svg
                           fill='none'
                           stroke='currentColor'
@@ -364,7 +384,7 @@ const Home = () => {
                 variants={optionsVariants}
                 className='p-4 md:w-1/3 z-10'
               >
-                <div className='flex rounded-lg h-full bg-gray-100 p-8 flex-col shadow-md'>
+                <div className='flex rounded-lg h-full bg-gray-100 p-8 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
                   <div className='flex items-center mb-3'>
                     <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
                       <svg
@@ -388,26 +408,27 @@ const Home = () => {
                     </h2>
                   </div>
                   <div className='flex-grow'>
-                    <p className='leading-relaxed text-base text-gray-700'>
-                      Have a specific drink in mind? Search for it here and see
-                      all prices for it across all supermarkets.
+                    <p className='leading-relaxed lg:text-base text-sm text-gray-700'>
+                      Have a specific drink in mind? Use the global search and
+                      see its price across all supermarkets.
                     </p>
-                    <Link href='/search/drink'>
-                      <a className='mt-3 text-green-500 inline-flex items-center hover:text-green-600 transition duration-200 ease-in-out'>
-                        Learn More
-                        <svg
-                          fill='none'
-                          stroke='currentColor'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          className='w-4 h-4 ml-2'
-                          viewBox='0 0 24 24'
-                        >
-                          <path d='M5 12h14M12 5l7 7-7 7'></path>
-                        </svg>
-                      </a>
-                    </Link>
+                    <a
+                      onClick={scrollToTop}
+                      className='cursor-pointer lg:mt-3 mt-3 md:mt-8 iPad:mt-16 iPadWidescreen:mt-9 iPadPro:mt-9 2xl:mt-9 text-green-500 inline-flex items-center hover:text-green-600 transition duration-200 ease-in-out'
+                    >
+                      Go to the Search Bar
+                      <svg
+                        fill='none'
+                        stroke='currentColor'
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        className='w-4 h-4 ml-2'
+                        viewBox='0 0 24 24'
+                      >
+                        <path d='M5 12h14M12 5l7 7-7 7'></path>
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -438,7 +459,7 @@ const Home = () => {
               <h1 className='sm:text-3xl text-2xl font-medium text-center font-heading text-gray-900 mb-4'>
                 Member Benefits
               </h1>
-              <p className='text-gray-700 leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto'>
+              <p className='text-gray-700 lg:text-base text-sm leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto'>
                 Sign up for a free account right now, and gain all the following
                 extra benefits and more, as they're added.
               </p>

@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false,
@@ -19,6 +21,14 @@ module.exports = {
       },
       boxShadow: {
         orange: '0 4px 14px 0 rgba(237, 137, 54, 0.39)',
+      },
+      screens: {
+        xs: '568px',
+        iPad: { raw: '(width: 768px) and (height: 1024px)' },
+        iPadWidescreen: { raw: '(width: 1024px) and (height: 768px)' },
+        iPadPro: { raw: '(width: 1024px) and (height: 1366px)' },
+        iPadProWidescreen: { raw: '(width: 1366px) and (height: 1024px)' },
+        ...defaultTheme.screens,
       },
       backgroundImage: (theme) => ({
         'hero-image': "url('/couple_drinking.webp')",

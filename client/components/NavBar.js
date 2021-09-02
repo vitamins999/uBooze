@@ -125,7 +125,7 @@ const NavBar = ({ landingPage }) => {
           variants={landingPage && navbarVariants}
           initial='start'
           animate='animate'
-          className='container mx-auto flex flex-wrap px-2 py-5 flex-col md:flex-row'
+          className='container mx-auto flex flex-wrap iPad:flex-col iPadWidescreen:flex-col iPadPro:flex-col px-2 py-5 flex-col md:flex-row items-center'
         >
           <Link href='/'>
             <a className='flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0'>
@@ -144,44 +144,44 @@ const NavBar = ({ landingPage }) => {
               </span>
             </a>
           </Link>
-          <nav className='text-sm md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center justify-center'>
+          <nav className='lg:text-sm text-xs md:mr-auto iPad:mx-0 iPadWidescreen:mx-0 iPadPro:mx-0 md:ml-4 md:py-1 md:pl-4 md:border-l iPad:border-0 iPadWidescreen:border-0 iPadPro:border-0 md:border-gray-400	flex flex-wrap items-center justify-center'>
             <Link href='/search/postcode'>
-              <a className='mr-5  hover:text-green-500 font-medium transition duration-300 ease-in-out'>
+              <a className='lg:mr-5 px-2 lg:px-0 hover:text-green-500 font-medium transition duration-300 ease-in-out'>
                 Search by Postcode
               </a>
             </Link>
             <Link href='/search/supermarket'>
-              <a className='mr-5  hover:text-green-500 font-medium transition duration-300 ease-in-out'>
+              <a className='lg:mr-5 px-2 lg:px-0 hover:text-green-500 font-medium transition duration-300 ease-in-out'>
                 Search by Supermarket
               </a>
             </Link>
           </nav>
-          <div className='mr-auto flex align-middle justify-center'>
+          <div className='lg:mr-auto iPadWidescreen:mr-0 iPadPro:mr-0 py-2 lg:py-0 iPadWidescreen:py-2 iPadPro:py-2 flex align-middle justify-center'>
             <SearchBox />
           </div>
           {userID ? (
-            <div className='relative'>
+            <div className='relative flex justify-center lg:block lg:w-auto w-full'>
               <div
-                onMouseEnter={() => setShowUserMenu(true)}
+                onClick={() => setShowUserMenu(true)}
                 className='relative flex items-center cursor-pointer text-sm'
               >
                 <p
                   className='font-medium cursor-pointer'
-                  onMouseEnter={() => setShowUserMenu(true)}
+                  onClick={() => setShowUserMenu(true)}
                 >
                   {username}
                 </p>
                 <img
-                  onMouseEnter={() => setShowUserMenu(true)}
+                  onClick={() => setShowUserMenu(true)}
                   src={gravatar}
-                  className='w-10 rounded-full ml-5 mr-8 cursor-pointer'
+                  className='w-10 rounded-full ml-5 lg:mr-8 mr-0 cursor-pointer'
                 />
               </div>
               {showUserMenu && (
                 <div
                   ref={userMenuRef}
                   className='dropdown absolute left-0 h-auto shadow-lg z-20 w-20 mt-3 -ml-2'
-                  onMouseLeave={() => setShowUserMenu(!showUserMenu)}
+                  onMouseClick={() => setShowUserMenu(!showUserMenu)}
                 >
                   <ul className='bg-gray-100 w-48 shadow-lg py-4 text-left text-xs font-medium tracking-wide rounded-lg text-gray-500'>
                     <li className='py-2'>
@@ -276,9 +276,9 @@ const NavBar = ({ landingPage }) => {
               )}
             </div>
           ) : (
-            <>
+            <div className='lg:w-auto w-full flex justify-center'>
               <Link href='/login'>
-                <a className='inline-flex text-sm items-center font-medium px-3 hover:text-green-500 transition duration-300 ease-in-out text-md mt-4 md:mt-0'>
+                <a className='inline-flex text-sm items-center font-medium px-3 hover:text-green-500 transition duration-300 ease-in-out text-md md:mt-0'>
                   Login
                 </a>
               </Link>
@@ -287,7 +287,7 @@ const NavBar = ({ landingPage }) => {
                   Sign Up
                 </a>
               </Link>
-            </>
+            </div>
           )}
         </motion.div>
       </motion.header>
