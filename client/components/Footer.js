@@ -6,7 +6,7 @@ const Footer = () => {
       <div className='container px-5 py-16 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-no-wrap flex-wrap flex-col'>
         <div className='w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left'>
           <Link href='/'>
-            <a className='flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0'>
+            <a className='flex title-font font-medium items-center justify-center md:justify-start iPad:justify-start text-gray-900 mb-4 md:mb-0'>
               <svg className='h-8 fill-current inline' viewBox='0 0 512 512'>
                 <path
                   d='M266.667,448.213V276.779c71.488-5.483,128-65.259,128-138.133c0-30.144-16.107-80.213-27.883-116.779l-4.608-14.4
@@ -43,13 +43,6 @@ c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139
                 <Link href='/search/supermarket'>
                   <a className='text-gray-500 hover:text-green-500 transition duration-300 ease-in-out'>
                     Supermarket
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/search/drink'>
-                  <a className='text-gray-500 hover:text-green-500 transition duration-300 ease-in-out'>
-                    Drink
                   </a>
                 </Link>
               </li>
