@@ -92,13 +92,13 @@ const signupPage = () => {
         exit='exit'
         initial='initial'
         animate='animate'
-        className='grid grid-cols-3 font-body'
+        className='lg:grid lg:grid-cols-3 font-body'
       >
-        <div className='flex flex-col h-screen px-16 bg-gradient-to-r from-green-300 to-green-400 text-green-900'>
+        <div className='lg:flex hidden flex-col h-screen px-16 bg-gradient-to-r from-green-300 to-green-400 text-green-900'>
           <div>
             <Link href='/'>
               <a>
-                <h1 className='text-xl font-heading tracking-widest mt-16 mb-10 text-green-800 hover:text-green-900 transition duration-100'>
+                <h1 className='text-xl font-heading tracking-widest iPadWidescreen:mt-12 lg:mt-8 2xl:mt-36 xl:mt-20 iPadPro:mt-60 iPadProWidescreen:mt-44 mb-10 text-green-800 hover:text-green-900 transition duration-100'>
                   ubooze
                 </h1>
               </a>
@@ -111,9 +111,9 @@ const signupPage = () => {
             <img src='drinking_wine.svg' alt='drinking wine' />
           </div>
         </div>
-        <div className='col-span-2 pl-20 pr-5 py-5'>
+        <div className='lg:col-span-2 lg:pl-20 lg:pr-5 py-5'>
           <div>
-            <div className='text-right text-xs font-medium'>
+            <div className='text-right text-xs font-medium pr-7 lg:pr-0'>
               <h4>
                 Already have an account?{' '}
                 <Link href='/login'>
@@ -123,7 +123,7 @@ const signupPage = () => {
                 </Link>
               </h4>
             </div>
-            <div className='pt-12 pl-40 pr-56'>
+            <div className='lg:pt-10 2xl:pt-40 xl:pt-24 xl:pl-40 xl:pr-40 pt-20 iPad:pt-44 iPadWidescreen:pt-16 iPadProWidescreen:pt-48 iPadPro:pt-64 lg:pl-20 lg:pr-20 2xl:pl-72 2xl:pr-72 iPadWidescreen:pl-20 iPadWidescreen:pr-20 iPadProWidescreen:pl-20 iPadProWidescreen:pr-20 iPadPro:pl-10 iPadPro:pr-10 iPad:pl-32 iPad:pr-32'>
               <form
                 className='bg-white rounded px-8 pt-6 pb-8 w-full'
                 onSubmit={handleRegisterSubmit(onRegisterSubmit)}
@@ -177,7 +177,7 @@ const signupPage = () => {
                   <div className='border-b border-gray-600 w-full'></div>
                 </div>
                 <div className='flex justify-between pt-6'>
-                  <div className='mb-4 w-48'>
+                  <div className='mb-4 w-full mr-2 iPadWidescreen:mr-2 iPadProWidescreen:mr-2 iPadProWidescreen:w-full lg:mr-0 2xl:w-64 lg:w-52'>
                     <label
                       htmlFor='firstName'
                       className='block text-gray-700 text-sm font-medium'
@@ -185,14 +185,14 @@ const signupPage = () => {
                       First name
                     </label>
                     <input
-                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                      className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='text'
                       name='firstName'
                       id='firstName'
                       ref={register({ required: true })}
                     />
                   </div>
-                  <div className='mb-4 w-48'>
+                  <div className='mb-4 w-full ml-2 iPadWidescreen:ml-2 iPadProWidescreen:ml-2 iPadProWidescreen:w-full lg:ml-0 2xl:w-64 lg:w-52'>
                     <label
                       htmlFor='lastName'
                       className='block text-gray-700 text-sm font-medium'
@@ -200,7 +200,7 @@ const signupPage = () => {
                       Last name
                     </label>
                     <input
-                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                      className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='text'
                       name='lastName'
                       id='lastName'
@@ -216,7 +216,7 @@ const signupPage = () => {
                     Email address
                   </label>
                   <input
-                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                    className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='email'
                     name='email'
                     id='email'
@@ -231,7 +231,7 @@ const signupPage = () => {
                     Username
                   </label>
                   <input
-                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                    className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='text'
                     name='username'
                     id='username'
@@ -246,7 +246,7 @@ const signupPage = () => {
                     Password
                   </label>
                   <input
-                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                    className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='password'
                     name='password'
                     id='password'
@@ -258,7 +258,7 @@ const signupPage = () => {
                   />
                 </div>
                 <button
-                  className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
+                  className='text-sm lg:w-auto w-full shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
                   type='submit'
                 >
                   Create Account
