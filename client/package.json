@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.5.1",
+    "@reduxjs/toolkit": "^1.6.1",
     "@tailwindcss/forms": "^0.2.1",
     "axios": "^0.21.1",
     "cookie": "^0.4.1",
