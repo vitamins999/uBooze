@@ -58,12 +58,12 @@ const PostcodeSearch = () => {
       >
         <div className=''>
           <div className=''>
-            <div className='container mx-auto flex flex-col px-5 py-24 justify-center items-center'>
+            <div className='container mx-auto flex flex-col px-5 lg:py-24 pt-16 pb-10 2xl:pt-40 2xl:pb-16 iPadPro:py-56 iPadProWidescreen:pt-32 justify-center items-center'>
               <div className='w-full md:w-2/3 flex flex-col mb-16 items-center text-center'>
                 <h1 className='font-heading sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
                   Search by Postcode
                 </h1>
-                <p className='mb-8 leading-relaxed text-gray-700'>
+                <p className='mb-8 leading-relaxed text-gray-700 text-sm lg:text-base'>
                   Looking for the cheapest alcohol prices near you? We've got
                   you covered. Just type your UK postcode in the box below and
                   we'll gather a list of all available alcohol at your nearest
@@ -71,14 +71,14 @@ const PostcodeSearch = () => {
                 </p>
                 <div className='w-full'>
                   <form
-                    className='flex justify-center'
+                    className='flex justify-center flex-col lg:flex-row items-center'
                     onSubmit={handlePostcodeSubmit(handleSubmitPostcode)}
                   >
-                    <span className='self-center mr-4 font-medium'>
+                    <span className='self-center lg:mr-4 mr-0 pb-2 lg:pb-0 font-medium'>
                       Search within
                     </span>
                     <select
-                      className='shadow-inner rounded-md mr-4 px-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                      className='shadow-inner text-sm w-full lg:w-auto rounded-md lg:mr-4 mr-0 px-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       name='radius'
                       id='radius'
                       ref={postcode({ required: true })}
@@ -87,9 +87,11 @@ const PostcodeSearch = () => {
                       <option value='3218'>2 Miles</option>
                       <option value='4828'>3 Miles</option>
                     </select>
-                    <span className='self-center mr-4 font-medium'>of</span>
+                    <span className='self-center lg:mr-4 mr-0 py-2 lg:py-0 font-medium'>
+                      of
+                    </span>
                     <input
-                      className='shadow-inner rounded-md mr-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2 px-4 lg:w-full xl:w-1/2 w-2/4 md:w-full'
+                      className='shadow-inner text-sm rounded-md lg:mr-4 mr-0 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2 px-4 lg:w-full xl:w-1/2 2xl:w-1/3 w-full md:w-full iPadWidescreen:w-1/2 iPadPro:w-1/3'
                       placeholder='My postcode is...'
                       type='text'
                       id='unformattedPostcode'
@@ -97,7 +99,7 @@ const PostcodeSearch = () => {
                       ref={postcode({ required: true })}
                     />
                     <button
-                      className='inline-flex text-gray-700 border-0 py-2 px-2 -ml-16 hover:text-green-500 transition duration-150 ease-in-out'
+                      className='inline-flex lg:mt-0 mt-5 shadow-md lg:shadow-none lg:text-gray-700 text-green-50 border-0 py-2 px-2 lg:-ml-16 hover:text-green-500 bg-green-500 lg:bg-transparent rounded-lg transition duration-150 ease-in-out'
                       type='submit'
                     >
                       <svg
