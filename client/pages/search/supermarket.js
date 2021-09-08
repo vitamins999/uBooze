@@ -45,12 +45,12 @@ const SupermarketSearch = () => {
       >
         <div className=''>
           <div className=''>
-            <div className='container mx-auto flex flex-col px-5 py-24 justify-center items-center'>
-              <div className='w-full md:w-2/3 flex flex-col mb-16 items-center text-center'>
+            <div className='container mx-auto iPad:px-32 flex flex-col px-5 lg:py-24 pt-16 pb-48 justify-center items-center'>
+              <div className='w-full md:w-2/3 iPad:w-full flex flex-col mb-0 lg:mb-16 iPad:py-4 items-center text-center'>
                 <h1 className='font-heading sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
                   Search by Supermarket
                 </h1>
-                <p className='mb-8 leading-relaxed'>
+                <p className='mb-8 leading-relaxed lg:text-base text-sm'>
                   Don't want to give us your postcode? No problem. Just select
                   which supermarkets you want to compare below and click search.
                   We'll gather a list of all available alcohol, along with all
@@ -63,7 +63,7 @@ const SupermarketSearch = () => {
                   onSupermarketSearchClick
                 )}
               >
-                <div className='grid grid-cols-3 gap-10 p-5'>
+                <div className='grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-5 p-5'>
                   {supermarketsArr.map((supermarket) => {
                     return (
                       <motion.label
@@ -79,14 +79,14 @@ const SupermarketSearch = () => {
                           ref={registerSupermarketSearch}
                         />
                         <img
-                          className='ml-10 h-10 inline-block'
+                          className='ml-10 lg:h-10 h-6 iPadWidescreen:h-6 iPadPro:h-7 inline-block'
                           src={supermarket.svgPath}
                         ></img>
                       </motion.label>
                     );
                   })}
                 </div>
-                <div className='bg-gray-100 rounded-b-lg flex justify-end px-5'>
+                <div className='bg-gray-100 rounded-b-lg flex lg:justify-end justify-center px-5'>
                   <button
                     type='submit'
                     className='my-5 font-medium shadow-sm text-green-50 bg-green-500 border-0 py-2 px-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 hover:bg-green-600 rounded-lg text-lg transition duration-200 ease-in-out'
