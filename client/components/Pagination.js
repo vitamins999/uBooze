@@ -43,7 +43,7 @@ const Pagination = ({
   }
 
   return (
-    <nav className='-mb-4 z-10'>
+    <nav className='lg:-mb-4 z-10 pt-5 lg:pt-0'>
       <ul className='flex'>
         <button
           onClick={() => paginate(currentPage - 1)}
@@ -65,13 +65,13 @@ const Pagination = ({
               d='M15 19l-7-7 7-7'
             ></path>
           </svg>
-          <span>Previous</span>
+          <span className='lg:inline-flex hidden'>Previous</span>
         </button>
         {pageNumbers.map((number, index) => (
           <li className='px-2' key={index}>
             {number === '...' ? (
               <p
-                className='text-gray-800 font-medium tracking-widest cursor-default
+                className='text-gray-800 lg:text-base text-xs font-medium lg:tracking-widest cursor-default
               focus:outline-none px-3 pb-2'
               >
                 ...
@@ -80,9 +80,9 @@ const Pagination = ({
               <button
                 className={`${
                   number === currentPage
-                    ? 'text-gray-900 font-medium border-b-2 border-gray-900 cursor-default'
-                    : 'text-gray-800 hover:text-green-500 transition duration-200 ease-in-out'
-                } focus:outline-none px-3 pb-2`}
+                    ? 'text-gray-900 font-medium lg:text-base text-xs border-b-2 border-gray-900 cursor-default'
+                    : 'text-gray-800 lg:text-base text-xs hover:text-green-500 transition duration-200 ease-in-out'
+                } focus:outline-none lg:px-3 px-2 pb-2`}
                 onClick={() => paginate(number)}
               >
                 {number}
@@ -96,7 +96,7 @@ const Pagination = ({
             currentPage === totalPages && 'hidden'
           } flex pl-3 text-gray-900 focus:outline-none hover:text-green-500 transition duration-200 ease-in-out`}
         >
-          <span>Next</span>
+          <span className='lg:inline-flex hidden'>Next</span>
           <svg
             className='w-6 h-6'
             fill='none'
