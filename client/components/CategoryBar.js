@@ -7,8 +7,8 @@ import { capitaliseFirstLetter } from '../utils/supermarketListUtils';
 const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
   return (
     <>
-      <div className='mt-10'>
-        <h2 className='inline-block font-heading text-gray-500'>
+      <div className='mt-10 iPad:px-4'>
+        <h2 className='inline-block font-heading text-gray-500 lg:text-base text-sm'>
           <Link href='/'>
             <a className='hover:text-green-500'>Home</a>
           </Link>
@@ -17,7 +17,7 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
         <h2
           className={`${
             primary === 'allDrinks' ? 'text-gray-700' : 'text-gray-500 '
-          } inline-block font-heading`}
+          } inline-block font-heading lg:text-base text-sm`}
         >
           {primary === 'allDrinks' ? (
             'All Drinks'
@@ -48,13 +48,13 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
         </h2>
         <h3>
           {resolvedData && resolvedData.total === 0 ? (
-            <span className='text-gray-700 italic text-sm'>
+            <span className='text-gray-700 italic lg:text-sm text-xs'>
               {' '}
               (No results found)
             </span>
           ) : (
             <>
-              <span className='text-gray-700 italic text-sm'>
+              <span className='text-gray-700 italic lg:text-sm text-xs'>
                 {' '}
                 (Showing {resolvedData.firstItem}-{resolvedData.lastItem} of{' '}
                 {resolvedData.total} results)
@@ -63,49 +63,49 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
           )}
         </h3>
       </div>
-      <div className='mb-10 mt-10 w-full flex justify-center text-sm text-gray-700'>
+      <div className='mb-10 mt-10 w-full flex justify-center items-center text-center lg:text-sm text-xs text-gray-700'>
         {primary === 'favourites' || primary === 'search' ? null : (
           <>
             {primary === 'allDrinks' ? (
-              <a className='mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
+              <a className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
                 All Drinks
               </a>
             ) : (
               <Link href='/products'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
+                <a className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
                   All Drinks
                 </a>
               </Link>
             )}
             {primary === 'beer' ? (
-              <a className='mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
+              <a className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
                 Beer & Cider
               </a>
             ) : (
               <Link href='/products/beer'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
+                <a className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
                   Beer & Cider
                 </a>
               </Link>
             )}
             {primary === 'wine' ? (
-              <a className='mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
+              <a className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
                 Wine
               </a>
             ) : (
               <Link href='/products/wine'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
+                <a className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
                   Wine
                 </a>
               </Link>
             )}
             {primary === 'spirits' ? (
-              <a className='mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
+              <a className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
                 Spirits
               </a>
             ) : (
               <Link href='/products/spirits'>
-                <a className='mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
+                <a className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
                   Spirits
                 </a>
               </Link>

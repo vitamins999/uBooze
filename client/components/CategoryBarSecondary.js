@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const CategoryBarSecondary = ({ primary, secondary }) => {
   return (
-    <div className='mb-10 w-full flex justify-center text-xs text-gray-700'>
+    <div className='mb-10 w-full flex justify-center flex-wrap text-xs text-gray-700'>
       <>
         {primary === 'beer' && (
           <>

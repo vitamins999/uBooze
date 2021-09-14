@@ -66,11 +66,15 @@ const ProductItem = ({ product, publicProfilePage }) => {
         setShowOverlay(true);
         setStatsY(-100);
       }}
+      onTouchStart={() => {
+        setShowOverlay(true);
+        setStatsY(-100);
+      }}
       onMouseLeave={() => {
         setShowOverlay(false);
         setStatsY(0);
       }}
-      className='flex flex-col w-64 h-108 shadow-md rounded-md overflow-hidden'
+      className='flex flex-col w-64 mx-auto h-108 shadow-md rounded-md overflow-hidden'
     >
       <div>
         <div className='relative'>

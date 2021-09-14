@@ -62,7 +62,7 @@ const ProductResults = ({
 
   return (
     <div className='flex flex-col mb-5 pb-3'>
-      <div className='-mb-2 sticky top-0 flex items-center justify-between tracking-wide py-5 z-50 bg-blur'>
+      <div className='-mb-2 sticky top-0 flex items-center justify-between lg:flex-row flex-col align-middle tracking-wide py-5 z-50 bg-blur'>
         <div className='flex items-center'>
           <div className='relative mr-4'>
             <a
