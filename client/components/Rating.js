@@ -115,7 +115,9 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
             ></path>
           </svg>
         </span>
-        <span className='ml-4 mr-12'>{text && text}</span>
+        <span className='ml-4 lg:mr-12 iPadWidescreen:mr-0'>
+          {text && text}
+        </span>
       </div>
 
       {user && (
@@ -271,7 +273,11 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
               ></path>
             </motion.svg>
           </button>
-          <span className={`ml-4 ${userRating !== 0 ? 'mr-8' : 'mr-12'}`}>
+          <span
+            className={`ml-4 ${
+              userRating !== 0 ? 'lg:mr-8' : 'lg:mr-12 iPadWidescreen:mr-0'
+            }`}
+          >
             {userRating !== 0 ? 'Your rating' : 'Not rated'}
           </span>
         </div>
