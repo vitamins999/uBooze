@@ -225,404 +225,419 @@ const EditProfile = () => {
         exit='exit'
         initial='initial'
         animate='animate'
-        className='grid grid-cols-10 grid-rows-4'
+        className='flex flex-col 2xl:pl-128 xl:pl-64 iPadWidescreen:px-16 iPadPro:px-16 h-full justify-center lg:items-start items-center'
       >
         {isLoading && <Loader />}
         {status === 'success' && (
-          <>
-            <section className='row-span-1 col-start-3 col-end-9 mt-16 h-32'>
-              <div className='flex'>
+          <div>
+            <section className='mt-16 h-32'>
+              <div className='flex lg:flex-row flex-col lg:items-center'>
                 <img
                   src={userInfo.gravatar}
                   alt='profile image'
-                  className={`rounded-full w-20 h-20 ${
+                  className={`rounded-full w-20 h-20 lg:mb-0 mb-2 mx-auto lg:mx-0 ${
                     hoverOnName &&
                     'opacity-75 transition ease-in-out duration-200'
                   }`}
                 />
-                <div className='flex flex-col justify-center ml-8'>
-                  <h2 className='text-lg font-bold text-gray-900 tracking-wide'>
+                <div className='flex flex-col justify-center lg:ml-8'>
+                  <h2 className='lg:text-lg text-base font-bold text-gray-900 tracking-wide flex flex-col lg:flex-row'>
                     <Link href={`/profile/${userInfo.username}`}>
                       <a
                         onMouseEnter={() => setHoverOnName(true)}
                         onMouseLeave={() => setHoverOnName(false)}
-                        className='text-green-500 hover:text-green-600 transition ease-in-out duration-200'
+                        className='text-green-500 hover:text-green-600 transition ease-in-out duration-200 mx-auto'
                       >
                         {userInfo.username}
                       </a>
                     </Link>
-                    <span>
+                    <span className='flex mx-auto lg:mx-0'>
                       {' '}
-                      / {currentSection === 'profile' && 'Edit Profile'}
+                      <span className='lg:flex hidden lg:mx-1 mx-auto'>
+                        /
+                      </span>{' '}
+                      {currentSection === 'profile' && 'Edit Profile'}
                       {currentSection === 'account' && 'Account Settings'}
                       {currentSection === 'password' && 'Change Password'}
                     </span>
                   </h2>
                   {currentSection === 'profile' && (
-                    <h3 className='text-sm'>
+                    <h3 className='lg:text-sm text-xs mx-auto lg:mx-0'>
                       Edit your public profile details.
                     </h3>
                   )}
                   {currentSection === 'account' && (
-                    <h3 className='text-sm'>Change your account settings.</h3>
+                    <h3 className='lg:text-sm text-xs mx-auto lg:mx-0'>
+                      Change your account settings.
+                    </h3>
                   )}
                   {currentSection === 'password' && (
-                    <h3 className='text-sm'>Update your password.</h3>
+                    <h3 className='lg:text-sm text-xs mx-auto lg:mx-0'>
+                      Update your password.
+                    </h3>
                   )}
                 </div>
               </div>
             </section>
-            <section className='row-span-2 col-start-3 col-end-4 my-12 text-sm w-64'>
-              <ul>
-                <li className='pb-1'>
-                  <button
-                    onClick={() => setCurrentSection('profile')}
-                    className={`flex items-center py-2 focus:outline-none ${
-                      currentSection === 'profile'
-                        ? 'text-gray-900 font-semibold'
-                        : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
-                    }`}
-                  >
-                    <svg
-                      className='w-6 h-6 mr-4'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z'
-                      ></path>
-                    </svg>
-                    Edit Profile
-                  </button>
-                </li>
-                <li className='py-1'>
-                  <button
-                    onClick={() => setCurrentSection('account')}
-                    className={`flex justify-center py-2 focus:outline-none ${
-                      currentSection === 'account'
-                        ? 'text-gray-900 font-semibold'
-                        : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
-                    }`}
-                  >
-                    <svg
-                      className='w-6 h-6 mr-4'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
-                      ></path>
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
-                      ></path>
-                    </svg>
-                    Account Settings
-                  </button>
-                </li>
-                <li className='py-1'>
-                  <button
-                    onClick={() => setCurrentSection('password')}
-                    className={`flex justify-center py-2 focus:outline-none ${
-                      currentSection === 'password'
-                        ? 'text-gray-900 font-semibold'
-                        : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
-                    }`}
-                  >
-                    <svg
-                      className='w-6 h-6 mr-4'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z'
-                      ></path>
-                    </svg>
-                    Change Password
-                  </button>
-                </li>
-              </ul>
-            </section>
-            <section className='row-start-2 row-end-5 col-start-4 col-end-9 my-12 ml-24'>
-              {currentSection === 'profile' && (
-                <form
-                  className='bg-white rounded pb-8 mb-4 w-full'
-                  onSubmit={handleUpdateProfileSubmit(onUpdateProfileSubmit)}
-                >
-                  <div className='flex justify-between'>
-                    <div className='mb-6 w-full pr-2'>
-                      <label
-                        htmlFor='firstName'
-                        className='block text-gray-700 text-sm font-medium'
-                      >
-                        First name <span className='text-red-700'>*</span>
-                      </label>
-                      <input
-                        className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                        type='text'
-                        name='firstName'
-                        id='firstName'
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                        ref={updateProfile({ required: true })}
-                      />
-                    </div>
-                    <div className='mb-6 w-full pl-2'>
-                      <label
-                        htmlFor='lastName'
-                        className='block text-gray-700 text-sm font-medium'
-                      >
-                        Last name <span className='text-red-700'>*</span>
-                      </label>
-                      <input
-                        className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                        type='text'
-                        name='lastName'
-                        id='lastName'
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                        ref={updateProfile({ required: true })}
-                      />
-                    </div>
-                  </div>
-                  <div className='mb-6'>
-                    <label
-                      htmlFor='location'
-                      className='block text-gray-700 text-sm font-medium'
-                    >
-                      Location
-                    </label>
-                    <input
-                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                      type='location'
-                      name='location'
-                      id='location'
-                      placeholder="Let us know where you're from... "
-                      value={location}
-                      onChange={(e) => setLocation(e.target.value)}
-                      ref={updateProfile({ maxLength: 50 })}
-                    />
-                  </div>
-                  <div className='mb-4'>
-                    <label
-                      htmlFor='bio'
-                      className='block text-gray-700 text-sm font-medium'
-                    >
-                      Bio
-                    </label>
-                    <textarea
-                      className='h-32 resize-none mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                      type='text'
-                      name='bio'
-                      id='bio'
-                      placeholder='Share something about yourself with the rest of the community...'
-                      value={bio}
-                      onChange={(e) => setBio(e.target.value)}
-                      ref={updateProfile({ maxLength: 200 })}
-                    />
-                  </div>
-                  <div className='border-b border-gray-200 w-full my-8'></div>
-                  <div className='w-full flex justify-end'>
+            <div className='flex lg:flex-row flex-col'>
+              <section className='lg:my-12 mt-16 -mb-5 lg:text-sm text-xs w-64 iPad:w-128'>
+                <ul className='flex lg:flex-col flex-row flex-wrap justify-center iPad:justify-around'>
+                  <li className='lg:pb-1'>
                     <button
-                      className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
-                      type='submit'
+                      onClick={() => setCurrentSection('profile')}
+                      className={`flex items-center py-2 focus:outline-none ${
+                        currentSection === 'profile'
+                          ? 'text-gray-900 font-semibold'
+                          : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
+                      }`}
                     >
-                      Save
+                      <svg
+                        className='w-6 h-6 lg:mr-4 mr-1'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z'
+                        ></path>
+                      </svg>
+                      Edit Profile
                     </button>
-                  </div>
-                </form>
-              )}
-              {currentSection === 'account' && (
-                <form
-                  className='bg-white rounded pb-8 mb-4 w-full'
-                  onSubmit={handleUpdateAccountSubmit(onUpdateAccountSubmit)}
-                >
-                  <div>
+                  </li>
+                  <li className='lg:py-1 lg:ml-0 ml-1 iPad:ml-0'>
+                    <button
+                      onClick={() => setCurrentSection('account')}
+                      className={`flex justify-center items-center py-2 focus:outline-none ${
+                        currentSection === 'account'
+                          ? 'text-gray-900 font-semibold'
+                          : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
+                      }`}
+                    >
+                      <svg
+                        className='w-6 h-6 lg:mr-4 mr-1'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
+                        ></path>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+                        ></path>
+                      </svg>
+                      Account Settings
+                    </button>
+                  </li>
+                  <li className='lg:py-1'>
+                    <button
+                      onClick={() => setCurrentSection('password')}
+                      className={`flex justify-center items-center py-2 focus:outline-none ${
+                        currentSection === 'password'
+                          ? 'text-gray-900 font-semibold'
+                          : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
+                      }`}
+                    >
+                      <svg
+                        className='w-6 h-6 lg:mr-4 mr-1'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z'
+                        ></path>
+                      </svg>
+                      Change Password
+                    </button>
+                  </li>
+                </ul>
+              </section>
+              <section className='my-12 lg:ml-24 lg:w-128 w-64 lg:h-128 iPadPro:mb-36 iPad:w-128'>
+                {currentSection === 'profile' && (
+                  <form
+                    className='bg-white rounded pb-8 mb-4 w-full'
+                    onSubmit={handleUpdateProfileSubmit(onUpdateProfileSubmit)}
+                  >
+                    <div className='flex lg:justify-between lg:flex-row flex-col'>
+                      <div className='mb-6 w-full lg:pr-2'>
+                        <label
+                          htmlFor='firstName'
+                          className='block text-gray-700 text-sm font-medium'
+                        >
+                          First name <span className='text-red-700'>*</span>
+                        </label>
+                        <input
+                          className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                          type='text'
+                          name='firstName'
+                          id='firstName'
+                          value={firstName}
+                          onChange={(e) => setFirstName(e.target.value)}
+                          ref={updateProfile({ required: true })}
+                        />
+                      </div>
+                      <div className='mb-6 w-full lg:pl-2'>
+                        <label
+                          htmlFor='lastName'
+                          className='block text-gray-700 text-sm font-medium'
+                        >
+                          Last name <span className='text-red-700'>*</span>
+                        </label>
+                        <input
+                          className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                          type='text'
+                          name='lastName'
+                          id='lastName'
+                          value={lastName}
+                          onChange={(e) => setLastName(e.target.value)}
+                          ref={updateProfile({ required: true })}
+                        />
+                      </div>
+                    </div>
                     <div className='mb-6'>
                       <label
-                        htmlFor='username'
+                        htmlFor='location'
                         className='block text-gray-700 text-sm font-medium'
                       >
-                        Username <span className='text-red-700'>*</span>
+                        Location
                       </label>
                       <input
-                        className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                        type='username'
-                        name='username'
-                        id='username'
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        ref={updateAccount({ required: true, maxLength: 30 })}
+                        className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                        type='location'
+                        name='location'
+                        id='location'
+                        placeholder="Let us know where you're from... "
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        ref={updateProfile({ maxLength: 50 })}
                       />
-                      <p className='text-sm text-gray-500 pt-1'>
-                        Your ubooze Profile URL: https://www.ubooze.com/profile/
-                        <span className='font-semibold'>
-                          {userInfo.username}
-                        </span>
-                      </p>
                     </div>
-                    <div className='mb-10'>
+                    <div className='mb-4'>
                       <label
-                        htmlFor='email'
+                        htmlFor='bio'
                         className='block text-gray-700 text-sm font-medium'
                       >
-                        Email address <span className='text-red-700'>*</span>
+                        Bio
                       </label>
-                      <input
-                        className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                        type='email'
-                        name='email'
-                        id='email'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        ref={updateAccount({ required: true, maxLength: 200 })}
+                      <textarea
+                        className='h-32 resize-none text-sm mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                        type='text'
+                        name='bio'
+                        id='bio'
+                        placeholder='Share something about yourself with the rest of the community...'
+                        value={bio}
+                        onChange={(e) => setBio(e.target.value)}
+                        ref={updateProfile({ maxLength: 200 })}
                       />
                     </div>
-                    <div className='border-b border-gray-200 w-full my-6'></div>
-                    <div className='flex justify-between py-5'>
-                      <div>
-                        <p className='text-gray-900 text-xl font-semibold'>
-                          Close Account
-                        </p>
-                        <p className='text-sm text-gray-500 py-2'>
-                          Delete my account and all account data
+                    <div className='border-b border-gray-200 w-full my-8'></div>
+                    <div className='w-full flex justify-end'>
+                      <button
+                        className='text-sm shadow-sm lg:w-auto w-full border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
+                        type='submit'
+                      >
+                        Save
+                      </button>
+                    </div>
+                  </form>
+                )}
+                {currentSection === 'account' && (
+                  <form
+                    className='bg-white rounded pb-8 mb-4 w-full'
+                    onSubmit={handleUpdateAccountSubmit(onUpdateAccountSubmit)}
+                  >
+                    <div>
+                      <div className='mb-6'>
+                        <label
+                          htmlFor='username'
+                          className='block text-gray-700 text-sm font-medium'
+                        >
+                          Username <span className='text-red-700'>*</span>
+                        </label>
+                        <input
+                          className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                          type='username'
+                          name='username'
+                          id='username'
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                          ref={updateAccount({ required: true, maxLength: 30 })}
+                        />
+                        <p className='lg:text-sm text-xs lg:flex hidden text-gray-500 pt-1'>
+                          Your ubooze Profile URL:
+                          https://www.ubooze.com/profile/
+                          <span className='font-semibold'>
+                            {userInfo.username}
+                          </span>
                         </p>
                       </div>
-                      <a
-                        onClick={() => handleDeleteAccount()}
-                        className='px-7 py-5 text-md w-48 font-semibold tracking-tighter text-white bg-red-600 border-gray-400 border text-center rounded-md hover:bg-red-800 hover:text-white transition ease-in-out duration-100 cursor-pointer'
-                      >
-                        Close Account
-                      </a>
+                      <div className='mb-10'>
+                        <label
+                          htmlFor='email'
+                          className='block text-gray-700 text-sm font-medium'
+                        >
+                          Email address <span className='text-red-700'>*</span>
+                        </label>
+                        <input
+                          className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                          type='email'
+                          name='email'
+                          id='email'
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          ref={updateAccount({
+                            required: true,
+                            maxLength: 200,
+                          })}
+                        />
+                      </div>
+                      <div className='border-b border-gray-200 w-full my-6'></div>
+                      <div className='flex justify-between lg:py-5 py-0 lg:flex-row flex-col'>
+                        <div>
+                          <p className='text-gray-900 lg:text-xl text-lg font-semibold'>
+                            Close Account
+                          </p>
+                          <p className='lg:text-sm text-xs text-gray-500 py-2'>
+                            Delete my account and all account data
+                          </p>
+                        </div>
+                        <a
+                          onClick={() => handleDeleteAccount()}
+                          className='px-7 py-5 lg:my-0 my-5 lg:w-auto w-full text-md font-semibold tracking-tighter text-white bg-red-600 border-gray-400 border text-center rounded-md hover:bg-red-800 hover:text-white transition ease-in-out duration-100 cursor-pointer'
+                        >
+                          Close Account
+                        </a>
+                      </div>
+                      <div className='border-b border-gray-200 w-full my-6'></div>
+                      <div className='mb-6'>
+                        <label
+                          htmlFor='confirmNewPassword'
+                          className='block text-gray-700 text-sm font-medium'
+                        >
+                          Confirm password{' '}
+                          <span className='text-red-700'>*</span>
+                        </label>
+                        <input
+                          className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                          type='password'
+                          name='confirmPasswordAccount'
+                          id='confirmPasswordAccount'
+                          onChange={(e) =>
+                            setConfirmPasswordAccount(e.target.value)
+                          }
+                          ref={updateAccount({
+                            required: true,
+                            minLength: 6,
+                            maxLength: 20,
+                          })}
+                        />
+                      </div>
+                      <div className='w-full flex justify-end'>
+                        <button
+                          className='text-sm shadow-sm lg:w-auto w-full border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
+                          type='submit'
+                        >
+                          Save
+                        </button>
+                      </div>
                     </div>
-                    <div className='border-b border-gray-200 w-full my-6'></div>
+                  </form>
+                )}
+                {currentSection === 'password' && (
+                  <form
+                    className='bg-white rounded pb-8 mb-4 w-full'
+                    onSubmit={handleUpdatePasswordSubmit(
+                      onUpdatePasswordSubmit
+                    )}
+                  >
                     <div className='mb-6'>
                       <label
-                        htmlFor='confirmNewPassword'
+                        htmlFor='oldPassword'
                         className='block text-gray-700 text-sm font-medium'
                       >
-                        Confirm password to save changes{' '}
-                        <span className='text-red-700'>*</span>
+                        Old password <span className='text-red-700'>*</span>
                       </label>
                       <input
-                        className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                        className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                         type='password'
-                        name='confirmPasswordAccount'
-                        id='confirmPasswordAccount'
-                        onChange={(e) =>
-                          setConfirmPasswordAccount(e.target.value)
-                        }
-                        ref={updateAccount({
+                        name='oldPassword'
+                        id='oldPassword'
+                        ref={updatePassword({
                           required: true,
                           minLength: 6,
                           maxLength: 20,
                         })}
                       />
                     </div>
-                    <div className='w-full flex justify-end'>
+                    <div className='mb-6'>
+                      <label
+                        htmlFor='newPassword'
+                        className='block text-gray-700 text-sm font-medium'
+                      >
+                        New password <span className='text-red-700'>*</span>
+                      </label>
+                      <input
+                        className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                        type='password'
+                        name='newPassword'
+                        id='newPassword'
+                        ref={updatePassword({
+                          required: true,
+                          minLength: 6,
+                          maxLength: 20,
+                        })}
+                      />
+                    </div>
+                    <div className='mb-6'>
+                      <label
+                        htmlFor='confirmNewPassword'
+                        className='block text-gray-700 text-sm font-medium'
+                      >
+                        Confirm new password{' '}
+                        <span className='text-red-700'>*</span>
+                      </label>
+                      <input
+                        className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                        type='password'
+                        name='confirmNewPassword'
+                        id='confirmNewPassword'
+                        ref={updatePassword({
+                          required: true,
+                          minLength: 6,
+                          maxLength: 20,
+                        })}
+                      />
+                    </div>
+                    <div className='border-b border-gray-200 w-full my-8'></div>
+                    <div className='w-full flex lg:justify-end'>
                       <button
-                        className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
+                        className='text-sm lg:w-auto w-full shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
                         type='submit'
                       >
-                        Save
+                        Update Password
                       </button>
                     </div>
-                  </div>
-                </form>
-              )}
-              {currentSection === 'password' && (
-                <form
-                  className='bg-white rounded pb-8 mb-4 w-full'
-                  onSubmit={handleUpdatePasswordSubmit(onUpdatePasswordSubmit)}
-                >
-                  <div className='mb-6'>
-                    <label
-                      htmlFor='oldPassword'
-                      className='block text-gray-700 text-sm font-medium'
-                    >
-                      Old password <span className='text-red-700'>*</span>
-                    </label>
-                    <input
-                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                      type='password'
-                      name='oldPassword'
-                      id='oldPassword'
-                      ref={updatePassword({
-                        required: true,
-                        minLength: 6,
-                        maxLength: 20,
-                      })}
-                    />
-                  </div>
-                  <div className='mb-6'>
-                    <label
-                      htmlFor='newPassword'
-                      className='block text-gray-700 text-sm font-medium'
-                    >
-                      New password <span className='text-red-700'>*</span>
-                    </label>
-                    <input
-                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                      type='password'
-                      name='newPassword'
-                      id='newPassword'
-                      ref={updatePassword({
-                        required: true,
-                        minLength: 6,
-                        maxLength: 20,
-                      })}
-                    />
-                  </div>
-                  <div className='mb-6'>
-                    <label
-                      htmlFor='confirmNewPassword'
-                      className='block text-gray-700 text-sm font-medium'
-                    >
-                      Confirm new password{' '}
-                      <span className='text-red-700'>*</span>
-                    </label>
-                    <input
-                      className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                      type='password'
-                      name='confirmNewPassword'
-                      id='confirmNewPassword'
-                      ref={updatePassword({
-                        required: true,
-                        minLength: 6,
-                        maxLength: 20,
-                      })}
-                    />
-                  </div>
-                  <div className='border-b border-gray-200 w-full my-8'></div>
-                  <div className='w-full flex justify-end'>
-                    <button
-                      className='text-sm shadow-sm border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
-                      type='submit'
-                    >
-                      Update Password
-                    </button>
-                  </div>
-                </form>
-              )}
-            </section>
-          </>
+                  </form>
+                )}
+              </section>
+            </div>
+          </div>
         )}
       </motion.main>
     </Layout>
