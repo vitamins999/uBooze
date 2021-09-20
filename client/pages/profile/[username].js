@@ -52,25 +52,23 @@ const Profile = ({ drinks }) => {
         exit='exit'
         initial='initial'
         animate='animate'
-        className={`grid grid-cols-3 ${
-          currentSection === 'drinks' ? 'grid-rows-7' : 'grid-rows-2'
-        }`}
+        className='flex flex-col'
       >
         {isLoading && <Loader />}
         {status === 'success' && (
           <>
-            <section className='row-span-1 col-start-2 my-20'>
+            <section className='my-20 iPadPro:my-32'>
               <div className='flex justify-center'>
                 <img
                   src={data.avatar}
                   alt='profile image'
-                  className='rounded-full w-32 h-32'
+                  className='rounded-full lg:w-32 lg:h-32 w-24 h-24 my-auto'
                 />
                 <div className='flex flex-col justify-center ml-8 h-32'>
-                  <h2 className='text-2xl font-bold text-gray-900'>
+                  <h2 className='lg:text-2xl text-xl font-bold text-gray-900'>
                     {data.displayName}
                   </h2>
-                  <h3 className='text-lg'>{data.username}</h3>
+                  <h3 className='lg:text-lg text-base'>{data.username}</h3>
                   {data.isUser && (
                     <Link href='/profile/edit'>
                       <a className='mt-2 px-4 py-2 w-32 text-sm font-medium text-gray-700 border-gray-300 border text-center rounded-lg shadow-sm hover:bg-gray-50 transition ease-in-out duration-200'>
@@ -81,7 +79,7 @@ const Profile = ({ drinks }) => {
                 </div>
               </div>
             </section>
-            <section className='px-32 row-start-2 row-end-7 col-span-3'>
+            <section className='lg:px-32 px-8 pb-32 iPadPro:pb-80 iPadWidescreen:px-16 iPadPro:px-16'>
               <div className='flex w-full border-b border-gray-200'>
                 <button
                   onClick={() => setCurrentSection('about')}
@@ -105,7 +103,7 @@ const Profile = ({ drinks }) => {
                 </button>
               </div>
               {currentSection === 'about' && (
-                <div className='flex w-full justify-between'>
+                <div className='flex w-full justify-between lg:flex-row flex-col'>
                   <div className='mt-10'>
                     <div className='bg-gray-100 w-full px-8 py-5 rounded-lg text-sm shadow-sm text-gray-700'>
                       <div className='flex align-middle'>
@@ -155,7 +153,7 @@ const Profile = ({ drinks }) => {
                       </div>
                     </div>
                   </div>
-                  <div className='mt-10 text-md pb-4 py-5 w-3/5 border-b'>
+                  <div className='mt-10 lg:text-md text-sm lg:pb-4 pb-10 py-5 lg:w-3/5 w-auto border-b'>
                     <h3 className='font-semibold'>Bio</h3>
                     <p className='py-3 text-gray-500'>
                       {data.bio
@@ -166,7 +164,7 @@ const Profile = ({ drinks }) => {
                 </div>
               )}
               {currentSection === 'drinks' && (
-                <div className='mb-52'>
+                <div>
                   <CategoryBar
                     primary='favourites'
                     title={`${username}'s Favourite Drinks`}
