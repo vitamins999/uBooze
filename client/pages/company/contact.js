@@ -52,19 +52,19 @@ const ContactUs = () => {
       >
         <div className='container px-5 py-24 mx-auto'>
           <div className='flex flex-col text-center w-full mb-12'>
-            <h1 className='sm:text-3xl text-2xl font-medium font-heading mb-4 text-gray-900'>
+            <h1 className='lg:text-3xl text-2xl font-medium font-heading mb-4 text-gray-900'>
               Contact Us
             </h1>
-            <p className='lg:w-2/3 mx-auto leading-relaxed text-base'>
+            <p className='lg:w-2/3 mx-auto leading-relaxed lg:text-base text-sm'>
               Have a question? Drop us an email below and we'll get back to you!
             </p>
           </div>
           <div className='lg:w-1/2 md:w-2/3 mx-auto'>
             <form
               onSubmit={handleContactSubmit(onContactSubmit)}
-              className='flex flex-wrap -m-2'
+              className='flex lg:flex-wrap flex-col lg:flex-row -m-2 lg:pb-0 pb-32 iPad:pb-32 iPadWidescreen:pb-32 iPadPro:pb-60'
             >
-              <div className='p-2 w-1/2'>
+              <div className='p-2 lg:w-1/2 w-auto'>
                 <div className='relative'>
                   <label
                     htmlFor='name'
@@ -77,11 +77,11 @@ const ContactUs = () => {
                     id='name'
                     name='name'
                     ref={contact({ required: true })}
-                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                    className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                   />
                 </div>
               </div>
-              <div className='p-2 w-1/2'>
+              <div className='p-2 lg:w-1/2 w-auto'>
                 <div className='relative'>
                   <label
                     htmlFor='email'
@@ -94,7 +94,7 @@ const ContactUs = () => {
                     id='email'
                     name='email'
                     ref={contact({ required: true })}
-                    className='mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                    className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                   />
                 </div>
               </div>
@@ -111,7 +111,7 @@ const ContactUs = () => {
                     id='message'
                     name='message'
                     ref={contact({ required: true })}
-                    className='h-32 resize-none mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                    className='h-32 resize-none text-sm mt-1 w-full shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                   />
                 </div>
               </div>
