@@ -54,13 +54,6 @@ c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139
             </h2>
             <nav className='list-none mb-10'>
               <li>
-                <Link href='/company/about'>
-                  <a className='text-gray-500 hover:text-green-500 transition duration-300 ease-in-out'>
-                    About Us
-                  </a>
-                </Link>
-              </li>
-              <li>
                 <Link href='/company/contact'>
                   <a className='text-gray-500 hover:text-green-500 transition duration-300 ease-in-out'>
                     Contact Us
@@ -68,11 +61,14 @@ c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139
                 </Link>
               </li>
               <li>
-                <Link href='/company/donate'>
-                  <a className='text-gray-500 hover:text-green-500 transition duration-300 ease-in-out'>
-                    Donate
-                  </a>
-                </Link>
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  href='https://www.buymeacoffee.com/ubooze'
+                  className='text-gray-500 hover:text-green-500 transition duration-300 ease-in-out'
+                >
+                  Donate
+                </a>
               </li>
             </nav>
           </div>
@@ -88,13 +84,6 @@ c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139
                   </a>
                 </Link>
               </li>
-              <li>
-                <Link href='/policies/attributions'>
-                  <a className='text-gray-500 hover:text-green-500 transition duration-300 ease-in-out'>
-                    Attributions
-                  </a>
-                </Link>
-              </li>
             </nav>
           </div>
         </div>
@@ -102,7 +91,7 @@ c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139
       <div className='bg-gray-100'>
         <div className='container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row'>
           <p className='text-gray-500 text-sm text-center sm:text-left'>
-            © 2020 ubooze. All rights reserved
+            © 2021 ubooze. All rights reserved
           </p>
           <p className='inline-flex text-sm text-gray-500  sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start'>
             Made in the UK

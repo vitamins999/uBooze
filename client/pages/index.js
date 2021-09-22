@@ -180,6 +180,23 @@ const Home = () => {
                 alcohol prices, engineered to find the cheapest deals closest to
                 you.
               </p>
+              <p className='leading-relaxed mt-4 iPad:text-sm lg:text-base text-sm'>
+                <span className='font-heading text-green-700 font-semibold'>
+                  ubooze
+                </span>{' '}
+                is completely free. No ads. No membership fees. And we won't
+                sell your data. All we ask is that if you enjoy our service,
+                consider{' '}
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  href='https://www.buymeacoffee.com/ubooze'
+                  className='text-blue-700 hover:text-blue-800 underline transition duration-300 ease-in-out'
+                >
+                  donating
+                </a>{' '}
+                as a way of saying thanks.
+              </p>
             </div>
             <form
               onSubmit={handlePostcodeSubmit(onPostcodeSearchSubmit)}
@@ -284,7 +301,7 @@ const Home = () => {
                 variants={optionsVariants}
                 className='p-4 md:w-1/3 iPad:z-10'
               >
-                <div className='flex rounded-lg h-full bg-gray-100 p-8 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
+                <div className='flex rounded-lg h-full bg-gray-100 p-8 iPad:p-6 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
                   <div className='flex items-center mb-3'>
                     <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
                       <svg
@@ -334,7 +351,7 @@ const Home = () => {
                 variants={optionsVariants}
                 className='p-4 md:w-1/3 iPad:z-10'
               >
-                <div className='flex rounded-lg h-full bg-gray-100 p-8 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
+                <div className='flex rounded-lg h-full bg-gray-100 p-8 iPad:p-6 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
                   <div className='flex items-center mb-3'>
                     <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
                       <svg
@@ -362,7 +379,7 @@ const Home = () => {
                       select manually what supermarkets you want to compare.
                     </p>
                     <Link href='/search/supermarket'>
-                      <a className='mt-3 iPad:mt-9 text-green-500 inline-flex items-center hover:text-green-600 transition duration-200 ease-in-out'>
+                      <a className='mt-3 iPad:mt-3 text-green-500 inline-flex items-center hover:text-green-600 transition duration-200 ease-in-out'>
                         Go to Supermarket Search
                         <svg
                           fill='none'
@@ -384,7 +401,7 @@ const Home = () => {
                 variants={optionsVariants}
                 className='p-4 md:w-1/3 z-10'
               >
-                <div className='flex rounded-lg h-full bg-gray-100 p-8 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
+                <div className='flex rounded-lg h-full bg-gray-100 p-8 iPad:p-6 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
                   <div className='flex items-center mb-3'>
                     <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
                       <svg
@@ -414,7 +431,7 @@ const Home = () => {
                     </p>
                     <a
                       onClick={scrollToTop}
-                      className='cursor-pointer lg:mt-3 mt-3 md:mt-8 iPad:mt-16 iPadWidescreen:mt-9 iPadPro:mt-9 2xl:mt-9 text-green-500 inline-flex items-center hover:text-green-600 transition duration-200 ease-in-out'
+                      className='cursor-pointer lg:mt-3 mt-3 md:mt-8 iPad:mt-14 iPadWidescreen:mt-14 iPadPro:mt-14 2xl:mt-9 text-green-500 inline-flex items-center hover:text-green-600 transition duration-200 ease-in-out'
                     >
                       Go to the Search Bar
                       <svg
