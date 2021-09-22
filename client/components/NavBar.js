@@ -180,7 +180,7 @@ const NavBar = ({ landingPage }) => {
               {showUserMenu && (
                 <div
                   ref={userMenuRef}
-                  className='dropdown absolute left-0 h-auto shadow-lg z-20 w-20 mt-3 -ml-2'
+                  className='dropdown absolute left-0 h-auto shadow-lg z-50 w-20 mt-3 -ml-2'
                   onMouseClick={() => setShowUserMenu(!showUserMenu)}
                 >
                   <ul className='bg-gray-100 w-48 shadow-lg py-4 text-left text-xs font-medium tracking-wide rounded-lg text-gray-500'>
