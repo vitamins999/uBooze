@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 
-import { useInView } from 'react-intersection-observer';
 import Cookie from 'js-cookie';
 
 import Layout from '../components/Layout';
@@ -22,26 +21,6 @@ const Home = () => {
   } = useForm();
 
   const router = useRouter();
-
-  const useInViewOptions = {
-    triggerOnce: true,
-    rootMargin: '-75px 0px',
-  };
-
-  const useInViewOptionsMemberItems = {
-    triggerOnce: true,
-    rootMargin: '-100px 0px',
-  };
-
-  const [refSearchOptionsTitle, inViewSearchOptionsTitle] =
-    useInView(useInViewOptions);
-  const [refSearchOptionsBody, inViewSearchOptionsBody] =
-    useInView(useInViewOptions);
-  const [refMemberBenefitsTitle, inViewMemberBenefitsTitle] =
-    useInView(useInViewOptions);
-  const [refMemberBenefitsBody, inViewMemberBenefitsBody] = useInView(
-    useInViewOptionsMemberItems
-  );
 
   const onPostcodeSearchSubmit = async ({ unformattedPostcode, radius }) => {
     const postcode = unformattedPostcode.split(' ').join('').toUpperCase();
@@ -85,62 +64,6 @@ const Home = () => {
       opacity: 1,
       transition: {
         duration: 1,
-      },
-    },
-  };
-
-  const optionsVariants = {
-    start: {
-      opacity: 0,
-      y: 200,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const memberVariants = {
-    start: {
-      opacity: 0,
-    },
-    animate: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const memberItemVariantsLeft = {
-    start: {
-      opacity: 0,
-      x: -200,
-    },
-    animate: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
-  const memberItemVariantsRight = {
-    start: {
-      opacity: 0,
-      x: 200,
-    },
-    animate: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
       },
     },
   };
@@ -262,45 +185,29 @@ const Home = () => {
         </section>
 
         <section className='text-gray-800 body-font bg-green-500'>
-          <div className='container px-5 lg:py-24 py-36 2xl:py-16 iPadWidescreen:pt-20 iPadWidescreen:pb-28 iPadPro:pt-20 iPadPro:pb-28 mx-auto'>
-            <motion.div
-              ref={refSearchOptionsTitle}
-              variants={optionsVariants}
-              initial='start'
-              animate={inViewSearchOptionsTitle && 'animate'}
-              className='text-center mb-20'
-            >
-              <motion.h1
-                variants={optionsVariants}
-                className='sm:text-3xl text-2xl font-medium font-heading text-gray-900 mb-4'
-              >
+          <motion.div
+            variants={heroVariants}
+            initial='start'
+            animate='animate'
+            className='container px-5 lg:py-24 py-36 2xl:py-16 iPadWidescreen:pt-20 iPadWidescreen:pb-28 iPadPro:pt-20 iPadPro:pb-28 mx-auto'
+          >
+            <div className='text-center mb-20'>
+              <h1 className='sm:text-3xl text-2xl font-medium font-heading text-gray-900 mb-4'>
                 Easy Search Options
-              </motion.h1>
-              <motion.p
-                variants={optionsVariants}
-                className='lg:text-base text-sm leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto'
-              >
+              </h1>
+              <p className='lg:text-base text-sm leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto'>
                 We want to make it as easy as possible for you to find the
                 cheapest alcohol deals. That's why we've provided the following
                 different search options, so you can search for the drinks you
                 want, the way you want.
-              </motion.p>
+              </p>
               <div className='flex mt-6 justify-center'>
                 <div className='w-16 h-1 rounded-full bg-gray-500 inline-flex'></div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              ref={refSearchOptionsBody}
-              variants={optionsVariants}
-              initial='start'
-              animate={inViewSearchOptionsBody && 'animate'}
-              className='flex flex-wrap -m-4'
-            >
-              <motion.div
-                variants={optionsVariants}
-                className='p-4 md:w-1/3 iPad:z-10'
-              >
+            <div className='flex flex-wrap -m-4'>
+              <div className='p-4 md:w-1/3 iPad:z-10'>
                 <div className='flex rounded-lg h-full bg-gray-100 p-8 iPad:p-6 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
                   <div className='flex items-center mb-3'>
                     <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
@@ -346,11 +253,8 @@ const Home = () => {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
-              <motion.div
-                variants={optionsVariants}
-                className='p-4 md:w-1/3 iPad:z-10'
-              >
+              </div>
+              <div className='p-4 md:w-1/3 iPad:z-10'>
                 <div className='flex rounded-lg h-full bg-gray-100 p-8 iPad:p-6 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
                   <div className='flex items-center mb-3'>
                     <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
@@ -396,11 +300,8 @@ const Home = () => {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
-              <motion.div
-                variants={optionsVariants}
-                className='p-4 md:w-1/3 z-10'
-              >
+              </div>
+              <div className='p-4 md:w-1/3 z-10'>
                 <div className='flex rounded-lg h-full bg-gray-100 p-8 iPad:p-6 iPadWidescreen:p-6 iPadPro:p-6 flex-col shadow-md'>
                   <div className='flex items-center mb-3'>
                     <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0'>
@@ -448,9 +349,9 @@ const Home = () => {
                     </a>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
-          </div>
+              </div>
+            </div>
+          </motion.div>
           <svg
             className='-mt-44 z-0'
             xmlns='http://www.w3.org/2000/svg'
@@ -466,13 +367,7 @@ const Home = () => {
 
         <section className='text-gray-700 body-font'>
           <div className='container px-5 py-24 mx-auto'>
-            <motion.div
-              ref={refMemberBenefitsTitle}
-              variants={optionsVariants}
-              initial='start'
-              animate={inViewMemberBenefitsTitle && 'animate'}
-              className='text-center'
-            >
+            <div className='text-center'>
               <h1 className='sm:text-3xl text-2xl font-medium text-center font-heading text-gray-900 mb-4'>
                 Member Benefits
               </h1>
@@ -483,19 +378,10 @@ const Home = () => {
               <div className='flex mb-20 mt-6 justify-center'>
                 <div className='w-16 h-1 rounded-full bg-green-500 inline-flex'></div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              ref={refMemberBenefitsBody}
-              variants={memberVariants}
-              initial='start'
-              animate={inViewMemberBenefitsBody && 'animate'}
-              className='flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2'
-            >
-              <motion.div
-                variants={memberItemVariantsLeft}
-                className='p-2 sm:w-1/2 w-full'
-              >
+            <div className='flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2'>
+              <div className='p-2 sm:w-1/2 w-full'>
                 <div className='bg-gray-200 rounded flex p-4 h-full items-center'>
                   <svg
                     fill='none'
@@ -513,11 +399,8 @@ const Home = () => {
                     Public profile page
                   </span>
                 </div>
-              </motion.div>
-              <motion.div
-                variants={memberItemVariantsRight}
-                className='p-2 sm:w-1/2 w-full'
-              >
+              </div>
+              <div className='p-2 sm:w-1/2 w-full'>
                 <div className='bg-gray-200 rounded flex p-4 h-full items-center'>
                   <svg
                     fill='none'
@@ -535,11 +418,8 @@ const Home = () => {
                     Save your favourite drinks
                   </span>
                 </div>
-              </motion.div>
-              <motion.div
-                variants={memberItemVariantsLeft}
-                className='p-2 sm:w-1/2 w-full'
-              >
+              </div>
+              <div className='p-2 sm:w-1/2 w-full'>
                 <div className='bg-gray-200 rounded flex p-4 h-full items-center'>
                   <svg
                     fill='none'
@@ -555,11 +435,8 @@ const Home = () => {
                   </svg>
                   <span className='title-font font-medium'>Rate products</span>
                 </div>
-              </motion.div>
-              <motion.div
-                variants={memberItemVariantsRight}
-                className='p-2 sm:w-1/2 w-full'
-              >
+              </div>
+              <div className='p-2 sm:w-1/2 w-full'>
                 <div className='bg-gray-200 rounded flex p-4 h-full items-center'>
                   <svg
                     fill='none'
@@ -577,18 +454,15 @@ const Home = () => {
                     Google and Facebook login compatible
                   </span>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
             <a>
-              <motion.button
-                initial={{ opacity: 0, y: 200 }}
-                animate={inViewMemberBenefitsBody && { opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.5 }}
+              <button
                 onClick={() => router.push('/signup')}
                 className='flex mx-auto mt-16 font-medium shadow-sm text-green-50 bg-green-500 border-0 py-2 px-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 hover:bg-green-600 rounded-lg text-lg transition duration-200 ease-in-out'
               >
                 Sign up now
-              </motion.button>
+              </button>
             </a>
           </div>
         </section>
