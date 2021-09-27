@@ -44,6 +44,7 @@ const ContactUs = () => {
   return (
     <Layout title={title}>
       <motion.section
+        data-testid='section-contact'
         variants={fadeOutPage}
         exit='exit'
         initial='initial'
@@ -73,6 +74,7 @@ const ContactUs = () => {
                     Name
                   </label>
                   <input
+                    data-testid='input-name'
                     type='text'
                     id='name'
                     name='name'
@@ -90,6 +92,7 @@ const ContactUs = () => {
                     Email
                   </label>
                   <input
+                    data-testid='input-email'
                     type='email'
                     id='email'
                     name='email'
@@ -107,6 +110,7 @@ const ContactUs = () => {
                     Message
                   </label>
                   <textarea
+                    data-testid='input-message'
                     type='text'
                     id='message'
                     name='message'
