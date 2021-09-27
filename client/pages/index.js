@@ -73,7 +73,11 @@ const Home = () => {
   return (
     <Layout title={title} landingPage={true}>
       <motion.div exit={{ opacity: 0 }}>
-        <section id='top' className='text-gray-700 body-font'>
+        <section
+          id='top'
+          data-testid='section-hero'
+          className='text-gray-700 body-font'
+        >
           <motion.div
             variants={heroVariants}
             initial='start'
@@ -163,6 +167,7 @@ const Home = () => {
                 />
               </div>
               <button
+                data-testid='button-submit'
                 type='submit'
                 className='text-lg shadow-sm w-full border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-green-50 font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
               >
