@@ -37,6 +37,7 @@ const SupermarketSearch = () => {
   return (
     <Layout title='Search by Supermarket'>
       <motion.section
+        data-testid='section-main'
         variants={fadeOutPage}
         exit='exit'
         initial='initial'
@@ -67,11 +68,13 @@ const SupermarketSearch = () => {
                   {supermarketsArr.map((supermarket) => {
                     return (
                       <motion.label
+                        data-testid='label-supermarket'
                         whileHover={{ scale: 1.1 }}
                         className='flex items-center bg-white p-5 rounded-lg shadow-md'
                         key={supermarket.name}
                       >
                         <input
+                          data-testid='checkbox-supermarket'
                           className='text-green-500 h-5 w-5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 rounded-md border-green-700'
                           type='checkbox'
                           name='supermarket'
@@ -79,6 +82,7 @@ const SupermarketSearch = () => {
                           ref={registerSupermarketSearch}
                         />
                         <img
+                          data-testid='image-supermarket'
                           className='ml-10 lg:h-10 h-6 iPadWidescreen:h-6 iPadPro:h-7 inline-block'
                           src={supermarket.svgPath}
                         ></img>
