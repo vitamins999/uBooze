@@ -24,7 +24,7 @@ describe('Login Page', () => {
     render();
   });
 
-  it('should render login page', async () => {
+  it('should render login page', () => {
     const sectionElement = screen.getByTestId('section-main');
     expect(sectionElement).toBeInTheDocument();
   });
@@ -44,6 +44,8 @@ describe('Login Page', () => {
     );
     expect(inputElement.value).toBe('myverysecurepassword1');
   });
+
+  // Errors
 
   it('should render the correct error message if email not entered on submit', async () => {
     changeInputBoxValue('input-password', 'myverysecurepassword1');

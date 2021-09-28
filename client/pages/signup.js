@@ -88,6 +88,7 @@ const signupPage = () => {
         <title>uBooze | Sign Up</title>
       </Head>
       <motion.main
+        data-testid='section-main'
         variants={fadeOutPage}
         exit='exit'
         initial='initial'
@@ -185,6 +186,7 @@ const signupPage = () => {
                       First name
                     </label>
                     <input
+                      data-testid='input-firstname'
                       className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='text'
                       name='firstName'
@@ -200,6 +202,7 @@ const signupPage = () => {
                       Last name
                     </label>
                     <input
+                      data-testid='input-lastname'
                       className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                       type='text'
                       name='lastName'
@@ -216,6 +219,7 @@ const signupPage = () => {
                     Email address
                   </label>
                   <input
+                    data-testid='input-email'
                     className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='email'
                     name='email'
@@ -231,6 +235,7 @@ const signupPage = () => {
                     Username
                   </label>
                   <input
+                    data-testid='input-username'
                     className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='text'
                     name='username'
@@ -246,6 +251,7 @@ const signupPage = () => {
                     Password
                   </label>
                   <input
+                    data-testid='input-password'
                     className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='password'
                     name='password'
