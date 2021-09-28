@@ -50,6 +50,7 @@ const PostcodeSearch = () => {
   return (
     <Layout title='Search by Postcode'>
       <motion.section
+        data-testid='section-main'
         variants={fadeOutPage}
         exit='exit'
         initial='initial'
@@ -99,6 +100,7 @@ const PostcodeSearch = () => {
                       ref={postcode({ required: true })}
                     />
                     <button
+                      data-testid='button-submit'
                       className='inline-flex lg:mt-0 mt-5 shadow-md lg:shadow-none lg:text-gray-700 text-green-50 border-0 py-2 px-2 lg:-ml-16 hover:text-green-500 bg-green-500 lg:bg-transparent rounded-lg transition duration-150 ease-in-out'
                       type='submit'
                     >
