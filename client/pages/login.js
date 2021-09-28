@@ -102,6 +102,7 @@ const LoginPage = () => {
         <title>uBooze | Log In</title>
       </Head>
       <motion.main
+        data-testid='section-main'
         variants={fadeOutPage}
         exit='exit'
         initial='initial'
@@ -198,6 +199,7 @@ const LoginPage = () => {
                     Email address
                   </label>
                   <input
+                    data-testid='input-email'
                     className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='email'
                     name='email'
@@ -213,6 +215,7 @@ const LoginPage = () => {
                     Password
                   </label>
                   <input
+                    data-testid='input-password'
                     className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
                     type='password'
                     name='password'
