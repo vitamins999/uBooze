@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className='text-gray-700 bg-gray-100'>
+    <footer data-testid='section-footer' className='text-gray-700 bg-gray-100'>
       <div className='container px-5 py-16 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-no-wrap flex-wrap flex-col'>
         <div className='w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left'>
           <Link href='/'>
@@ -90,7 +90,10 @@ c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139
       </div>
       <div className='bg-gray-100'>
         <div className='container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row'>
-          <p className='text-gray-500 text-sm text-center sm:text-left'>
+          <p
+            data-testid='paragraph-copyright'
+            className='text-gray-500 text-sm text-center sm:text-left'
+          >
             © 2021 ubooze. All rights reserved
           </p>
           <p className='inline-flex text-sm text-gray-500  sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start'>
