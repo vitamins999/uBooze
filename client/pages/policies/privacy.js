@@ -8,6 +8,7 @@ const PrivacyPage = () => {
   return (
     <Layout title={title}>
       <motion.section
+        data-testid='section-main'
         variants={fadeOutPage}
         exit='exit'
         initial='initial'
