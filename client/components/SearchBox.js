@@ -14,11 +14,17 @@ const SearchBox = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className='flex justify-center'>
+      <form
+        data-testid='section-form'
+        onSubmit={handleSubmit}
+        className='flex justify-center'
+      >
         <input
+          data-testid='input-searchbox'
           className='shadow-inner border-2 font-medium py-2 border-green-500 text-xs rounded-full mr-4 transition duration-150 ease-in-out text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2 px-4 w-64 iPad:w-108 lg:w-108'
           placeholder='Search for a drink...'
           type='text'
+          required
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button
