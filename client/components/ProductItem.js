@@ -60,6 +60,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
   const productID = product.productID;
   return (
     <motion.div
+      data-testid='section-main'
       whileHover={{ scale: 1.1 }}
       transition={{ duration: 0.3 }}
       onMouseEnter={() => {
@@ -80,6 +81,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
         <div className='relative'>
           {isFavourite ? (
             <motion.svg
+              data-testid='svg-favourite'
               whileHover={{ scale: 1.2 }}
               onClick={onFavouriteClickHandler}
               className={`w-6 h-6 absolute top-0 right-0 mt-2 mr-4 z-30 text-gray-700 cursor-pointer ${
@@ -99,6 +101,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
             </motion.svg>
           ) : (
             <motion.svg
+              data-testid='svg-notFavourite'
               whileHover={{ scale: 1.2 }}
               onClick={onFavouriteClickHandler}
               className='w-6 h-6 absolute top-0 right-0 mt-2 mr-4 z-30 text-gray-700 cursor-pointer'
@@ -117,6 +120,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
           )}
 
           <img
+            data-testid='image-product'
             src={product.supermarketProducts[0].image}
             alt={product.productName}
             className='w-full h-64 object-cover p-10'
@@ -181,6 +185,7 @@ const ProductItem = ({ product, publicProfilePage }) => {
             return (
               index <= 2 && (
                 <div
+                  data-testid='divider-supermarketProduct'
                   key={productItem.supermarket}
                   className={`${index > 0 && !showOverlay ? 'hidden' : 'null'}`}
                 >
@@ -190,11 +195,13 @@ const ProductItem = ({ product, publicProfilePage }) => {
                     }`}
                   >
                     <img
+                      data-testid='image-supermarketProduct'
                       src={supermarketLogo(productItem.supermarket)}
-                      alt='logo'
+                      alt={productItem.supermarket}
                       className='h-4'
                     />
                     <span
+                      data-testid='span-supermarketProductPrice'
                       className={`${
                         productItem.price ===
                         product.supermarketProducts[0].price
