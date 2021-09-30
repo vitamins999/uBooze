@@ -115,6 +115,7 @@ const NavBar = ({ landingPage }) => {
   return (
     <>
       <motion.header
+        data-testid='section-header'
         variants={fadeOutPage}
         exit='exit'
         initial='initial'
