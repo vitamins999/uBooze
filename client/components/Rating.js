@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
   return (
     <div className='flex-col mt-2'>
-      <div className='flex'>
+      <div data-testid='divider-overall-rating' className='flex'>
         <span>
           <svg
             className='w-6 h-6 text-yellow-400'
@@ -121,7 +121,7 @@ const Rating = ({ value, text, user, userRating, userRatingHandler }) => {
       </div>
 
       {user && (
-        <div className='flex mt-2'>
+        <div data-testid='divider-user-rating' className='flex mt-2'>
           <button
             className='focus:outline-none'
             onClick={() => userRatingHandler(1)}
