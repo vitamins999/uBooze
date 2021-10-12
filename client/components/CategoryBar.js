@@ -7,7 +7,7 @@ import { capitaliseFirstLetter } from '../utils/supermarketListUtils';
 const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
   return (
     <>
-      <div className='mt-10 iPad:px-4'>
+      <div data-testid='section-main' className='mt-10 iPad:px-4'>
         <h2 className='inline-block font-heading text-gray-500 lg:text-base text-sm'>
           <Link href='/'>
             <a className='hover:text-green-500'>Home</a>
@@ -15,6 +15,7 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
         </h2>
         <span className='text-gray-500'> / </span>
         <h2
+          data-testid='heading-main'
           className={`${
             primary === 'allDrinks' ? 'text-gray-700' : 'text-gray-500 '
           } inline-block font-heading lg:text-base text-sm`}
@@ -48,13 +49,19 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
         </h2>
         <h3>
           {resolvedData && resolvedData.total === 0 ? (
-            <span className='text-gray-700 italic lg:text-sm text-xs'>
+            <span
+              data-testid='span-results-false'
+              className='text-gray-700 italic lg:text-sm text-xs'
+            >
               {' '}
               (No results found)
             </span>
           ) : (
             <>
-              <span className='text-gray-700 italic lg:text-sm text-xs'>
+              <span
+                data-testid='span-results-true'
+                className='text-gray-700 italic lg:text-sm text-xs'
+              >
                 {' '}
                 (Showing {resolvedData.firstItem}-{resolvedData.lastItem} of{' '}
                 {resolvedData.total} results)
@@ -67,45 +74,69 @@ const CategoryBar = ({ primary, secondary, title, resolvedData }) => {
         {primary === 'favourites' || primary === 'search' ? null : (
           <>
             {primary === 'allDrinks' ? (
-              <a className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
+              <a
+                data-testid='link-alldrinks-false'
+                className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'
+              >
                 All Drinks
               </a>
             ) : (
               <Link href='/products'>
-                <a className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
+                <a
+                  data-testid='link-alldrinks-true'
+                  className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'
+                >
                   All Drinks
                 </a>
               </Link>
             )}
             {primary === 'beer' ? (
-              <a className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
+              <a
+                data-testid='link-beer-false'
+                className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'
+              >
                 Beer & Cider
               </a>
             ) : (
               <Link href='/products/beer'>
-                <a className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
+                <a
+                  data-testid='link-beer-true'
+                  className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'
+                >
                   Beer & Cider
                 </a>
               </Link>
             )}
             {primary === 'wine' ? (
-              <a className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
+              <a
+                data-testid='link-wine-false'
+                className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'
+              >
                 Wine
               </a>
             ) : (
               <Link href='/products/wine'>
-                <a className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
+                <a
+                  data-testid='link-wine-true'
+                  className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'
+                >
                   Wine
                 </a>
               </Link>
             )}
             {primary === 'spirits' ? (
-              <a className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'>
+              <a
+                data-testid='link-spirits-false'
+                className='lg:mx-2 py-2 px-4 cursor-pointer text-black bg-gray-300 font-semibold rounded-lg shadow'
+              >
                 Spirits
               </a>
             ) : (
               <Link href='/products/spirits'>
-                <a className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'>
+                <a
+                  data-testid='link-spirits-true'
+                  className='lg:mx-2 py-2 px-4 cursor-pointer hover:text-green-500'
+                >
                   Spirits
                 </a>
               </Link>
