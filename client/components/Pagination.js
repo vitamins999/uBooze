@@ -43,7 +43,7 @@ const Pagination = ({
   }
 
   return (
-    <nav className='lg:-mb-4 z-10 pt-5 lg:pt-0'>
+    <nav data-testid='nav-pagination' className='lg:-mb-4 z-10 pt-5 lg:pt-0'>
       <ul className='flex'>
         <button
           onClick={() => paginate(currentPage - 1)}
@@ -71,6 +71,7 @@ const Pagination = ({
           <li className='px-2' key={index}>
             {number === '...' ? (
               <p
+                data-testid='paragraph-elipses'
                 className='text-gray-800 lg:text-base text-xs font-medium lg:tracking-widest cursor-default
               focus:outline-none px-3 pb-2'
               >
@@ -78,6 +79,7 @@ const Pagination = ({
               </p>
             ) : (
               <button
+                data-testid='button-pagenumber'
                 className={`${
                   number === currentPage
                     ? 'text-gray-900 font-medium lg:text-base text-xs border-b-2 border-gray-900 cursor-default'
