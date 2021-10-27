@@ -34,6 +34,7 @@ const EditProfile = () => {
   const [bio, setBio] = useState(userInfo.bio ? userInfo.bio : '');
   const [username, setUsername] = useState(userInfo.username);
   const [email, setEmail] = useState(userInfo.email);
+  const [isSocial, setIsSocial] = useState(userInfo.isSocial);
 
   const [confirmPasswordAccount, setConfirmPasswordAccount] = useState('');
 
@@ -192,7 +193,7 @@ const EditProfile = () => {
   };
 
   const handleDeleteAccount = async () => {
-    if (confirmPasswordAccount === '') {
+    if (confirmPasswordAccount === '' && !isSocial) {
       notifyError('Password is required to delete account');
     } else {
       if (
@@ -200,12 +201,17 @@ const EditProfile = () => {
           'WARNING: THIS CANNOT BE UNDONE.  Are you sure you want to delete your account?'
         )
       ) {
-        const data = await deleteUserAccountAPI(confirmPasswordAccount);
+        try {
+          let confirmPassword = isSocial ? 'social' : confirmPasswordAccount
+          const data = await deleteUserAccountAPI(confirmPassword);
 
-        if (data.error) {
-          notifyError(data.msg);
-        } else {
-          router.push('/login?logout=true');
+          if (data.error) {
+            notifyError(data.msg);
+          } else {
+            router.push('/login?logout=true');
+          }
+        } catch (error) {
+          console.log(error)
         }
       }
     }
@@ -340,32 +346,34 @@ const EditProfile = () => {
                       Account Settings
                     </button>
                   </li>
-                  <li className='lg:py-1'>
-                    <button
-                      onClick={() => setCurrentSection('password')}
-                      className={`flex justify-center items-center py-2 focus:outline-none ${
-                        currentSection === 'password'
-                          ? 'text-gray-900 font-semibold'
-                          : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
-                      }`}
-                    >
-                      <svg
-                        className='w-6 h-6 lg:mr-4 mr-1'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
+                  {!isSocial && (
+                    <li className='lg:py-1'>
+                      <button
+                        onClick={() => setCurrentSection('password')}
+                        className={`flex justify-center items-center py-2 focus:outline-none ${
+                          currentSection === 'password'
+                            ? 'text-gray-900 font-semibold'
+                            : 'hover:text-green-500 transition ease-in-out duration-200 text-gray-500 font-medium'
+                        }`}
                       >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          d='M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z'
-                        ></path>
-                      </svg>
-                      Change Password
-                    </button>
-                  </li>
+                        <svg
+                          className='w-6 h-6 lg:mr-4 mr-1'
+                          fill='none'
+                          stroke='currentColor'
+                          viewBox='0 0 24 24'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
+                            d='M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z'
+                          ></path>
+                        </svg>
+                        Change Password
+                      </button>
+                    </li>
+                  )}
                 </ul>
               </section>
               <section className='my-12 lg:ml-24 lg:w-128 w-64 lg:h-128 iPadPro:mb-36 iPad:w-128'>
@@ -468,7 +476,8 @@ const EditProfile = () => {
                           htmlFor='username'
                           className='block text-gray-700 text-sm font-medium'
                         >
-                          Username <span className='text-red-700'>*</span>
+                          Username{' '}
+                          {!isSocial && <span className='text-red-700'>*</span>}
                         </label>
                         <input
                           className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
@@ -476,6 +485,7 @@ const EditProfile = () => {
                           name='username'
                           id='username'
                           value={username}
+                          disabled={isSocial}
                           onChange={(e) => setUsername(e.target.value)}
                           ref={updateAccount({ required: true, maxLength: 30 })}
                         />
@@ -486,27 +496,36 @@ const EditProfile = () => {
                             {userInfo.username}
                           </span>
                         </p>
+                        {isSocial && (
+                          <p className='lg:text-sm text-xs lg:flex hidden text-gray-500 pt-2'>
+                            Note: Your username cannot be changed as it is
+                            linked to your social media account.
+                          </p>
+                        )}
                       </div>
-                      <div className='mb-10'>
-                        <label
-                          htmlFor='email'
-                          className='block text-gray-700 text-sm font-medium'
-                        >
-                          Email address <span className='text-red-700'>*</span>
-                        </label>
-                        <input
-                          className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                          type='email'
-                          name='email'
-                          id='email'
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          ref={updateAccount({
-                            required: true,
-                            maxLength: 200,
-                          })}
-                        />
-                      </div>
+                      {!isSocial && (
+                        <div className='mb-10'>
+                          <label
+                            htmlFor='email'
+                            className='block text-gray-700 text-sm font-medium'
+                          >
+                            Email address{' '}
+                            <span className='text-red-700'>*</span>
+                          </label>
+                          <input
+                            className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                            type='email'
+                            name='email'
+                            id='email'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            ref={updateAccount({
+                              required: true,
+                              maxLength: 200,
+                            })}
+                          />
+                        </div>
+                      )}
                       <div className='border-b border-gray-200 w-full my-6'></div>
                       <div className='flex justify-between lg:py-5 py-0 lg:flex-row flex-col'>
                         <div>
@@ -525,41 +544,45 @@ const EditProfile = () => {
                         </a>
                       </div>
                       <div className='border-b border-gray-200 w-full my-6'></div>
-                      <div className='mb-6'>
-                        <label
-                          htmlFor='confirmNewPassword'
-                          className='block text-gray-700 text-sm font-medium'
-                        >
-                          Confirm password{' '}
-                          <span className='text-red-700'>*</span>
-                        </label>
-                        <input
-                          className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
-                          type='password'
-                          name='confirmPasswordAccount'
-                          id='confirmPasswordAccount'
-                          onChange={(e) =>
-                            setConfirmPasswordAccount(e.target.value)
-                          }
-                          ref={updateAccount({
-                            required: true,
-                            minLength: 6,
-                            maxLength: 20,
-                          })}
-                        />
-                      </div>
-                      <div className='w-full flex justify-end'>
-                        <button
-                          className='text-sm shadow-sm lg:w-auto w-full border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
-                          type='submit'
-                        >
-                          Save
-                        </button>
-                      </div>
+                      {!isSocial && (
+                        <div className='mb-6'>
+                          <label
+                            htmlFor='confirmNewPassword'
+                            className='block text-gray-700 text-sm font-medium'
+                          >
+                            Confirm password{' '}
+                            <span className='text-red-700'>*</span>
+                          </label>
+                          <input
+                            className='mt-1 w-full text-sm shadow-inner border transition duration-150 rounded-md py-2 px-3 text-gray-800 focus:ring-green-500 focus:border-green-500 focus:outline-none focus:ring-2'
+                            type='password'
+                            name='confirmPasswordAccount'
+                            id='confirmPasswordAccount'
+                            onChange={(e) =>
+                              setConfirmPasswordAccount(e.target.value)
+                            }
+                            ref={updateAccount({
+                              required: true,
+                              minLength: 6,
+                              maxLength: 20,
+                            })}
+                          />
+                        </div>
+                      )}
+                      {!isSocial && (
+                        <div className='w-full flex justify-end'>
+                          <button
+                            className='text-sm shadow-sm lg:w-auto w-full border border-transparent bg-green-500 transition duration-200 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400'
+                            type='submit'
+                          >
+                            Save
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </form>
                 )}
-                {currentSection === 'password' && (
+                {currentSection === 'password' && !isSocial && (
                   <form
                     className='bg-white rounded pb-8 mb-4 w-full'
                     onSubmit={handleUpdatePasswordSubmit(

@@ -153,13 +153,10 @@ const signupPage = () => {
                         />
                       </a>
                     </motion.li>
-                    <motion.li
-                      whileHover={{ scale: 1.3 }}
-                      transition={{ duration: 0.1 }}
-                    >
+                    <li>
                       <a
-                        href='http://localhost:3001/api/auth/facebook'
-                        className='cursor-pointer'
+                        title='Facebook login is currently disabled. Sorry!'
+                        className='cursor-not-allowed'
                       >
                         <img
                           src='/facebook.svg'
@@ -167,7 +164,7 @@ const signupPage = () => {
                           className='w-10'
                         />
                       </a>
-                    </motion.li>
+                    </li>
                   </ul>
                 </div>
                 <div className='flex w-full items-center justify-center mt-2'>

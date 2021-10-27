@@ -30,12 +30,12 @@ const NavBar = ({ landingPage }) => {
         },
       };
 
-      if (user) {
+      if (user && Object.keys(user.user).length) {
         dispatch(userLoginSuccess(user));
       } else {
         let userCookie = Cookies.get('user');
         if (userCookie) {
-          userCookie = JSON.parse(userCookie);
+          let user = JSON.parse(userCookie);
           const userState = {
             user: {
               userID: user.userID,
@@ -49,10 +49,29 @@ const NavBar = ({ landingPage }) => {
               isAdmin: user.isAdmin,
               gravatar: user.gravatar,
               favourites: user.favourites,
+              isSocial: user.isSocial,
             },
           };
           Cookies.remove('user');
           dispatch(userLoginSuccess(userState));
+          localStorage.setItem(
+            'userInfo',
+            JSON.stringify({
+              userID: user.userID,
+              email: user.email,
+              username: user.username,
+              displayName: user.displayName,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              location: user.location,
+              bio: user.bio,
+              isAdmin: user.isAdmin,
+              gravatar: user.gravatar,
+              favourites: user.favourites,
+              isSocial: user.isSocial,
+            })
+          );
+          localStorage.setItem('accessToken', JSON.stringify(user.token));
         } else {
           const defaultState = {
             user: {
@@ -67,6 +86,7 @@ const NavBar = ({ landingPage }) => {
               isAdmin: null,
               gravatar: null,
               favourites: [],
+              isSocial: null,
             },
           };
           dispatch(userLoginSuccess(defaultState));
