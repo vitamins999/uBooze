@@ -360,25 +360,40 @@ router.delete(
       res.send('No User');
     }
 
-    try {
-      if (await bcrypt.compare(req.params.password, user.password)) {
-        await Favourite.query().delete().where('userID', req.user.userID);
-        await RefreshToken.query().delete().where('userID', req.user.userID);
-        await User.query().deleteById(req.user.userID);
-
-        res.json({
-          error: false,
-          msg: 'Account deleted successfully!',
-        });
-      } else {
-        res.json({
-          error: true,
-          msg:
-            'Oops! Password does not match the one in our records! Please retype and try again.',
-        });
+    if (req.params.password !== 'social') {
+      try {
+        if (await bcrypt.compare(req.params.password, user.password)) {
+          await Favourite.query().delete().where('userID', req.user.userID);
+          await RefreshToken.query().delete().where('userID', req.user.userID);
+          await User.query().deleteById(req.user.userID);
+  
+          res.json({
+            error: false,
+            msg: 'Account deleted successfully!',
+          });
+        } else {
+          res.json({
+            error: true,
+            msg:
+              'Oops! Password does not match the one in our records! Please retype and try again.',
+          });
+        }
+      } catch (error) {
+        res.send(error.message);
       }
-    } catch (error) {
-      res.send(error.message);
+    } else {
+        try {
+          await Favourite.query().delete().where('userID', req.user.userID);
+          await RefreshToken.query().delete().where('userID', req.user.userID);
+          await User.query().deleteById(req.user.userID);
+  
+          res.json({
+            error: false,
+            msg: 'Account deleted successfully!',
+          });
+      } catch (error) {
+          res.send(error.message);
+      }
     }
   }
 );

@@ -404,6 +404,7 @@ router.get(
       gravatar: req.user.gravatar,
       favourites,
       token: req.user.token,
+      isSocial: true,
     };
     res.cookie('user', JSON.stringify(user));
     res.redirect('http://localhost:3000');
@@ -450,6 +451,7 @@ router.get(
       gravatar: req.user.gravatar,
       favourites,
       token: req.user.token,
+      isSocial: true,
     };
     res.cookie('user', JSON.stringify(user));
     res.redirect('http://localhost:3000');

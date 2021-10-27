@@ -20,6 +20,7 @@ const userInfoSlice = createSlice({
     isAdmin: null,
     gravatar: null,
     favourites: [],
+    isSocial: null,
   },
   reducers: {
     userLoginRequest: (state, action) => {
@@ -38,6 +39,7 @@ const userInfoSlice = createSlice({
         (state.isAdmin = action.payload.user.isAdmin),
         (state.gravatar = action.payload.user.gravatar),
         (state.favourites = action.payload.user.favourites);
+      state.isSocial = action.payload.user.isSocial;
     },
     userLoginFail: (state, action) => {
       (state.loading = false), (state.error = action.payload);
@@ -55,6 +57,7 @@ const userInfoSlice = createSlice({
         (state.gravatar = null),
         (state.favourites = []),
         (state.loading = false),
+        (state.isSocial = null),
         (state.error = null);
     },
     userUpdateProfile: (state, action) => {
@@ -104,6 +107,7 @@ export const loginAsync = (email, password) => async (dispatch) => {
         isAdmin: user.isAdmin,
         gravatar: user.gravatar,
         favourites: user.favourites,
+        isSocial: false,
       })
     );
     localStorage.setItem('accessToken', JSON.stringify(user.token));
@@ -142,41 +146,42 @@ export const logout = () => (dispatch) => {
 
 export const selectUserInfo = (state) => state.userInfo;
 
-export const updateUserProfile = (firstName, lastName, location, bio) => async (
-  dispatch,
-  getState
-) => {
-  try {
-    const data = await updateUserProfileAPI(firstName, lastName, location, bio);
+export const updateUserProfile =
+  (firstName, lastName, location, bio) => async (dispatch, getState) => {
+    try {
+      const data = await updateUserProfileAPI(
+        firstName,
+        lastName,
+        location,
+        bio
+      );
 
-    dispatch(userUpdateProfile(data));
-    const { userInfo } = getState();
-    localStorage.removeItem('userInfo');
-    localStorage.setItem('userInfo', JSON.stringify({ ...userInfo }));
-  } catch (error) {
-    dispatch(userUpdateFail(error.message));
-  }
-};
-
-export const updateUserAccount = (username, email, password) => async (
-  dispatch,
-  getState
-) => {
-  try {
-    const data = await updateUserAccountAPI(username, email, password);
-
-    if (data.error) {
-      return data;
-    } else {
-      dispatch(userUpdateAccount(data));
+      dispatch(userUpdateProfile(data));
       const { userInfo } = getState();
       localStorage.removeItem('userInfo');
       localStorage.setItem('userInfo', JSON.stringify({ ...userInfo }));
+    } catch (error) {
+      dispatch(userUpdateFail(error.message));
     }
-  } catch (error) {
-    dispatch(userUpdateFail(error.message));
-  }
-};
+  };
+
+export const updateUserAccount =
+  (username, email, password) => async (dispatch, getState) => {
+    try {
+      const data = await updateUserAccountAPI(username, email, password);
+
+      if (data.error) {
+        return data;
+      } else {
+        dispatch(userUpdateAccount(data));
+        const { userInfo } = getState();
+        localStorage.removeItem('userInfo');
+        localStorage.setItem('userInfo', JSON.stringify({ ...userInfo }));
+      }
+    } catch (error) {
+      dispatch(userUpdateFail(error.message));
+    }
+  };
 
 export const updateFavourites = (token) => async (dispatch, getState) => {
   try {
