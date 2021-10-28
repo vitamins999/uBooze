@@ -6,22 +6,24 @@ import {
   fetchUserFavouritesPrivate,
 } from '../../api/private';
 
+export const initialState = {
+  userID: null,
+  email: null,
+  username: null,
+  displayName: null,
+  firstName: null,
+  lastName: null,
+  location: null,
+  bio: null,
+  isAdmin: null,
+  gravatar: null,
+  favourites: [],
+  isSocial: null,
+};
+
 const userInfoSlice = createSlice({
   name: 'userInfo',
-  initialState: {
-    userID: null,
-    email: null,
-    username: null,
-    displayName: null,
-    firstName: null,
-    lastName: null,
-    location: null,
-    bio: null,
-    isAdmin: null,
-    gravatar: null,
-    favourites: [],
-    isSocial: null,
-  },
+  initialState: initialState,
   reducers: {
     userLoginRequest: (state, action) => {
       state.loading = true;
@@ -116,29 +118,37 @@ export const loginAsync = (email, password) => async (dispatch) => {
   }
 };
 
-// export const loginGoogleAsync = (user) => async (dispatch) => {
-//   try {
-//     dispatch(userLoginRequest);
+export const loginSocial = (cookieData) => async (dispatch) => {
+  try {
+    let user = JSON.parse(cookieData);
+    const userState = {
+      user: { ...user },
+    };
 
-//     const config = {
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       withCredentials: true,
-//     };
+    dispatch(userLoginSuccess(userState));
 
-//     const { data } = await axios.get(
-//       'http://localhost:3001/api/auth/google',
-//       config
-//     );
-
-//     dispatch(userLoginSuccess(data));
-
-//     localStorage.setItem('userInfo', JSON.stringify(data));
-//   } catch (error) {
-//     dispatch(userLoginFail(error.message));
-//   }
-// };
+    localStorage.setItem(
+      'userInfo',
+      JSON.stringify({
+        userID: user.userID,
+        email: user.email,
+        username: user.username,
+        displayName: user.displayName,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        location: user.location,
+        bio: user.bio,
+        isAdmin: user.isAdmin,
+        gravatar: user.gravatar,
+        favourites: user.favourites,
+        isSocial: user.isSocial,
+      })
+    );
+    localStorage.setItem('accessToken', JSON.stringify(user.token));
+  } catch (error) {
+    dispatch(userLoginFail(error.message));
+  }
+};
 
 export const logout = () => (dispatch) => {
   dispatch(userLogout);

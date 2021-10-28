@@ -8,7 +8,12 @@ import { fadeOutPage } from '../animations/navigation';
 import SearchBox from './SearchBox';
 
 import Cookies from 'js-cookie';
-import { userLogout, userLoginSuccess } from '../lib/slices/userInfoSlice';
+import {
+  userLogout,
+  userLoginSuccess,
+  loginSocial,
+  initialState,
+} from '../lib/slices/userInfoSlice';
 
 const NavBar = ({ landingPage }) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -21,7 +26,10 @@ const NavBar = ({ landingPage }) => {
 
   const dispatch = useDispatch();
 
+  // Logs in user account if previously logged in on browser (local storage/cookies).
+  // (I put this on the Header component, because it's on every page and therefore a check will happen no matter what page the user visits)
   useEffect(() => {
+    // Checks if user currently signed in (ie in Redux). If not, gets info from local storage
     if (!userID) {
       const userInfoFromStorage = JSON.parse(localStorage.getItem('userInfo'));
       const user = {
@@ -30,64 +38,20 @@ const NavBar = ({ landingPage }) => {
         },
       };
 
+      // If in local storage and not empty object, logs user in
       if (user && Object.keys(user.user).length) {
         dispatch(userLoginSuccess(user));
       } else {
+        // If not in local storage, checks if there's a user cookie, which only occurs after logging in with social media account.
+        // If cookie exists, must be social media account and logs in.
+        // Else populates Redux with initial state data (a not logged in user).
         let userCookie = Cookies.get('user');
         if (userCookie) {
-          let user = JSON.parse(userCookie);
-          const userState = {
-            user: {
-              userID: user.userID,
-              email: user.email,
-              username: user.username,
-              displayName: user.displayName,
-              firstName: user.firstName,
-              lastName: user.lastName,
-              location: user.location,
-              bio: user.bio,
-              isAdmin: user.isAdmin,
-              gravatar: user.gravatar,
-              favourites: user.favourites,
-              isSocial: user.isSocial,
-            },
-          };
+          dispatch(loginSocial(userCookie));
           Cookies.remove('user');
-          dispatch(userLoginSuccess(userState));
-          localStorage.setItem(
-            'userInfo',
-            JSON.stringify({
-              userID: user.userID,
-              email: user.email,
-              username: user.username,
-              displayName: user.displayName,
-              firstName: user.firstName,
-              lastName: user.lastName,
-              location: user.location,
-              bio: user.bio,
-              isAdmin: user.isAdmin,
-              gravatar: user.gravatar,
-              favourites: user.favourites,
-              isSocial: user.isSocial,
-            })
-          );
-          localStorage.setItem('accessToken', JSON.stringify(user.token));
         } else {
           const defaultState = {
-            user: {
-              userID: null,
-              email: null,
-              username: null,
-              displayName: null,
-              firstName: null,
-              lastName: null,
-              location: null,
-              bio: null,
-              isAdmin: null,
-              gravatar: null,
-              favourites: [],
-              isSocial: null,
-            },
+            user: { ...initialState },
           };
           dispatch(userLoginSuccess(defaultState));
         }
