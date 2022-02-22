@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: process.env.SUPABASE_CONNECTION_DEV,
+    connection: process.env.DATABASE_URL_DEV,
   },
 
   staging: {
@@ -22,7 +22,7 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: process.env.SUPABASE_CONNECTION_PROD,
+    connection: process.env.DATABASE_URL,
     migrations: {
       tableName: 'knex_migrations',
     },

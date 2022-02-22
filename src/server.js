@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 
 const passportSetup = require('../config/passport-setup');
 
-const knex = Knex(knexFile.development);
+const knex = Knex(knexFile.production);
 
 Model.knex(knex);
 
