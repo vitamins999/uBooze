@@ -1,6 +1,6 @@
-![uBooze Banner Image](client/public/banner.webp)
+![Ubooze Banner Image](client/public/banner.webp)
 
-Alcohol is expensive. That's why I created uBooze -- a price comparison website for alcohol prices at your local UK supermarkets.
+Alcohol is expensive. That's why I created Ubooze -- a price comparison website for alcohol prices at your local UK supermarkets.
 Simply type in your postcode and see what drinks are cheapest near you.
 
 Don't care about finding local prices? No problem. Ubooze also includes the ability to let the user select which supermarkets they want to compare against each other. No postcode necessary.
