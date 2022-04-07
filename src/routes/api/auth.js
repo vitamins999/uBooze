@@ -247,7 +247,7 @@ router.post(
 
       if (!user) {
         res.json({
-          error,
+          errors,
         });
       } else {
         const { resetToken, resetPasswordToken } = getPasswordResetToken();
@@ -259,7 +259,7 @@ router.post(
           })
           .findById(user.userID);
 
-        const resetURL = `http://localhost:3000/resetpassword/${resetToken}`;
+        const resetURL = `${process.env.PUBLIC_CLIENT}/resetpassword/${resetToken}`;
 
         const text = `
       <p>Hi!</p>
@@ -378,8 +378,7 @@ router.get(
   '/google/redirect',
   passport.authenticate('google', {
     session: false,
-    failureRedirect:
-      'http://localhost:3000/login?error=alreadyregisteredgoogle',
+    failureRedirect: `${process.env.PUBLIC_CLIENT}/login?error=alreadyregisteredgoogle`,
   }),
   async (req, res) => {
     let favourites = await Favourite.query().select('productID').where({
@@ -407,7 +406,7 @@ router.get(
       isSocial: true,
     };
     res.cookie('user', JSON.stringify(user));
-    res.redirect('http://localhost:3000');
+    res.redirect(`${process.env.PUBLIC_CLIENT}`);
   }
 );
 
@@ -425,8 +424,7 @@ router.get(
   '/facebook/redirect',
   passport.authenticate('facebook', {
     session: false,
-    failureRedirect:
-      'http://localhost:3000/login?error=alreadyregisteredfacebook',
+    failureRedirect: `${process.env.PUBLIC_CLIENT}/login?error=alreadyregisteredfacebook`,
   }),
   async (req, res) => {
     let favourites = await Favourite.query().select('productID').where({
@@ -454,7 +452,7 @@ router.get(
       isSocial: true,
     };
     res.cookie('user', JSON.stringify(user));
-    res.redirect('http://localhost:3000');
+    res.redirect(`${process.env.PUBLIC_CLIENT}`);
   }
 );
 
