@@ -157,7 +157,7 @@ const LoginPage = () => {
                       transition={{ duration: 0.1 }}
                     >
                       <a
-                        href='http://localhost:3001/api/auth/google'
+                        href={`${process.env.NEXT_PUBLIC_SERVER}/api/auth/google`}
                         className='cursor-pointer'
                       >
                         <img
