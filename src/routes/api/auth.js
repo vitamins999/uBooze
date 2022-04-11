@@ -263,17 +263,17 @@ router.post(
 
         const text = `
       <p>Hi!</p>
-      <p>It looks like you requested a password reset for ubooze.com</p>
+      <p>It looks like you requested a password reset for uBooze</p>
       <p>Please go to this link to reset your password:</p>
       <a href=${resetURL} clicktracking=off>${resetURL}</a>
       <p>Best wishes,</p>
-      <p><strong>The ubooze team</strong></p>
+      <p><strong>The uBooze team</strong></p>
       `;
 
         try {
           await sendEmail({
             to: user.email,
-            subject: 'ubooze -- You have requested a password reset',
+            subject: 'uBooze -- You have requested a password reset',
             text,
           });
           res.json({ error: false });
