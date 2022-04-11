@@ -130,7 +130,7 @@ const signupPage = () => {
                 onSubmit={handleRegisterSubmit(onRegisterSubmit)}
               >
                 <h3 className='text-3xl font-heading font-bold mb-5 tracking-wide'>
-                  Sign up to ubooze
+                  Sign up to uBooze
                 </h3>
                 <div>
                   <h4 className='text-sm tracking-wide'>

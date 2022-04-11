@@ -71,7 +71,7 @@ const ResetPasswordTokenPage = () => {
           sizes='16x16'
           href='favicon-16x16.png'
         />
-        <title>uBooze | Reset Password</title>
+        <title>Ubooze | Reset Password</title>
       </Head>
       <motion.main
         variants={fadeOutPage}

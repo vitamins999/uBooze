@@ -144,7 +144,7 @@ const ItemPage = ({ itemData }) => {
   const title = `${data.productName} ${data.volume}`;
 
   const shareURL = `${process.env.NEXT_PUBLIC_CLIENT}${router.asPath}`;
-  const shareQuote = `uBooze - The cheapest deals on ${data.productName} ${data.volume}`;
+  const shareQuote = `Ubooze - The cheapest deals on ${data.productName} ${data.volume}`;
 
   return (
     <Layout

@@ -144,7 +144,7 @@ const LoginPage = () => {
                 onSubmit={handleLoginSubmit(onLoginSubmit)}
               >
                 <h3 className='text-3xl font-heading font-bold mb-5 tracking-wide'>
-                  Log in to ubooze
+                  Log in to uBooze
                 </h3>
                 <div>
                   <h4 className='text-sm tracking-wide'>

@@ -94,7 +94,7 @@ c10.688,33.216,26.859,83.435,26.859,110.229c0,3.605-0.213,7.147-0.533,10.667H139
             data-testid='paragraph-copyright'
             className='text-gray-500 text-sm text-center sm:text-left'
           >
-            © 2022 ubooze. All rights reserved
+            © 2022 uBooze. All rights reserved
           </p>
           <p className='inline-flex text-sm text-gray-500  sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start'>
             Made in the UK
