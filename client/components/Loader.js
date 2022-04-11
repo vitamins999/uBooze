@@ -9,7 +9,7 @@ const spinTransition = {
 
 const Loader = () => {
   return (
-    <div className='w-screen h-screen flex justify-center items-center'>
+    <div className='w-full h-screen flex justify-center items-center'>
       <div className='relative w-12 h-12'>
         <motion.span
           animate={{ rotate: 360 }}
