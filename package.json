@@ -8,8 +8,7 @@
     "dev-server": "nodemon --ignore '*.json' -r dotenv/config src/server.js",
     "client": "npm run dev --prefix client",
     "server": "nodemon -r dotenv/config src/server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "tsc -p ."
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Jools Barnett",
   "license": "MIT",
