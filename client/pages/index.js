@@ -101,7 +101,7 @@ const Home = () => {
                 Alcohol is expensive. Supermarkets are everywhere. That's why we
                 created{' '}
                 <span className='font-heading text-green-700 font-semibold'>
-                  ubooze
+                  uBooze
                 </span>{' '}
                 -- a price comparison website specifically for supermarket
                 alcohol prices, engineered to find the cheapest deals closest to
@@ -109,7 +109,7 @@ const Home = () => {
               </p>
               <p className='leading-relaxed mt-4 iPad:text-sm lg:text-base text-sm'>
                 <span className='font-heading text-green-700 font-semibold'>
-                  ubooze
+                  uBooze
                 </span>{' '}
                 is completely free. No ads. No membership fees. And we won't
                 sell your data. All we ask is that if you enjoy our service,

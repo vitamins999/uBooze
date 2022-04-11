@@ -25,7 +25,7 @@ const PrivacyPage = () => {
             <a
               target='_blank'
               rel='noreferrer'
-              href='https://www.ubooze/com'
+              href='https://ubooze.vercel.app/'
               className='text-blue-700 hover:text-blue-800 cursor-pointer'
             >
               https://www.ubooze.com

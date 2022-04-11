@@ -1,13 +1,13 @@
-![Ubooze Banner Image](client/public/banner.webp)
+![uBooze Banner Image](client/public/banner.webp)
 
-Alcohol is expensive. That's why I created Ubooze -- a price comparison website for alcohol prices at your local UK supermarkets.
+Alcohol is expensive. That's why I created uBooze -- a price comparison website for alcohol prices at your local UK supermarkets.
 Simply type in your postcode and see what drinks are cheapest near you.
 
-Don't care about finding local prices? No problem. Ubooze also includes the ability to let the user select which supermarkets they want to compare against each other. No postcode necessary.
+Don't care about finding local prices? No problem. uBooze also includes the ability to let the user select which supermarkets they want to compare against each other. No postcode necessary.
 
 And that's not all.
 
-The Ubooze website also includes full login/register functionality for user accounts (as well as Facebook and Google sign ins through OAuth), allowing users to favourite products and create their own public favourite alcohol pages, for easy access to their favourite product price comparisons in the future.
+The uBooze website also includes full login/register functionality for user accounts (as well as Facebook and Google sign ins through OAuth), allowing users to favourite products and create their own public favourite alcohol pages, for easy access to their favourite product price comparisons in the future.
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -27,22 +27,22 @@ The Ubooze website also includes full login/register functionality for user acco
 
 ## Website
 
-[Live Website]() - Not currently online yet. Stay tuned!
+[Live Website](https://ubooze.vercel.app/)
 
 ## Repositories
 
-Ubooze functions through the use of two repositories:
+uBooze functions through the use of two repositories:
 
 1. The Web App (this repo)
 2. The Supermarket Webscraper Utility ([found here](https://github.com/vitamins999/ubooze-scraper))
 
-The Ubooze Supermarket Scraper Utility is a custom made Node.js web scraper for UK supermarket alcohol prices, with PostgreSQL database integration for insertion and updating of those prices.
+The uBooze Supermarket Scraper Utility is a custom made Node.js web scraper for UK supermarket alcohol prices, with PostgreSQL database integration for insertion and updating of those prices.
 
 The scraper is intended for use with the uBooze web app (this repository), in order keep the website's database up to date, with the most recent alcohol prices and offers.
 
 It uses Node.js to run in the command line.
 
-For more information, please refer to the [Ubooze Web Scraper Repository](https://github.com/vitamins999/ubooze-scraper).
+For more information, please refer to the [uBooze Web Scraper Repository](https://github.com/vitamins999/ubooze-scraper).
 
 ## Why Does This Exist?
 
@@ -52,7 +52,7 @@ Due to this high level of expense, it also means that saving money on alcohol wi
 
 So wouldn't it be nice if there was a website to compare alcohol prices across supermarkets at a glance?
 
-Enter Ubooze.
+Enter uBooze.
 
 I conducted extensive market research, and discovered that not only was there both a need and a gap in the market for this product, but prospective users also valued supermarkets that were closer to them over supermarkets further away.
 
@@ -63,7 +63,7 @@ This lead to the final piece of the puzzle -- a price comparison website for sup
 
 ## How Does It Work?
 
-Ubooze is made up of two distinct parts:
+uBooze is made up of two distinct parts:
 
 1. A full stack Web App with REST API (this repo)
 2. A custom made Web Scraper Utility ([found here](https://github.com/vitamins999/ubooze-scraper))
@@ -90,7 +90,7 @@ The website also features the ability to search for a specific drink. This will 
 
 Furthermore, the website also allows users to register accounts and login (along with OAuth integration for Google and Facebook). From here, they can choose to favourite a product, whereby favourited productIDs are saved in the database for that user. If they return to their favourite page in the future, a request is made to the database to return products that are found in their favourite product field, thus populating their product page with all of their favourite products.
 
-Essentially, Ubooze is a standard CRUD full stack web app, where the database's data (with the exception of user data) is populated by a Node.js command line web scraper.
+Essentially, uBooze is a standard CRUD full stack web app, where the database's data (with the exception of user data) is populated by a Node.js command line web scraper.
 
 ## Technologies Used
 
@@ -177,7 +177,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd ubooze
+  cd uBooze
 ```
 
 Install dependencies for backend
@@ -231,7 +231,7 @@ To run this project, you will need to add the following environment variables to
 
 ## Acknowledgements
 
-_Ubooze_ is powered by [Mapbox](https://www.mapbox.com/) and [Foursquare](https://foursquare.com/).
+_uBooze_ is powered by [Mapbox](https://www.mapbox.com/) and [Foursquare](https://foursquare.com/).
 
 ## Authors
 
