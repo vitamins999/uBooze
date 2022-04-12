@@ -207,9 +207,7 @@ To run this project, you will need to add the following environment variables to
 
 `MAPBOX_API_KEY` - An API key from [Mapbox](https://www.mapbox.com/).
 
-`FOURSQUARE_CLIENT_ID` - An API Client ID from [Foursquare](https://foursquare.com/).
-
-`FOURSQUARE_CLIENT_SECRET` - Your Client Secret from [Foursquare](https://foursquare.com/).
+`FOURSQUARE_API_KEY` - An API key from [Foursquare](https://foursquare.com/).
 
 `JWT_SECRET` - JWT Secret.
 
